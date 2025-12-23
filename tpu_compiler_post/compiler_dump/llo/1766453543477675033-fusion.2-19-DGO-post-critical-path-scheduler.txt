@@ -1,0 +1,78 @@
+
+%s2 = inlined_call_operand.vmem [shape: f32[16], index: 2, kind: input, shape index: {}] /* operand 2 */
+%v20 = vld [vmem:[%s2] ss:$0 sm:$0xff]
+%22 = vbcast.lane.b32.xlu0 %v20, 256
+%v43 = vld [vmem:[%s2] ss:$0 sm:$0xff]
+%46 = vbcast.lane.b32.xlu0 %v43, 264
+%s0 = inlined_call_operand.vmem [shape: f32[16], index: 0, kind: input, shape index: {}] /* operand 0 */
+%v15 = vld [vmem:[%s0] ss:$0 sm:$0xff]
+%17 = vbcast.lane.b32.xlu1 %v15, 256
+%v36 = vld [vmem:[%s0] ss:$0 sm:$0xff]
+%39 = vbcast.lane.b32.xlu1 %v36, 264
+%v23 = vpop.permute.xlu0 %22
+%v24 = vrcp.pop %v23
+%v47 = vpop.permute.xlu0 %46
+%v48 = vrcp.pop %v47
+%s1 = inlined_call_operand.vmem [shape: f32[16,64], index: 1, kind: input, shape index: {}] /* operand 1 */
+%v19 = vld [vmem:[%s1] sm:$0xff]
+%v25 = vmul.f32 %v24, %v19
+%v18 = vpop.permute.xlu1 %17
+%v28 = vsub.f32 %v25, %v18
+%v30 = vmul.f32 1.442695, %v28
+%v31 = vpow.pop %v30
+%v182 = vld [vmem:[%s1 + $0x8] sm:$0xff]
+%v49 = vmul.f32 %v182, %v48
+%v40 = vpop.permute.xlu1 %39
+%v52 = vsub.f32 %v49, %v40
+%v54 = vmul.f32 1.442695, %v52
+%v55 = vpow.pop %v54
+%v32 = vlaneseq
+%v33 = vand.u32 127, %v32
+%vm34 = vcmp.lt.s32.totalorder %v33, 64
+%v35 = vsel /*vm=*/%vm34, /*on_true_vy=*/%v31, /*on_false_vx=*/0.0
+%76 = vxpose.xlu0.b32.start [1/2] (short) /*vx=*/%v35, /*width=*/128
+%v59 = vsel /*vm=*/%vm34, /*on_true_vy=*/%v55, /*on_false_vx=*/0.0
+%77 = vxpose.xlu0.b32.end [2/2] (short) /*vx=*/%v59, /*width=*/128
+%v78 = vpop.trf.xlu0
+%v79 = vpop.trf.xlu0
+%v100 = vadd.f32 %v79, %v78
+%v80 = vpop.trf.xlu0
+%v104 = vadd.f32 %v100, %v80
+%v81 = vpop.trf.xlu0
+%v108 = vadd.f32 %v104, %v81
+%v82 = vpop.trf.xlu0
+%v112 = vadd.f32 %v108, %v82
+%v83 = vpop.trf.xlu0
+%v116 = vadd.f32 %v112, %v83
+%v84 = vpop.trf.xlu0
+%v120 = vadd.f32 %v116, %v84
+%v85 = vpop.trf.xlu0
+%v124 = vadd.f32 %v120, %v85
+%v86 = vpop.trf.xlu0
+%v128 = vadd.f32 %v124, %v86
+%v87 = vpop.trf.xlu0
+%v132 = vadd.f32 %v128, %v87
+%v88 = vpop.trf.xlu0
+%v136 = vadd.f32 %v132, %v88
+%v89 = vpop.trf.xlu0
+%v140 = vadd.f32 %v136, %v89
+%v90 = vpop.trf.xlu0
+%v144 = vadd.f32 %v140, %v90
+%v91 = vpop.trf.xlu0
+%v148 = vadd.f32 %v144, %v91
+%v92 = vpop.trf.xlu0
+%v152 = vadd.f32 %v148, %v92
+%s3 = inlined_call_operand.vmem [shape: f32[16], index: 3, kind: output, shape index: {}] /* operand 3 */
+%v183 = vmov 0.0 /* materialized constant */
+%10 = vst [vmem:[#allocation0] sm:$0xff] /*vst_source=*/%v183
+%v93 = vpop.trf.xlu0
+%v156 = vadd.f32 %v152, %v93
+%v158 = vrot.slane %v156, 4
+%v161 = vadd.f32 %v158, %v156
+%v163 = vrot.slane %v161, 2
+%v166 = vadd.f32 %v163, %v161
+%v168 = vrot.slane %v166, 1
+%v171 = vadd.f32 %v168, %v166
+%173 = vst [vmem:[#allocation0] sm:$0x1] /*vst_source=*/%v171
+%v178 = vld [vmem:[#allocation0] sm:$0x1]
+%181 = vst [vmem:[%s3] sm:$0x1] /*vst_source=*/%v178

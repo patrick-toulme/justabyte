@@ -1,0 +1,57 @@
+HloModule jit_mini_attention, entry_computation_layout={(f32[16,64]{1,0:T(8,128)}, f32[64,64]{1,0:T(8,128)}, f32[64,32]{0,1:T(8,128)})->f32[16,32]{1,0:T(8,128)}}, allow_spmd_sharding_propagation_to_parameters={true,true,true}, allow_spmd_sharding_propagation_to_output={true}
+
+%region_0.15 (Arg_0.12: f32[], Arg_1.13: f32[]) -> f32[] {
+  %Arg_0.12 = f32[] parameter(0), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/reduce_sum"}
+  %Arg_1.13 = f32[] parameter(1), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/reduce_sum"}
+  ROOT %add.14 = f32[] add(%Arg_0.12, %Arg_1.13), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/reduce_sum" source_file="/home/ptoulme/tpu.py" source_line=41}
+}
+
+%region_1.28 (Arg_0.25: f32[], Arg_1.26: f32[]) -> f32[] {
+  %Arg_0.25 = f32[] parameter(0), metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_max"}
+  %Arg_1.26 = f32[] parameter(1), metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_max"}
+  ROOT %maximum.27 = f32[] maximum(%Arg_0.25, %Arg_1.26), metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_max" source_file="/home/ptoulme/tpu.py" source_line=48}
+}
+
+%region_2.39 (Arg_0.36: f32[], Arg_1.37: f32[]) -> f32[] {
+  %Arg_0.36 = f32[] parameter(0), metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_sum"}
+  %Arg_1.37 = f32[] parameter(1), metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_sum"}
+  ROOT %add.38 = f32[] add(%Arg_0.36, %Arg_1.37), metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_sum" source_file="/home/ptoulme/tpu.py" source_line=50}
+}
+
+ENTRY %main.47 (Arg_0.1: f32[16,64], Arg_1.2: f32[64,64], Arg_2.3: f32[64,32]) -> f32[16,32] {
+  %Arg_0.1 = f32[16,64]{1,0} parameter(0), metadata={op_name="x"}
+  %Arg_1.2 = f32[64,64]{1,0} parameter(1), metadata={op_name="w1"}
+  %dot.10 = f32[16,64]{1,0} dot(%Arg_0.1, %Arg_1.2), lhs_contracting_dims={1}, rhs_contracting_dims={0}, metadata={op_name="jit(mini_attention)/jit(main)/matmul_1/dot_general" source_file="/home/ptoulme/tpu.py" source_line=35}
+  %multiply.11 = f32[16,64]{1,0} multiply(%dot.10, %dot.10), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/integer_pow" source_file="/home/ptoulme/tpu.py" source_line=41}
+  %constant.9 = f32[] constant(0)
+  %reduce.16 = f32[16]{0} reduce(%multiply.11, %constant.9), dimensions={1}, to_apply=%region_0.15, metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/reduce_sum" source_file="/home/ptoulme/tpu.py" source_line=41}
+  %reshape.17 = f32[16,1]{1,0} reshape(%reduce.16), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/broadcast_in_dim" source_file="/home/ptoulme/tpu.py" source_line=41}
+  %constant.6 = f32[] constant(64)
+  %broadcast.7 = f32[16,1]{1,0} broadcast(%constant.6), dimensions={}
+  %divide.18 = f32[16,1]{1,0} divide(%reshape.17, %broadcast.7), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/div" source_file="/home/ptoulme/tpu.py" source_line=41}
+  %constant.4 = f32[] constant(1e-06)
+  %broadcast.5 = f32[16,1]{1,0} broadcast(%constant.4), dimensions={}
+  %add.19 = f32[16,1]{1,0} add(%divide.18, %broadcast.5), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/add" source_file="/home/ptoulme/tpu.py" source_line=41}
+  %sqrt.20 = f32[16,1]{1,0} sqrt(%add.19), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/sqrt" source_file="/home/ptoulme/tpu.py" source_line=41}
+  %broadcast.21 = f32[16,1]{1,0} broadcast(%sqrt.20), dimensions={0,1}, metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/div" source_file="/home/ptoulme/tpu.py" source_line=42}
+  %reshape.22 = f32[16]{0} reshape(%broadcast.21), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/div" source_file="/home/ptoulme/tpu.py" source_line=42}
+  %broadcast.23 = f32[16,64]{1,0} broadcast(%reshape.22), dimensions={0}, metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/div" source_file="/home/ptoulme/tpu.py" source_line=42}
+  %divide.24 = f32[16,64]{1,0} divide(%dot.10, %broadcast.23), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/div" source_file="/home/ptoulme/tpu.py" source_line=42}
+  %constant.8 = f32[] constant(-inf)
+  %reduce.29 = f32[16]{0} reduce(%divide.24, %constant.8), dimensions={1}, to_apply=%region_1.28, metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_max" source_file="/home/ptoulme/tpu.py" source_line=48}
+  %reshape.30 = f32[16,1]{1,0} reshape(%reduce.29), metadata={op_name="jit(mini_attention)/jit(main)/softmax/broadcast_in_dim" source_file="/home/ptoulme/tpu.py" source_line=48}
+  %broadcast.31 = f32[16,1]{1,0} broadcast(%reshape.30), dimensions={0,1}, metadata={op_name="jit(mini_attention)/jit(main)/softmax/sub" source_file="/home/ptoulme/tpu.py" source_line=49}
+  %reshape.32 = f32[16]{0} reshape(%broadcast.31), metadata={op_name="jit(mini_attention)/jit(main)/softmax/sub" source_file="/home/ptoulme/tpu.py" source_line=49}
+  %broadcast.33 = f32[16,64]{1,0} broadcast(%reshape.32), dimensions={0}, metadata={op_name="jit(mini_attention)/jit(main)/softmax/sub" source_file="/home/ptoulme/tpu.py" source_line=49}
+  %subtract.34 = f32[16,64]{1,0} subtract(%divide.24, %broadcast.33), metadata={op_name="jit(mini_attention)/jit(main)/softmax/sub" source_file="/home/ptoulme/tpu.py" source_line=49}
+  %exponential.35 = f32[16,64]{1,0} exponential(%subtract.34), metadata={op_name="jit(mini_attention)/jit(main)/softmax/exp" source_file="/home/ptoulme/tpu.py" source_line=49}
+  %reduce.40 = f32[16]{0} reduce(%exponential.35, %constant.9), dimensions={1}, to_apply=%region_2.39, metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_sum" source_file="/home/ptoulme/tpu.py" source_line=50}
+  %reshape.41 = f32[16,1]{1,0} reshape(%reduce.40), metadata={op_name="jit(mini_attention)/jit(main)/softmax/broadcast_in_dim" source_file="/home/ptoulme/tpu.py" source_line=50}
+  %broadcast.42 = f32[16,1]{1,0} broadcast(%reshape.41), dimensions={0,1}, metadata={op_name="jit(mini_attention)/jit(main)/softmax/div" source_file="/home/ptoulme/tpu.py" source_line=50}
+  %reshape.43 = f32[16]{0} reshape(%broadcast.42), metadata={op_name="jit(mini_attention)/jit(main)/softmax/div" source_file="/home/ptoulme/tpu.py" source_line=50}
+  %broadcast.44 = f32[16,64]{1,0} broadcast(%reshape.43), dimensions={0}, metadata={op_name="jit(mini_attention)/jit(main)/softmax/div" source_file="/home/ptoulme/tpu.py" source_line=50}
+  %divide.45 = f32[16,64]{1,0} divide(%exponential.35, %broadcast.44), metadata={op_name="jit(mini_attention)/jit(main)/softmax/div" source_file="/home/ptoulme/tpu.py" source_line=50}
+  %Arg_2.3 = f32[64,32]{1,0} parameter(2), metadata={op_name="w2"}
+  ROOT %dot.46 = f32[16,32]{1,0} dot(%divide.45, %Arg_2.3), lhs_contracting_dims={1}, rhs_contracting_dims={0}, metadata={op_name="jit(mini_attention)/jit(main)/matmul_2/dot_general" source_file="/home/ptoulme/tpu.py" source_line=56}
+}
+

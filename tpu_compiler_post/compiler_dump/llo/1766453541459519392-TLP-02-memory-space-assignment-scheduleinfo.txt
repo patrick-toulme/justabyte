@@ -1,0 +1,15 @@
+time,instruction_name
+0,constant.77
+1,Arg_0.1
+2,broadcast_add_fusion
+3,fusion.23
+4,get-tuple-element.1
+5,bitcast
+6,get-tuple-element
+7,bitcast.1
+8,xor.49
+9,xor.50
+10,fusion.21
+11,get-tuple-element.5
+12,get-tuple-element.4
+13,select_multiply_fusion

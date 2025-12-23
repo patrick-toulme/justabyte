@@ -1,0 +1,9 @@
+
+New basic block in region: region1 {members=28 hlo=fusion.23 parent=0}
+  Length to end: 122, %v10 = vlaneseq
+  Length to end: 120, %v11 = vand.u32 127, %v10
+  Length to end: 118, %vm12 = vcmp.lt.s32.totalorder %v11, 1
+  Length to end: 117, %v13 = vsel /*vm=*/%vm12, /*on_true_vy=*/%v9, /*on_false_vx=*/%v6
+  Length to end: 116, %14 = vrot.lane.b32.xlu0 %v13, %s40
+  Length to end: 2, %v15 = vpop.permute.xlu0 %14
+  Length to end: 1, %18 = vst [vmem:[#allocation10] sm:$0x1] /*vst_source=*/%v15

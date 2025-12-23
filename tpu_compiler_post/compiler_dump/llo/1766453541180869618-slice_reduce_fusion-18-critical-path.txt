@@ -1,0 +1,57 @@
+
+New basic block in region: region0 {members=145 hlo=slice_reduce_fusion parent=-1}
+  Length to end: 1, %v442 = vmov 0 /* materialized constant */
+
+New basic block in region: region1 {members=41 hlo=slice_reduce_fusion parent=0}
+  Length to end: 4, %s444 = smov [#allocation24] /* materialized constant */
+  Length to end: 3, %s28 = sshll.u32 %s444, 4
+  Length to end: 2, %s29 = int_to_ptr.vmem [resolvable:$true] %s28
+  Length to end: 1, %31 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s0, /*size_in_granules=*/32, /*vmem=*/%s29, /*dst_syncflagno=*/[#allocation25] /* 
+base_bounds: (1, 1)
+dynamic_base_bounds: (1, 1)
+window_bounds: (1, 1)
+iteration_bounds: (1, 1)
+strides: (1, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 1024 */
+
+New basic block in region: region1 {members=41 hlo=slice_reduce_fusion parent=0}
+  Length to end: 129, %41 = dma.done [#allocation25], 64 /* pipeline-emitter-dma-wait */
+  Length to end: 122, %v43 = vld [vmem:[#allocation21] sm:$0x3]
+  Length to end: 121, %v47 = vsel /*vm=*/%vm46, /*on_true_vy=*/0, /*on_false_vx=*/%v43
+  Length to end: 120, %48 = vrot.lane.b32.xlu0 %v47, %s446
+  Length to end: 116, %55 = vrot.lane.b32.xlu0 %v54, %s447
+  Length to end: 2, %v56 = vpop.permute.xlu0 %55
+  Length to end: 1, %v70 = vsel /*vm=*/%vm61, /*on_true_vy=*/%v56, /*on_false_vx=*/0
+
+New basic block in region: region0 {members=145 hlo=slice_reduce_fusion parent=-1}
+  Length to end: 273, %104 = vxpose.xlu0.b32.start.end [1/1] (short) /*vx=*/%v66, /*width=*/128
+  Length to end: 209, %214 = vxpose.xlu0.b32.start.end [1/1] (short) /*vx=*/%v74, /*width=*/128
+  Length to end: 85, %v215 = vpop.trf.xlu0
+  Length to end: 81, %v216 = vpop.trf.xlu0
+  Length to end: 77, %v217 = vpop.trf.xlu0
+  Length to end: 73, %v218 = vpop.trf.xlu0
+  Length to end: 69, %v219 = vpop.trf.xlu0
+  Length to end: 65, %v220 = vpop.trf.xlu0
+  Length to end: 61, %v221 = vpop.trf.xlu0
+  Length to end: 57, %v222 = vpop.trf.xlu0
+  Length to end: 53, %v223 = vpop.trf.xlu0
+  Length to end: 49, %v224 = vpop.trf.xlu0
+  Length to end: 45, %v225 = vpop.trf.xlu0
+  Length to end: 41, %v226 = vpop.trf.xlu0
+  Length to end: 37, %v227 = vpop.trf.xlu0
+  Length to end: 33, %v228 = vpop.trf.xlu0
+  Length to end: 29, %v229 = vpop.trf.xlu0
+  Length to end: 26, %v289 = vadd.s32 %v285, %v229
+  Length to end: 24, %v293 = vadd.s32 %v289, %v230
+  Length to end: 22, %v295 = vrot.slane %v293, 4
+  Length to end: 20, %v298 = vadd.s32 %v295, %v293
+  Length to end: 18, %v300 = vrot.slane %v298, 2
+  Length to end: 16, %v303 = vadd.s32 %v300, %v298
+  Length to end: 14, %v305 = vrot.slane %v303, 1
+  Length to end: 12, %v308 = vadd.s32 %v305, %v303
+  Length to end: 10, %310 = vst [vmem:[#allocation17] sm:$0x1] /*vst_source=*/%v308
+  Length to end: 3, %v315 = vld [vmem:[#allocation17] sm:$0x1]
+  Length to end: 2, %318 = vst [vmem:[#allocation17] sm:$0x1] /*vst_source=*/%v315
+  Length to end: 1, %322 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s320, /*size_in_granules=*/16, /*hbm=*/%s2, /*dst_syncflagno=*/[#allocation27]

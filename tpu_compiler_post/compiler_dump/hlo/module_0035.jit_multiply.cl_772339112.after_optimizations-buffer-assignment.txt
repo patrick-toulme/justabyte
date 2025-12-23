@@ -1,0 +1,55 @@
+BufferAssignment:
+allocation 0: size 512, parameter 1, shape |f32[]| at ShapeIndex {}:
+ value: <5 Arg_1.2 @0> (size=512,offset=0): f32[]{:T(128)}
+allocation 1: size 32768, output shape is |f32[64,64]|, maybe-live-out:
+ value: <7 broadcast_multiply_fusion @0> (size=32768,offset=0): f32[64,64]{1,0:T(8,128)}
+allocation 2: size 32768, parameter 0, shape |f32[64,64]| at ShapeIndex {}:
+ value: <4 Arg_0.1 @0> (size=32768,offset=0): f32[64,64]{1,0:T(8,128)}
+allocation 3: size 0, color 1, preallocated-temp:
+allocation 4: size 512, color 6, preallocated-temp:
+ value: <6 copy @6> (size=512,offset=0): f32[]{:T(128)S(6)}
+
+Total bytes used: 66560 (65.0KiB)
+
+Used values:
+<4 Arg_0.1 @0>
+ positions:
+  Arg_0.1
+ uses:
+  broadcast_multiply_fusion, operand 0
+ from instruction: %Arg_0.1 = f32[64,64]{1,0:T(8,128)} parameter(0), metadata={op_name="x"}
+<5 Arg_1.2 @0>
+ positions:
+  Arg_1.2
+ uses:
+  copy, operand 0
+ from instruction: %Arg_1.2 = f32[]{:T(128)} parameter(1), metadata={op_name="y"}
+<6 copy @6>
+ positions:
+  copy
+ uses:
+  broadcast_multiply_fusion, operand 1
+ from instruction: %copy = f32[]{:T(128)S(6)} copy(%Arg_1.2)
+<7 broadcast_multiply_fusion @0>
+ positions:
+  broadcast_multiply_fusion
+ uses:
+ from instruction: %broadcast_multiply_fusion = f32[64,64]{1,0:T(8,128)} fusion(%Arg_0.1, %copy), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(multiply)/jit(main)/mul" source_file="/home/ptoulme/tpu.py" source_line=82}
+
+
+HloLiveRange (max 4):
+  InstructionSequence:
+    0:Arg_1.2
+    1:Arg_0.1
+    2:copy
+    3:broadcast_multiply_fusion
+  BufferLiveRange:
+    Arg_0.1{}:0-4
+    Arg_1.2{}:0-4
+    copy{}:2-3
+    broadcast_multiply_fusion{}:3-4
+  Live ranges at 3 (peak):
+    Arg_0.1{}: 16384 bytes (cumulative: 16384 bytes)
+    broadcast_multiply_fusion{}: 16384 bytes (cumulative: 32768 bytes)
+    Arg_1.2{}: 4 bytes (cumulative: 32772 bytes)
+    copy{}: 4 bytes (cumulative: 32776 bytes)

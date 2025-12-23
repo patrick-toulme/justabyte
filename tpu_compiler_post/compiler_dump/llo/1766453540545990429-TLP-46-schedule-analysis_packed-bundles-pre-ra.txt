@@ -1,0 +1,11 @@
+Schedule analysis:
+	total scheduled bundles:    265
+	empty scheduled bundles:    139
+	non empty scheduled bundles: 126
+	 112.00 scheduled bundles (88.89%): <no hlo>
+	  11.50 scheduled bundles ( 9.13%): %copy = s32[]{:T(128)S(6)} copy(%Arg_0.1)
+	   2.00 scheduled bundles ( 1.59%): %pad_add_fusion = u32[2]{0:T(128)} fusion(%bitcast.1, %bitcast), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(_threefry_seed)/jit(main)/concatenate" source_file="/home/ptoulme/tpu.py" source_line=78}
+	   0.50 scheduled bundles ( 0.40%): %shift-right-logical.3 = s32[]{:T(128)S(6)} shift-right-logical(%copy, %constant.2), metadata={op_name="jit(_threefry_seed)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=78}
+	[opcode]      15 scheduled bundles (11.90%): copy                 (1 instances,  15.00 avg)
+	[opcode]       3 scheduled bundles ( 2.38%): fusion               (1 instances,   3.00 avg)
+	[opcode]       1 scheduled bundles ( 0.79%): shift-right-logical  (1 instances,   1.00 avg)

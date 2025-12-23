@@ -1,0 +1,26 @@
+= control target key start
+LH: loop header
+LB: loop body
+LE: loop exit
+PB: predicated region body
+PF: predicated region fallthrough
+CT: control target
+= control target key end
+
+     0   :  { %v3_v0 = vlaneseq  ;;  %s53_s0 = inlined_call_operand.vmem [shape: u32[64], index: 0, kind: output, shape index: {0}] /* operand 0 */  ;;  %s54_s1 = inlined_call_operand.vmem [shape: u32[64], index: 1, kind: output, shape index: {1}] /* operand 1 */ } /* Start region 0 */
+   0x1   :  {}
+   0x2   :  { %v6_v1 = vand.u32 65535, %v3_v0  ;;  %v15_v2 = vshrl.u32 %v3_v0, 16 }
+   0x3   :  {}
+   0x4   :  { %v9_v3 = vmul.u32 64, %v6_v1  ;;  %v18_v4 = vmul.u32 64, %v15_v2 }
+   0x5   :  {}
+   0x6   :  { %v20_v5 = vshrl.u32 %v9_v3, 16  ;;  %v11_v7 = vand.u32 65535, %v9_v3 }
+   0x7   :  {}
+   0x8   :  { %v23_v6 = vadd.s32 %v20_v5, %v18_v4 }
+   0x9   :  {}
+   0xa   :  { %v25_v8 = vand.u32 65535, %v23_v6  ;;  %v28_v9 = vshrl.u32 %v23_v6, 16 }
+   0xb   :  {}
+   0xc   :  { %v26_v10 = vshll.u32 %v25_v8, 16  ;;  %v29_v11 = vshrl.u32 %v25_v8, 16 }
+   0xd   :  {}
+   0xe   :  { %v27_v12 = vor.u32 %v26_v10, %v11_v7  ;;  %v32_v13 = vadd.s32 %v29_v11, %v28_v9 }
+   0xf   :  {}
+  0x10   :  { %35 = vst [vmem:[%s53_s0] sm:$0x1] /*vst_source=*/%v27_v12  ;;  %36 = vst [vmem:[%s54_s1] sm:$0x1] /*vst_source=*/%v32_v13 } /* End region 0 */

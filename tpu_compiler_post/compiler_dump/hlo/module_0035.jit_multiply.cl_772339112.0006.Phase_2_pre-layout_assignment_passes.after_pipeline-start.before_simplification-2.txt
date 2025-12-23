@@ -1,0 +1,9 @@
+HloModule jit_multiply, entry_computation_layout={(f32[64,64]{1,0:T(8,128)}, f32[]{:T(128)})->f32[64,64]{1,0:T(8,128)}}, allow_spmd_sharding_propagation_to_parameters={true,true}, allow_spmd_sharding_propagation_to_output={true}
+
+ENTRY %main.5 (Arg_0.1: f32[64,64], Arg_1.2: f32[]) -> f32[64,64] {
+  %Arg_0.1 = f32[64,64]{1,0} parameter(0), metadata={op_name="x"}
+  %Arg_1.2 = f32[] parameter(1), metadata={op_name="y"}
+  %broadcast.3 = f32[64,64]{1,0} broadcast(%Arg_1.2), dimensions={}, metadata={op_name="jit(multiply)/jit(main)/mul" source_file="/home/ptoulme/tpu.py" source_line=82}
+  ROOT %multiply.4 = f32[64,64]{1,0} multiply(%Arg_0.1, %broadcast.3), metadata={op_name="jit(multiply)/jit(main)/mul" source_file="/home/ptoulme/tpu.py" source_line=82}
+}
+

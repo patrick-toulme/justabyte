@@ -1,0 +1,350 @@
+HloModule jit__normal, is_scheduled=true, entry_computation_layout={(u32[2]{0:T(128)})->f32[64,32]{0,1:T(8,128)}}, allow_spmd_sharding_propagation_to_parameters={true}, allow_spmd_sharding_propagation_to_output={true}
+
+%fused_computation.20 (param_0.84: u32[64], param_1.118: u32[64], param_2.98: u32[64], param_3.122: u32[], param_4.139: u32[], param_5.121: u32[]) -> f32[64,32] {
+  %constant.172 = f32[]{:T(128)} constant(-0.99999994)
+  %broadcast.90 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.172), dimensions={}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/max" source_file="/home/ptoulme/tpu.py" source_line=83}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %param_2.98 = u32[64]{0:T(128)} parameter(2)
+  %broadcast.89 = u32[64,32]{0,1:T(8,128)} broadcast(%param_2.98), dimensions={0}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":["128"]}}
+  %iota.39 = u32[64,32]{0,1:T(8,128)} iota(), iota_dimension=1, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.196 = u32[64,32]{0,1:T(8,128)} add(%broadcast.89, %iota.39), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %compare.15 = pred[64,32]{0,1:T(8,128)(4,1)} compare(%add.196, %broadcast.89), direction=LT, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %param_0.84 = u32[64]{0:T(128)} parameter(0)
+  %broadcast.87 = u32[64,32]{0,1:T(8,128)} broadcast(%param_0.84), dimensions={0}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":["128"]}}
+  %param_1.118 = u32[64]{0:T(128)} parameter(1)
+  %broadcast.88 = u32[64,32]{0,1:T(8,128)} broadcast(%param_1.118), dimensions={0}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":["128"]}}
+  %select.29 = u32[64,32]{0,1:T(8,128)} select(%compare.15, %broadcast.87, %broadcast.88), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.110 = u32[]{:T(128)} constant(0), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %broadcast.94 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.110), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %shift-right-logical.77 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%select.29, %broadcast.94), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %param_5.121 = u32[]{:T(128)} parameter(5)
+  %broadcast.198 = u32[64,32]{0,1:T(8,128)} broadcast(%param_5.121), dimensions={}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %add.194 = u32[64,32]{0,1:T(8,128)} add(%shift-right-logical.77, %broadcast.198), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %param_4.139 = u32[]{:T(128)} parameter(4)
+  %broadcast.197 = u32[64,32]{0,1:T(8,128)} broadcast(%param_4.139), dimensions={}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %add.192 = u32[64,32]{0,1:T(8,128)} add(%add.196, %broadcast.197), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.191 = u32[64,32]{0,1:T(8,128)} add(%add.194, %add.192), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.162 = u32[]{:T(128)} constant(13)
+  %broadcast.196 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.162), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %shift-left.68 = u32[64,32]{0,1:T(8,128)} shift-left(%add.192, %broadcast.196), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.161 = u32[]{:T(128)} constant(19)
+  %broadcast.195 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.161), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %shift-right-logical.76 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%add.192, %broadcast.195), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.66 = u32[64,32]{0,1:T(8,128)} or(%shift-left.68, %shift-right-logical.76), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.38 = u32[64,32]{0,1:T(8,128)} xor(%add.191, %or.66), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.185 = u32[64,32]{0,1:T(8,128)} add(%add.191, %xor.38), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.160 = u32[]{:T(128)} constant(15)
+  %broadcast.194 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.160), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %shift-left.65 = u32[64,32]{0,1:T(8,128)} shift-left(%xor.38, %broadcast.194), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.159 = u32[]{:T(128)} constant(17)
+  %broadcast.193 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.159), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %shift-right-logical.73 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%xor.38, %broadcast.193), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.63 = u32[64,32]{0,1:T(8,128)} or(%shift-left.65, %shift-right-logical.73), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.35 = u32[64,32]{0,1:T(8,128)} xor(%add.185, %or.63), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.177 = u32[64,32]{0,1:T(8,128)} add(%add.185, %xor.35), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.158 = u32[]{:T(128)} constant(26)
+  %broadcast.192 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.158), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %shift-left.62 = u32[64,32]{0,1:T(8,128)} shift-left(%xor.35, %broadcast.192), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.157 = u32[]{:T(128)} constant(6)
+  %broadcast.191 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.157), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %shift-right-logical.70 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%xor.35, %broadcast.191), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.39 = u32[64,32]{0,1:T(8,128)} or(%shift-left.62, %shift-right-logical.70), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.32 = u32[64,32]{0,1:T(8,128)} xor(%add.177, %or.39), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.176 = u32[64,32]{0,1:T(8,128)} add(%add.177, %xor.32), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.175 = u32[64,32]{0,1:T(8,128)} add(%add.176, %broadcast.197), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-left.61 = u32[64,32]{0,1:T(8,128)} shift-left(%xor.32, %broadcast.191), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.69 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%xor.32, %broadcast.192), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.38 = u32[64,32]{0,1:T(8,128)} or(%shift-left.61, %shift-right-logical.69), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.31 = u32[64,32]{0,1:T(8,128)} xor(%add.176, %or.38), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %param_3.122 = u32[]{:T(128)} parameter(3)
+  %broadcast.190 = u32[64,32]{0,1:T(8,128)} broadcast(%param_3.122), dimensions={}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %add.174 = u32[64,32]{0,1:T(8,128)} add(%xor.31, %broadcast.190), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.164 = u32[]{:T(128)} constant(1), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %broadcast.199 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.164), dimensions={}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %add.173 = u32[64,32]{0,1:T(8,128)} add(%add.174, %broadcast.199), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.172 = u32[64,32]{0,1:T(8,128)} add(%add.175, %add.173), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-left.60 = u32[64,32]{0,1:T(8,128)} shift-left(%add.173, %broadcast.193), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.68 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%add.173, %broadcast.194), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.37 = u32[64,32]{0,1:T(8,128)} or(%shift-left.60, %shift-right-logical.68), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.30 = u32[64,32]{0,1:T(8,128)} xor(%add.172, %or.37), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.171 = u32[64,32]{0,1:T(8,128)} add(%add.172, %xor.30), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.156 = u32[]{:T(128)} constant(29)
+  %broadcast.189 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.156), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %shift-left.39 = u32[64,32]{0,1:T(8,128)} shift-left(%xor.30, %broadcast.189), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.155 = u32[]{:T(128)} constant(3)
+  %broadcast.188 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.155), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %shift-right-logical.67 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%xor.30, %broadcast.188), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.36 = u32[64,32]{0,1:T(8,128)} or(%shift-left.39, %shift-right-logical.67), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.29 = u32[64,32]{0,1:T(8,128)} xor(%add.171, %or.36), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.170 = u32[64,32]{0,1:T(8,128)} add(%add.171, %xor.29), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.168 = u32[]{:T(128)} constant(16), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %broadcast.200 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.168), dimensions={}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %shift-left.38 = u32[64,32]{0,1:T(8,128)} shift-left(%xor.29, %broadcast.200), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.66 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%xor.29, %broadcast.200), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.35 = u32[64,32]{0,1:T(8,128)} or(%shift-left.38, %shift-right-logical.66), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.28 = u32[64,32]{0,1:T(8,128)} xor(%add.170, %or.35), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.169 = u32[64,32]{0,1:T(8,128)} add(%add.170, %xor.28), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.168 = u32[64,32]{0,1:T(8,128)} add(%add.169, %broadcast.190), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.154 = u32[]{:T(128)} constant(24)
+  %broadcast.187 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.154), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %shift-left.37 = u32[64,32]{0,1:T(8,128)} shift-left(%xor.28, %broadcast.187), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.153 = u32[]{:T(128)} constant(8)
+  %broadcast.186 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.153), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %shift-right-logical.65 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%xor.28, %broadcast.186), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.34 = u32[64,32]{0,1:T(8,128)} or(%shift-left.37, %shift-right-logical.65), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.27 = u32[64,32]{0,1:T(8,128)} xor(%add.169, %or.34), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.167 = u32[64,32]{0,1:T(8,128)} add(%xor.27, %broadcast.198), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.152 = u32[]{:T(128)} constant(2)
+  %broadcast.185 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.152), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %add.166 = u32[64,32]{0,1:T(8,128)} add(%add.167, %broadcast.185), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.165 = u32[64,32]{0,1:T(8,128)} add(%add.168, %add.166), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-left.36 = u32[64,32]{0,1:T(8,128)} shift-left(%add.166, %broadcast.196), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.64 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%add.166, %broadcast.195), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.33 = u32[64,32]{0,1:T(8,128)} or(%shift-left.36, %shift-right-logical.64), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.26 = u32[64,32]{0,1:T(8,128)} xor(%add.165, %or.33), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.164 = u32[64,32]{0,1:T(8,128)} add(%add.165, %xor.26), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-left.35 = u32[64,32]{0,1:T(8,128)} shift-left(%xor.26, %broadcast.194), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.42 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%xor.26, %broadcast.193), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.32 = u32[64,32]{0,1:T(8,128)} or(%shift-left.35, %shift-right-logical.42), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.25 = u32[64,32]{0,1:T(8,128)} xor(%add.164, %or.32), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.163 = u32[64,32]{0,1:T(8,128)} add(%add.164, %xor.25), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-left.34 = u32[64,32]{0,1:T(8,128)} shift-left(%xor.25, %broadcast.192), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.41 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%xor.25, %broadcast.191), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.31 = u32[64,32]{0,1:T(8,128)} or(%shift-left.34, %shift-right-logical.41), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.24 = u32[64,32]{0,1:T(8,128)} xor(%add.163, %or.31), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.162 = u32[64,32]{0,1:T(8,128)} add(%add.163, %xor.24), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.161 = u32[64,32]{0,1:T(8,128)} add(%add.162, %broadcast.198), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-left.33 = u32[64,32]{0,1:T(8,128)} shift-left(%xor.24, %broadcast.191), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.40 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%xor.24, %broadcast.192), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.30 = u32[64,32]{0,1:T(8,128)} or(%shift-left.33, %shift-right-logical.40), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.23 = u32[64,32]{0,1:T(8,128)} xor(%add.162, %or.30), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.160 = u32[64,32]{0,1:T(8,128)} add(%xor.23, %broadcast.197), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.159 = u32[64,32]{0,1:T(8,128)} add(%add.160, %broadcast.188), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.158 = u32[64,32]{0,1:T(8,128)} add(%add.161, %add.159), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-left.32 = u32[64,32]{0,1:T(8,128)} shift-left(%add.159, %broadcast.193), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.39 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%add.159, %broadcast.194), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.29 = u32[64,32]{0,1:T(8,128)} or(%shift-left.32, %shift-right-logical.39), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.22 = u32[64,32]{0,1:T(8,128)} xor(%add.158, %or.29), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.157 = u32[64,32]{0,1:T(8,128)} add(%add.158, %xor.22), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-left.31 = u32[64,32]{0,1:T(8,128)} shift-left(%xor.22, %broadcast.189), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.38 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%xor.22, %broadcast.188), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.28 = u32[64,32]{0,1:T(8,128)} or(%shift-left.31, %shift-right-logical.38), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.21 = u32[64,32]{0,1:T(8,128)} xor(%add.157, %or.28), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.156 = u32[64,32]{0,1:T(8,128)} add(%add.157, %xor.21), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-left.30 = u32[64,32]{0,1:T(8,128)} shift-left(%xor.21, %broadcast.200), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.37 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%xor.21, %broadcast.200), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.27 = u32[64,32]{0,1:T(8,128)} or(%shift-left.30, %shift-right-logical.37), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.20 = u32[64,32]{0,1:T(8,128)} xor(%add.156, %or.27), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.155 = u32[64,32]{0,1:T(8,128)} add(%add.156, %xor.20), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.154 = u32[64,32]{0,1:T(8,128)} add(%add.155, %broadcast.197), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-left.29 = u32[64,32]{0,1:T(8,128)} shift-left(%xor.20, %broadcast.187), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.36 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%xor.20, %broadcast.186), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.26 = u32[64,32]{0,1:T(8,128)} or(%shift-left.29, %shift-right-logical.36), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.19 = u32[64,32]{0,1:T(8,128)} xor(%add.155, %or.26), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.153 = u32[64,32]{0,1:T(8,128)} add(%xor.19, %broadcast.190), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.151 = u32[]{:T(128)} constant(4)
+  %broadcast.184 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.151), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %add.152 = u32[64,32]{0,1:T(8,128)} add(%add.153, %broadcast.184), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.151 = u32[64,32]{0,1:T(8,128)} add(%add.154, %add.152), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-left.28 = u32[64,32]{0,1:T(8,128)} shift-left(%add.152, %broadcast.196), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.35 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%add.152, %broadcast.195), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.25 = u32[64,32]{0,1:T(8,128)} or(%shift-left.28, %shift-right-logical.35), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.18 = u32[64,32]{0,1:T(8,128)} xor(%add.151, %or.25), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.150 = u32[64,32]{0,1:T(8,128)} add(%add.151, %xor.18), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-left.27 = u32[64,32]{0,1:T(8,128)} shift-left(%xor.18, %broadcast.194), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.34 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%xor.18, %broadcast.193), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.24 = u32[64,32]{0,1:T(8,128)} or(%shift-left.27, %shift-right-logical.34), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.17 = u32[64,32]{0,1:T(8,128)} xor(%add.150, %or.24), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.149 = u32[64,32]{0,1:T(8,128)} add(%add.150, %xor.17), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-left.26 = u32[64,32]{0,1:T(8,128)} shift-left(%xor.17, %broadcast.192), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.33 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%xor.17, %broadcast.191), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.23 = u32[64,32]{0,1:T(8,128)} or(%shift-left.26, %shift-right-logical.33), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.16 = u32[64,32]{0,1:T(8,128)} xor(%add.149, %or.23), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.148 = u32[64,32]{0,1:T(8,128)} add(%add.149, %xor.16), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.147 = u32[64,32]{0,1:T(8,128)} add(%add.148, %broadcast.190), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-left.25 = u32[64,32]{0,1:T(8,128)} shift-left(%xor.16, %broadcast.191), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.32 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%xor.16, %broadcast.192), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.22 = u32[64,32]{0,1:T(8,128)} or(%shift-left.25, %shift-right-logical.32), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.15 = u32[64,32]{0,1:T(8,128)} xor(%add.148, %or.22), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.146 = u32[64,32]{0,1:T(8,128)} add(%xor.15, %broadcast.198), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.150 = u32[]{:T(128)} constant(5)
+  %broadcast.183 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.150), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %add.145 = u32[64,32]{0,1:T(8,128)} add(%add.146, %broadcast.183), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.14 = u32[64,32]{0,1:T(8,128)} xor(%add.147, %add.145), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.149 = u32[]{:T(128)} constant(9)
+  %broadcast.182 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.149), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %shift-right-logical.31 = u32[64,32]{0,1:T(8,128)} shift-right-logical(%xor.14, %broadcast.182), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.148 = u32[]{:T(128)} constant(1065353216)
+  %broadcast.181 = u32[64,32]{0,1:T(8,128)} broadcast(%constant.148), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %or.21 = u32[64,32]{0,1:T(8,128)} or(%shift-right-logical.31, %broadcast.181), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/or" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %bitcast-convert.6 = f32[64,32]{0,1:T(8,128)} bitcast-convert(%or.21), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/bitcast_convert_type" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.102 = f32[]{:T(128)} constant(-1)
+  %broadcast.93 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.102), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %add.144 = f32[64,32]{0,1:T(8,128)} add(%bitcast-convert.6, %broadcast.93), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/sub" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.100 = f32[]{:T(128)} constant(2), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/mul" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %broadcast.168 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.100), dimensions={}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/mul" source_file="/home/ptoulme/tpu.py" source_line=83}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %multiply.52 = f32[64,32]{0,1:T(8,128)} multiply(%add.144, %broadcast.168), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/mul" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.143 = f32[64,32]{0,1:T(8,128)} add(%multiply.52, %broadcast.90), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/add" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %maximum.3 = f32[64,32]{0,1:T(8,128)} maximum(%broadcast.90, %add.143), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/max" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %abs.3 = f32[64,32]{0,1:T(8,128)} abs(%maximum.3), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.147 = f32[]{:T(128)} constant(1)
+  %broadcast.180 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.147), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %compare.13 = pred[64,32]{0,1:T(8,128)(4,1)} compare(%abs.3, %broadcast.180), direction=EQ, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.146 = f32[]{:T(128)} constant(inf)
+  %broadcast.166 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.146), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %multiply.50 = f32[64,32]{0,1:T(8,128)} multiply(%maximum.3, %broadcast.166), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %negate.22 = f32[64,32]{0,1:T(8,128)} negate(%maximum.3), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %multiply.49 = f32[64,32]{0,1:T(8,128)} multiply(%maximum.3, %negate.22), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %log-plus-one.9 = f32[64,32]{0,1:T(8,128)} log-plus-one(%multiply.49), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %negate.21 = f32[64,32]{0,1:T(8,128)} negate(%log-plus-one.9), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.145 = f32[]{:T(128)} constant(5)
+  %broadcast.143 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.145), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %compare.10 = pred[64,32]{0,1:T(8,128)(4,1)} compare(%negate.21, %broadcast.143), direction=LT, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.144 = f32[]{:T(128)} constant(1.50140941)
+  %broadcast.141 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.144), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %constant.143 = f32[]{:T(128)} constant(2.83297682)
+  %broadcast.119 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.143), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %select.28 = f32[64,32]{0,1:T(8,128)} select(%compare.10, %broadcast.141, %broadcast.119), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.142 = f32[]{:T(128)} constant(0.246640727)
+  %broadcast.117 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.142), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %constant.141 = f32[]{:T(128)} constant(1.00167406)
+  %broadcast.113 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.141), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %select.27 = f32[64,32]{0,1:T(8,128)} select(%compare.10, %broadcast.117, %broadcast.113), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.140 = f32[]{:T(128)} constant(-0.00417768164)
+  %broadcast.111 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.140), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %constant.139 = f32[]{:T(128)} constant(0.00943887047)
+  %broadcast.109 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.139), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %select.26 = f32[64,32]{0,1:T(8,128)} select(%compare.10, %broadcast.111, %broadcast.109), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.138 = f32[]{:T(128)} constant(-0.00125372503)
+  %broadcast.107 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.138), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %constant.137 = f32[]{:T(128)} constant(-0.0076224613)
+  %broadcast.106 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.137), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %select.25 = f32[64,32]{0,1:T(8,128)} select(%compare.10, %broadcast.107, %broadcast.106), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.136 = f32[]{:T(128)} constant(0.00021858087)
+  %broadcast.105 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.136), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %constant.135 = f32[]{:T(128)} constant(0.00573950773)
+  %broadcast.104 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.135), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %select.24 = f32[64,32]{0,1:T(8,128)} select(%compare.10, %broadcast.105, %broadcast.104), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.134 = f32[]{:T(128)} constant(-4.39150654e-06)
+  %broadcast.103 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.134), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %constant.133 = f32[]{:T(128)} constant(-0.00367342844)
+  %broadcast.102 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.133), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %select.23 = f32[64,32]{0,1:T(8,128)} select(%compare.10, %broadcast.103, %broadcast.102), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.132 = f32[]{:T(128)} constant(-3.5233877e-06)
+  %broadcast.101 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.132), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %constant.131 = f32[]{:T(128)} constant(0.00134934322)
+  %broadcast.100 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.131), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %select.22 = f32[64,32]{0,1:T(8,128)} select(%compare.10, %broadcast.101, %broadcast.100), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.130 = f32[]{:T(128)} constant(3.43273939e-07)
+  %broadcast.99 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.130), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %constant.129 = f32[]{:T(128)} constant(0.000100950558)
+  %broadcast.98 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.129), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %select.21 = f32[64,32]{0,1:T(8,128)} select(%compare.10, %broadcast.99, %broadcast.98), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.128 = f32[]{:T(128)} constant(2.81022636e-08)
+  %broadcast.97 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.128), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %constant.114 = f32[]{:T(128)} constant(-0.000200214257)
+  %broadcast.96 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.114), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %select.20 = f32[64,32]{0,1:T(8,128)} select(%compare.10, %broadcast.97, %broadcast.96), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.98 = f32[]{:T(128)} constant(-2.5)
+  %broadcast.92 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.98), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %add.140 = f32[64,32]{0,1:T(8,128)} add(%negate.21, %broadcast.92), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %sqrt.1 = f32[64,32]{0,1:T(8,128)} sqrt(%negate.21), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.96 = f32[]{:T(128)} constant(-3)
+  %broadcast.91 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.96), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %add.139 = f32[64,32]{0,1:T(8,128)} add(%sqrt.1, %broadcast.91), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %select.19 = f32[64,32]{0,1:T(8,128)} select(%compare.10, %add.140, %add.139), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %multiply.43 = f32[64,32]{0,1:T(8,128)} multiply(%select.20, %select.19), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.136 = f32[64,32]{0,1:T(8,128)} add(%select.21, %multiply.43), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %multiply.42 = f32[64,32]{0,1:T(8,128)} multiply(%add.136, %select.19), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.135 = f32[64,32]{0,1:T(8,128)} add(%select.22, %multiply.42), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %multiply.41 = f32[64,32]{0,1:T(8,128)} multiply(%add.135, %select.19), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.134 = f32[64,32]{0,1:T(8,128)} add(%select.23, %multiply.41), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %multiply.40 = f32[64,32]{0,1:T(8,128)} multiply(%add.134, %select.19), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.133 = f32[64,32]{0,1:T(8,128)} add(%select.24, %multiply.40), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %multiply.39 = f32[64,32]{0,1:T(8,128)} multiply(%add.133, %select.19), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.132 = f32[64,32]{0,1:T(8,128)} add(%select.25, %multiply.39), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %multiply.38 = f32[64,32]{0,1:T(8,128)} multiply(%add.132, %select.19), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.131 = f32[64,32]{0,1:T(8,128)} add(%select.26, %multiply.38), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %multiply.37 = f32[64,32]{0,1:T(8,128)} multiply(%add.131, %select.19), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.130 = f32[64,32]{0,1:T(8,128)} add(%select.27, %multiply.37), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %multiply.36 = f32[64,32]{0,1:T(8,128)} multiply(%add.130, %select.19), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.129 = f32[64,32]{0,1:T(8,128)} add(%select.28, %multiply.36), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %multiply.35 = f32[64,32]{0,1:T(8,128)} multiply(%add.129, %maximum.3), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %select.17 = f32[64,32]{0,1:T(8,128)} select(%compare.13, %multiply.50, %multiply.35), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/erf_inv" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.112 = f32[]{:T(128)} constant(1.41421354)
+  %broadcast.95 = f32[64,32]{0,1:T(8,128)} broadcast(%constant.112), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  ROOT %multiply.34 = f32[64,32]{0,1:T(8,128)} multiply(%select.17, %broadcast.95), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/mul" source_file="/home/ptoulme/tpu.py" source_line=83}
+}
+
+%fused_computation.29 () -> (u32[64], u32[64]) {
+  %iota.51 = u32[64]{0:T(128)} iota(), iota_dimension=0, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.171 = u32[]{:T(128)} constant(65535), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %broadcast.208 = u32[64]{0:T(128)} broadcast(%constant.171), dimensions={}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %and.21 = u32[64]{0:T(128)} and(%iota.51, %broadcast.208), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.106 = u32[]{:T(128)} constant(32), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %broadcast.202 = u32[64]{0:T(128)} broadcast(%constant.106), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %multiply.61 = u32[64]{0:T(128)} multiply(%and.21, %broadcast.202), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %and.20 = u32[64]{0:T(128)} and(%multiply.61, %broadcast.208), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %iota.59 = u32[64]{0:T(128)} iota(), iota_dimension=0, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.166 = u32[]{:T(128)} constant(16), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %broadcast.215 = u32[64]{0:T(128)} broadcast(%constant.166), dimensions={}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %shift-right-logical.91 = u32[64]{0:T(128)} shift-right-logical(%iota.59, %broadcast.215), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %multiply.68 = u32[64]{0:T(128)} multiply(%shift-right-logical.91, %broadcast.202), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.90 = u32[64]{0:T(128)} shift-right-logical(%multiply.61, %broadcast.215), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.201 = u32[64]{0:T(128)} add(%multiply.68, %shift-right-logical.90), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %and.22 = u32[64]{0:T(128)} and(%add.201, %broadcast.208), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-left.69 = u32[64]{0:T(128)} shift-left(%and.22, %broadcast.215), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %or.67 = u32[64]{0:T(128)} or(%and.20, %shift-left.69), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.87.clone.1 = u32[64]{0:T(128)} shift-right-logical(%add.201, %broadcast.215), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.86.clone.1 = u32[64]{0:T(128)} shift-right-logical(%and.22, %broadcast.215), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.198.clone.1 = u32[64]{0:T(128)} add(%shift-right-logical.87.clone.1, %shift-right-logical.86.clone.1), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  ROOT %tuple.13 = (u32[64]{0:T(128)}, u32[64]{0:T(128)}) tuple(%or.67, %add.198.clone.1)
+}
+
+%fused_computation.32 () -> u32[64] {
+  %iota.67 = u32[64]{0:T(128)} iota(), iota_dimension=0, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.165 = u32[]{:T(128)} constant(16), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %broadcast.227 = u32[64]{0:T(128)} broadcast(%constant.165), dimensions={}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %shift-right-logical.103 = u32[64]{0:T(128)} shift-right-logical(%iota.67, %broadcast.227), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.104 = u32[]{:T(128)} constant(32), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %broadcast.226 = u32[64]{0:T(128)} broadcast(%constant.104), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %multiply.76 = u32[64]{0:T(128)} multiply(%shift-right-logical.103, %broadcast.226), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %iota.66 = u32[64]{0:T(128)} iota(), iota_dimension=0, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.169 = u32[]{:T(128)} constant(65535), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %broadcast.225 = u32[64]{0:T(128)} broadcast(%constant.169), dimensions={}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %and.31 = u32[64]{0:T(128)} and(%iota.66, %broadcast.225), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %multiply.75 = u32[64]{0:T(128)} multiply(%and.31, %broadcast.226), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.102 = u32[64]{0:T(128)} shift-right-logical(%multiply.75, %broadcast.227), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.207 = u32[64]{0:T(128)} add(%multiply.76, %shift-right-logical.102), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.101 = u32[64]{0:T(128)} shift-right-logical(%add.207, %broadcast.227), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %and.30 = u32[64]{0:T(128)} and(%add.207, %broadcast.225), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %shift-right-logical.100 = u32[64]{0:T(128)} shift-right-logical(%and.30, %broadcast.227), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %add.206 = u32[64]{0:T(128)} add(%shift-right-logical.101, %shift-right-logical.100), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %constant.163 = u32[]{:T(128)} constant(1), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %broadcast.201 = u32[64]{0:T(128)} broadcast(%constant.163), dimensions={}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  ROOT %add.199 = u32[64]{0:T(128)} add(%add.206, %broadcast.201), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+}
+
+%fused_computation.33 (param_0.127: u32[2]) -> (u32[1], u32[1]) {
+  %param_0.127 = u32[2]{0:T(128)} parameter(0)
+  %slice.0 = u32[1]{0:T(128)} slice(%param_0.127), slice={[1:2]}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/slice" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %slice.1 = u32[1]{0:T(128)} slice(%param_0.127), slice={[0:1]}, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/slice" source_file="/home/ptoulme/tpu.py" source_line=83}
+  ROOT %tuple.12 = (u32[1]{0:T(128)}, u32[1]{0:T(128)}) tuple(%slice.0, %slice.1)
+}
+
+ENTRY %main.313 (Arg_0.1: u32[2]) -> f32[64,32] {
+  %constant.74 = u32[]{:T(128)} constant(466688986)
+  %Arg_0.1 = u32[2]{0:T(128)} parameter(0), metadata={op_name="key"}
+  %broadcast_add_fusion = u32[64]{0:T(128)} fusion(), kind=kLoop, calls=%fused_computation.32, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %fusion.23 = (u32[1]{0:T(128)}, u32[1]{0:T(128)}) fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation.33, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/slice" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %get-tuple-element.1 = u32[1]{0:T(128)} get-tuple-element(%fusion.23), index=1, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/slice" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %bitcast = u32[]{:T(128)} bitcast(%get-tuple-element.1), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/squeeze" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %get-tuple-element = u32[1]{0:T(128)} get-tuple-element(%fusion.23), index=0, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/slice" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %bitcast.1 = u32[]{:T(128)} bitcast(%get-tuple-element), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/squeeze" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.49 = u32[]{:T(128)} xor(%bitcast, %bitcast.1), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %xor.50 = u32[]{:T(128)} xor(%xor.49, %constant.74), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %fusion.21 = (u32[64]{0:T(128)}, u32[64]{0:T(128)}) fusion(), kind=kLoop, calls=%fused_computation.29, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"fusion_formation_source":{"fusion_creating_compiler_pass":"TpuAdvancedMOF","fusion_id":"42"}}
+  %get-tuple-element.5 = u32[64]{0:T(128)} get-tuple-element(%fusion.21), index=1, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  %get-tuple-element.4 = u32[64]{0:T(128)} get-tuple-element(%fusion.21), index=0, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=83}
+  ROOT %select_multiply_fusion = f32[64,32]{0,1:T(8,128)} fusion(%broadcast_add_fusion, %get-tuple-element.5, %get-tuple-element.4, %xor.50, %bitcast.1, /*index=5*/%bitcast), kind=kLoop, calls=%fused_computation.20, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/mul" source_file="/home/ptoulme/tpu.py" source_line=83}
+}
+

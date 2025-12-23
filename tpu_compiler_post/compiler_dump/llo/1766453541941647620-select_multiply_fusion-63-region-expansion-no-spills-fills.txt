@@ -1,0 +1,2 @@
+ordinal=0 before=610 after=615 expansion=1.0082
+ordinal=1 before=608 after=613 expansion=1.00822

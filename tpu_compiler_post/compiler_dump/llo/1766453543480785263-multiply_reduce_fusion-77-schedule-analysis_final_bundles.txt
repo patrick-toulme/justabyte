@@ -1,0 +1,6 @@
+Schedule analysis:
+	total scheduled bundles:    71
+	empty scheduled bundles:    0
+	non empty scheduled bundles: 71
+	  71.00 scheduled bundles (100.00%): %multiply_reduce_fusion = (f32[16]{0:T(128)S(1)}, f32[16,64]{1,0:T(8,128)S(1)}) fusion(%Arg_0.1, %copy-done), kind=kOutput, calls=%fused_computation.3, metadata={op_name="jit(mini_attention)/jit(main)/matmul_1/dot_general" source_file="/home/ptoulme/tpu.py" source_line=35}
+	[opcode]      71 scheduled bundles (100.00%): fusion               (1 instances,  71.00 avg)

@@ -1,0 +1,5 @@
+time,instruction_name
+0,Arg_1.2
+1,Arg_0.1
+2,copy
+3,broadcast_multiply_fusion

@@ -1,0 +1,6 @@
+Schedule analysis:
+	total scheduled bundles:    10
+	empty scheduled bundles:    1
+	non empty scheduled bundles: 9
+	   9.00 scheduled bundles (100.00%): %add_sqrt_fusion = f32[16]{0:T(128)S(1)} fusion(%get-tuple-element), kind=kLoop, calls=%fused_computation.9, metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/sqrt" source_file="/home/ptoulme/tpu.py" source_line=41}
+	[opcode]       9 scheduled bundles (100.00%): fusion               (1 instances,   9.00 avg)

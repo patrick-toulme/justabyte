@@ -1,0 +1,36 @@
+
+New basic block in region: region0 {members=64 hlo=fusion.5 parent=-1}
+  Length to end: 341, %s1 = inlined_call_operand.vmem [shape: f32[16], index: 1, kind: input, shape index: {}] /* operand 1 */
+  Length to end: 340, %v13 = vld [vmem:[%s1] ss:$0 sm:$0xff]
+  Length to end: 339, %15 = vbcast.lane.b32.xlu0 %v13, 256
+  Length to end: 335, %28 = vbcast.lane.b32.xlu0 %v25, 264
+  Length to end: 221, %v29 = vpop.permute.xlu0 %28
+  Length to end: 220, %v30 = vrcp.pop %v29
+  Length to end: 206, %v31 = vmul.f32 %v158, %v30
+  Length to end: 204, %v35 = vsel /*vm=*/%vm21, /*on_true_vy=*/%v31, /*on_false_vx=*/-inf
+  Length to end: 203, %53 = vxpose.xlu1.b32.end [2/2] (short) /*vx=*/%v35, /*width=*/128
+  Length to end: 83, %v54 = vpop.trf.xlu1
+  Length to end: 79, %v55 = vpop.trf.xlu1
+  Length to end: 75, %v56 = vpop.trf.xlu1
+  Length to end: 71, %v57 = vpop.trf.xlu1
+  Length to end: 67, %v58 = vpop.trf.xlu1
+  Length to end: 63, %v59 = vpop.trf.xlu1
+  Length to end: 59, %v60 = vpop.trf.xlu1
+  Length to end: 55, %v61 = vpop.trf.xlu1
+  Length to end: 51, %v62 = vpop.trf.xlu1
+  Length to end: 47, %v63 = vpop.trf.xlu1
+  Length to end: 43, %v64 = vpop.trf.xlu1
+  Length to end: 39, %v65 = vpop.trf.xlu1
+  Length to end: 35, %v66 = vpop.trf.xlu1
+  Length to end: 31, %v67 = vpop.trf.xlu1
+  Length to end: 27, %v68 = vpop.trf.xlu1
+  Length to end: 24, %v128 = vmax.f32 %v124, %v68
+  Length to end: 22, %v132 = vmax.f32 %v128, %v69
+  Length to end: 20, %v134 = vrot.slane %v132, 4
+  Length to end: 18, %v137 = vmax.f32 %v132, %v134
+  Length to end: 16, %v139 = vrot.slane %v137, 2
+  Length to end: 14, %v142 = vmax.f32 %v137, %v139
+  Length to end: 12, %v144 = vrot.slane %v142, 1
+  Length to end: 10, %v147 = vmax.f32 %v142, %v144
+  Length to end: 8, %149 = vst [vmem:[#allocation0] sm:$0x1] /*vst_source=*/%v147
+  Length to end: 1, %v154 = vld [vmem:[#allocation0] sm:$0x1]

@@ -1,0 +1,212 @@
+
+%s180 = sld [smem:[#allocation15]]
+%s181 = sand.u32 134217727, %s180
+%s182 = sor.u32 4026531840, %s181
+
+%183 = vtrace %s182
+
+%s174 = sld [smem:[#allocation12]]
+
+%175 = vtrace %s174
+
+%s176 = sld [smem:[#allocation13]]
+
+%177 = vtrace %s176
+
+%s178 = sld [smem:[#allocation14]]
+
+%179 = vtrace %s178
+
+%v161 = vlaneseq
+%v162 = vshrl.u32 %v161, 7
+%v163 = vshrl.u32 %v162, 1
+%v164 = vand.u32 1, %v162
+%v165 = vshll.u32 %v164, 2
+%v166 = vadd.s32 %v165, %v163
+%v172 = vsub.s32 %v163, %v162
+%v167 = vsub.s32 %v166, %v162
+%168 = vsetiar.raw.iar0 %v167 /* EvenOdd Store IAR initialization */
+%173 = vsetiar.raw.iar1 %v172 /* EvenOdd Load IAR initialization */
+%s41 = sld [smem:[#allocation9]]
+
+%p184 = scmp.eq.s32.totalorder %s41, 0
+
+%45 = sbr.rel (%p184) target = $region27
+
+%v50 = vand.u32 127, %v161
+%s58 = sxor.u32 2925155241, %s41
+%v54 = vxor.u32 1135663077, %v50
+%s59 = smul.u32 2223506493, %s58
+%v55 = vmul.u32 2925155241, %v54
+%v56 = vshrl.u32 %v55, 16
+%s60 = sshrl.u32 %s59, 16
+%v57 = vxor.u32 %v56, %v55
+%s61 = sxor.u32 %s60, %s59
+%v62 = vxor.u32 2223506493, %v57
+%v63 = vmul.u32 1519409121, %v62
+%s66 = smul.u32 3389127133, %s61
+%v64 = vshrl.u32 %v63, 16
+%v65 = vxor.u32 %v64, %v63
+%v68 = vstv %s66
+%v67 = vmul.u32 1232336661, %v65
+%v69 = vsub.s32 %v68, %v67
+%v70 = vshrl.u32 %v69, 16
+%v71 = vxor.u32 %v70, %v69
+%v72 = vxor.u32 1519409121, %v71
+%v73 = vmul.u32 2449846741, %v72
+%v74 = vshrl.u32 %v73, 16
+%v75 = vxor.u32 %v74, %v73
+%v76 = vmul.u32 3389127133, %v57
+%v77 = vmul.u32 1232336661, %v75
+%v78 = vsub.s32 %v76, %v77
+%v79 = vshrl.u32 %v78, 16
+%v80 = vxor.u32 %v79, %v78
+%v85 = vxor.u32 2925155241, %v71
+%v81 = vxor.u32 1135663077, %v80
+%v82 = vmul.u32 2925155241, %v81
+%v86 = vmul.u32 2223506493, %v85
+%v83 = vshrl.u32 %v82, 16
+%v84 = vxor.u32 %v83, %v82
+%v87 = vshrl.u32 %v86, 16
+%v89 = vxor.u32 2223506493, %v84
+%v88 = vxor.u32 %v87, %v86
+%v90 = vmul.u32 1519409121, %v89
+%v91 = vshrl.u32 %v90, 16
+%v92 = vxor.u32 %v91, %v90
+%v93 = vmul.u32 3389127133, %v88
+%v94 = vmul.u32 1232336661, %v92
+%v95 = vsub.s32 %v93, %v94
+%v96 = vshrl.u32 %v95, 16
+%v97 = vxor.u32 %v96, %v95
+%v98 = vxor.u32 1519409121, %v97
+%v99 = vmul.u32 2449846741, %v98
+%v100 = vshrl.u32 %v99, 16
+%v101 = vxor.u32 %v100, %v99
+%v102 = vmul.u32 3389127133, %v84
+%v115 = vxor.u32 1179257497, %v97
+%v103 = vmul.u32 1232336661, %v101
+%v104 = vsub.s32 %v102, %v103
+%v116 = vmul.u32 2174555301, %v115
+%v131 = vxor.u32 3546938817, %v97
+%v105 = vshrl.u32 %v104, 16
+%v119 = vxor.u32 461070425, %v97
+%v135 = vxor.u32 728804945, %v97
+%v106 = vxor.u32 %v105, %v104
+%v117 = vshrl.u32 %v116, 16
+%v132 = vmul.u32 1343633581, %v131
+%v107 = vxor.u32 2337405405, %v106
+%v111 = vxor.u32 747796405, %v106
+%v123 = vxor.u32 2174555301, %v106
+%v120 = vmul.u32 702470093, %v119
+%v127 = vxor.u32 702470093, %v106
+%v136 = vmul.u32 1920080165, %v135
+%v108 = vmul.u32 1179257497, %v107
+%v112 = vmul.u32 461070425, %v111
+%v124 = vmul.u32 3546938817, %v123
+%v128 = vmul.u32 728804945, %v127
+%v109 = vshrl.u32 %v108, 16
+%v118 = vxor.u32 %v117, %v116
+%v133 = vshrl.u32 %v132, 16
+%v125 = vshrl.u32 %v124, 16
+%v110 = vxor.u32 %v109, %v108
+%v121 = vshrl.u32 %v120, 16
+%v113 = vshrl.u32 %v112, 16
+%v126 = vxor.u32 %v125, %v124
+%v129 = vshrl.u32 %v128, 16
+%v137 = vshrl.u32 %v136, 16
+%v134 = vxor.u32 %v133, %v132
+%v139 = vor.u32 %v118, %v110
+%v140 = vor.u32 %v139, %v126
+%v114 = vxor.u32 %v113, %v112
+%v122 = vxor.u32 %v121, %v120
+%v130 = vxor.u32 %v129, %v128
+%v138 = vxor.u32 %v137, %v136
+%v141 = vor.u32 %v140, %v134
+%vm185 = vcmp.eq.s32.totalorder %v162, 1
+%vm142 = vcmp.eq.s32.totalorder %v141, 0
+%vm186 = vcmp.eq.s32.totalorder %v162, 2
+%vm187 = vcmp.eq.s32.totalorder %v162, 3
+%v152 = vsel /*vm=*/%vm142, /*on_true_vy=*/%v114, /*on_false_vx=*/%v110
+%v153 = vsel /*vm=*/%vm142, /*on_true_vy=*/%v122, /*on_false_vx=*/%v118
+%v155 = vsel /*vm=*/%vm142, /*on_true_vy=*/%v130, /*on_false_vx=*/%v126
+%v157 = vsel /*vm=*/%vm142, /*on_true_vy=*/%v138, /*on_false_vx=*/%v134
+%v154 = vsel /*vm=*/%vm185, /*on_true_vy=*/%v153, /*on_false_vx=*/%v152
+%v156 = vsel /*vm=*/%vm186, /*on_true_vy=*/%v155, /*on_false_vx=*/%v154
+%v158 = vsel /*vm=*/%vm187, /*on_true_vy=*/%v157, /*on_false_vx=*/%v156
+%159 = setrngseed %v158 /* Rng seed initialization */
+%v160 = vrng /* Rng seed initialization */
+
+%36 = vsettm 1
+
+%s191 = smov 2147483646 /* materialized constant */
+
+%35 = vsettm %s191
+
+%33 = vtrace 2415919103
+
+%0 = vtrace 2952790016
+
+%1 = vtrace 3221225472
+
+%s2 = sld [smem:[#allocation0]]
+
+%p188 = scmp.ne.s32.totalorder %s2, 1
+
+%6 = sbr.rel (%p188) target = $region4
+
+%s7 = sld [smem:[#allocation2]]
+%s8 = int_to_ptr.hbm [resolvable:$false] %s7
+
+%s9 = scalar_parameter_address 0
+
+%s10 = scalar_parameter_address 1
+
+%11 = compiler-scheduling-barrier
+
+%13 = compiler-scheduling-barrier
+
+%14 = compiler-scheduling-barrier
+
+%16 = compiler-scheduling-barrier
+
+%17 = compiler-scheduling-barrier
+
+%18 = vsyncpa [#allocation7], 0
+%s192 = smov [#allocation6] /* materialized constant */
+%s19 = sshll.u32 %s192, 4
+%s20 = int_to_ptr.vmem [resolvable:$true] %s19
+%22 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s10, /*size_in_granules=*/1, /*vmem=*/%s20, /*dst_syncflagno=*/[#allocation7]
+
+%23 = dma.done [#allocation7], 1 /* local-dma-wait */
+
+%24 = vsyncpa [#allocation7], 1
+
+%v25 = vld [vmem:[#allocation6] sm:$0xff]
+
+%189 = vpush %v25
+%s190 = spop %189
+
+%27 = compiler-scheduling-barrier
+
+%31 = vtrace 2147483648
+
+%28 = compiler-scheduling-barrier
+
+%29 = inlined_call %s9, %s190, %s8 /* %broadcast_multiply_fusion = fusion(%Arg_0.1, %copy) */
+
+%30 = compiler-scheduling-barrier
+
+%32 = vtrace 2415919104
+
+%34 = vtrace 2684354559
+
+%s193 = smov 2147483647 /* materialized constant */
+
+%37 = vsettm %s193
+
+%38 = vdelay 1
+
+%39 = sfence
+
+%s194 = smov 0 /* materialized constant */
+%40 = sst [smem:[#allocation8]] %s194

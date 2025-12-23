@@ -1,0 +1,10 @@
+
+New basic block in region: region0 {members=13 hlo=add_sqrt_fusion parent=-1}
+  Length to end: 24, %s0 = inlined_call_operand.vmem [shape: f32[16], index: 0, kind: input, shape index: {}] /* operand 0 */
+  Length to end: 23, %v2 = vld [vmem:[%s0] sm:$0x1]
+  Length to end: 22, %v5 = vmul.f32 0.015625, %v2
+  Length to end: 20, %v9 = vadd.f32 1e-06, %v5
+  Length to end: 18, %v11 = vrsqrt.pop %v9
+  Length to end: 4, %v12 = vmul.f32 %v11, %v9
+  Length to end: 2, %v14 = vsel /*vm=*/%vm13, /*on_true_vy=*/%v9, /*on_false_vx=*/%v12
+  Length to end: 1, %v17 = vsel /*vm=*/%vm15, /*on_true_vy=*/%v16, /*on_false_vx=*/%v14

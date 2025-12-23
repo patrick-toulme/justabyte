@@ -1,0 +1,26 @@
+= control target key start
+LH: loop header
+LB: loop body
+LE: loop exit
+PB: predicated region body
+PF: predicated region fallthrough
+CT: control target
+= control target key end
+
+     0   :  { %v3 = vlaneseq  ;;  %s0 = inlined_call_operand.vmem [shape: u32[64], index: 0, kind: output, shape index: {0}] /* operand 0 */  ;;  %s1 = inlined_call_operand.vmem [shape: u32[64], index: 1, kind: output, shape index: {1}] /* operand 1 */ } /* Start region 0 */
+   0x1   :  {}
+   0x2   :  { %v6 = vand.u32 65535, %v3  ;;  %v15 = vshrl.u32 %v3, 16 }
+   0x3   :  {}
+   0x4   :  { %v9 = vmul.u32 32, %v6  ;;  %v18 = vmul.u32 32, %v15 }
+   0x5   :  {}
+   0x6   :  { %v20 = vshrl.u32 %v9, 16  ;;  %v11 = vand.u32 65535, %v9 }
+   0x7   :  {}
+   0x8   :  { %v23 = vadd.s32 %v20, %v18 }
+   0x9   :  {}
+   0xa   :  { %v25 = vand.u32 65535, %v23  ;;  %v28 = vshrl.u32 %v23, 16 }
+   0xb   :  {}
+   0xc   :  { %v26 = vshll.u32 %v25, 16  ;;  %v29 = vshrl.u32 %v25, 16 }
+   0xd   :  {}
+   0xe   :  { %v27 = vor.u32 %v26, %v11  ;;  %v32 = vadd.s32 %v29, %v28 }
+   0xf   :  {}
+  0x10   :  { %35 = vst [vmem:[%s0] sm:$0x1] /*vst_source=*/%v27  ;;  %36 = vst [vmem:[%s1] sm:$0x1] /*vst_source=*/%v32 } /* End region 0 */

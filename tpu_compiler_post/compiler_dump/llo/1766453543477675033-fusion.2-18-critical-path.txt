@@ -1,0 +1,39 @@
+
+New basic block in region: region0 {members=77 hlo=fusion.2 parent=-1}
+  Length to end: 359, %s2 = inlined_call_operand.vmem [shape: f32[16], index: 2, kind: input, shape index: {}] /* operand 2 */
+  Length to end: 358, %v20 = vld [vmem:[%s2] ss:$0 sm:$0xff]
+  Length to end: 357, %22 = vbcast.lane.b32.xlu0 %v20, 256
+  Length to end: 353, %46 = vbcast.lane.b32.xlu0 %v43, 264
+  Length to end: 239, %v47 = vpop.permute.xlu0 %46
+  Length to end: 238, %v48 = vrcp.pop %v47
+  Length to end: 224, %v49 = vmul.f32 %v182, %v48
+  Length to end: 222, %v52 = vsub.f32 %v49, %v40
+  Length to end: 220, %v54 = vmul.f32 1.442695, %v52
+  Length to end: 218, %v55 = vpow.pop %v54
+  Length to end: 204, %v59 = vsel /*vm=*/%vm34, /*on_true_vy=*/%v55, /*on_false_vx=*/0.0
+  Length to end: 203, %77 = vxpose.xlu0.b32.end [2/2] (short) /*vx=*/%v59, /*width=*/128
+  Length to end: 83, %v78 = vpop.trf.xlu0
+  Length to end: 79, %v79 = vpop.trf.xlu0
+  Length to end: 75, %v80 = vpop.trf.xlu0
+  Length to end: 71, %v81 = vpop.trf.xlu0
+  Length to end: 67, %v82 = vpop.trf.xlu0
+  Length to end: 63, %v83 = vpop.trf.xlu0
+  Length to end: 59, %v84 = vpop.trf.xlu0
+  Length to end: 55, %v85 = vpop.trf.xlu0
+  Length to end: 51, %v86 = vpop.trf.xlu0
+  Length to end: 47, %v87 = vpop.trf.xlu0
+  Length to end: 43, %v88 = vpop.trf.xlu0
+  Length to end: 39, %v89 = vpop.trf.xlu0
+  Length to end: 35, %v90 = vpop.trf.xlu0
+  Length to end: 31, %v91 = vpop.trf.xlu0
+  Length to end: 27, %v92 = vpop.trf.xlu0
+  Length to end: 24, %v152 = vadd.f32 %v148, %v92
+  Length to end: 22, %v156 = vadd.f32 %v152, %v93
+  Length to end: 20, %v158 = vrot.slane %v156, 4
+  Length to end: 18, %v161 = vadd.f32 %v158, %v156
+  Length to end: 16, %v163 = vrot.slane %v161, 2
+  Length to end: 14, %v166 = vadd.f32 %v163, %v161
+  Length to end: 12, %v168 = vrot.slane %v166, 1
+  Length to end: 10, %v171 = vadd.f32 %v168, %v166
+  Length to end: 8, %173 = vst [vmem:[#allocation0] sm:$0x1] /*vst_source=*/%v171
+  Length to end: 1, %v178 = vld [vmem:[#allocation0] sm:$0x1]

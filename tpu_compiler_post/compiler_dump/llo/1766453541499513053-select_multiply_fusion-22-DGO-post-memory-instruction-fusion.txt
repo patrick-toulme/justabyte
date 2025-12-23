@@ -1,0 +1,419 @@
+
+%s0 = inlined_call_operand.vmem [shape: u32[16], index: 0, kind: input, shape index: {}] /* operand 0 */
+%s1 = inlined_call_operand.vmem [shape: u32[16], index: 1, kind: input, shape index: {}] /* operand 1 */
+%s2 = inlined_call_operand.vmem [shape: u32[16], index: 2, kind: input, shape index: {}] /* operand 2 */
+%s3 = inlined_call_operand.<no memory space> [shape: u32[], index: 3, kind: input, shape index: {}] /* operand 3 */
+%s4 = inlined_call_operand.<no memory space> [shape: u32[], index: 4, kind: input, shape index: {}] /* operand 4 */
+%s5 = inlined_call_operand.<no memory space> [shape: u32[], index: 5, kind: input, shape index: {}] /* operand 5 */
+%s6 = inlined_call_operand.hbm [shape: f32[16,64], index: 6, kind: output, shape index: {}] /* operand 6 */
+%v7 = vstv %s3
+%v8 = vstv %s4
+%v9 = vstv %s5
+
+%v25 = vld [vmem:[%s2] ss:$0 sm:$0xff]
+%27 = vbcast.lane.b32.xlu0 %v25, 256
+%v17 = vld [vmem:[%s0] ss:$0 sm:$0xff]
+%19 = vbcast.lane.b32.xlu1 %v17, 256
+%470 = vbcast.lane.b32.xlu0 %v25, 264
+%v21 = vld [vmem:[%s1] ss:$0 sm:$0xff]
+%23 = vbcast.lane.b32.xlu1 %v21, 256
+%460 = vbcast.lane.b32.xlu0 %v17, 264
+%465 = vbcast.lane.b32.xlu1 %v21, 264
+%v29 = vlaneseq
+%v30 = vand.u32 127, %v29
+%v28 = vpop.permute.xlu0 %27
+%v35 = vadd.s32 %v30, %v28
+%vm39 = vcmp.lt.u32.totalorder %v35, %v28
+%v53 = vadd.s32 %v35, %v8
+%v59 = vshll.u32 %v53, 13
+%v60 = vshrl.u32 %v53, 19
+%v61 = vor.u32 %v60, %v59
+%v20 = vpop.permute.xlu1 %19
+%v471 = vpop.permute.xlu0 %470
+%v478 = vadd.s32 %v471, %v30
+%vm482 = vcmp.lt.u32.totalorder %v478, %v471
+%v496 = vadd.s32 %v478, %v8
+%v502 = vshll.u32 %v496, 13
+%v503 = vshrl.u32 %v496, 19
+%v24 = vpop.permute.xlu1 %23
+%v44 = vsel /*vm=*/%vm39, /*on_true_vy=*/%v20, /*on_false_vx=*/%v24
+%v504 = vor.u32 %v503, %v502
+%v461 = vpop.permute.xlu0 %460
+%v49 = vadd.s32 %v44, %v9
+%v466 = vpop.permute.xlu1 %465
+%v57 = vadd.s32 %v53, %v49
+%v487 = vsel /*vm=*/%vm482, /*on_true_vy=*/%v461, /*on_false_vx=*/%v466
+%10 = vsyncpa [#allocation2], 0
+%v62 = vxor.u32 %v61, %v57
+%v65 = vadd.s32 %v62, %v57
+%v67 = vshll.u32 %v62, 15
+%v68 = vshrl.u32 %v62, 17
+%v69 = vor.u32 %v68, %v67
+%v70 = vxor.u32 %v69, %v65
+%v73 = vadd.s32 %v70, %v65
+%v75 = vshll.u32 %v70, 26
+%v76 = vshrl.u32 %v70, 6
+%v77 = vor.u32 %v76, %v75
+%v78 = vxor.u32 %v77, %v73
+%v81 = vadd.s32 %v78, %v73
+%v85 = vadd.s32 %v81, %v8
+%v87 = vshll.u32 %v78, 6
+%v88 = vshrl.u32 %v78, 26
+%v89 = vor.u32 %v88, %v87
+%v90 = vxor.u32 %v89, %v81
+%v93 = vadd.s32 %v90, %v7
+%v97 = vadd.s32 1, %v93
+%v101 = vadd.s32 %v97, %v85
+%v103 = vshll.u32 %v97, 17
+%v104 = vshrl.u32 %v97, 15
+%v105 = vor.u32 %v104, %v103
+%v106 = vxor.u32 %v105, %v101
+%v109 = vadd.s32 %v106, %v101
+%v111 = vshll.u32 %v106, 29
+%v112 = vshrl.u32 %v106, 3
+%v113 = vor.u32 %v112, %v111
+%v114 = vxor.u32 %v113, %v109
+%v117 = vadd.s32 %v114, %v109
+%v119 = vshll.u32 %v114, 16
+%v120 = vshrl.u32 %v114, 16
+%v121 = vor.u32 %v120, %v119
+%v122 = vxor.u32 %v121, %v117
+%v125 = vadd.s32 %v122, %v117
+%v129 = vadd.s32 %v125, %v7
+%v131 = vshll.u32 %v122, 24
+%v132 = vshrl.u32 %v122, 8
+%v133 = vor.u32 %v132, %v131
+%v134 = vxor.u32 %v133, %v125
+%v137 = vadd.s32 %v134, %v9
+%v141 = vadd.s32 2, %v137
+%v145 = vadd.s32 %v141, %v129
+%v147 = vshll.u32 %v141, 13
+%v148 = vshrl.u32 %v141, 19
+%v149 = vor.u32 %v148, %v147
+%v150 = vxor.u32 %v149, %v145
+%v153 = vadd.s32 %v150, %v145
+%v155 = vshll.u32 %v150, 15
+%v156 = vshrl.u32 %v150, 17
+%v157 = vor.u32 %v156, %v155
+%v158 = vxor.u32 %v157, %v153
+%v161 = vadd.s32 %v158, %v153
+%v163 = vshll.u32 %v158, 26
+%v164 = vshrl.u32 %v158, 6
+%v165 = vor.u32 %v164, %v163
+%v166 = vxor.u32 %v165, %v161
+%v169 = vadd.s32 %v166, %v161
+%v173 = vadd.s32 %v169, %v9
+%v175 = vshll.u32 %v166, 6
+%v176 = vshrl.u32 %v166, 26
+%v177 = vor.u32 %v176, %v175
+%v178 = vxor.u32 %v177, %v169
+%v181 = vadd.s32 %v178, %v8
+%v185 = vadd.s32 3, %v181
+%v189 = vadd.s32 %v185, %v173
+%v191 = vshll.u32 %v185, 17
+%v192 = vshrl.u32 %v185, 15
+%v193 = vor.u32 %v192, %v191
+%v194 = vxor.u32 %v193, %v189
+%v197 = vadd.s32 %v194, %v189
+%v199 = vshll.u32 %v194, 29
+%v200 = vshrl.u32 %v194, 3
+%v201 = vor.u32 %v200, %v199
+%v202 = vxor.u32 %v201, %v197
+%v205 = vadd.s32 %v202, %v197
+%v207 = vshll.u32 %v202, 16
+%v208 = vshrl.u32 %v202, 16
+%v209 = vor.u32 %v208, %v207
+%v210 = vxor.u32 %v209, %v205
+%v213 = vadd.s32 %v210, %v205
+%v217 = vadd.s32 %v213, %v8
+%v219 = vshll.u32 %v210, 24
+%v220 = vshrl.u32 %v210, 8
+%v221 = vor.u32 %v220, %v219
+%v222 = vxor.u32 %v221, %v213
+%v225 = vadd.s32 %v222, %v7
+%v229 = vadd.s32 4, %v225
+%v233 = vadd.s32 %v229, %v217
+%v235 = vshll.u32 %v229, 13
+%v236 = vshrl.u32 %v229, 19
+%v237 = vor.u32 %v236, %v235
+%v238 = vxor.u32 %v237, %v233
+%v241 = vadd.s32 %v238, %v233
+%v243 = vshll.u32 %v238, 15
+%v244 = vshrl.u32 %v238, 17
+%v245 = vor.u32 %v244, %v243
+%v246 = vxor.u32 %v245, %v241
+%v249 = vadd.s32 %v246, %v241
+%v251 = vshll.u32 %v246, 26
+%v252 = vshrl.u32 %v246, 6
+%v253 = vor.u32 %v252, %v251
+%v254 = vxor.u32 %v253, %v249
+%v257 = vadd.s32 %v254, %v249
+%v261 = vadd.s32 %v257, %v7
+%v263 = vshll.u32 %v254, 6
+%v264 = vshrl.u32 %v254, 26
+%v265 = vor.u32 %v264, %v263
+%v266 = vxor.u32 %v265, %v257
+%v269 = vadd.s32 %v266, %v9
+%v273 = vadd.s32 5, %v269
+%v275 = vxor.u32 %v273, %v261
+%v276 = vshrl.u32 %v275, 9
+%v277 = vor.u32 1065353216, %v276
+%v281 = vadd.f32 -1.0, %v277
+%v285 = vmul.f32 2.0, %v281
+%v289 = vadd.f32 -0.99999994, %v285
+%v293 = vmax.f32 %v289, -0.99999994
+%v295 = vand.u32 2147483647, %v293
+%vm298 = vcmp.eq.f32.partialorder %v295, 1.0
+%v303 = vmul.f32 inf, %v293
+%v305 = vxor.u32 2147483648, %v293
+%v308 = vmul.f32 %v305, %v293
+%v310 = vadd.f32 1.0, %v308
+%v311 = vlog2.pop %v310
+%v312 = vmul.f32 0.6931472, %v311
+%v313 = vmul.f32 -0.5, %v308
+%v314 = vadd.f32 1.0, %v313
+%v315 = vmul.f32 %v314, %v308
+%v316 = vand.u32 2147483647, %v308
+%vm317 = vcmp.lt.f32.partialorder %v316, 0.0004427343
+%v318 = vsel /*vm=*/%vm317, /*on_true_vy=*/%v315, /*on_false_vx=*/%v312
+%v319 = vxor.u32 2147483648, %v318
+%vm322 = vcmp.lt.f32.partialorder %v319, 5.0
+%v911 = vmov 2.8329768 /* materialized constant */
+%v327 = vsel /*vm=*/%vm322, /*on_true_vy=*/1.5014094, /*on_false_vx=*/%v911
+%v912 = vmov 1.001674 /* materialized constant */
+%v331 = vsel /*vm=*/%vm322, /*on_true_vy=*/0.24664073, /*on_false_vx=*/%v912
+%v913 = vmov 0.0094388705 /* materialized constant */
+%v335 = vsel /*vm=*/%vm322, /*on_true_vy=*/-0.0041776816, /*on_false_vx=*/%v913
+%v914 = vmov -0.0076224613 /* materialized constant */
+%v339 = vsel /*vm=*/%vm322, /*on_true_vy=*/-0.001253725, /*on_false_vx=*/%v914
+%v915 = vmov 0.0057395077 /* materialized constant */
+%v343 = vsel /*vm=*/%vm322, /*on_true_vy=*/0.00021858087, /*on_false_vx=*/%v915
+%v916 = vmov -0.0036734284 /* materialized constant */
+%v347 = vsel /*vm=*/%vm322, /*on_true_vy=*/-4.3915065e-06, /*on_false_vx=*/%v916
+%v917 = vmov 0.0013493432 /* materialized constant */
+%v351 = vsel /*vm=*/%vm322, /*on_true_vy=*/-3.5233877e-06, /*on_false_vx=*/%v917
+%v918 = vmov 0.00010095056 /* materialized constant */
+%v355 = vsel /*vm=*/%vm322, /*on_true_vy=*/3.4327394e-07, /*on_false_vx=*/%v918
+%v919 = vmov -0.00020021426 /* materialized constant */
+%v359 = vsel /*vm=*/%vm322, /*on_true_vy=*/2.8102264e-08, /*on_false_vx=*/%v919
+%v363 = vadd.f32 -2.5, %v319
+%v365 = vrsqrt.pop %v319
+%v366 = vmul.f32 %v365, %v319
+%vm367 = vcmp.eq.f32.partialorder %v319, inf
+%v368 = vsel /*vm=*/%vm367, /*on_true_vy=*/%v319, /*on_false_vx=*/%v366
+%vm369 = vcmp.eq.f32.partialorder %v319, 0.0
+%v370 = vand.u32 2147483648, %v319
+%v371 = vsel /*vm=*/%vm369, /*on_true_vy=*/%v370, /*on_false_vx=*/%v368
+%v374 = vadd.f32 -3.0, %v371
+%v378 = vsel /*vm=*/%vm322, /*on_true_vy=*/%v363, /*on_false_vx=*/%v374
+%v382 = vmul.f32 %v378, %v359
+%v386 = vadd.f32 %v382, %v355
+%v390 = vmul.f32 %v386, %v378
+%v394 = vadd.f32 %v390, %v351
+%v398 = vmul.f32 %v394, %v378
+%v402 = vadd.f32 %v398, %v347
+%v406 = vmul.f32 %v402, %v378
+%v410 = vadd.f32 %v406, %v343
+%v414 = vmul.f32 %v410, %v378
+%v418 = vadd.f32 %v414, %v339
+%v422 = vmul.f32 %v418, %v378
+%v426 = vadd.f32 %v422, %v335
+%v430 = vmul.f32 %v426, %v378
+%v434 = vadd.f32 %v430, %v331
+%v438 = vmul.f32 %v434, %v378
+%v442 = vadd.f32 %v438, %v327
+%v446 = vmul.f32 %v442, %v293
+%v450 = vsel /*vm=*/%vm298, /*on_true_vy=*/%v303, /*on_false_vx=*/%v446
+%v454 = vmul.f32 1.4142135, %v450
+%456 = vst [vmem:[#allocation0] sm:$0xff] /*vst_source=*/%v454
+%v492 = vadd.s32 %v487, %v9
+%v500 = vadd.s32 %v496, %v492
+%v505 = vxor.u32 %v504, %v500
+%v508 = vadd.s32 %v505, %v500
+%v510 = vshll.u32 %v505, 15
+%v511 = vshrl.u32 %v505, 17
+%v512 = vor.u32 %v511, %v510
+%v513 = vxor.u32 %v512, %v508
+%v516 = vadd.s32 %v513, %v508
+%v518 = vshll.u32 %v513, 26
+%v519 = vshrl.u32 %v513, 6
+%v520 = vor.u32 %v519, %v518
+%v521 = vxor.u32 %v520, %v516
+%v524 = vadd.s32 %v521, %v516
+%v528 = vadd.s32 %v524, %v8
+%v530 = vshll.u32 %v521, 6
+%v531 = vshrl.u32 %v521, 26
+%v532 = vor.u32 %v531, %v530
+%v533 = vxor.u32 %v532, %v524
+%v536 = vadd.s32 %v533, %v7
+%v540 = vadd.s32 1, %v536
+%v544 = vadd.s32 %v540, %v528
+%v546 = vshll.u32 %v540, 17
+%v547 = vshrl.u32 %v540, 15
+%v548 = vor.u32 %v547, %v546
+%v549 = vxor.u32 %v548, %v544
+%v552 = vadd.s32 %v549, %v544
+%v554 = vshll.u32 %v549, 29
+%v555 = vshrl.u32 %v549, 3
+%v556 = vor.u32 %v555, %v554
+%v557 = vxor.u32 %v556, %v552
+%v560 = vadd.s32 %v557, %v552
+%v562 = vshll.u32 %v557, 16
+%v563 = vshrl.u32 %v557, 16
+%v564 = vor.u32 %v563, %v562
+%v565 = vxor.u32 %v564, %v560
+%v568 = vadd.s32 %v565, %v560
+%v572 = vadd.s32 %v568, %v7
+%v574 = vshll.u32 %v565, 24
+%v575 = vshrl.u32 %v565, 8
+%v576 = vor.u32 %v575, %v574
+%v577 = vxor.u32 %v576, %v568
+%v580 = vadd.s32 %v577, %v9
+%v584 = vadd.s32 2, %v580
+%v588 = vadd.s32 %v584, %v572
+%v590 = vshll.u32 %v584, 13
+%v591 = vshrl.u32 %v584, 19
+%v592 = vor.u32 %v591, %v590
+%v593 = vxor.u32 %v592, %v588
+%v596 = vadd.s32 %v593, %v588
+%v598 = vshll.u32 %v593, 15
+%v599 = vshrl.u32 %v593, 17
+%v600 = vor.u32 %v599, %v598
+%v601 = vxor.u32 %v600, %v596
+%v604 = vadd.s32 %v601, %v596
+%v606 = vshll.u32 %v601, 26
+%v607 = vshrl.u32 %v601, 6
+%v608 = vor.u32 %v607, %v606
+%v609 = vxor.u32 %v608, %v604
+%v612 = vadd.s32 %v609, %v604
+%v616 = vadd.s32 %v612, %v9
+%v618 = vshll.u32 %v609, 6
+%v619 = vshrl.u32 %v609, 26
+%v620 = vor.u32 %v619, %v618
+%v621 = vxor.u32 %v620, %v612
+%v624 = vadd.s32 %v621, %v8
+%v628 = vadd.s32 3, %v624
+%v632 = vadd.s32 %v628, %v616
+%v634 = vshll.u32 %v628, 17
+%v635 = vshrl.u32 %v628, 15
+%v636 = vor.u32 %v635, %v634
+%v637 = vxor.u32 %v636, %v632
+%v640 = vadd.s32 %v637, %v632
+%v642 = vshll.u32 %v637, 29
+%v643 = vshrl.u32 %v637, 3
+%v644 = vor.u32 %v643, %v642
+%v645 = vxor.u32 %v644, %v640
+%v648 = vadd.s32 %v645, %v640
+%v650 = vshll.u32 %v645, 16
+%v651 = vshrl.u32 %v645, 16
+%v652 = vor.u32 %v651, %v650
+%v653 = vxor.u32 %v652, %v648
+%v656 = vadd.s32 %v653, %v648
+%v660 = vadd.s32 %v656, %v8
+%v662 = vshll.u32 %v653, 24
+%v663 = vshrl.u32 %v653, 8
+%v664 = vor.u32 %v663, %v662
+%v665 = vxor.u32 %v664, %v656
+%v668 = vadd.s32 %v665, %v7
+%v672 = vadd.s32 4, %v668
+%v676 = vadd.s32 %v672, %v660
+%v678 = vshll.u32 %v672, 13
+%v679 = vshrl.u32 %v672, 19
+%v680 = vor.u32 %v679, %v678
+%v681 = vxor.u32 %v680, %v676
+%v684 = vadd.s32 %v681, %v676
+%v686 = vshll.u32 %v681, 15
+%v687 = vshrl.u32 %v681, 17
+%v688 = vor.u32 %v687, %v686
+%v689 = vxor.u32 %v688, %v684
+%v692 = vadd.s32 %v689, %v684
+%v694 = vshll.u32 %v689, 26
+%v695 = vshrl.u32 %v689, 6
+%v696 = vor.u32 %v695, %v694
+%v697 = vxor.u32 %v696, %v692
+%v700 = vadd.s32 %v697, %v692
+%v704 = vadd.s32 %v700, %v7
+%v706 = vshll.u32 %v697, 6
+%v707 = vshrl.u32 %v697, 26
+%v708 = vor.u32 %v707, %v706
+%v709 = vxor.u32 %v708, %v700
+%v712 = vadd.s32 %v709, %v9
+%v716 = vadd.s32 5, %v712
+%v718 = vxor.u32 %v716, %v704
+%v719 = vshrl.u32 %v718, 9
+%v720 = vor.u32 1065353216, %v719
+%v724 = vadd.f32 -1.0, %v720
+%v728 = vmul.f32 2.0, %v724
+%v732 = vadd.f32 -0.99999994, %v728
+%v736 = vmax.f32 %v732, -0.99999994
+%v738 = vand.u32 2147483647, %v736
+%vm741 = vcmp.eq.f32.partialorder %v738, 1.0
+%v746 = vmul.f32 inf, %v736
+%v748 = vxor.u32 2147483648, %v736
+%v751 = vmul.f32 %v748, %v736
+%v753 = vadd.f32 1.0, %v751
+%v754 = vlog2.pop %v753
+%v755 = vmul.f32 0.6931472, %v754
+%v756 = vmul.f32 -0.5, %v751
+%v757 = vadd.f32 1.0, %v756
+%v758 = vmul.f32 %v757, %v751
+%v759 = vand.u32 2147483647, %v751
+%vm760 = vcmp.lt.f32.partialorder %v759, 0.0004427343
+%v761 = vsel /*vm=*/%vm760, /*on_true_vy=*/%v758, /*on_false_vx=*/%v755
+%v762 = vxor.u32 2147483648, %v761
+%vm765 = vcmp.lt.f32.partialorder %v762, 5.0
+%v770 = vsel /*vm=*/%vm765, /*on_true_vy=*/1.5014094, /*on_false_vx=*/%v911
+%v774 = vsel /*vm=*/%vm765, /*on_true_vy=*/0.24664073, /*on_false_vx=*/%v912
+%v778 = vsel /*vm=*/%vm765, /*on_true_vy=*/-0.0041776816, /*on_false_vx=*/%v913
+%v782 = vsel /*vm=*/%vm765, /*on_true_vy=*/-0.001253725, /*on_false_vx=*/%v914
+%v786 = vsel /*vm=*/%vm765, /*on_true_vy=*/0.00021858087, /*on_false_vx=*/%v915
+%v790 = vsel /*vm=*/%vm765, /*on_true_vy=*/-4.3915065e-06, /*on_false_vx=*/%v916
+%v794 = vsel /*vm=*/%vm765, /*on_true_vy=*/-3.5233877e-06, /*on_false_vx=*/%v917
+%v798 = vsel /*vm=*/%vm765, /*on_true_vy=*/3.4327394e-07, /*on_false_vx=*/%v918
+%v802 = vsel /*vm=*/%vm765, /*on_true_vy=*/2.8102264e-08, /*on_false_vx=*/%v919
+%v806 = vadd.f32 -2.5, %v762
+%v808 = vrsqrt.pop %v762
+%v809 = vmul.f32 %v808, %v762
+%vm810 = vcmp.eq.f32.partialorder %v762, inf
+%v811 = vsel /*vm=*/%vm810, /*on_true_vy=*/%v762, /*on_false_vx=*/%v809
+%vm812 = vcmp.eq.f32.partialorder %v762, 0.0
+%v813 = vand.u32 2147483648, %v762
+%v814 = vsel /*vm=*/%vm812, /*on_true_vy=*/%v813, /*on_false_vx=*/%v811
+%v817 = vadd.f32 -3.0, %v814
+%v821 = vsel /*vm=*/%vm765, /*on_true_vy=*/%v806, /*on_false_vx=*/%v817
+%v825 = vmul.f32 %v821, %v802
+%v829 = vadd.f32 %v825, %v798
+%v833 = vmul.f32 %v829, %v821
+%v837 = vadd.f32 %v833, %v794
+%v841 = vmul.f32 %v837, %v821
+%v845 = vadd.f32 %v841, %v790
+%v849 = vmul.f32 %v845, %v821
+%v853 = vadd.f32 %v849, %v786
+%v857 = vmul.f32 %v853, %v821
+%v861 = vadd.f32 %v857, %v782
+%v865 = vmul.f32 %v861, %v821
+%v869 = vadd.f32 %v865, %v778
+%v873 = vmul.f32 %v869, %v821
+%v877 = vadd.f32 %v873, %v774
+%v881 = vmul.f32 %v877, %v821
+%v885 = vadd.f32 %v881, %v770
+%v889 = vmul.f32 %v885, %v736
+%v893 = vsel /*vm=*/%vm741, /*on_true_vy=*/%v746, /*on_false_vx=*/%v889
+%v897 = vmul.f32 1.4142135, %v893
+%900 = vst [vmem:[#allocation0 + $0x8] sm:$0xff] /*vst_source=*/%v897
+%s920 = smov [#allocation0] /* materialized constant */
+%s905 = sshll.u32 %s920, 4
+%s906 = int_to_ptr.vmem [resolvable:$true] %s905
+%908 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s906, /*size_in_granules=*/256, /*hbm=*/%s6, /*dst_syncflagno=*/[#allocation2] /* 
+base_bounds: (2, 1)
+dynamic_base_bounds: (2, 1)
+window_bounds: (2, 1)
+iteration_bounds: (1, 1)
+strides: (2, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 4096 */
+
+%909 = dma.done [#allocation2], 256 /* pipeline-emitter-dma-wait */
+
+%910 = vsyncpa [#allocation2], 1

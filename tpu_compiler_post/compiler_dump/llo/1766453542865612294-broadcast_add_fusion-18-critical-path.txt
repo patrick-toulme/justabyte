@@ -1,0 +1,11 @@
+
+New basic block in region: region0 {members=14 hlo=broadcast_add_fusion parent=-1}
+  Length to end: 18, %v1 = vlaneseq
+  Length to end: 16, %v12 = vand.u32 65535, %v1
+  Length to end: 14, %v15 = vmul.u32 32, %v12
+  Length to end: 12, %v17 = vshrl.u32 %v15, 16
+  Length to end: 10, %v20 = vadd.s32 %v17, %v7
+  Length to end: 8, %v23 = vand.u32 65535, %v20
+  Length to end: 6, %v24 = vshrl.u32 %v23, 16
+  Length to end: 4, %v27 = vadd.s32 %v24, %v22
+  Length to end: 2, %v31 = vadd.s32 1, %v27

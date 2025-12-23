@@ -1,0 +1,70 @@
+= control target key start
+LH: loop header
+LB: loop body
+LE: loop exit
+PB: predicated region body
+PF: predicated region fallthrough
+CT: control target
+= control target key end
+
+     0   :  { %s128_s0 = inlined_call_operand.hbm [shape: f32[64,32], index: 0, kind: input, shape index: {}] /* operand 0 */  ;;  %s129_s1 = inlined_call_operand.<no memory space> [shape: f32[], index: 1, kind: input, shape index: {}] /* operand 1 */  ;;  %s130_s2 = inlined_call_operand.hbm [shape: f32[64,32], index: 2, kind: output, shape index: {}] /* operand 2 */ } /* entry bundle: %broadcast_multiply_fusion = fusion(%Arg_0.1, %copy) */
+   0x1   :  { %v3_v0 = vstv %s129_s1 }
+   0x2   :  { %4 = vsyncpa [#allocation1], 0 } /* Start region 1 */
+   0x3   :  { %5 = vsyncpa [#allocation2], 0  ;;  %s102_s1 = smov [#allocation0] /* materialized constant */ }
+   0x4   :  { %s10_s11 = sshll.u32 %s102_s1, 4  ;;  %s11_s11 = int_to_ptr.vmem [resolvable:$true] %s10_s11 }
+   0x5   :  { %s66_s12 = scalar_lea.vmem %s11_s11, 512  ;;  %p71_p1 = scmp.lt.s32.totalorder %s11_s11, %s11_s11 }
+   0x6   :  { %p67_p0 = scmp.ne.s32.totalorder %s11_s11, %s66_s12  ;;  %p72_p2 = scmp.lt.s32.totalorder %s66_s12, %s66_s12 }
+   0x7   :  { %p73_p3 = por %p72_p2, %p71_p1 }
+   0x8   :  { %p74_p4 = pnand %p73_p3, %p67_p0 }
+   0x9   :  { %77 = shalt.err (!%p74_p4) /* BoundsCheck 0 [deref of %s11] for %13 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s0, /*size_in_granules=*/512, /*vmem=*/%s11, /*dst_syncflagno=*/[#allocation1] /* 
+base_bounds: (4, 1)
+dynamic_base_bounds: (4, 1)
+window_bounds: (4, 1)
+iteration_bounds: (1, 1)
+strides: (4, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 4096 */
+hlo: broadcast_multiply_fusion
+ */ }
+   0xa   :  { %13 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s128_s0, /*size_in_granules=*/512, /*vmem=*/%s11_s11, /*dst_syncflagno=*/[#allocation1] /* 
+base_bounds: (4, 1)
+dynamic_base_bounds: (4, 1)
+window_bounds: (4, 1)
+iteration_bounds: (1, 1)
+strides: (4, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 4096 */ }
+   0xb   :  { %s103_s0 = smov [#allocation3] /* materialized constant */  ;;  %98 = dma.done.wait [#allocation1], 512 /* pipeline-emitter-dma-wait */ }
+   0xc   :  { %s49_s15 = sshll.u32 %s103_s0, 4  ;;  %s50_s15 = int_to_ptr.vmem [resolvable:$true] %s49_s15 }
+   0xd   :  { %99 = vsyncadd [#allocation1], 4294966784  ;;  %v15_v1 = vld [vmem:[#allocation0] sm:$0xff]  ;;  %v22_v2 = vld [vmem:[#allocation0 + $0x8] sm:$0xff]  ;;  %s78_s16 = scalar_lea.vmem %s50_s15, 512  ;;  %p83_p6 = scmp.lt.s32.totalorder %s50_s15, %s50_s15 }
+   0xe   :  { %v30_v3 = vld [vmem:[#allocation0 + $0x10] sm:$0xff]  ;;  %v18_v4 = vmul.f32 %v15_v1, %v3_v0  ;;  %v25_v5 = vmul.f32 %v22_v2, %v3_v0  ;;  %v38_v7 = vld [vmem:[#allocation0 + $0x18] sm:$0xff]  ;;  %p79_p5 = scmp.ne.s32.totalorder %s50_s15, %s78_s16  ;;  %p84_p7 = scmp.lt.s32.totalorder %s78_s16, %s78_s16 }
+   0xf   :  { %v33_v6 = vmul.f32 %v30_v3, %v3_v0  ;;  %v41_v8 = vmul.f32 %v38_v7, %v3_v0 }
+  0x10   :  { %20 = vst [vmem:[#allocation3] sm:$0xff] /*vst_source=*/%v18_v4  ;;  %28 = vst [vmem:[#allocation3 + $0x8] sm:$0xff] /*vst_source=*/%v25_v5  ;;  %p85_p8 = por %p84_p7, %p83_p6 }
+  0x11   :  { %36 = vst [vmem:[#allocation3 + $0x10] sm:$0xff] /*vst_source=*/%v33_v6  ;;  %44 = vst [vmem:[#allocation3 + $0x18] sm:$0xff] /*vst_source=*/%v41_v8 }
+  0x12   :  { %p86_p9 = pnand %p85_p8, %p79_p5 }
+  0x13   :  { %89 = shalt.err (!%p86_p9) /* BoundsCheck 9 [deref of %s50] for %52 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s50, /*size_in_granules=*/512, /*hbm=*/%s2, /*dst_syncflagno=*/[#allocation2] /* 
+base_bounds: (4, 1)
+dynamic_base_bounds: (4, 1)
+window_bounds: (4, 1)
+iteration_bounds: (1, 1)
+strides: (4, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 4096 */
+hlo: broadcast_multiply_fusion
+ */ }
+  0x14   :  { %52 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s50_s15, /*size_in_granules=*/512, /*hbm=*/%s130_s2, /*dst_syncflagno=*/[#allocation2] /* 
+base_bounds: (4, 1)
+dynamic_base_bounds: (4, 1)
+window_bounds: (4, 1)
+iteration_bounds: (1, 1)
+strides: (4, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 4096 */ }
+  0x15   :  { %100 = dma.done.wait [#allocation2], 512 /* pipeline-emitter-dma-wait */ }
+  0x16   :  { %101 = vsyncadd [#allocation2], 4294966784 }
+  0x17   :  { %54 = vsyncpa [#allocation1], 1 }
+  0x18   :  { %55 = vsyncpa [#allocation2], 1 } /* exit bundle: %broadcast_multiply_fusion = fusion(%Arg_0.1, %copy) */

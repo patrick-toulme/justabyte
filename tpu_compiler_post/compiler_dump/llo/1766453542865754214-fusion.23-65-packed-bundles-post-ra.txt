@@ -1,0 +1,186 @@
+= control target key start
+LH: loop header
+LB: loop body
+LE: loop exit
+PB: predicated region body
+PF: predicated region fallthrough
+CT: control target
+= control target key end
+
+     0   :  { %4 = vsyncpa [#allocation12], 0  ;;  %vm7_vm0 = vcmask 1040384 /* [0:0,0:127] */  ;;  %v10_v1 = vlaneseq  ;;  %s117_s0 = inlined_call_operand.vmem [shape: u32[2], index: 0, kind: input, shape index: {}] /* operand 0 */  ;;  %s118_s1 = inlined_call_operand.hbm [shape: u32[1], index: 1, kind: output, shape index: {0}] /* operand 1 */  ;;  %s119_s2 = inlined_call_operand.hbm [shape: u32[1], index: 2, kind: output, shape index: {1}] /* operand 2 */ } /* Start region 0 :: Start region 1 */
+   0x1   :  { %v6_v0 = vld [vmem:[%s117_s0] sm:$0x1] }
+   0x2   :  { %v8_v2 = vsel /*vm=*/%vm7_vm0, /*on_true_vy=*/0, /*on_false_vx=*/%v6_v0 }
+   0x3   :  { %5 = vsyncpa [#allocation14], 0  ;;  %v16_v3 = vld [vmem:[%s117_s0] sm:$0x1]  ;;  %v9_v4 = vrot.slane %v8_v2, 1  ;;  %v11_v5 = vand.u32 127, %v10_v1 }
+   0x4   :  { %19 = vst [vmem:[#allocation13] sm:$0x1] /*vst_source=*/%v16_v3  ;;  %s87_s0 = smov [#allocation13] /* materialized constant */ }
+   0x5   :  { %s32_s13 = sshll.u32 %s87_s0, 4  ;;  %vm12_vm1 = vcmp.lt.s32.totalorder %v11_v5, 1  ;;  %s33_s13 = int_to_ptr.vmem [resolvable:$true] %s32_s13 }
+   0x6   :  { %v13_v6 = vsel /*vm=*/%vm12_vm1, /*on_true_vy=*/%v9_v4, /*on_false_vx=*/%v6_v0  ;;  %s43_s14 = scalar_lea.vmem %s33_s13, 16  ;;  %s47_s15 = scalar_lea.vmem %s33_s13, 32 }
+   0x7   :  { %p44_p0 = scmp.ne.s32.totalorder %s33_s13, %s43_s14  ;;  %p48_p1 = scmp.lt.s32.totalorder %s33_s13, %s33_s13 }
+   0x8   :  { %p49_p2 = scmp.lt.s32.totalorder %s47_s15, %s43_s14 }
+   0x9   :  {}
+   0xa   :  { %p50_p3 = por %p49_p2, %p48_p1 }
+   0xb   :  {}
+   0xc   :  { %p51_p4 = pnand %p50_p3, %p44_p0 }
+   0xd   :  {}
+   0xe   :  { %54 = shalt.err (!%p51_p4) /* BoundsCheck 3 [deref of %s33] for %35 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s33, /*size_in_granules=*/16, /*hbm=*/%s2, /*dst_syncflagno=*/[#allocation14] /* 
+base_bounds: (1)
+dynamic_base_bounds: (1)
+window_bounds: (1)
+iteration_bounds: (1)
+strides: (1)
+pad_low: (0)
+pad_high: (0)
+element_size_in_bytes: 512 */
+hlo: fusion.23
+ */ }
+   0xf   :  { %35 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s33_s13, /*size_in_granules=*/16, /*hbm=*/%s119_s2, /*dst_syncflagno=*/[#allocation14] /* 
+base_bounds: (1)
+dynamic_base_bounds: (1)
+window_bounds: (1)
+iteration_bounds: (1)
+strides: (1)
+pad_low: (0)
+pad_high: (0)
+element_size_in_bytes: 512 */ }
+  0x10   :  { %s88_s2 = smov 127 /* materialized constant */  ;;  %s89_s18 = smov [#allocation10] /* materialized constant */ }
+  0x11   :  { %14 = vrot.lane.b32.xlu0 %v13_v6, %s88_s2  ;;  %s24_s19 = sshll.u32 %s89_s18, 4  ;;  %s25_s19 = int_to_ptr.vmem [resolvable:$true] %s24_s19 }
+  0x12   :  { %s63_s20 = scalar_lea.vmem %s25_s19, 16  ;;  %s67_s21 = scalar_lea.vmem %s25_s19, 32 }
+  0x13   :  { %p64_p5 = scmp.ne.s32.totalorder %s25_s19, %s63_s20  ;;  %p68_p6 = scmp.lt.s32.totalorder %s25_s19, %s25_s19 }
+  0x14   :  { %p69_p7 = scmp.lt.s32.totalorder %s67_s21, %s63_s20 }
+  0x15   :  {}
+  0x16   :  { %p70_p8 = por %p69_p7, %p68_p6 }
+  0x17   :  {}
+  0x18   :  { %p71_p9 = pnand %p70_p8, %p64_p5 }
+  0x19   :  {}
+  0x1a   :  {}
+  0x1b   :  {}
+  0x1c   :  {}
+  0x1d   :  {}
+  0x1e   :  {}
+  0x1f   :  {}
+  0x20   :  {}
+  0x21   :  {}
+  0x22   :  {}
+  0x23   :  {}
+  0x24   :  {}
+  0x25   :  {}
+  0x26   :  {}
+  0x27   :  {}
+  0x28   :  {}
+  0x29   :  {}
+  0x2a   :  {}
+  0x2b   :  {}
+  0x2c   :  {}
+  0x2d   :  {}
+  0x2e   :  {}
+  0x2f   :  {}
+  0x30   :  {}
+  0x31   :  {}
+  0x32   :  {}
+  0x33   :  {}
+  0x34   :  {}
+  0x35   :  {}
+  0x36   :  {}
+  0x37   :  {}
+  0x38   :  {}
+  0x39   :  {}
+  0x3a   :  {}
+  0x3b   :  {}
+  0x3c   :  {}
+  0x3d   :  {}
+  0x3e   :  {}
+  0x3f   :  {}
+  0x40   :  {}
+  0x41   :  {}
+  0x42   :  {}
+  0x43   :  {}
+  0x44   :  {}
+  0x45   :  {}
+  0x46   :  {}
+  0x47   :  {}
+  0x48   :  {}
+  0x49   :  {}
+  0x4a   :  {}
+  0x4b   :  {}
+  0x4c   :  {}
+  0x4d   :  {}
+  0x4e   :  {}
+  0x4f   :  {}
+  0x50   :  {}
+  0x51   :  {}
+  0x52   :  {}
+  0x53   :  {}
+  0x54   :  {}
+  0x55   :  {}
+  0x56   :  {}
+  0x57   :  {}
+  0x58   :  {}
+  0x59   :  {}
+  0x5a   :  {}
+  0x5b   :  {}
+  0x5c   :  {}
+  0x5d   :  {}
+  0x5e   :  {}
+  0x5f   :  {}
+  0x60   :  {}
+  0x61   :  {}
+  0x62   :  {}
+  0x63   :  {}
+  0x64   :  {}
+  0x65   :  {}
+  0x66   :  {}
+  0x67   :  {}
+  0x68   :  {}
+  0x69   :  {}
+  0x6a   :  {}
+  0x6b   :  {}
+  0x6c   :  {}
+  0x6d   :  {}
+  0x6e   :  {}
+  0x6f   :  {}
+  0x70   :  {}
+  0x71   :  {}
+  0x72   :  {}
+  0x73   :  {}
+  0x74   :  {}
+  0x75   :  {}
+  0x76   :  {}
+  0x77   :  {}
+  0x78   :  {}
+  0x79   :  {}
+  0x7a   :  {}
+  0x7b   :  {}
+  0x7c   :  {}
+  0x7d   :  {}
+  0x7e   :  {}
+  0x7f   :  {}
+  0x80   :  {}
+  0x81   :  {}
+  0x82   :  {}
+  0x83   :  { %v15_v7 = vpop.permute.xlu0 %14 }
+  0x84   :  { %18 = vst [vmem:[#allocation10] sm:$0x1] /*vst_source=*/%v15_v7 }
+  0x85   :  { %74 = shalt.err (!%p71_p9) /* BoundsCheck 5 [deref of %s25] for %27 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s25, /*size_in_granules=*/16, /*hbm=*/%s1, /*dst_syncflagno=*/[#allocation12] /* 
+base_bounds: (1)
+dynamic_base_bounds: (1)
+window_bounds: (1)
+iteration_bounds: (1)
+strides: (1)
+pad_low: (0)
+pad_high: (0)
+element_size_in_bytes: 512 */
+hlo: fusion.23
+ */ }
+  0x86   :  { %27 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s25_s19, /*size_in_granules=*/16, /*hbm=*/%s118_s1, /*dst_syncflagno=*/[#allocation12] /* 
+base_bounds: (1)
+dynamic_base_bounds: (1)
+window_bounds: (1)
+iteration_bounds: (1)
+strides: (1)
+pad_low: (0)
+pad_high: (0)
+element_size_in_bytes: 512 */ }
+  0x87   :  { %83 = dma.done.wait [#allocation12], 16 /* pipeline-emitter-dma-wait */ }
+  0x88   :  { %84 = vsyncadd [#allocation12], 4294967280 }
+  0x89   :  { %85 = dma.done.wait [#allocation14], 16 /* pipeline-emitter-dma-wait */ }
+  0x8a   :  { %86 = vsyncadd [#allocation14], 4294967280 }
+  0x8b   :  { %38 = vsyncpa [#allocation12], 1 }
+  0x8c   :  { %39 = vsyncpa [#allocation14], 1 } /* End region 0 :: End region 1 */

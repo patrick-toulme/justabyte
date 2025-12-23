@@ -1,0 +1,121 @@
+
+New basic block in region: region0 {members=11 hlo=select_multiply_fusion parent=-1}
+  Length to end: 1, %s3 = inlined_call_operand.<no memory space> [shape: u32[], index: 3, kind: input, shape index: {}] /* operand 3 */
+
+New basic block in region: region1 {members=752 hlo=select_multiply_fusion parent=0}
+  Length to end: 248, %v20 = vlaneseq
+  Length to end: 246, %v21 = vshrl.u32 %v20, 7
+  Length to end: 244, %v451 = vadd.s32 8, %v21
+  Length to end: 242, %v454 = vadd.s32 %v451, %v19
+  Length to end: 240, %vm458 = vcmp.lt.u32.totalorder %v454, %v19
+  Length to end: 239, %v463 = vsel /*vm=*/%vm458, /*on_true_vy=*/%v17, /*on_false_vx=*/%v18
+  Length to end: 238, %v468 = vadd.s32 %v463, %v9
+  Length to end: 236, %v476 = vadd.s32 %v472, %v468
+  Length to end: 234, %v481 = vxor.u32 %v480, %v476
+  Length to end: 232, %v486 = vshll.u32 %v481, 15
+  Length to end: 230, %v488 = vor.u32 %v487, %v486
+  Length to end: 228, %v489 = vxor.u32 %v488, %v484
+  Length to end: 226, %v494 = vshll.u32 %v489, 26
+  Length to end: 224, %v496 = vor.u32 %v495, %v494
+  Length to end: 222, %v497 = vxor.u32 %v496, %v492
+  Length to end: 220, %v506 = vshll.u32 %v497, 6
+  Length to end: 218, %v508 = vor.u32 %v507, %v506
+  Length to end: 216, %v509 = vxor.u32 %v508, %v500
+  Length to end: 214, %v512 = vadd.s32 %v509, %v7
+  Length to end: 212, %v516 = vadd.s32 1, %v512
+  Length to end: 210, %v522 = vshll.u32 %v516, 17
+  Length to end: 208, %v524 = vor.u32 %v523, %v522
+  Length to end: 206, %v525 = vxor.u32 %v524, %v520
+  Length to end: 204, %v530 = vshll.u32 %v525, 29
+  Length to end: 202, %v532 = vor.u32 %v531, %v530
+  Length to end: 200, %v533 = vxor.u32 %v532, %v528
+  Length to end: 198, %v538 = vshll.u32 %v533, 16
+  Length to end: 196, %v540 = vor.u32 %v539, %v538
+  Length to end: 194, %v541 = vxor.u32 %v540, %v536
+  Length to end: 192, %v550 = vshll.u32 %v541, 24
+  Length to end: 190, %v552 = vor.u32 %v551, %v550
+  Length to end: 188, %v553 = vxor.u32 %v552, %v544
+  Length to end: 186, %v556 = vadd.s32 %v553, %v9
+  Length to end: 184, %v560 = vadd.s32 2, %v556
+  Length to end: 182, %v566 = vshll.u32 %v560, 13
+  Length to end: 180, %v568 = vor.u32 %v567, %v566
+  Length to end: 178, %v569 = vxor.u32 %v568, %v564
+  Length to end: 176, %v574 = vshll.u32 %v569, 15
+  Length to end: 174, %v576 = vor.u32 %v575, %v574
+  Length to end: 172, %v577 = vxor.u32 %v576, %v572
+  Length to end: 170, %v582 = vshll.u32 %v577, 26
+  Length to end: 168, %v584 = vor.u32 %v583, %v582
+  Length to end: 166, %v585 = vxor.u32 %v584, %v580
+  Length to end: 164, %v594 = vshll.u32 %v585, 6
+  Length to end: 162, %v596 = vor.u32 %v595, %v594
+  Length to end: 160, %v597 = vxor.u32 %v596, %v588
+  Length to end: 158, %v600 = vadd.s32 %v597, %v8
+  Length to end: 156, %v604 = vadd.s32 3, %v600
+  Length to end: 154, %v610 = vshll.u32 %v604, 17
+  Length to end: 152, %v612 = vor.u32 %v611, %v610
+  Length to end: 150, %v613 = vxor.u32 %v612, %v608
+  Length to end: 148, %v618 = vshll.u32 %v613, 29
+  Length to end: 146, %v620 = vor.u32 %v619, %v618
+  Length to end: 144, %v621 = vxor.u32 %v620, %v616
+  Length to end: 142, %v626 = vshll.u32 %v621, 16
+  Length to end: 140, %v628 = vor.u32 %v627, %v626
+  Length to end: 138, %v629 = vxor.u32 %v628, %v624
+  Length to end: 136, %v638 = vshll.u32 %v629, 24
+  Length to end: 134, %v640 = vor.u32 %v639, %v638
+  Length to end: 132, %v641 = vxor.u32 %v640, %v632
+  Length to end: 130, %v644 = vadd.s32 %v641, %v7
+  Length to end: 128, %v648 = vadd.s32 4, %v644
+  Length to end: 126, %v654 = vshll.u32 %v648, 13
+  Length to end: 124, %v656 = vor.u32 %v655, %v654
+  Length to end: 122, %v657 = vxor.u32 %v656, %v652
+  Length to end: 120, %v662 = vshll.u32 %v657, 15
+  Length to end: 118, %v664 = vor.u32 %v663, %v662
+  Length to end: 116, %v665 = vxor.u32 %v664, %v660
+  Length to end: 114, %v670 = vshll.u32 %v665, 26
+  Length to end: 112, %v672 = vor.u32 %v671, %v670
+  Length to end: 110, %v673 = vxor.u32 %v672, %v668
+  Length to end: 108, %v682 = vshll.u32 %v673, 6
+  Length to end: 106, %v684 = vor.u32 %v683, %v682
+  Length to end: 104, %v685 = vxor.u32 %v684, %v676
+  Length to end: 102, %v688 = vadd.s32 %v685, %v9
+  Length to end: 100, %v692 = vadd.s32 5, %v688
+  Length to end: 98, %v694 = vxor.u32 %v692, %v680
+  Length to end: 96, %v695 = vshrl.u32 %v694, 9
+  Length to end: 94, %v696 = vor.u32 1065353216, %v695
+  Length to end: 92, %v700 = vadd.f32 -1.0, %v696
+  Length to end: 90, %v704 = vmul.f32 2.0, %v700
+  Length to end: 88, %v708 = vadd.f32 -0.99999994, %v704
+  Length to end: 86, %v712 = vmax.f32 %v708, -0.99999994
+  Length to end: 84, %v724 = vxor.u32 2147483648, %v712
+  Length to end: 82, %v727 = vmul.f32 %v724, %v712
+  Length to end: 80, %v729 = vadd.f32 1.0, %v727
+  Length to end: 78, %v730 = vlog2.pop %v729
+  Length to end: 64, %v731 = vmul.f32 0.6931472, %v730
+  Length to end: 62, %v737 = vsel /*vm=*/%vm736, /*on_true_vy=*/%v734, /*on_false_vx=*/%v731
+  Length to end: 61, %v738 = vxor.u32 2147483648, %v737
+  Length to end: 59, %v784 = vrsqrt.pop %v738
+  Length to end: 45, %v785 = vmul.f32 %v784, %v738
+  Length to end: 43, %v787 = vsel /*vm=*/%vm786, /*on_true_vy=*/%v738, /*on_false_vx=*/%v785
+  Length to end: 42, %v790 = vsel /*vm=*/%vm788, /*on_true_vy=*/%v789, /*on_false_vx=*/%v787
+  Length to end: 41, %v793 = vadd.f32 -3.0, %v790
+  Length to end: 39, %v797 = vsel /*vm=*/%vm741, /*on_true_vy=*/%v782, /*on_false_vx=*/%v793
+  Length to end: 38, %v801 = vmul.f32 %v797, %v778
+  Length to end: 36, %v805 = vadd.f32 %v801, %v774
+  Length to end: 34, %v809 = vmul.f32 %v805, %v797
+  Length to end: 32, %v813 = vadd.f32 %v809, %v770
+  Length to end: 30, %v817 = vmul.f32 %v813, %v797
+  Length to end: 28, %v821 = vadd.f32 %v817, %v766
+  Length to end: 26, %v825 = vmul.f32 %v821, %v797
+  Length to end: 24, %v829 = vadd.f32 %v825, %v762
+  Length to end: 22, %v833 = vmul.f32 %v829, %v797
+  Length to end: 20, %v837 = vadd.f32 %v833, %v758
+  Length to end: 18, %v841 = vmul.f32 %v837, %v797
+  Length to end: 16, %v845 = vadd.f32 %v841, %v754
+  Length to end: 14, %v849 = vmul.f32 %v845, %v797
+  Length to end: 12, %v853 = vadd.f32 %v849, %v750
+  Length to end: 10, %v857 = vmul.f32 %v853, %v797
+  Length to end: 8, %v861 = vadd.f32 %v857, %v746
+  Length to end: 6, %v865 = vmul.f32 %v861, %v712
+  Length to end: 4, %v869 = vsel /*vm=*/%vm717, /*on_true_vy=*/%v722, /*on_false_vx=*/%v865
+  Length to end: 3, %v873 = vmul.f32 1.4142135, %v869
+  Length to end: 1, %876 = vst [vmem:[#allocation0 + $0x8] sm:$0xff] /*vst_source=*/%v873

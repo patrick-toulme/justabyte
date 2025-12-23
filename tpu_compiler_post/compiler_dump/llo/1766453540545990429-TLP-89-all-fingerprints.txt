@@ -1,0 +1,2 @@
+mciqBeDoD8P6znidLtWmQ5fyUzT+ReczQ1mYFi1JTXg=:i=000000bb:c=00000038:a=0000000f:b=0000000f <no-hlo-instruction>
+OT2+N0MZNk7jSiDohUEQFxN1yAYyN5ktcQNMkU5Xr70=:i=00000026:c=00000010:a=00000004:b=00000002 pad_add_fusion

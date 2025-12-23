@@ -1,0 +1,65 @@
+
+%s0 = inlined_call_operand.hbm [shape: f32[64,64], index: 0, kind: input, shape index: {}] /* operand 0 */
+%s1 = inlined_call_operand.<no memory space> [shape: f32[], index: 1, kind: input, shape index: {}] /* operand 1 */
+%s2 = inlined_call_operand.hbm [shape: f32[64,64], index: 2, kind: output, shape index: {}] /* operand 2 */
+%v3 = vstv %s1
+
+%4 = vsyncpa [#allocation1], 0
+
+%5 = vsyncpa [#allocation2], 0
+%s88 = smov [#allocation0] /* materialized constant */
+%s10 = sshll.u32 %s88, 4
+%s11 = int_to_ptr.vmem [resolvable:$true] %s10
+%13 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s0, /*size_in_granules=*/1024, /*vmem=*/%s11, /*dst_syncflagno=*/[#allocation1] /* 
+base_bounds: (8, 1)
+dynamic_base_bounds: (8, 1)
+window_bounds: (8, 1)
+iteration_bounds: (1, 1)
+strides: (8, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 4096 */
+
+%14 = dma.done [#allocation1], 1024 /* pipeline-emitter-dma-wait */
+%v15 = vld [vmem:[#allocation0] sm:$0xff]
+%v18 = vmul.f32 %v15, %v3
+%20 = vst [vmem:[#allocation3] sm:$0xff] /*vst_source=*/%v18
+%v22 = vld [vmem:[#allocation0 + $0x8] sm:$0xff]
+%v25 = vmul.f32 %v22, %v3
+%28 = vst [vmem:[#allocation3 + $0x8] sm:$0xff] /*vst_source=*/%v25
+%v30 = vld [vmem:[#allocation0 + $0x10] sm:$0xff]
+%v33 = vmul.f32 %v30, %v3
+%36 = vst [vmem:[#allocation3 + $0x10] sm:$0xff] /*vst_source=*/%v33
+%v38 = vld [vmem:[#allocation0 + $0x18] sm:$0xff]
+%v41 = vmul.f32 %v38, %v3
+%44 = vst [vmem:[#allocation3 + $0x18] sm:$0xff] /*vst_source=*/%v41
+%v46 = vld [vmem:[#allocation0 + $0x20] sm:$0xff]
+%v49 = vmul.f32 %v46, %v3
+%52 = vst [vmem:[#allocation3 + $0x20] sm:$0xff] /*vst_source=*/%v49
+%v54 = vld [vmem:[#allocation0 + $0x28] sm:$0xff]
+%v57 = vmul.f32 %v54, %v3
+%60 = vst [vmem:[#allocation3 + $0x28] sm:$0xff] /*vst_source=*/%v57
+%v62 = vld [vmem:[#allocation0 + $0x30] sm:$0xff]
+%v65 = vmul.f32 %v62, %v3
+%68 = vst [vmem:[#allocation3 + $0x30] sm:$0xff] /*vst_source=*/%v65
+%v70 = vld [vmem:[#allocation0 + $0x38] sm:$0xff]
+%v73 = vmul.f32 %v70, %v3
+%76 = vst [vmem:[#allocation3 + $0x38] sm:$0xff] /*vst_source=*/%v73
+%s89 = smov [#allocation3] /* materialized constant */
+%s81 = sshll.u32 %s89, 4
+%s82 = int_to_ptr.vmem [resolvable:$true] %s81
+%84 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s82, /*size_in_granules=*/1024, /*hbm=*/%s2, /*dst_syncflagno=*/[#allocation2] /* 
+base_bounds: (8, 1)
+dynamic_base_bounds: (8, 1)
+window_bounds: (8, 1)
+iteration_bounds: (1, 1)
+strides: (8, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 4096 */
+
+%85 = dma.done [#allocation2], 1024 /* pipeline-emitter-dma-wait */
+
+%86 = vsyncpa [#allocation1], 1
+
+%87 = vsyncpa [#allocation2], 1

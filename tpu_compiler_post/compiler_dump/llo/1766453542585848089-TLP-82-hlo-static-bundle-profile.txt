@@ -1,0 +1,108 @@
+HLO: <no-hlo-instruction>
+ - MXU_0 matpush: (0/92) - 0
+ - MXU_0 matpush_bf16_packed: (0/46) - 0
+ - MXU_0 matpush_s8_packed: (0/46) - 0
+ - MXU_0 matmul: (0/46) - 0
+ - MXU_0 matmul_packed: (0/23) - 0
+ - MXU_0 matmul_x8_packed: (0/23) - 0
+ - MXU_1 matpush: (0/92) - 0
+ - MXU_1 matpush_bf16_packed: (0/46) - 0
+ - MXU_1 matpush_s8_packed: (0/46) - 0
+ - MXU_1 matmul: (0/46) - 0
+ - MXU_1 matmul_packed: (0/23) - 0
+ - MXU_1 matmul_x8_packed: (0/23) - 0
+ - XLU_0 transpose: (0/46) - 0
+ - XLU_0 transpose_b16: (0/46) - 0
+ - XLU_0 rpu: (0/46) - 0
+ - XLU_0 all: (0/46) - 0
+ - XLU_1 transpose: (0/46) - 0
+ - XLU_1 transpose_b16: (0/46) - 0
+ - XLU_1 rpu: (0/46) - 0
+ - XLU_1 all: (0/46) - 0
+ - VECTOR_ALU: (105/732) - 0.143443
+ - VECTOR_EUP: (0/183) - 0
+ - VECTOR_LOAD_AND_MISC: (10/549) - 0.0182149
+ - VECTOR_STORE_AND_MISC: (13/366) - 0.0355191
+ - VECTOR_LOAD_AND_STORE_AND_MISC: (13/732) - 0.0177596
+ - VECTOR_MISC: (10/183) - 0.0546448
+ - CMEM_LOAD: (0/92) - 0
+ - SMEM_SPILL_COUNT: (0/183) - 0
+ - SMEM_FILL_COUNT: (0/183) - 0
+ - VMEM_SPILL_COUNT: (0/183) - 0
+ - VMEM_FILL_COUNT: (0/183) - 0
+ - SCALAR_ALU: (23/366) - 0.0628415
+ - VMEM_TO_HBM_ESTIMATED_STARVATION: (0/183) - 0
+ - HBM_TO_VMEM_ESTIMATED_STARVATION: (0/183) - 0
+
+HLO: <no-hlo-instruction>
+ - MXU_0 matpush: (0/4) - 0
+ - MXU_0 matpush_bf16_packed: (0/2) - 0
+ - MXU_0 matpush_s8_packed: (0/2) - 0
+ - MXU_0 matmul: (0/2) - 0
+ - MXU_0 matmul_packed: (0/1) - 0
+ - MXU_0 matmul_x8_packed: (0/1) - 0
+ - MXU_1 matpush: (0/4) - 0
+ - MXU_1 matpush_bf16_packed: (0/2) - 0
+ - MXU_1 matpush_s8_packed: (0/2) - 0
+ - MXU_1 matmul: (0/2) - 0
+ - MXU_1 matmul_packed: (0/1) - 0
+ - MXU_1 matmul_x8_packed: (0/1) - 0
+ - XLU_0 transpose: (0/2) - 0
+ - XLU_0 transpose_b16: (0/2) - 0
+ - XLU_0 rpu: (0/2) - 0
+ - XLU_0 all: (0/2) - 0
+ - XLU_1 transpose: (0/2) - 0
+ - XLU_1 transpose_b16: (0/2) - 0
+ - XLU_1 rpu: (0/2) - 0
+ - XLU_1 all: (0/2) - 0
+ - VECTOR_ALU: (1/28) - 0.0357143
+ - VECTOR_EUP: (0/7) - 0
+ - VECTOR_LOAD_AND_MISC: (3/21) - 0.142857
+ - VECTOR_STORE_AND_MISC: (3/14) - 0.214286
+ - VECTOR_LOAD_AND_STORE_AND_MISC: (3/28) - 0.107143
+ - VECTOR_MISC: (3/7) - 0.428571
+ - CMEM_LOAD: (0/4) - 0
+ - SMEM_SPILL_COUNT: (0/7) - 0
+ - SMEM_FILL_COUNT: (0/7) - 0
+ - VMEM_SPILL_COUNT: (0/7) - 0
+ - VMEM_FILL_COUNT: (0/7) - 0
+ - SCALAR_ALU: (5/14) - 0.357143
+ - VMEM_TO_HBM_ESTIMATED_STARVATION: (0/7) - 0
+ - HBM_TO_VMEM_ESTIMATED_STARVATION: (0/7) - 0
+
+HLO: %broadcast_multiply_fusion = f32[64,64]{1,0:T(8,128)} fusion(%Arg_0.1, %copy), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(multiply)/jit(main)/mul" source_file="/home/ptoulme/tpu.py" source_line=82}, backend_config={"flag_configs":[],"window_config":{"kernel_window_bounds":[],"output_window_bounds":["8","1"],"input_window_bounds":[],"estimated_cycles":"2192","iteration_bounds":["1","1"]},"scoped_memory_configs":[],"used_scoped_memory_configs":[{"memory_space":"1","offset":"0","size":"65536"}],"retry_config":{"retry_count":"0"}}
+ - MXU_0 matpush: (0/15) - 0
+ - MXU_0 matpush_bf16_packed: (0/8) - 0
+ - MXU_0 matpush_s8_packed: (0/8) - 0
+ - MXU_0 matmul: (0/8) - 0
+ - MXU_0 matmul_packed: (0/4) - 0
+ - MXU_0 matmul_x8_packed: (0/4) - 0
+ - MXU_1 matpush: (0/15) - 0
+ - MXU_1 matpush_bf16_packed: (0/8) - 0
+ - MXU_1 matpush_s8_packed: (0/8) - 0
+ - MXU_1 matmul: (0/8) - 0
+ - MXU_1 matmul_packed: (0/4) - 0
+ - MXU_1 matmul_x8_packed: (0/4) - 0
+ - XLU_0 transpose: (0/8) - 0
+ - XLU_0 transpose_b16: (0/8) - 0
+ - XLU_0 rpu: (0/8) - 0
+ - XLU_0 all: (0/8) - 0
+ - XLU_1 transpose: (0/8) - 0
+ - XLU_1 transpose_b16: (0/8) - 0
+ - XLU_1 rpu: (0/8) - 0
+ - XLU_1 all: (0/8) - 0
+ - VECTOR_ALU: (9/116) - 0.0775862
+ - VECTOR_EUP: (0/29) - 0
+ - VECTOR_LOAD_AND_MISC: (16/87) - 0.183908
+ - VECTOR_STORE_AND_MISC: (16/58) - 0.275862
+ - VECTOR_LOAD_AND_STORE_AND_MISC: (24/116) - 0.206897
+ - VECTOR_MISC: (8/29) - 0.275862
+ - CMEM_LOAD: (0/15) - 0
+ - SMEM_SPILL_COUNT: (0/29) - 0
+ - SMEM_FILL_COUNT: (0/29) - 0
+ - VMEM_SPILL_COUNT: (0/29) - 0
+ - VMEM_FILL_COUNT: (0/29) - 0
+ - SCALAR_ALU: (20/58) - 0.344828
+ - VMEM_TO_HBM_ESTIMATED_STARVATION: (0/29) - 0
+ - HBM_TO_VMEM_ESTIMATED_STARVATION: (0/29) - 0
+

@@ -1,0 +1,17 @@
+Schedule analysis:
+	total scheduled bundles:    275
+	empty scheduled bundles:    104
+	non empty scheduled bundles: 171
+	 132.00 scheduled bundles (77.19%): <no hlo>
+	  11.00 scheduled bundles ( 6.43%): %copy-start = (f32[64,64]{1,0:T(8,128)S(1)}, f32[64,64]{1,0:T(8,128)}, u32[]{:S(2)}) copy-start(%Arg_1.2), cross_program_prefetch_index=0
+	   8.00 scheduled bundles ( 4.68%): %copy-start.1 = (f32[64,32]{0,1:T(8,128)S(1)}, f32[64,32]{0,1:T(8,128)}, u32[]{:S(2)}) copy-start(%Arg_2.3)
+	   3.50 scheduled bundles ( 2.05%): %fusion = f32[16,32]{1,0:T(8,128)} fusion(%copy-done.1, %fusion.2, %fusion.5, %get-tuple-element.1, %add_sqrt_fusion), kind=kOutput, calls=%fused_computation, metadata={op_name="jit(mini_attention)/jit(main)/matmul_2/dot_general" source_file="/home/ptoulme/tpu.py" source_line=56}
+	   3.00 scheduled bundles ( 1.75%): %fusion.2 = f32[16]{0:T(128)S(1)} fusion(%fusion.5, %get-tuple-element.1, %add_sqrt_fusion), kind=kLoop, calls=%fused_computation.4, metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_sum" source_file="/home/ptoulme/tpu.py" source_line=50}
+	   3.00 scheduled bundles ( 1.75%): %fusion.5 = f32[16]{0:T(128)S(1)} fusion(%get-tuple-element.1, %add_sqrt_fusion), kind=kLoop, calls=%fused_computation.8, metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_max" source_file="/home/ptoulme/tpu.py" source_line=48}
+	   3.00 scheduled bundles ( 1.75%): %multiply_reduce_fusion = (f32[16]{0:T(128)S(1)}, f32[16,64]{1,0:T(8,128)S(1)}) fusion(%Arg_0.1, %copy-done), kind=kOutput, calls=%fused_computation.3, metadata={op_name="jit(mini_attention)/jit(main)/matmul_1/dot_general" source_file="/home/ptoulme/tpu.py" source_line=35}
+	   2.50 scheduled bundles ( 1.46%): %copy-done = f32[64,64]{1,0:T(8,128)S(1)} copy-done(%copy-start)
+	   2.50 scheduled bundles ( 1.46%): %add_sqrt_fusion = f32[16]{0:T(128)S(1)} fusion(%get-tuple-element), kind=kLoop, calls=%fused_computation.9, metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/sqrt" source_file="/home/ptoulme/tpu.py" source_line=41}
+	   2.50 scheduled bundles ( 1.46%): %copy-done.1 = f32[64,32]{0,1:T(8,128)S(1)} copy-done(%copy-start.1)
+	[opcode]      27 scheduled bundles (15.79%): copy-start           (2 instances,  13.50 avg)
+	[opcode]      25 scheduled bundles (14.62%): fusion               (5 instances,   5.00 avg)
+	[opcode]      10 scheduled bundles ( 5.85%): copy-done            (2 instances,   5.00 avg)

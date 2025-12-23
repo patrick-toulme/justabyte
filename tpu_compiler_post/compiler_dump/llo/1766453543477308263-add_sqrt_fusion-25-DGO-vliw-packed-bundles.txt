@@ -1,0 +1,25 @@
+     0   :  { %s0 = inlined_call_operand.vmem [shape: f32[16], index: 0, kind: input, shape index: {}] /* operand 0 */  ;;  %s1 = inlined_call_operand.vmem [shape: f32[16], index: 1, kind: output, shape index: {}] /* operand 1 */ }
+   0x1   :  { %v2 = vld [vmem:[%s0] sm:$0x1] }
+   0x2   :  { %v5 = vmul.f32 0.015625, %v2 }
+   0x3   :  {}
+   0x4   :  { %v9 = vadd.f32 1e-06, %v5 }
+   0x5   :  {}
+   0x6   :  { %v11 = vrsqrt.pop %v9 }
+   0x7   :  {}
+   0x8   :  {}
+   0x9   :  {}
+   0xa   :  {}
+   0xb   :  {}
+   0xc   :  {}
+   0xd   :  {}
+   0xe   :  {}
+   0xf   :  {}
+  0x10   :  {}
+  0x11   :  {}
+  0x12   :  {}
+  0x13   :  { %vm13 = vcmp.eq.f32.partialorder %v9, inf  ;;  %v16 = vand.u32 2147483648, %v9 }
+  0x14   :  { %v12 = vmul.f32 %v11, %v9  ;;  %vm15 = vcmp.eq.f32.partialorder %v9, 0.0 }
+  0x15   :  {}
+  0x16   :  { %v14 = vsel /*vm=*/%vm13, /*on_true_vy=*/%v9, /*on_false_vx=*/%v12 }
+  0x17   :  { %v17 = vsel /*vm=*/%vm15, /*on_true_vy=*/%v16, /*on_false_vx=*/%v14 }
+  0x18   :  { %18 = vst [vmem:[%s1] sm:$0x1] /*vst_source=*/%v17 }

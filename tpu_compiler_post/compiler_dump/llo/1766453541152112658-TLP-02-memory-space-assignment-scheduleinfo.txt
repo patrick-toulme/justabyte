@@ -1,0 +1,7 @@
+time,instruction_name
+0,Arg_0.1
+1,slice_reduce_fusion
+2,get-tuple-element.2
+3,get-tuple-element.1
+4,get-tuple-element
+5,tuple.8

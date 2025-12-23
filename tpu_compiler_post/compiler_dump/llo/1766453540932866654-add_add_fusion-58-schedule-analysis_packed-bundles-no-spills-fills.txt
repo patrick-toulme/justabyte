@@ -1,0 +1,6 @@
+Schedule analysis:
+	total scheduled bundles:    147
+	empty scheduled bundles:    72
+	non empty scheduled bundles: 75
+	  75.00 scheduled bundles (100.00%): %add_add_fusion = (u32[3,1]{0,1:T(1,128)S(1)}, u32[3,1]{0,1:T(1,128)S(1)}) fusion(%bitcast, %xor.5, %bitcast.1), kind=kLoop, calls=%fused_computation.1, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"fusion_formation_source":{"fusion_creating_compiler_pass":"TpuAdvancedMOF","fusion_id":"42"}}
+	[opcode]      75 scheduled bundles (100.00%): fusion               (1 instances,  75.00 avg)

@@ -1,0 +1,6 @@
+Schedule analysis:
+	total scheduled bundles:    16
+	empty scheduled bundles:    3
+	non empty scheduled bundles: 13
+	  13.00 scheduled bundles (100.00%): %copy.1 = f32[5]{0:T(128)} copy(%bitcast.1)
+	[opcode]      13 scheduled bundles (100.00%): copy                 (1 instances,  13.00 avg)

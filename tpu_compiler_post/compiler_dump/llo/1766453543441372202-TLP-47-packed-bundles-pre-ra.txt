@@ -1,0 +1,288 @@
+= control target key start
+LH: loop header
+LB: loop body
+LE: loop exit
+PB: predicated region body
+PF: predicated region fallthrough
+CT: control target
+= control target key end
+
+     0   :  { %s238 = sld [smem:[#allocation24]] } /* Start region 0 */
+   0x1   :  {}
+   0x2   :  {}
+   0x3   :  {}
+   0x4   :  {}
+   0x5   :  {}
+   0x6   :  { %s239 = sand.u32 134217727, %s238 }
+   0x7   :  { %s240 = sor.u32 4026531840, %s239 }
+   0x8   :  { %241 = vtrace %s240 }
+   0x9   :  { %s232 = sld [smem:[#allocation21]] }
+   0xa   :  {}
+   0xb   :  {}
+   0xc   :  {}
+   0xd   :  {}
+   0xe   :  {}
+   0xf   :  { %233 = vtrace %s232 }
+  0x10   :  { %s234 = sld [smem:[#allocation22]] }
+  0x11   :  {}
+  0x12   :  {}
+  0x13   :  {}
+  0x14   :  {}
+  0x15   :  {}
+  0x16   :  { %235 = vtrace %s234 }
+  0x17   :  { %s236 = sld [smem:[#allocation23]] }
+  0x18   :  {}
+  0x19   :  {}
+  0x1a   :  {}
+  0x1b   :  {}
+  0x1c   :  {}
+  0x1d   :  { %237 = vtrace %s236 }
+  0x1e   :  { %v219 = vlaneseq } /* Start region 49 :: Start region 50 :: Start region 51 */
+  0x1f   :  {}
+  0x20   :  { %v220 = vshrl.u32 %v219, 7 }
+  0x21   :  {}
+  0x22   :  { %v221 = vshrl.u32 %v220, 1  ;;  %v222 = vand.u32 1, %v220 }
+  0x23   :  {}
+  0x24   :  { %v223 = vshll.u32 %v222, 2  ;;  %v230 = vsub.s32 %v221, %v220 }
+  0x25   :  {}
+  0x26   :  { %v224 = vadd.s32 %v223, %v221 }
+  0x27   :  {}
+  0x28   :  { %v225 = vsub.s32 %v224, %v220 }
+  0x29   :  {}
+  0x2a   :  { %226 = vsetiar.raw.iar0 %v225 /* EvenOdd Store IAR initialization */ }
+  0x2b   :  { %231 = vsetiar.raw.iar1 %v230 /* EvenOdd Load IAR initialization */ }
+  0x2c   :  { %s99 = sld [smem:[#allocation18]] }
+  0x2d   :  {}
+  0x2e   :  {}
+  0x2f   :  {}
+  0x30   :  {}
+  0x31   :  {}
+  0x32   :  { %p242 = scmp.eq.s32.totalorder %s99, 0 } /* End region 49 */
+  0x33   :  { %s116 = sxor.u32 (!%p242), 2925155241, %s99 }
+  0x34   :  { %103 = sbr.rel (%p242) target bundleno = 160 (0xa0), region = 52 }
+  0x35   :  { %s117 = smul.u32 (!%p242), 2223506493, %s116 }
+  0x36   :  {}
+  0x37   :  { %s118 = sshrl.u32 (!%p242), %s117, 16 }
+  0x38   :  { %s119 = sxor.u32 (!%p242), %s118, %s117 } /* End region 50 */
+  0x39   :  { %v108 = vand.u32 127, %v219  ;;  %s124 = smul.u32 3389127133, %s119  ;;  %vm243 = vcmp.eq.s32.totalorder %v220, 1  ;;  %vm244 = vcmp.eq.s32.totalorder %v220, 2  ;;  %vm245 = vcmp.eq.s32.totalorder %v220, 3 }
+  0x3a   :  {}
+  0x3b   :  { %v112 = vxor.u32 1135663077, %v108  ;;  %v126 = vstv %s124 }
+  0x3c   :  {}
+  0x3d   :  { %v113 = vmul.u32 2925155241, %v112 }
+  0x3e   :  {}
+  0x3f   :  { %v114 = vshrl.u32 %v113, 16 }
+  0x40   :  {}
+  0x41   :  { %v115 = vxor.u32 %v114, %v113 }
+  0x42   :  {}
+  0x43   :  { %v120 = vxor.u32 2223506493, %v115  ;;  %v134 = vmul.u32 3389127133, %v115 }
+  0x44   :  {}
+  0x45   :  { %v121 = vmul.u32 1519409121, %v120 }
+  0x46   :  {}
+  0x47   :  { %v122 = vshrl.u32 %v121, 16 }
+  0x48   :  {}
+  0x49   :  { %v123 = vxor.u32 %v122, %v121 }
+  0x4a   :  {}
+  0x4b   :  { %v125 = vmul.u32 1232336661, %v123 }
+  0x4c   :  {}
+  0x4d   :  { %v127 = vsub.s32 %v126, %v125 }
+  0x4e   :  {}
+  0x4f   :  { %v128 = vshrl.u32 %v127, 16 }
+  0x50   :  {}
+  0x51   :  { %v129 = vxor.u32 %v128, %v127 }
+  0x52   :  {}
+  0x53   :  { %v130 = vxor.u32 1519409121, %v129  ;;  %v143 = vxor.u32 2925155241, %v129 }
+  0x54   :  {}
+  0x55   :  { %v131 = vmul.u32 2449846741, %v130  ;;  %v144 = vmul.u32 2223506493, %v143 }
+  0x56   :  {}
+  0x57   :  { %v132 = vshrl.u32 %v131, 16  ;;  %v145 = vshrl.u32 %v144, 16 }
+  0x58   :  {}
+  0x59   :  { %v133 = vxor.u32 %v132, %v131  ;;  %v146 = vxor.u32 %v145, %v144 }
+  0x5a   :  {}
+  0x5b   :  { %v135 = vmul.u32 1232336661, %v133  ;;  %v151 = vmul.u32 3389127133, %v146 }
+  0x5c   :  {}
+  0x5d   :  { %v136 = vsub.s32 %v134, %v135 }
+  0x5e   :  {}
+  0x5f   :  { %v137 = vshrl.u32 %v136, 16 }
+  0x60   :  {}
+  0x61   :  { %v138 = vxor.u32 %v137, %v136 }
+  0x62   :  {}
+  0x63   :  { %v139 = vxor.u32 1135663077, %v138 }
+  0x64   :  {}
+  0x65   :  { %v140 = vmul.u32 2925155241, %v139 }
+  0x66   :  {}
+  0x67   :  { %v141 = vshrl.u32 %v140, 16 }
+  0x68   :  {}
+  0x69   :  { %v142 = vxor.u32 %v141, %v140 }
+  0x6a   :  {}
+  0x6b   :  { %v147 = vxor.u32 2223506493, %v142  ;;  %v160 = vmul.u32 3389127133, %v142 }
+  0x6c   :  {}
+  0x6d   :  { %v148 = vmul.u32 1519409121, %v147 }
+  0x6e   :  {}
+  0x6f   :  { %v149 = vshrl.u32 %v148, 16 }
+  0x70   :  {}
+  0x71   :  { %v150 = vxor.u32 %v149, %v148 }
+  0x72   :  {}
+  0x73   :  { %v152 = vmul.u32 1232336661, %v150 }
+  0x74   :  {}
+  0x75   :  { %v153 = vsub.s32 %v151, %v152 }
+  0x76   :  {}
+  0x77   :  { %v154 = vshrl.u32 %v153, 16 }
+  0x78   :  {}
+  0x79   :  { %v155 = vxor.u32 %v154, %v153 }
+  0x7a   :  {}
+  0x7b   :  { %v156 = vxor.u32 1519409121, %v155  ;;  %v173 = vxor.u32 1179257497, %v155  ;;  %v189 = vxor.u32 3546938817, %v155 }
+  0x7c   :  { %v177 = vxor.u32 461070425, %v155  ;;  %v193 = vxor.u32 728804945, %v155 }
+  0x7d   :  { %v157 = vmul.u32 2449846741, %v156  ;;  %v174 = vmul.u32 2174555301, %v173 }
+  0x7e   :  { %v190 = vmul.u32 1343633581, %v189  ;;  %v178 = vmul.u32 702470093, %v177 }
+  0x7f   :  { %v158 = vshrl.u32 %v157, 16  ;;  %v175 = vshrl.u32 %v174, 16  ;;  %v194 = vmul.u32 1920080165, %v193 }
+  0x80   :  { %v191 = vshrl.u32 %v190, 16  ;;  %v179 = vshrl.u32 %v178, 16 }
+  0x81   :  { %v159 = vxor.u32 %v158, %v157  ;;  %v176 = vxor.u32 %v175, %v174  ;;  %v195 = vshrl.u32 %v194, 16 }
+  0x82   :  { %v192 = vxor.u32 %v191, %v190  ;;  %v180 = vxor.u32 %v179, %v178 }
+  0x83   :  { %v161 = vmul.u32 1232336661, %v159  ;;  %v196 = vxor.u32 %v195, %v194 }
+  0x84   :  {}
+  0x85   :  { %v162 = vsub.s32 %v160, %v161 }
+  0x86   :  {}
+  0x87   :  { %v163 = vshrl.u32 %v162, 16 }
+  0x88   :  {}
+  0x89   :  { %v164 = vxor.u32 %v163, %v162 }
+  0x8a   :  {}
+  0x8b   :  { %v165 = vxor.u32 2337405405, %v164  ;;  %v169 = vxor.u32 747796405, %v164  ;;  %v181 = vxor.u32 2174555301, %v164 }
+  0x8c   :  { %v185 = vxor.u32 702470093, %v164 }
+  0x8d   :  { %v166 = vmul.u32 1179257497, %v165  ;;  %v170 = vmul.u32 461070425, %v169 }
+  0x8e   :  { %v182 = vmul.u32 3546938817, %v181  ;;  %v186 = vmul.u32 728804945, %v185 }
+  0x8f   :  { %v167 = vshrl.u32 %v166, 16  ;;  %v171 = vshrl.u32 %v170, 16 }
+  0x90   :  { %v183 = vshrl.u32 %v182, 16  ;;  %v187 = vshrl.u32 %v186, 16 }
+  0x91   :  { %v168 = vxor.u32 %v167, %v166  ;;  %v172 = vxor.u32 %v171, %v170 }
+  0x92   :  { %v184 = vxor.u32 %v183, %v182  ;;  %v188 = vxor.u32 %v187, %v186 }
+  0x93   :  { %v197 = vor.u32 %v176, %v168 }
+  0x94   :  {}
+  0x95   :  { %v198 = vor.u32 %v197, %v184 }
+  0x96   :  {}
+  0x97   :  { %v199 = vor.u32 %v198, %v192 }
+  0x98   :  {}
+  0x99   :  { %vm200 = vcmp.eq.s32.totalorder %v199, 0 }
+  0x9a   :  { %v210 = vsel /*vm=*/%vm200, /*on_true_vy=*/%v172, /*on_false_vx=*/%v168  ;;  %v211 = vsel /*vm=*/%vm200, /*on_true_vy=*/%v180, /*on_false_vx=*/%v176  ;;  %v213 = vsel /*vm=*/%vm200, /*on_true_vy=*/%v188, /*on_false_vx=*/%v184  ;;  %v215 = vsel /*vm=*/%vm200, /*on_true_vy=*/%v196, /*on_false_vx=*/%v192 }
+  0x9b   :  { %v212 = vsel /*vm=*/%vm243, /*on_true_vy=*/%v211, /*on_false_vx=*/%v210 }
+  0x9c   :  { %v214 = vsel /*vm=*/%vm244, /*on_true_vy=*/%v213, /*on_false_vx=*/%v212 }
+  0x9d   :  { %v216 = vsel /*vm=*/%vm245, /*on_true_vy=*/%v215, /*on_false_vx=*/%v214 }
+  0x9e   :  { %217 = setrngseed %v216 /* Rng seed initialization */ }
+  0x9f   :  { %v218 = vrng /* Rng seed initialization */ } /* End region 51 */
+  0xa0 PF:  { %94 = vsettm 1 } /* Start/End empty region 52 */
+  0xa1   :  { %s297 = smov 2147483646 /* materialized constant */ }
+  0xa2   :  { %93 = vsettm %s297 }
+  0xa3   :  {}
+  0xa4   :  { %91 = vtrace 2415919103 }
+  0xa5   :  { %0 = vtrace 2952790016 }
+  0xa6   :  { %1 = vtrace 3221225472 }
+  0xa7   :  { %s2 = sld [smem:[#allocation0]] } /* Start region 1 :: Start region 2 :: Start region 3 */
+  0xa8   :  {}
+  0xa9   :  {}
+  0xaa   :  {}
+  0xab   :  {}
+  0xac   :  {}
+  0xad   :  { %p246 = scmp.ne.s32.totalorder %s2, 1 } /* End region 1 */
+  0xae   :  {}
+  0xaf   :  { %6 = sbr.rel (%p246) target bundleno = 268 (0x10c), region = 4 }
+  0xb0   :  {}
+  0xb1   :  {}
+  0xb2   :  {}
+  0xb3   :  {} /* End region 2 */
+  0xb4   :  { %s7 = sld [smem:[#allocation2]] } /* Start/End empty region 6 */
+  0xb5   :  {}
+  0xb6   :  {}
+  0xb7   :  {}
+  0xb8   :  {}
+  0xb9   :  {}
+  0xba   :  { %s8 = int_to_ptr.hbm [resolvable:$false] %s7 }
+  0xbb   :  { %s9 = scalar_parameter_address 0 } /* Start/End empty region 7 */
+  0xbc   :  { %s10 = scalar_parameter_address 1 } /* Start/End empty region 8 */
+  0xbd   :  { %s11 = scalar_parameter_address 2 } /* Start/End empty region 9 */
+  0xbe   :  { %29 = vtrace 2147483648  ;;  %12 = compiler-scheduling-barrier  ;;  %14 = compiler-scheduling-barrier } /* Start/End empty region 10 :: Start/End empty region 11 :: Start region 12 */
+  0xbf   :  { %17 = vsyncpa [#allocation8], 0  ;;  %s18 = sld [smem:[#allocation9]]  ;;  %15 = compiler-scheduling-barrier }
+  0xc0   :  {}
+  0xc1   :  {}
+  0xc2   :  {}
+  0xc3   :  {}
+  0xc4   :  {}
+  0xc5   :  { %p19 = scmp.ne.s32.totalorder %s18, 0 }
+  0xc6   :  {}
+  0xc7   :  { %s20 = scalar_select /*predicate=*/%p19, /*on_true=*/1024, /*on_false=*/0 }
+  0xc8   :  { %s22 = scalar_select /*predicate=*/%p19, /*on_true=*/0, /*on_false=*/1024 }
+  0xc9   :  { %21 = vsyncadd [#allocation8], %s20  ;;  %s298 = smov [#allocation7] /* materialized constant */ }
+  0xca   :  { %s23 = sshll.u32 %s298, 4 }
+  0xcb   :  { %s24 = int_to_ptr.vmem [resolvable:$true] %s23 }
+  0xcc   :  { %s269 = scalar_lea.vmem %s24, %s22  ;;  %s273 = scalar_lea.vmem %s24, 1024 }
+  0xcd   :  { %p270 = scmp.ne.s32.totalorder %s24, %s269  ;;  %p274 = scmp.lt.s32.totalorder %s24, %s24 }
+  0xce   :  { %p275 = scmp.lt.s32.totalorder %s273, %s269 }
+  0xcf   :  {}
+  0xd0   :  { %p276 = por %p275, %p274 }
+  0xd1   :  {}
+  0xd2   :  { %p277 = pnand %p276, %p270 }
+  0xd3   :  {}
+  0xd4   :  { %280 = shalt.err (!%p277) /* BoundsCheck 0 [deref of %s24] for %26 = dma.hbm_to_vmem [thread:$1]  /*hbm=*/%s10, /*size_in_granules=*/%s22, /*vmem=*/%s24, /*dst_syncflagno=*/[#allocation8]
+hlo: copy-start
+ */ }
+  0xd5   :  { %26 = dma.hbm_to_vmem [thread:$1]  /*hbm=*/%s10, /*size_in_granules=*/%s22, /*vmem=*/%s24, /*dst_syncflagno=*/[#allocation8] }
+  0xd6   :  { %30 = vtrace 2415919104  ;;  %28 = compiler-scheduling-barrier } /* End region 12 */
+  0xd7   :  { %41 = vtrace 2147483649  ;;  %31 = compiler-scheduling-barrier  ;;  %33 = compiler-scheduling-barrier  ;;  %34 = compiler-scheduling-barrier  ;;  %36 = compiler-scheduling-barrier } /* Start/End empty region 15 :: Start/End empty region 16 :: Start region 17 */
+  0xd8   :  { %293 = dma.done.wait [#allocation8], 1024 /* local-dma-wait */  ;;  %37 = compiler-scheduling-barrier }
+  0xd9   :  { %294 = vsyncadd [#allocation8], 4294966272 }
+  0xda   :  { %39 = vsyncpa [#allocation8], 1 }
+  0xdb   :  { %42 = vtrace 2415919105  ;;  %40 = compiler-scheduling-barrier } /* End region 17 */
+  0xdc   :  { %48 = vtrace 2147483650 } /* Start region 20 */
+  0xdd   :  { %s299 = smov [#allocation7] /* materialized constant */  ;;  %s300 = smov [#allocation10] /* materialized constant */  ;;  %43 = compiler-scheduling-barrier }
+  0xde   :  { %s301 = smov [#allocation11] /* materialized constant */ }
+  0xdf   :  { %45 = inlined_call %s9, %s299, %s300, %s301 /* %multiply_reduce_fusion = fusion(%Arg_0.1, %copy-done) */ }
+  0xe0   :  { %49 = vtrace 2415919106  ;;  %47 = compiler-scheduling-barrier } /* End region 20 */
+  0xe1   :  { %59 = vtrace 2147483651 } /* Start region 23 */
+  0xe2   :  { %52 = vsyncpa [#allocation13], 0  ;;  %s302 = smov [#allocation12] /* materialized constant */  ;;  %50 = compiler-scheduling-barrier }
+  0xe3   :  { %s53 = sshll.u32 %s302, 4 }
+  0xe4   :  { %s54 = int_to_ptr.vmem [resolvable:$true] %s53 }
+  0xe5   :  { %s281 = scalar_lea.vmem %s54, 512  ;;  %p286 = scmp.lt.s32.totalorder %s54, %s54 }
+  0xe6   :  { %p282 = scmp.ne.s32.totalorder %s54, %s281  ;;  %p287 = scmp.lt.s32.totalorder %s281, %s281 }
+  0xe7   :  {}
+  0xe8   :  { %p288 = por %p287, %p286 }
+  0xe9   :  {}
+  0xea   :  { %p289 = pnand %p288, %p282 }
+  0xeb   :  {}
+  0xec   :  { %292 = shalt.err (!%p289) /* BoundsCheck 1 [deref of %s54] for %56 = dma.hbm_to_vmem [thread:$1]  /*hbm=*/%s11, /*size_in_granules=*/512, /*vmem=*/%s54, /*dst_syncflagno=*/[#allocation13]
+hlo: copy-start.1
+ */ }
+  0xed   :  { %56 = dma.hbm_to_vmem [thread:$1]  /*hbm=*/%s11, /*size_in_granules=*/512, /*vmem=*/%s54, /*dst_syncflagno=*/[#allocation13] }
+  0xee   :  { %60 = vtrace 2415919107  ;;  %58 = compiler-scheduling-barrier } /* End region 23 */
+  0xef   :  { %68 = vtrace 2147483652  ;;  %61 = compiler-scheduling-barrier  ;;  %62 = compiler-scheduling-barrier  ;;  %63 = compiler-scheduling-barrier  ;;  %64 = compiler-scheduling-barrier } /* Start/End empty region 26 :: Start/End empty region 27 :: Start region 28 */
+  0xf0   :  { %s303 = smov [#allocation10] /* materialized constant */  ;;  %s304 = smov [#allocation14] /* materialized constant */  ;;  %65 = compiler-scheduling-barrier }
+  0xf1   :  { %66 = inlined_call %s303, %s304 /* %add_sqrt_fusion = fusion(%get-tuple-element) */ }
+  0xf2   :  { %69 = vtrace 2415919108  ;;  %67 = compiler-scheduling-barrier } /* End region 28 */
+  0xf3   :  { %73 = vtrace 2147483653 } /* Start region 31 */
+  0xf4   :  { %s305 = smov [#allocation11] /* materialized constant */  ;;  %s306 = smov [#allocation14] /* materialized constant */  ;;  %70 = compiler-scheduling-barrier }
+  0xf5   :  { %s307 = smov [#allocation15] /* materialized constant */ }
+  0xf6   :  {}
+  0xf7   :  {}
+  0xf8   :  { %71 = inlined_call %s305, %s306, %s307 /* %fusion.5 = fusion(%get-tuple-element.1, %add_sqrt_fusion) */ }
+  0xf9   :  { %74 = vtrace 2415919109  ;;  %72 = compiler-scheduling-barrier } /* End region 31 */
+  0xfa   :  { %78 = vtrace 2147483654 } /* Start region 34 */
+  0xfb   :  { %s308 = smov [#allocation15] /* materialized constant */  ;;  %s309 = smov [#allocation11] /* materialized constant */  ;;  %75 = compiler-scheduling-barrier }
+  0xfc   :  { %s310 = smov [#allocation14] /* materialized constant */  ;;  %s311 = smov [#allocation16] /* materialized constant */ }
+  0xfd   :  {}
+  0xfe   :  {}
+  0xff   :  { %76 = inlined_call %s308, %s309, %s310, %s311 /* %fusion.2 = fusion(%fusion.5, %get-tuple-element.1, %add_sqrt_fusion) */ }
+ 0x100   :  { %79 = vtrace 2415919110  ;;  %77 = compiler-scheduling-barrier } /* End region 34 */
+ 0x101   :  { %84 = vtrace 2147483655 } /* Start region 37 */
+ 0x102   :  { %295 = dma.done.wait [#allocation13], 512 /* local-dma-wait */  ;;  %80 = compiler-scheduling-barrier }
+ 0x103   :  { %296 = vsyncadd [#allocation13], 4294966784 }
+ 0x104   :  { %82 = vsyncpa [#allocation13], 1 }
+ 0x105   :  { %85 = vtrace 2415919111  ;;  %83 = compiler-scheduling-barrier } /* End region 37 */
+ 0x106   :  { %89 = vtrace 2147483656 } /* Start region 40 */
+ 0x107   :  { %s312 = smov [#allocation12] /* materialized constant */  ;;  %s313 = smov [#allocation16] /* materialized constant */  ;;  %86 = compiler-scheduling-barrier }
+ 0x108   :  { %s314 = smov [#allocation15] /* materialized constant */  ;;  %s315 = smov [#allocation11] /* materialized constant */ }
+ 0x109   :  { %s316 = smov [#allocation14] /* materialized constant */ }
+ 0x10a   :  { %87 = inlined_call %s312, %s313, %s314, %s315, %s316, %s8 /* %fusion = fusion(%copy-done.1, %fusion.2, %fusion.5, %get-tuple-element.1, %add_sqrt_fusion) */ }
+ 0x10b   :  { %90 = vtrace 2415919112  ;;  %88 = compiler-scheduling-barrier } /* End region 3 :: End region 40 */
+ 0x10c PF:  { %92 = vtrace 2684354559 } /* Start/End empty region 4 */
+ 0x10d   :  { %s317 = smov 2147483647 /* materialized constant */ }
+ 0x10e   :  { %95 = vsettm %s317 }
+ 0x10f   :  { %96 = vdelay 1 }
+ 0x110   :  { %97 = sfence }
+ 0x111   :  { %s318 = smov 0 /* materialized constant */ }
+ 0x112   :  { %98 = sst [smem:[#allocation17]] %s318 } /* End region 0 */

@@ -1,0 +1,6 @@
+Schedule analysis:
+	total scheduled bundles:    144
+	empty scheduled bundles:    0
+	non empty scheduled bundles: 144
+	 144.00 scheduled bundles (100.00%): %slice_reduce_fusion = (u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}) fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/tpu.py" source_line=79}
+	[opcode]     144 scheduled bundles (100.00%): fusion               (1 instances, 144.00 avg)

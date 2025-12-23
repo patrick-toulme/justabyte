@@ -1,0 +1,54 @@
+
+New basic block in region: region0 {members=49 hlo=multiply_reduce_fusion parent=-1}
+  Length to end: 1, %v273 = vmov 0.0 /* materialized constant */
+
+New basic block in region: region2 {members=49 hlo=multiply_reduce_fusion parent=0}
+  Length to end: 3, %s274 = smov [#allocation3] /* materialized constant */
+  Length to end: 2, %s19 = sshll.u32 %s274, 4
+  Length to end: 1, %s20 = int_to_ptr.vmem [resolvable:$true] %s19
+
+New basic block in region: region2 {members=49 hlo=multiply_reduce_fusion parent=0}
+  Length to end: 224, %27 = dma.done [#allocation4], 256 /* pipeline-emitter-dma-wait */
+  Length to end: 217, %v247 = vld [vmem:[%s1 + $0x30] sm:$0xff]
+  Length to end: 216, %v61 = vpack.c.bf16 %v248, %v247
+  Length to end: 214, %261 = vmatpush3.bf16.msra.mxu0 %v61
+  Length to end: 211, %262 = vmatprep.subr.mxu0 %v275
+  Length to end: 210, %263 = vmatpush3.bf16.msra.mxu0 %v71
+  Length to end: 207, %264 = vmatprep.subr.mxu0 %v275
+  Length to end: 206, %265 = vmatpush3.bf16.msra.mxu0 %v81
+  Length to end: 203, %266 = vmatprep.subr.mxu0 %v275
+  Length to end: 202, %267 = vmatpush3.bf16.msra.mxu0 %v89
+  Length to end: 199, %269 = vmatmul.mubr.msk.bf16.vlgmr.msra.gmra.mxu0 %vm257, %v258
+  Length to end: 7, %v95 = vpop.f32.mrf.mxu0
+  Length to end: 5, %v270 = vpop.f32.mrf.mxu0
+  Length to end: 3, %v106 = vpop.f32.mrf.mxu0
+  Length to end: 2, %v110 = vmul.f32 %v106, %v106
+
+New basic block in region: region0 {members=49 hlo=multiply_reduce_fusion parent=-1}
+  Length to end: 207, %141 = vxpose.xlu0.b32.start [1/2] (short) /*vx=*/%v104, /*width=*/128
+  Length to end: 203, %142 = vxpose.xlu0.b32.end [2/2] (short) /*vx=*/%v116, /*width=*/128
+  Length to end: 83, %v143 = vpop.trf.xlu0
+  Length to end: 79, %v144 = vpop.trf.xlu0
+  Length to end: 75, %v145 = vpop.trf.xlu0
+  Length to end: 71, %v146 = vpop.trf.xlu0
+  Length to end: 67, %v147 = vpop.trf.xlu0
+  Length to end: 63, %v148 = vpop.trf.xlu0
+  Length to end: 59, %v149 = vpop.trf.xlu0
+  Length to end: 55, %v150 = vpop.trf.xlu0
+  Length to end: 51, %v151 = vpop.trf.xlu0
+  Length to end: 47, %v152 = vpop.trf.xlu0
+  Length to end: 43, %v153 = vpop.trf.xlu0
+  Length to end: 39, %v154 = vpop.trf.xlu0
+  Length to end: 35, %v155 = vpop.trf.xlu0
+  Length to end: 31, %v156 = vpop.trf.xlu0
+  Length to end: 27, %v157 = vpop.trf.xlu0
+  Length to end: 24, %v217 = vadd.f32 %v213, %v157
+  Length to end: 22, %v221 = vadd.f32 %v217, %v158
+  Length to end: 20, %v223 = vrot.slane %v221, 4
+  Length to end: 18, %v226 = vadd.f32 %v223, %v221
+  Length to end: 16, %v228 = vrot.slane %v226, 2
+  Length to end: 14, %v231 = vadd.f32 %v228, %v226
+  Length to end: 12, %v233 = vrot.slane %v231, 1
+  Length to end: 10, %v236 = vadd.f32 %v233, %v231
+  Length to end: 8, %238 = vst [vmem:[#allocation1] sm:$0x1] /*vst_source=*/%v236
+  Length to end: 1, %v243 = vld [vmem:[#allocation1] sm:$0x1]

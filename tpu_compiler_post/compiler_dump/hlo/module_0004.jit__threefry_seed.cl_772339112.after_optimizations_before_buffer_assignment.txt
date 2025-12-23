@@ -1,0 +1,23 @@
+HloModule jit__threefry_seed, is_scheduled=true, entry_computation_layout={(s32[]{:T(128)})->u32[2]{0:T(128)}}, allow_spmd_sharding_propagation_to_parameters={true}, allow_spmd_sharding_propagation_to_output={true}
+
+%fused_computation (param_0.1: u32[1], param_1.3: u32[1]) -> u32[2] {
+  %param_1.3 = u32[1]{0:T(128)} parameter(1)
+  %constant.1 = u32[]{:T(128)} constant(0)
+  %pad.3 = u32[2]{0:T(128)} pad(%param_1.3, %constant.1), padding=0_1, metadata={op_name="jit(_threefry_seed)/jit(main)/concatenate" source_file="/home/ptoulme/tpu.py" source_line=78}
+  %param_0.1 = u32[1]{0:T(128)} parameter(0)
+  %pad.2 = u32[2]{0:T(128)} pad(%param_0.1, %constant.1), padding=1_0, metadata={op_name="jit(_threefry_seed)/jit(main)/concatenate" source_file="/home/ptoulme/tpu.py" source_line=78}
+  ROOT %add.1 = u32[2]{0:T(128)} add(%pad.3, %pad.2), metadata={op_name="jit(_threefry_seed)/jit(main)/concatenate" source_file="/home/ptoulme/tpu.py" source_line=78}
+}
+
+ENTRY %main.9 (Arg_0.1: s32[]) -> u32[2] {
+  %constant.2 = s32[]{:T(128)} constant(32)
+  %Arg_0.1 = s32[]{:T(128)} parameter(0), metadata={op_name="seed"}
+  %copy = s32[]{:T(128)S(6)} copy(%Arg_0.1)
+  %convert.6 = u32[]{:T(128)} convert(%copy), metadata={op_name="jit(_threefry_seed)/jit(main)/convert_element_type" source_file="/home/ptoulme/tpu.py" source_line=78}
+  %bitcast.1 = u32[1]{0:T(128)} bitcast(%convert.6), metadata={op_name="jit(_threefry_seed)/jit(main)/broadcast_in_dim" source_file="/home/ptoulme/tpu.py" source_line=78}
+  %shift-right-logical.3 = s32[]{:T(128)} shift-right-logical(%copy, %constant.2), metadata={op_name="jit(_threefry_seed)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=78}
+  %convert.4 = u32[]{:T(128)} convert(%shift-right-logical.3), metadata={op_name="jit(_threefry_seed)/jit(main)/convert_element_type" source_file="/home/ptoulme/tpu.py" source_line=78}
+  %bitcast = u32[1]{0:T(128)} bitcast(%convert.4), metadata={op_name="jit(_threefry_seed)/jit(main)/broadcast_in_dim" source_file="/home/ptoulme/tpu.py" source_line=78}
+  ROOT %pad_add_fusion = u32[2]{0:T(128)} fusion(%bitcast.1, %bitcast), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(_threefry_seed)/jit(main)/concatenate" source_file="/home/ptoulme/tpu.py" source_line=78}
+}
+

@@ -1,0 +1,12 @@
+
+New basic block in region: region1 {members=25 hlo=pad_add_fusion parent=0}
+  Length to end: 15, %v36 = vlaneseq
+  Length to end: 13, %v37 = vshrl.u32 %v36, 7
+  Length to end: 11, %v38 = vadd.s32 8, %v37
+  Length to end: 9, %vm39 = vcmp.lt.s32.totalorder %v38, 9
+  Length to end: 8, %v40 = vsel /*vm=*/%vm39, /*on_true_vy=*/%v35, /*on_false_vx=*/0
+  Length to end: 7, %v45 = vsel /*vm=*/%vm44, /*on_true_vy=*/%v40, /*on_false_vx=*/0
+  Length to end: 6, %v47 = vsel /*vm=*/%vm46, /*on_true_vy=*/%v45, /*on_false_vx=*/0
+  Length to end: 5, %v48 = vrot.slane %v47, 7
+  Length to end: 3, %v62 = vadd.s32 %v59, %v48
+  Length to end: 1, %64 = vst [vmem:[#allocation10] sm:$0x3] /*vst_source=*/%v62

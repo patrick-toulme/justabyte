@@ -1,0 +1,5 @@
+xla_cpu_enable_fast_min_max: false
+xla_gpu_enable_libnvptxcompiler: false
+xla_dump_to: "compiler_dump/hlo"
+xla_dump_hlo_pass_re: ".*"
+xla_dump_hlo_as_text: true

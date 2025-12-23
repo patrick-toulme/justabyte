@@ -1,0 +1,6 @@
+Schedule analysis:
+	total scheduled bundles:    19
+	empty scheduled bundles:    9
+	non empty scheduled bundles: 10
+	  10.00 scheduled bundles (100.00%): %broadcast_add_fusion = u32[16]{0:T(128)S(1)} fusion(), kind=kLoop, calls=%fused_computation.32, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=81}
+	[opcode]      10 scheduled bundles (100.00%): fusion               (1 instances,  10.00 avg)

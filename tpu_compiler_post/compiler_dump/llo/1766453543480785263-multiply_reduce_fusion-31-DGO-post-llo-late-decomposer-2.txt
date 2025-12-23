@@ -1,0 +1,110 @@
+
+%s0 = inlined_call_operand.hbm [shape: f32[16,64], index: 0, kind: input, shape index: {}] /* operand 0 */
+%s1 = inlined_call_operand.vmem [shape: f32[64,64], index: 1, kind: input, shape index: {}] /* operand 1 */
+%s2 = inlined_call_operand.vmem [shape: f32[16], index: 2, kind: output, shape index: {0}] /* operand 2 */
+%s3 = inlined_call_operand.vmem [shape: f32[16,64], index: 3, kind: output, shape index: {1}] /* operand 3 */
+%v273 = vmov 0.0 /* materialized constant */
+%11 = vst [vmem:[#allocation1] sm:$0xff] /*vst_source=*/%v273
+
+%12 = vsyncpa [#allocation4], 0
+%s274 = smov [#allocation3] /* materialized constant */
+%s19 = sshll.u32 %s274, 4
+%s20 = int_to_ptr.vmem [resolvable:$true] %s19
+%22 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s0, /*size_in_granules=*/256, /*vmem=*/%s20, /*dst_syncflagno=*/[#allocation4] /* 
+base_bounds: (2, 1)
+dynamic_base_bounds: (2, 1)
+window_bounds: (2, 1)
+iteration_bounds: (1, 1, 1)
+strides: (2, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 4096 */
+
+%27 = dma.done [#allocation4], 256 /* pipeline-emitter-dma-wait */
+%v275 = vmov 0.0 /* materialized constant */
+%vm276 = vmmov 0 /* materialized constant */
+%v28 = vlaneseq
+%260 = vmatprep.subr.mxu0 %v275
+%268 = vmatprep.mubr.msk.bf16.mxu0 %vm276, %v275
+%v29 = vand.u32 127, %v28
+%vm47 = vcmp.ge.s32.totalorder %v29, 64
+%v247 = vld [vmem:[%s1 + $0x30] sm:$0xff]
+%v248 = vld [vmem:[%s1 + $0x38] sm:$0xff]
+%v249 = vld [vmem:[%s1 + $0x20] sm:$0xff]
+%v61 = vpack.c.bf16 %v248, %v247
+%v250 = vld [vmem:[%s1 + $0x28] sm:$0xff]
+%261 = vmatpush3.bf16.msra.mxu0 %v61
+%v71 = vpack.c.bf16 %v250, %v249
+%262 = vmatprep.subr.mxu0 %v275
+%v251 = vld [vmem:[%s1 + $0x10] sm:$0xff]
+%v252 = vld [vmem:[%s1 + $0x18] sm:$0xff]
+%263 = vmatpush3.bf16.msra.mxu0 %v71
+%v81 = vpack.c.bf16 %v252, %v251
+%264 = vmatprep.subr.mxu0 %v275
+%v85 = vld [vmem:[%s1] sm:$0xff]
+%v253 = vld [vmem:[%s1 + $0x8] sm:$0xff]
+%265 = vmatpush3.bf16.msra.mxu0 %v81
+%v89 = vpack.c.bf16 %v253, %v85
+%v46 = vld [vmem:[#allocation3] sm:$0xff]
+%v50 = vld [vmem:[#allocation3 + $0x8] sm:$0xff]
+%266 = vmatprep.subr.mxu0 %v275
+%vm272 = vcmp.lt.s32.totalorder %v29, 64
+%v258 = vpack.c.bf16 %v50, %v46
+%267 = vmatpush3.bf16.msra.mxu0 %v89
+%vm257 = vmpackc.low %vm272, %vm272
+%269 = vmatmul.mubr.msk.bf16.vlgmr.msra.gmra.mxu0 %vm257, %v258
+%v95 = vpop.f32.mrf.mxu0
+%v98 = vmul.f32 %v95, %v95
+%105 = vst [vmem:[%s3] sm:$0xff] /*vst_source=*/%v95
+%v270 = vpop.f32.mrf.mxu0
+%v104 = vsel /*vm=*/%vm272, /*on_true_vy=*/%v98, /*on_false_vx=*/0.0
+%v106 = vpop.f32.mrf.mxu0
+%v110 = vmul.f32 %v106, %v106
+%254 = vst [vmem:[%s3 + $0x8] sm:$0xff] /*vst_source=*/%v106
+%v271 = vpop.f32.mrf.mxu0
+%v116 = vsel /*vm=*/%vm272, /*on_true_vy=*/%v110, /*on_false_vx=*/0.0
+
+%137 = vsyncpa [#allocation4], 1
+
+%141 = vxpose.xlu0.b32.start [1/2] (short) /*vx=*/%v104, /*width=*/128
+%142 = vxpose.xlu0.b32.end [2/2] (short) /*vx=*/%v116, /*width=*/128
+%v143 = vpop.trf.xlu0
+%v144 = vpop.trf.xlu0
+%v145 = vpop.trf.xlu0
+%v146 = vpop.trf.xlu0
+%v147 = vpop.trf.xlu0
+%v148 = vpop.trf.xlu0
+%v149 = vpop.trf.xlu0
+%v150 = vpop.trf.xlu0
+%v151 = vpop.trf.xlu0
+%v165 = vadd.f32 %v144, %v143
+%v169 = vadd.f32 %v165, %v145
+%v152 = vpop.trf.xlu0
+%v173 = vadd.f32 %v169, %v146
+%v177 = vadd.f32 %v173, %v147
+%v153 = vpop.trf.xlu0
+%v181 = vadd.f32 %v177, %v148
+%v185 = vadd.f32 %v181, %v149
+%v154 = vpop.trf.xlu0
+%v189 = vadd.f32 %v185, %v150
+%v193 = vadd.f32 %v189, %v151
+%v155 = vpop.trf.xlu0
+%v197 = vadd.f32 %v193, %v152
+%v201 = vadd.f32 %v197, %v153
+%v156 = vpop.trf.xlu0
+%v205 = vadd.f32 %v201, %v154
+%v209 = vadd.f32 %v205, %v155
+%v157 = vpop.trf.xlu0
+%v213 = vadd.f32 %v209, %v156
+%v217 = vadd.f32 %v213, %v157
+%v158 = vpop.trf.xlu0
+%v221 = vadd.f32 %v217, %v158
+%v223 = vrot.slane %v221, 4
+%v226 = vadd.f32 %v223, %v221
+%v228 = vrot.slane %v226, 2
+%v231 = vadd.f32 %v228, %v226
+%v233 = vrot.slane %v231, 1
+%v236 = vadd.f32 %v233, %v231
+%238 = vst [vmem:[#allocation1] sm:$0x1] /*vst_source=*/%v236
+%v243 = vld [vmem:[#allocation1] sm:$0x1]
+%246 = vst [vmem:[%s2] sm:$0x1] /*vst_source=*/%v243

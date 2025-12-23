@@ -1,0 +1,6 @@
+Schedule analysis:
+	total scheduled bundles:    18
+	empty scheduled bundles:    0
+	non empty scheduled bundles: 18
+	  18.00 scheduled bundles (100.00%): %pad_add_fusion = u32[3,2]{0,1:T(2,128)} fusion(%get-tuple-element.2, %get-tuple-element.3), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(_threefry_split)/jit(main)/concatenate" source_file="/home/ptoulme/tpu.py" source_line=79}
+	[opcode]      18 scheduled bundles (100.00%): fusion               (1 instances,  18.00 avg)

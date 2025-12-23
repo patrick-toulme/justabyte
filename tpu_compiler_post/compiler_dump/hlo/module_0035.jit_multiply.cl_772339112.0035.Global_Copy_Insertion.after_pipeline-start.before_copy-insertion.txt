@@ -1,0 +1,15 @@
+HloModule jit_multiply, entry_computation_layout={(f32[64,64]{1,0:T(8,128)}, f32[]{:T(128)})->f32[64,64]{1,0:T(8,128)}}, allow_spmd_sharding_propagation_to_parameters={true,true}, allow_spmd_sharding_propagation_to_output={true}
+
+%fused_computation (param_0: f32[64,64], param_1.1: f32[]) -> f32[64,64] {
+  %param_0 = f32[64,64]{1,0:T(8,128)} parameter(0)
+  %param_1.1 = f32[]{:T(128)} parameter(1)
+  %broadcast.0 = f32[64,64]{1,0:T(8,128)} broadcast(%param_1.1), dimensions={}, metadata={op_name="jit(multiply)/jit(main)/mul" source_file="/home/ptoulme/tpu.py" source_line=82}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  ROOT %multiply.0 = f32[64,64]{1,0:T(8,128)} multiply(%param_0, %broadcast.0), metadata={op_name="jit(multiply)/jit(main)/mul" source_file="/home/ptoulme/tpu.py" source_line=82}
+}
+
+ENTRY %main.5 (Arg_0.1: f32[64,64], Arg_1.2: f32[]) -> f32[64,64] {
+  %Arg_0.1 = f32[64,64]{1,0:T(8,128)} parameter(0), metadata={op_name="x"}
+  %Arg_1.2 = f32[]{:T(128)} parameter(1), metadata={op_name="y"}
+  ROOT %broadcast_multiply_fusion = f32[64,64]{1,0:T(8,128)} fusion(%Arg_0.1, %Arg_1.2), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(multiply)/jit(main)/mul" source_file="/home/ptoulme/tpu.py" source_line=82}
+}
+

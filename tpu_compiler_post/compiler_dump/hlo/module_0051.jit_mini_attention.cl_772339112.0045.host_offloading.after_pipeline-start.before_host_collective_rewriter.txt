@@ -1,0 +1,118 @@
+HloModule jit_mini_attention, entry_computation_layout={(f32[16,64]{1,0:T(8,128)}, f32[64,64]{1,0:T(8,128)}, f32[64,32]{0,1:T(8,128)})->f32[16,32]{1,0:T(8,128)}}, allow_spmd_sharding_propagation_to_parameters={true,true,true}, allow_spmd_sharding_propagation_to_output={true}
+
+%fused_computation.1 (param_0.21: f32[16], param_1.23: f32[16], param_2.10: f32[16,64], param_3.5: f32[16]) -> f32[16,64] {
+  %param_2.10 = f32[16,64]{1,0:T(8,128)} parameter(2)
+  %param_3.5 = f32[16]{0:T(128)} parameter(3)
+  %broadcast.29 = f32[16,64]{1,0:T(8,128)} broadcast(%param_3.5), dimensions={0}, metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/div" source_file="/home/ptoulme/tpu.py" source_line=42}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":["8"]}}
+  %divide.5 = f32[16,64]{1,0:T(8,128)} divide(%param_2.10, %broadcast.29), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/div" source_file="/home/ptoulme/tpu.py" source_line=42}
+  %param_1.23 = f32[16]{0:T(128)} parameter(1)
+  %broadcast.24 = f32[16,64]{1,0:T(8,128)} broadcast(%param_1.23), dimensions={0}, metadata={op_name="jit(mini_attention)/jit(main)/softmax/sub" source_file="/home/ptoulme/tpu.py" source_line=49}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":["8"]}}
+  %subtract.3 = f32[16,64]{1,0:T(8,128)} subtract(%divide.5, %broadcast.24), metadata={op_name="jit(mini_attention)/jit(main)/softmax/sub" source_file="/home/ptoulme/tpu.py" source_line=49}
+  %exponential.3 = f32[16,64]{1,0:T(8,128)} exponential(%subtract.3), metadata={op_name="jit(mini_attention)/jit(main)/softmax/exp" source_file="/home/ptoulme/tpu.py" source_line=49}
+  %param_0.21 = f32[16]{0:T(128)} parameter(0)
+  %broadcast.18 = f32[16,64]{1,0:T(8,128)} broadcast(%param_0.21), dimensions={0}, metadata={op_name="jit(mini_attention)/jit(main)/softmax/div" source_file="/home/ptoulme/tpu.py" source_line=50}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":["8"]}}
+  ROOT %divide.1 = f32[16,64]{1,0:T(8,128)} divide(%exponential.3, %broadcast.18), metadata={op_name="jit(mini_attention)/jit(main)/softmax/div" source_file="/home/ptoulme/tpu.py" source_line=50}
+}
+
+%bitcast_fusion.1 (bitcast_input.1: f32[64,32]) -> f32[64,32] {
+  %bitcast_input.1 = f32[64,32]{0,1:T(8,128)} parameter(0)
+  ROOT %bitcast.1 = f32[64,32]{0,1:T(8,128)} bitcast(%bitcast_input.1)
+}
+
+%fused_computation (param_0.1: f32[64,32], param_1.21: f32[16], param_2.9: f32[16], param_3.3: f32[16,64], param_4: f32[16]) -> f32[16,32] {
+  %param_1.21 = f32[16]{0:T(128)} parameter(1)
+  %param_2.9 = f32[16]{0:T(128)} parameter(2)
+  %param_3.3 = f32[16,64]{1,0:T(8,128)} parameter(3)
+  %param_4 = f32[16]{0:T(128)} parameter(4)
+  %fusion.1 = f32[16,64]{1,0:T(8,128)} fusion(%param_1.21, %param_2.9, %param_3.3, %param_4), kind=kLoop, calls=%fused_computation.1, metadata={op_name="jit(mini_attention)/jit(main)/softmax/div" source_file="/home/ptoulme/tpu.py" source_line=50}
+  %param_0.1 = f32[64,32]{0,1:T(8,128)} parameter(0)
+  %fusion.7 = f32[64,32]{0,1:T(8,128)} fusion(%param_0.1), kind=kLoop, calls=%bitcast_fusion.1
+  ROOT %convolution.2 = f32[16,32]{1,0:T(8,128)} convolution(%fusion.1, %fusion.7), dim_labels=bf_io->bf, metadata={op_name="jit(mini_attention)/jit(main)/matmul_2/dot_general" source_file="/home/ptoulme/tpu.py" source_line=56}
+}
+
+%region_0.15 (Arg_0.12: f32[], Arg_1.13: f32[]) -> f32[] {
+  %Arg_0.12 = f32[]{:T(128)} parameter(0), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/reduce_sum"}
+  %Arg_1.13 = f32[]{:T(128)} parameter(1), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/reduce_sum"}
+  ROOT %add.14 = f32[]{:T(128)} add(%Arg_0.12, %Arg_1.13), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/reduce_sum" source_file="/home/ptoulme/tpu.py" source_line=41}
+}
+
+%bitcast_fusion (bitcast_input: f32[16,64]) -> f32[16,64] {
+  %bitcast_input = f32[16,64]{1,0:T(8,128)} parameter(0)
+  ROOT %bitcast = f32[16,64]{1,0:T(8,128)} bitcast(%bitcast_input)
+}
+
+%bitcast_fusion.2 (bitcast_input.2: f32[64,64]) -> f32[64,64] {
+  %bitcast_input.2 = f32[64,64]{1,0:T(8,128)} parameter(0)
+  ROOT %bitcast.2 = f32[64,64]{1,0:T(8,128)} bitcast(%bitcast_input.2)
+}
+
+%fused_computation.3 (param_0.33: f32[16,64], param_1.35: f32[64,64]) -> (f32[16], f32[16,64]) {
+  %param_0.33 = f32[16,64]{1,0:T(8,128)} parameter(0)
+  %fusion.6 = f32[16,64]{1,0:T(8,128)} fusion(%param_0.33), kind=kLoop, calls=%bitcast_fusion
+  %param_1.35 = f32[64,64]{1,0:T(8,128)} parameter(1)
+  %fusion.8 = f32[64,64]{1,0:T(8,128)} fusion(%param_1.35), kind=kLoop, calls=%bitcast_fusion.2
+  %convolution.3 = f32[16,64]{1,0:T(8,128)} convolution(%fusion.6, %fusion.8), dim_labels=bf_io->bf, metadata={op_name="jit(mini_attention)/jit(main)/matmul_1/dot_general" source_file="/home/ptoulme/tpu.py" source_line=35}
+  %multiply.6 = f32[16,64]{1,0:T(8,128)} multiply(%convolution.3, %convolution.3), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/integer_pow" source_file="/home/ptoulme/tpu.py" source_line=41}
+  %constant.14 = f32[]{:T(128)} constant(0)
+  %reduce.0 = f32[16]{0:T(128)} reduce(%multiply.6, %constant.14), dimensions={1}, to_apply=%region_0.15, metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/reduce_sum" source_file="/home/ptoulme/tpu.py" source_line=41}
+  ROOT %tuple = (f32[16]{0:T(128)}, f32[16,64]{1,0:T(8,128)}) tuple(%reduce.0, %convolution.3)
+}
+
+%region_2.39 (Arg_0.36: f32[], Arg_1.37: f32[]) -> f32[] {
+  %Arg_0.36 = f32[]{:T(128)} parameter(0), metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_sum"}
+  %Arg_1.37 = f32[]{:T(128)} parameter(1), metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_sum"}
+  ROOT %add.38 = f32[]{:T(128)} add(%Arg_0.36, %Arg_1.37), metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_sum" source_file="/home/ptoulme/tpu.py" source_line=50}
+}
+
+%fused_computation.4 (param_0.30: f32[16], param_1.33: f32[16,64], param_2.17: f32[16]) -> f32[16] {
+  %param_1.33 = f32[16,64]{1,0:T(8,128)} parameter(1)
+  %param_2.17 = f32[16]{0:T(128)} parameter(2)
+  %broadcast.32 = f32[16,64]{1,0:T(8,128)} broadcast(%param_2.17), dimensions={0}, metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/div" source_file="/home/ptoulme/tpu.py" source_line=42}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":["8"]}}
+  %divide.7 = f32[16,64]{1,0:T(8,128)} divide(%param_1.33, %broadcast.32), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/div" source_file="/home/ptoulme/tpu.py" source_line=42}
+  %param_0.30 = f32[16]{0:T(128)} parameter(0)
+  %broadcast.25 = f32[16,64]{1,0:T(8,128)} broadcast(%param_0.30), dimensions={0}, metadata={op_name="jit(mini_attention)/jit(main)/softmax/sub" source_file="/home/ptoulme/tpu.py" source_line=49}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":["8"]}}
+  %subtract.5 = f32[16,64]{1,0:T(8,128)} subtract(%divide.7, %broadcast.25), metadata={op_name="jit(mini_attention)/jit(main)/softmax/sub" source_file="/home/ptoulme/tpu.py" source_line=49}
+  %exponential.5 = f32[16,64]{1,0:T(8,128)} exponential(%subtract.5), metadata={op_name="jit(mini_attention)/jit(main)/softmax/exp" source_file="/home/ptoulme/tpu.py" source_line=49}
+  %constant.13 = f32[]{:T(128)} constant(0)
+  ROOT %reduce.1 = f32[16]{0:T(128)} reduce(%exponential.5, %constant.13), dimensions={1}, to_apply=%region_2.39, metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_sum" source_file="/home/ptoulme/tpu.py" source_line=50}
+}
+
+%region_1.28 (Arg_0.25: f32[], Arg_1.26: f32[]) -> f32[] {
+  %Arg_0.25 = f32[]{:T(128)} parameter(0), metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_max"}
+  %Arg_1.26 = f32[]{:T(128)} parameter(1), metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_max"}
+  ROOT %maximum.27 = f32[]{:T(128)} maximum(%Arg_0.25, %Arg_1.26), metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_max" source_file="/home/ptoulme/tpu.py" source_line=48}
+}
+
+%fused_computation.8 (param_0.32: f32[16,64], param_1.34: f32[16]) -> f32[16] {
+  %param_0.32 = f32[16,64]{1,0:T(8,128)} parameter(0)
+  %param_1.34 = f32[16]{0:T(128)} parameter(1)
+  %broadcast.35 = f32[16,64]{1,0:T(8,128)} broadcast(%param_1.34), dimensions={0}, metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/div" source_file="/home/ptoulme/tpu.py" source_line=42}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":["8"]}}
+  %divide.9 = f32[16,64]{1,0:T(8,128)} divide(%param_0.32, %broadcast.35), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/div" source_file="/home/ptoulme/tpu.py" source_line=42}
+  %constant.15 = f32[]{:T(128)} constant(-inf)
+  ROOT %reduce.2 = f32[16]{0:T(128)} reduce(%divide.9, %constant.15), dimensions={1}, to_apply=%region_1.28, metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_max" source_file="/home/ptoulme/tpu.py" source_line=48}
+}
+
+%fused_computation.9 (param_0.29: f32[16]) -> f32[16] {
+  %param_0.29 = f32[16]{0:T(128)} parameter(0)
+  %constant.12 = f32[]{:T(128)} constant(0.015625)
+  %broadcast.37 = f32[16]{0:T(128)} broadcast(%constant.12), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %multiply.7 = f32[16]{0:T(128)} multiply(%param_0.29, %broadcast.37), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/div" source_file="/home/ptoulme/tpu.py" source_line=41}
+  %constant.16 = f32[]{:T(128)} constant(1e-06)
+  %broadcast.36 = f32[16]{0:T(128)} broadcast(%constant.16), dimensions={}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"output_chunk_bound_config":{"output_chunk_bound":[]}}
+  %add.5 = f32[16]{0:T(128)} add(%multiply.7, %broadcast.36), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/add" source_file="/home/ptoulme/tpu.py" source_line=41}
+  ROOT %sqrt.5 = f32[16]{0:T(128)} sqrt(%add.5), metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/sqrt" source_file="/home/ptoulme/tpu.py" source_line=41}
+}
+
+ENTRY %main.47 (Arg_0.1: f32[16,64], Arg_1.2: f32[64,64], Arg_2.3: f32[64,32]) -> f32[16,32] {
+  %Arg_2.3 = f32[64,32]{0,1:T(8,128)} parameter(2), metadata={op_name="w2"}
+  %Arg_0.1 = f32[16,64]{1,0:T(8,128)} parameter(0), metadata={op_name="x"}
+  %Arg_1.2 = f32[64,64]{1,0:T(8,128)} parameter(1), metadata={op_name="w1"}
+  %multiply_reduce_fusion = (f32[16]{0:T(128)}, f32[16,64]{1,0:T(8,128)}) fusion(%Arg_0.1, %Arg_1.2), kind=kOutput, calls=%fused_computation.3, metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/reduce_sum" source_file="/home/ptoulme/tpu.py" source_line=41}
+  %get-tuple-element.1 = f32[16,64]{1,0:T(8,128)} get-tuple-element(%multiply_reduce_fusion), index=1, metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/reduce_sum" source_file="/home/ptoulme/tpu.py" source_line=41}
+  %get-tuple-element = f32[16]{0:T(128)} get-tuple-element(%multiply_reduce_fusion), index=0, metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/reduce_sum" source_file="/home/ptoulme/tpu.py" source_line=41}
+  %add_sqrt_fusion = f32[16]{0:T(128)} fusion(%get-tuple-element), kind=kLoop, calls=%fused_computation.9, metadata={op_name="jit(mini_attention)/jit(main)/rms_norm/sqrt" source_file="/home/ptoulme/tpu.py" source_line=41}
+  %fusion.5 = f32[16]{0:T(128)} fusion(%get-tuple-element.1, %add_sqrt_fusion), kind=kLoop, calls=%fused_computation.8, metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_max" source_file="/home/ptoulme/tpu.py" source_line=48}
+  %fusion.2 = f32[16]{0:T(128)} fusion(%fusion.5, %get-tuple-element.1, %add_sqrt_fusion), kind=kLoop, calls=%fused_computation.4, metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_sum" source_file="/home/ptoulme/tpu.py" source_line=50}
+  ROOT %fusion = f32[16,32]{1,0:T(8,128)} fusion(%Arg_2.3, %fusion.2, %fusion.5, %get-tuple-element.1, %add_sqrt_fusion), kind=kOutput, calls=%fused_computation, metadata={op_name="jit(mini_attention)/jit(main)/matmul_2/dot_general" source_file="/home/ptoulme/tpu.py" source_line=56}
+}
+

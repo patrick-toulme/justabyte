@@ -1,0 +1,6 @@
+Schedule analysis:
+	total scheduled bundles:    56
+	empty scheduled bundles:    0
+	non empty scheduled bundles: 56
+	  56.00 scheduled bundles (100.00%): %fusion.5 = f32[16]{0:T(128)S(1)} fusion(%get-tuple-element.1, %add_sqrt_fusion), kind=kLoop, calls=%fused_computation.8, metadata={op_name="jit(mini_attention)/jit(main)/softmax/reduce_max" source_file="/home/ptoulme/tpu.py" source_line=48}
+	[opcode]      56 scheduled bundles (100.00%): fusion               (1 instances,  56.00 avg)

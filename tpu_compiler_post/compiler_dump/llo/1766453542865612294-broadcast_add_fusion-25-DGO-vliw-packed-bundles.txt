@@ -1,0 +1,19 @@
+     0   :  { %s0 = inlined_call_operand.vmem [shape: u32[64], index: 0, kind: output, shape index: {}] /* operand 0 */  ;;  %v1 = vlaneseq }
+   0x1   :  {}
+   0x2   :  { %v4 = vshrl.u32 %v1, 16  ;;  %v12 = vand.u32 65535, %v1 }
+   0x3   :  {}
+   0x4   :  { %v7 = vmul.u32 32, %v4  ;;  %v15 = vmul.u32 32, %v12 }
+   0x5   :  {}
+   0x6   :  { %v17 = vshrl.u32 %v15, 16 }
+   0x7   :  {}
+   0x8   :  { %v20 = vadd.s32 %v17, %v7 }
+   0x9   :  {}
+   0xa   :  { %v22 = vshrl.u32 %v20, 16  ;;  %v23 = vand.u32 65535, %v20 }
+   0xb   :  {}
+   0xc   :  { %v24 = vshrl.u32 %v23, 16 }
+   0xd   :  {}
+   0xe   :  { %v27 = vadd.s32 %v24, %v22 }
+   0xf   :  {}
+  0x10   :  { %v31 = vadd.s32 1, %v27 }
+  0x11   :  {}
+  0x12   :  { %33 = vst [vmem:[%s0] sm:$0x1] /*vst_source=*/%v31 }

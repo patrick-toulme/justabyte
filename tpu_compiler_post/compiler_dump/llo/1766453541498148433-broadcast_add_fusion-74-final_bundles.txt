@@ -1,0 +1,19 @@
+= control target key start
+LH: loop header
+LB: loop body
+LE: loop exit
+PB: predicated region body
+PF: predicated region fallthrough
+CT: control target
+= control target key end
+
+     0   :  { %v1_v0 = vlaneseq  ;;  %s42_s0 = inlined_call_operand.vmem [shape: u32[16], index: 0, kind: output, shape index: {}] /* operand 0 */ } /* entry bundle: %broadcast_add_fusion = fusion() */
+   0x1   :  { %v4_v1 = vshrl.u32 %v1_v0, 16  ;;  %v12_v2 = vand.u32 65535, %v1_v0 }
+   0x2   :  { %v7_v3 = vmul.u32 64, %v4_v1  ;;  %v15_v4 = vmul.u32 64, %v12_v2 }
+   0x3   :  { %v17_v5 = vshrl.u32 %v15_v4, 16 }
+   0x4   :  { %v20_v6 = vadd.s32 %v17_v5, %v7_v3 }
+   0x5   :  { %v22_v7 = vshrl.u32 %v20_v6, 16  ;;  %v23_v8 = vand.u32 65535, %v20_v6 }
+   0x6   :  { %v24_v9 = vshrl.u32 %v23_v8, 16 }
+   0x7   :  { %v27_v10 = vadd.s32 %v24_v9, %v22_v7 }
+   0x8   :  { %v31_v11 = vadd.s32 1, %v27_v10 }
+   0x9   :  { %33 = vst [vmem:[%s42_s0] sm:$0x1] /*vst_source=*/%v31_v11 } /* exit bundle: %broadcast_add_fusion = fusion() */

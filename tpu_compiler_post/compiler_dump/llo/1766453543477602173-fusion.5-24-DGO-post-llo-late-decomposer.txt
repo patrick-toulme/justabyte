@@ -1,0 +1,64 @@
+
+%s1 = inlined_call_operand.vmem [shape: f32[16], index: 1, kind: input, shape index: {}] /* operand 1 */
+%v13 = vld [vmem:[%s1] ss:$0 sm:$0xff]
+%15 = vbcast.lane.b32.xlu0 %v13, 256
+%28 = vbcast.lane.b32.xlu0 %v13, 264
+%v16 = vpop.permute.xlu0 %15
+%v17 = vrcp.pop %v16
+%v29 = vpop.permute.xlu0 %28
+%v30 = vrcp.pop %v29
+%s0 = inlined_call_operand.vmem [shape: f32[16,64], index: 0, kind: input, shape index: {}] /* operand 0 */
+%v12 = vld [vmem:[%s0] sm:$0xff]
+%v18 = vmul.f32 %v17, %v12
+%v19 = vlaneseq
+%v20 = vand.u32 127, %v19
+%vm21 = vcmp.lt.s32.totalorder %v20, 64
+%v22 = vsel /*vm=*/%vm21, /*on_true_vy=*/%v18, /*on_false_vx=*/-inf
+%52 = vxpose.xlu1.b32.start [1/2] (short) /*vx=*/%v22, /*width=*/128
+%v158 = vld [vmem:[%s0 + $0x8] sm:$0xff]
+%v31 = vmul.f32 %v158, %v30
+%v35 = vsel /*vm=*/%vm21, /*on_true_vy=*/%v31, /*on_false_vx=*/-inf
+%53 = vxpose.xlu1.b32.end [2/2] (short) /*vx=*/%v35, /*width=*/128
+%v54 = vpop.trf.xlu1
+%v55 = vpop.trf.xlu1
+%v76 = vmax.f32 %v54, %v55
+%v56 = vpop.trf.xlu1
+%v80 = vmax.f32 %v76, %v56
+%v57 = vpop.trf.xlu1
+%v84 = vmax.f32 %v80, %v57
+%v58 = vpop.trf.xlu1
+%v88 = vmax.f32 %v84, %v58
+%v59 = vpop.trf.xlu1
+%v92 = vmax.f32 %v88, %v59
+%v60 = vpop.trf.xlu1
+%v96 = vmax.f32 %v92, %v60
+%v61 = vpop.trf.xlu1
+%v100 = vmax.f32 %v96, %v61
+%v62 = vpop.trf.xlu1
+%v104 = vmax.f32 %v100, %v62
+%v63 = vpop.trf.xlu1
+%v108 = vmax.f32 %v104, %v63
+%v64 = vpop.trf.xlu1
+%v112 = vmax.f32 %v108, %v64
+%v65 = vpop.trf.xlu1
+%v116 = vmax.f32 %v112, %v65
+%v66 = vpop.trf.xlu1
+%v120 = vmax.f32 %v116, %v66
+%v67 = vpop.trf.xlu1
+%v124 = vmax.f32 %v120, %v67
+%v68 = vpop.trf.xlu1
+%v128 = vmax.f32 %v124, %v68
+%s2 = inlined_call_operand.vmem [shape: f32[16], index: 2, kind: output, shape index: {}] /* operand 2 */
+%v159 = vmov -inf /* materialized constant */
+%9 = vst [vmem:[#allocation0] sm:$0xff] /*vst_source=*/%v159
+%v69 = vpop.trf.xlu1
+%v132 = vmax.f32 %v128, %v69
+%v134 = vrot.slane %v132, 4
+%v137 = vmax.f32 %v132, %v134
+%v139 = vrot.slane %v137, 2
+%v142 = vmax.f32 %v137, %v139
+%v144 = vrot.slane %v142, 1
+%v147 = vmax.f32 %v142, %v144
+%149 = vst [vmem:[#allocation0] sm:$0x1] /*vst_source=*/%v147
+%v154 = vld [vmem:[#allocation0] sm:$0x1]
+%157 = vst [vmem:[%s2] sm:$0x1] /*vst_source=*/%v154

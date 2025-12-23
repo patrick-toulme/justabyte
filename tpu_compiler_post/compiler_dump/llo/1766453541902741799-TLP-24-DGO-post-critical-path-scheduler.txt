@@ -1,0 +1,358 @@
+
+%s257 = sld [smem:[#allocation27]]
+%s258 = sand.u32 134217727, %s257
+%s259 = sor.u32 4026531840, %s258
+
+%260 = vtrace %s259
+
+%s251 = sld [smem:[#allocation24]]
+
+%252 = vtrace %s251
+
+%s253 = sld [smem:[#allocation25]]
+
+%254 = vtrace %s253
+
+%s255 = sld [smem:[#allocation26]]
+
+%256 = vtrace %s255
+
+%v238 = vlaneseq
+%v239 = vshrl.u32 %v238, 7
+%v240 = vshrl.u32 %v239, 1
+%v241 = vand.u32 1, %v239
+%v242 = vshll.u32 %v241, 2
+%v243 = vadd.s32 %v242, %v240
+%v244 = vsub.s32 %v243, %v239
+%245 = vsetiar.raw.iar0 %v244 /* EvenOdd Store IAR initialization */
+%v249 = vsub.s32 %v240, %v239
+%250 = vsetiar.raw.iar1 %v249 /* EvenOdd Load IAR initialization */
+%s118 = sld [smem:[#allocation21]]
+
+%p261 = scmp.eq.s32.totalorder %s118, 0
+
+%122 = sbr.rel (%p261) target = $region54
+
+%v127 = vand.u32 127, %v238
+%v131 = vxor.u32 1135663077, %v127
+%v132 = vmul.u32 2925155241, %v131
+%v133 = vshrl.u32 %v132, 16
+%v134 = vxor.u32 %v133, %v132
+%s135 = sxor.u32 2925155241, %s118
+%s136 = smul.u32 2223506493, %s135
+%s137 = sshrl.u32 %s136, 16
+%s138 = sxor.u32 %s137, %s136
+%v139 = vxor.u32 2223506493, %v134
+%v140 = vmul.u32 1519409121, %v139
+%v141 = vshrl.u32 %v140, 16
+%v142 = vxor.u32 %v141, %v140
+%s143 = smul.u32 3389127133, %s138
+%v144 = vmul.u32 1232336661, %v142
+%v145 = vstv %s143
+%v146 = vsub.s32 %v145, %v144
+%v147 = vshrl.u32 %v146, 16
+%v148 = vxor.u32 %v147, %v146
+%v149 = vxor.u32 1519409121, %v148
+%v150 = vmul.u32 2449846741, %v149
+%v151 = vshrl.u32 %v150, 16
+%v152 = vxor.u32 %v151, %v150
+%v153 = vmul.u32 3389127133, %v134
+%v154 = vmul.u32 1232336661, %v152
+%v155 = vsub.s32 %v153, %v154
+%v156 = vshrl.u32 %v155, 16
+%v157 = vxor.u32 %v156, %v155
+%v158 = vxor.u32 1135663077, %v157
+%v159 = vmul.u32 2925155241, %v158
+%v160 = vshrl.u32 %v159, 16
+%v161 = vxor.u32 %v160, %v159
+%v162 = vxor.u32 2925155241, %v148
+%v163 = vmul.u32 2223506493, %v162
+%v164 = vshrl.u32 %v163, 16
+%v165 = vxor.u32 %v164, %v163
+%v166 = vxor.u32 2223506493, %v161
+%v167 = vmul.u32 1519409121, %v166
+%v168 = vshrl.u32 %v167, 16
+%v169 = vxor.u32 %v168, %v167
+%v170 = vmul.u32 3389127133, %v165
+%v171 = vmul.u32 1232336661, %v169
+%v172 = vsub.s32 %v170, %v171
+%v173 = vshrl.u32 %v172, 16
+%v174 = vxor.u32 %v173, %v172
+%v175 = vxor.u32 1519409121, %v174
+%v176 = vmul.u32 2449846741, %v175
+%v177 = vshrl.u32 %v176, 16
+%v178 = vxor.u32 %v177, %v176
+%v179 = vmul.u32 3389127133, %v161
+%v180 = vmul.u32 1232336661, %v178
+%v181 = vsub.s32 %v179, %v180
+%v182 = vshrl.u32 %v181, 16
+%v183 = vxor.u32 %v182, %v181
+%v184 = vxor.u32 2337405405, %v183
+%v185 = vmul.u32 1179257497, %v184
+%v186 = vshrl.u32 %v185, 16
+%v187 = vxor.u32 %v186, %v185
+%v188 = vxor.u32 747796405, %v183
+%v189 = vmul.u32 461070425, %v188
+%v190 = vshrl.u32 %v189, 16
+%v191 = vxor.u32 %v190, %v189
+%v192 = vxor.u32 1179257497, %v174
+%v193 = vmul.u32 2174555301, %v192
+%v194 = vshrl.u32 %v193, 16
+%v195 = vxor.u32 %v194, %v193
+%v196 = vxor.u32 461070425, %v174
+%v197 = vmul.u32 702470093, %v196
+%v198 = vshrl.u32 %v197, 16
+%v199 = vxor.u32 %v198, %v197
+%v200 = vxor.u32 2174555301, %v183
+%v201 = vmul.u32 3546938817, %v200
+%v202 = vshrl.u32 %v201, 16
+%v203 = vxor.u32 %v202, %v201
+%v204 = vxor.u32 702470093, %v183
+%v205 = vmul.u32 728804945, %v204
+%v206 = vshrl.u32 %v205, 16
+%v207 = vxor.u32 %v206, %v205
+%v208 = vxor.u32 3546938817, %v174
+%v209 = vmul.u32 1343633581, %v208
+%v210 = vshrl.u32 %v209, 16
+%v211 = vxor.u32 %v210, %v209
+%v212 = vxor.u32 728804945, %v174
+%v213 = vmul.u32 1920080165, %v212
+%v214 = vshrl.u32 %v213, 16
+%v215 = vxor.u32 %v214, %v213
+%v216 = vor.u32 %v195, %v187
+%v217 = vor.u32 %v216, %v203
+%v218 = vor.u32 %v217, %v211
+%vm219 = vcmp.eq.s32.totalorder %v218, 0
+%vm262 = vcmp.eq.s32.totalorder %v239, 1
+%vm263 = vcmp.eq.s32.totalorder %v239, 2
+%vm264 = vcmp.eq.s32.totalorder %v239, 3
+%v229 = vsel /*vm=*/%vm219, /*on_true_vy=*/%v191, /*on_false_vx=*/%v187
+%v230 = vsel /*vm=*/%vm219, /*on_true_vy=*/%v199, /*on_false_vx=*/%v195
+%v231 = vsel /*vm=*/%vm262, /*on_true_vy=*/%v230, /*on_false_vx=*/%v229
+%v232 = vsel /*vm=*/%vm219, /*on_true_vy=*/%v207, /*on_false_vx=*/%v203
+%v233 = vsel /*vm=*/%vm263, /*on_true_vy=*/%v232, /*on_false_vx=*/%v231
+%v234 = vsel /*vm=*/%vm219, /*on_true_vy=*/%v215, /*on_false_vx=*/%v211
+%v235 = vsel /*vm=*/%vm264, /*on_true_vy=*/%v234, /*on_false_vx=*/%v233
+%236 = setrngseed %v235 /* Rng seed initialization */
+%v237 = vrng /* Rng seed initialization */
+
+%113 = vsettm 1
+
+%s274 = smov 2147483646 /* materialized constant */
+
+%112 = vsettm %s274
+
+%110 = vtrace 2415919103
+
+%0 = vtrace 2952790016
+
+%1 = vtrace 3221225472
+
+%s2 = sld [smem:[#allocation0]]
+
+%p265 = scmp.ne.s32.totalorder %s2, 1
+
+%6 = sbr.rel (%p265) target = $region4
+
+%s7 = sld [smem:[#allocation2]]
+%s8 = int_to_ptr.hbm [resolvable:$false] %s7
+
+%s9 = scalar_parameter_address 0
+
+%10 = compiler-scheduling-barrier
+
+%11 = compiler-scheduling-barrier
+
+%12 = compiler-scheduling-barrier
+
+%14 = compiler-scheduling-barrier
+
+%24 = vtrace 2147483648
+
+%15 = compiler-scheduling-barrier
+
+%17 = vsyncpa [#allocation6], 0
+%s275 = smov [#allocation5] /* materialized constant */
+%s18 = sshll.u32 %s275, 4
+%s19 = int_to_ptr.vmem [resolvable:$true] %s18
+%21 = dma.hbm_to_vmem [thread:$1]  /*hbm=*/%s9, /*size_in_granules=*/16, /*vmem=*/%s19, /*dst_syncflagno=*/[#allocation6]
+
+%23 = compiler-scheduling-barrier
+
+%25 = vtrace 2415919104
+
+%29 = vtrace 2147483649
+
+%26 = compiler-scheduling-barrier
+
+%s276 = smov [#allocation7] /* materialized constant */
+
+%27 = inlined_call %s276 /* %broadcast_add_fusion = fusion() */
+
+%28 = compiler-scheduling-barrier
+
+%30 = vtrace 2415919105
+
+%35 = vtrace 2147483650
+
+%31 = compiler-scheduling-barrier
+
+%32 = dma.done [#allocation6], 16 /* local-dma-wait */
+
+%33 = vsyncpa [#allocation6], 1
+
+%34 = compiler-scheduling-barrier
+
+%36 = vtrace 2415919106
+
+%42 = vtrace 2147483651
+
+%37 = compiler-scheduling-barrier
+
+%s277 = smov [#allocation5] /* materialized constant */
+%s278 = smov [#allocation8] /* materialized constant */
+%s279 = smov [#allocation9] /* materialized constant */
+
+%39 = inlined_call %s277, %s278, %s279 /* %fusion.23 = fusion(%copy-done) */
+
+%41 = compiler-scheduling-barrier
+
+%43 = vtrace 2415919107
+
+%44 = compiler-scheduling-barrier
+
+%45 = compiler-scheduling-barrier
+
+%46 = compiler-scheduling-barrier
+
+%47 = compiler-scheduling-barrier
+
+%48 = compiler-scheduling-barrier
+
+%49 = compiler-scheduling-barrier
+
+%50 = compiler-scheduling-barrier
+
+%51 = compiler-scheduling-barrier
+
+%52 = compiler-scheduling-barrier
+
+%53 = vsyncpa [#allocation11], 0
+%s280 = smov [#allocation10] /* materialized constant */
+%s54 = sshll.u32 %s280, 4
+%s55 = int_to_ptr.vmem [resolvable:$true] %s54
+%s281 = smov [#allocation9] /* materialized constant */
+%57 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s281, /*size_in_granules=*/1, /*vmem=*/%s55, /*dst_syncflagno=*/[#allocation11]
+
+%58 = dma.done [#allocation11], 1 /* local-dma-wait */
+
+%59 = vsyncpa [#allocation11], 1
+
+%v60 = vld [vmem:[#allocation10] sm:$0xff]
+
+%266 = vpush %v60
+%s267 = spop %266
+
+%62 = vsyncpa [#allocation13], 0
+%s282 = smov [#allocation12] /* materialized constant */
+%s63 = sshll.u32 %s282, 4
+%s64 = int_to_ptr.vmem [resolvable:$true] %s63
+%s283 = smov [#allocation8] /* materialized constant */
+%66 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s283, /*size_in_granules=*/1, /*vmem=*/%s64, /*dst_syncflagno=*/[#allocation13]
+
+%67 = dma.done [#allocation13], 1 /* local-dma-wait */
+
+%68 = vsyncpa [#allocation13], 1
+
+%v69 = vld [vmem:[#allocation12] sm:$0xff]
+
+%268 = vpush %v69
+%s269 = spop %268
+%s71 = sxor.u32 %s269, %s267
+
+%72 = compiler-scheduling-barrier
+
+%73 = compiler-scheduling-barrier
+
+%s74 = sxor.u32 466688986, %s71
+
+%75 = compiler-scheduling-barrier
+
+%81 = vtrace 2147483652
+
+%76 = compiler-scheduling-barrier
+
+%s284 = smov [#allocation14] /* materialized constant */
+%s285 = smov [#allocation15] /* materialized constant */
+
+%78 = inlined_call %s284, %s285 /* %fusion.21 = fusion() */
+
+%80 = compiler-scheduling-barrier
+
+%82 = vtrace 2415919108
+
+%83 = compiler-scheduling-barrier
+
+%84 = compiler-scheduling-barrier
+
+%85 = compiler-scheduling-barrier
+
+%86 = compiler-scheduling-barrier
+
+%108 = vtrace 2147483653
+
+%87 = compiler-scheduling-barrier
+
+%88 = vsyncpa [#allocation17], 0
+%s286 = smov [#allocation16] /* materialized constant */
+%s89 = sshll.u32 %s286, 4
+%s90 = int_to_ptr.vmem [resolvable:$true] %s89
+%s287 = smov [#allocation8] /* materialized constant */
+%92 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s287, /*size_in_granules=*/1, /*vmem=*/%s90, /*dst_syncflagno=*/[#allocation17]
+
+%93 = dma.done [#allocation17], 1 /* local-dma-wait */
+
+%94 = vsyncpa [#allocation17], 1
+
+%v95 = vld [vmem:[#allocation16] sm:$0xff]
+
+%270 = vpush %v95
+%s271 = spop %270
+
+%97 = vsyncpa [#allocation19], 0
+%s288 = smov [#allocation18] /* materialized constant */
+%s98 = sshll.u32 %s288, 4
+%s99 = int_to_ptr.vmem [resolvable:$true] %s98
+%s289 = smov [#allocation9] /* materialized constant */
+%101 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s289, /*size_in_granules=*/1, /*vmem=*/%s99, /*dst_syncflagno=*/[#allocation19]
+
+%102 = dma.done [#allocation19], 1 /* local-dma-wait */
+
+%103 = vsyncpa [#allocation19], 1
+
+%v104 = vld [vmem:[#allocation18] sm:$0xff]
+
+%272 = vpush %v104
+%s273 = spop %272
+%s290 = smov [#allocation7] /* materialized constant */
+%s291 = smov [#allocation15] /* materialized constant */
+%s292 = smov [#allocation14] /* materialized constant */
+
+%106 = inlined_call %s290, %s291, %s292, %s74, %s271, %s273, %s8 /* %select_multiply_fusion = fusion(%broadcast_add_fusion, %get-tuple-element.5, %get-tuple-element.4, %xor.50, %bitcast.1, %bitcast) */
+
+%107 = compiler-scheduling-barrier
+
+%109 = vtrace 2415919109
+
+%111 = vtrace 2684354559
+
+%s293 = smov 2147483647 /* materialized constant */
+
+%114 = vsettm %s293
+
+%115 = vdelay 1
+
+%116 = sfence
+
+%s294 = smov 0 /* materialized constant */
+%117 = sst [smem:[#allocation20]] %s294

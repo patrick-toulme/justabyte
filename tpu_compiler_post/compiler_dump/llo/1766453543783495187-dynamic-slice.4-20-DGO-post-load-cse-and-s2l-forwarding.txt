@@ -1,0 +1,57 @@
+
+%s0 = inlined_call_operand.vmem [shape: f32[16,32], index: 0, kind: input, shape index: {}] /* operand 0 */
+%s1 = inlined_call_operand.<no memory space> [shape: s32[], index: 1, kind: input, shape index: {}] /* operand 1 */
+%s2 = inlined_call_operand.<no memory space> [shape: s32[], index: 2, kind: input, shape index: {}] /* operand 2 */
+%s3 = inlined_call_operand.hbm [shape: f32[1,5], index: 3, kind: output, shape index: {}] /* operand 3 */
+%p4 = scmp.gt.s32.totalorder %s1, 0
+%s5 = scalar_select /*predicate=*/%p4, /*on_true=*/%s1, /*on_false=*/0
+%p82 = scmp.lt.s32.totalorder %s1, 15
+%s104 = scalar_select /*predicate=*/%p82, /*on_true=*/%s5, /*on_false=*/15
+%p8 = scmp.gt.s32.totalorder %s2, 0
+%s9 = scalar_select /*predicate=*/%p8, /*on_true=*/%s2, /*on_false=*/0
+%p87 = scmp.lt.s32.totalorder %s2, 27
+%s106 = scalar_select /*predicate=*/%p87, /*on_true=*/%s9, /*on_false=*/27
+%s12 = sshrl.u32 %s104, 3
+%s14 = sshrl.u32 %s106, 7
+%s25 = sand.u32 7, %s104 /* smod.u32 w/div 8 */
+%s27 = sand.u32 127, %s106 /* smod.u32 w/div 128 */
+
+%p43 = scmp.lt.s32.totalorder %s12, 1
+%s44 = scalar_select /*predicate=*/%p43, /*on_true=*/%s12, /*on_false=*/1
+%p45 = scmp.lt.s32.totalorder %s14, 0
+%s46 = scalar_select /*predicate=*/%p45, /*on_true=*/%s14, /*on_false=*/0
+%s47 = sadd.s32 %s46, %s44
+%s102 = sshll.u32 %s47, 3
+%s49 = scalar_lea.vmem %s0, %s102
+%v50 = vld [vmem:[%s49] sm:$0xff]
+%v51 = vlaneseq
+%v52 = vshrl.u32 %v51, 7
+%v53 = vstv %s25
+%vm54 = vcmp.lt.s32.totalorder %v52, %v53
+%v55 = vsel /*vm=*/%vm54, /*on_true_vy=*/0, /*on_false_vx=*/%v50
+%v57 = vrot.slane %v55, %v53
+%v64 = vand.u32 127, %v51
+%v65 = vstv %s27
+%vm66 = vcmp.lt.s32.totalorder %v64, %v65
+%v67 = vsel /*vm=*/%vm66, /*on_true_vy=*/0, /*on_false_vx=*/%v57
+%s68 = ssub.s32 128, %s27
+%69 = vrot.lane.b32.xlu0 %v67, %s68
+%v70 = vpop.permute.xlu0 %69
+%71 = vst [vmem:[#allocation5] sm:$0x1] /*vst_source=*/%v70
+%28 = vsyncpa [#allocation7], 0
+%s115 = smov [#allocation5] /* materialized constant */
+%s76 = sshll.u32 %s115, 4
+%s77 = int_to_ptr.vmem [resolvable:$true] %s76
+%79 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s77, /*size_in_granules=*/16, /*hbm=*/%s3, /*dst_syncflagno=*/[#allocation7] /* 
+base_bounds: (1, 1)
+dynamic_base_bounds: (1, 1)
+window_bounds: (1, 1)
+iteration_bounds: (1, 1)
+strides: (1, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 512 */
+
+%80 = dma.done [#allocation7], 16 /* pipeline-emitter-dma-wait */
+
+%81 = vsyncpa [#allocation7], 1

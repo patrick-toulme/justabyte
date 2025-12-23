@@ -1,0 +1,40 @@
+= control target key start
+LH: loop header
+LB: loop body
+LE: loop exit
+PB: predicated region body
+PF: predicated region fallthrough
+CT: control target
+= control target key end
+
+     0   :  { %2 = vsyncpa [#allocation2], 0  ;;  %s55_s0 = inlined_call_operand.vmem [shape: f32[5], index: 0, kind: input, shape index: {}] /* operand 0 */  ;;  %s56_s1 = inlined_call_operand.hbm [shape: f32[5], index: 1, kind: output, shape index: {}] /* operand 1 */ } /* entry bundle: %copy.1 = copy(%bitcast.1) */
+   0x1   :  { %v3_v0 = vld [vmem:[%s55_s0] sm:$0x1]  ;;  %s38_s0 = smov [#allocation0] /* materialized constant */ }
+   0x2   :  { %4 = vst [vmem:[#allocation0] sm:$0x1] /*vst_source=*/%v3_v0  ;;  %s9_s8 = sshll.u32 %s38_s0, 4  ;;  %s10_s8 = int_to_ptr.vmem [resolvable:$true] %s9_s8 }
+   0x3   :  { %s16_s9 = scalar_lea.vmem %s10_s8, 16  ;;  %s20_s10 = scalar_lea.vmem %s10_s8, 32 }
+   0x4   :  { %p17_p0 = scmp.ne.s32.totalorder %s10_s8, %s16_s9  ;;  %p21_p1 = scmp.lt.s32.totalorder %s10_s8, %s10_s8 }
+   0x5   :  { %p22_p2 = scmp.lt.s32.totalorder %s20_s10, %s16_s9 }
+   0x6   :  { %p23_p3 = por %p22_p2, %p21_p1 }
+   0x7   :  { %p24_p4 = pnand %p23_p3, %p17_p0 }
+   0x8   :  { %27 = shalt.err (!%p24_p4) /* BoundsCheck 2 [deref of %s10] for %12 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s10, /*size_in_granules=*/16, /*hbm=*/%s1, /*dst_syncflagno=*/[#allocation2] /* 
+base_bounds: (1)
+dynamic_base_bounds: (1)
+window_bounds: (1)
+iteration_bounds: (1)
+strides: (1)
+pad_low: (0)
+pad_high: (0)
+element_size_in_bytes: 512 */
+hlo: copy.1
+ */ }
+   0x9   :  { %12 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s10_s8, /*size_in_granules=*/16, /*hbm=*/%s56_s1, /*dst_syncflagno=*/[#allocation2] /* 
+base_bounds: (1)
+dynamic_base_bounds: (1)
+window_bounds: (1)
+iteration_bounds: (1)
+strides: (1)
+pad_low: (0)
+pad_high: (0)
+element_size_in_bytes: 512 */ }
+   0xa   :  { %36 = dma.done.wait [#allocation2], 16 /* pipeline-emitter-dma-wait */ }
+   0xb   :  { %37 = vsyncadd [#allocation2], 4294967280 }
+   0xc   :  { %14 = vsyncpa [#allocation2], 1 } /* exit bundle: %copy.1 = copy(%bitcast.1) */

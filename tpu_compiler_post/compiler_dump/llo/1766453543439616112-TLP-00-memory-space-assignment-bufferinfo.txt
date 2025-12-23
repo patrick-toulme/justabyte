@@ -1,0 +1,9 @@
+buffer_id,buffer_name,alt_mem_benefit,size,definition_time,use_times,use_names,is_scoped
+69,"<69 multiply_reduce_fusion{1}>",1.53017e-10,8192,3,"7;8;9","fusion.5, operand 0;fusion.2, operand 1;fusion, operand 3",0
+65,"<65 Arg_0.1>",5.10057e-11,8192,2,"3","multiply_reduce_fusion, operand 0",0
+70,"<70 add_sqrt_fusion>",3.82543e-11,512,6,"7;8;9","fusion.5, operand 1;fusion.2, operand 2;fusion, operand 4",0
+68,"<68 multiply_reduce_fusion{0}>",2.55029e-11,512,3,"6","add_sqrt_fusion, operand 0",0
+71,"<71 fusion.5>",2.55029e-11,512,7,"8;9","fusion.2, operand 0;fusion, operand 2",0
+72,"<72 fusion.2>",1.27514e-11,512,8,"9","fusion, operand 1",0
+64,"<64 Arg_2.3>",-4.46429e-12,16384,0,"9","fusion, operand 0",0
+73,"<73 fusion>",-3.64346e-10,8192,9,"","",0

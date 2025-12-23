@@ -1,0 +1,369 @@
+= control target key start
+LH: loop header
+LB: loop body
+LE: loop exit
+PB: predicated region body
+PF: predicated region fallthrough
+CT: control target
+= control target key end
+
+     0   :  { %v32_v16 = vlaneseq  ;;  %v192_v22 = vmov 0.0 /* materialized constant */  ;;  %s228_s2 = inlined_call_operand.vmem [shape: f32[16], index: 2, kind: input, shape index: {}] /* operand 2 */  ;;  %s229_s0 = inlined_call_operand.vmem [shape: f32[16], index: 0, kind: input, shape index: {}] /* operand 0 */  ;;  %s230_s1 = inlined_call_operand.vmem [shape: f32[16,64], index: 1, kind: input, shape index: {}] /* operand 1 */  ;;  %s231_s3 = inlined_call_operand.vmem [shape: f32[16], index: 3, kind: output, shape index: {}] /* operand 3 */ } /* Start region 0 */
+   0x1   :  { %v20_v0 = vld [vmem:[%s228_s2] ss:$0 sm:$0xff]  ;;  %v182_v9 = vld [vmem:[%s230_s1 + $0x8] sm:$0xff]  ;;  %10 = vst [vmem:[#allocation0] sm:$0xff] /*vst_source=*/%v192_v22 }
+   0x2   :  { %v15_v1 = vld [vmem:[%s229_s0] ss:$0 sm:$0xff]  ;;  %22 = vbcast.lane.b32.xlu0 %v20_v0, 256  ;;  %v33_v17 = vand.u32 127, %v32_v16 }
+   0x3   :  { %17 = vbcast.lane.b32.xlu1 %v15_v1, 256  ;;  %v19_v6 = vld [vmem:[%s230_s1] sm:$0xff] }
+   0x4   :  { %vm34_vm0 = vcmp.lt.s32.totalorder %v33_v17, 64 }
+   0x5   :  {}
+   0x6   :  { %46 = vbcast.lane.b32.xlu0 %v20_v0, 264 }
+   0x7   :  { %39 = vbcast.lane.b32.xlu1 %v15_v1, 264 }
+   0x8   :  {}
+   0x9   :  {}
+   0xa   :  {}
+   0xb   :  {}
+   0xc   :  {}
+   0xd   :  {}
+   0xe   :  {}
+   0xf   :  {}
+  0x10   :  {}
+  0x11   :  {}
+  0x12   :  {}
+  0x13   :  {}
+  0x14   :  {}
+  0x15   :  {}
+  0x16   :  {}
+  0x17   :  {}
+  0x18   :  {}
+  0x19   :  {}
+  0x1a   :  {}
+  0x1b   :  {}
+  0x1c   :  {}
+  0x1d   :  {}
+  0x1e   :  {}
+  0x1f   :  {}
+  0x20   :  {}
+  0x21   :  {}
+  0x22   :  {}
+  0x23   :  {}
+  0x24   :  {}
+  0x25   :  {}
+  0x26   :  {}
+  0x27   :  {}
+  0x28   :  {}
+  0x29   :  {}
+  0x2a   :  {}
+  0x2b   :  {}
+  0x2c   :  {}
+  0x2d   :  {}
+  0x2e   :  {}
+  0x2f   :  {}
+  0x30   :  {}
+  0x31   :  {}
+  0x32   :  {}
+  0x33   :  {}
+  0x34   :  {}
+  0x35   :  {}
+  0x36   :  {}
+  0x37   :  {}
+  0x38   :  {}
+  0x39   :  {}
+  0x3a   :  {}
+  0x3b   :  {}
+  0x3c   :  {}
+  0x3d   :  {}
+  0x3e   :  {}
+  0x3f   :  {}
+  0x40   :  {}
+  0x41   :  {}
+  0x42   :  {}
+  0x43   :  {}
+  0x44   :  {}
+  0x45   :  {}
+  0x46   :  {}
+  0x47   :  {}
+  0x48   :  {}
+  0x49   :  {}
+  0x4a   :  {}
+  0x4b   :  {}
+  0x4c   :  {}
+  0x4d   :  {}
+  0x4e   :  {}
+  0x4f   :  {}
+  0x50   :  {}
+  0x51   :  {}
+  0x52   :  {}
+  0x53   :  {}
+  0x54   :  {}
+  0x55   :  {}
+  0x56   :  {}
+  0x57   :  {}
+  0x58   :  {}
+  0x59   :  {}
+  0x5a   :  {}
+  0x5b   :  {}
+  0x5c   :  {}
+  0x5d   :  {}
+  0x5e   :  {}
+  0x5f   :  {}
+  0x60   :  {}
+  0x61   :  {}
+  0x62   :  {}
+  0x63   :  {}
+  0x64   :  {}
+  0x65   :  {}
+  0x66   :  {}
+  0x67   :  {}
+  0x68   :  {}
+  0x69   :  {}
+  0x6a   :  {}
+  0x6b   :  {}
+  0x6c   :  {}
+  0x6d   :  {}
+  0x6e   :  {}
+  0x6f   :  {}
+  0x70   :  {}
+  0x71   :  {}
+  0x72   :  {}
+  0x73   :  {}
+  0x74   :  { %v23_v2 = vpop.permute.xlu0 %22 }
+  0x75   :  { %v18_v3 = vpop.permute.xlu1 %17  ;;  %184 = vrcp.f32 %v23_v2 }
+  0x76   :  {}
+  0x77   :  {}
+  0x78   :  { %v47_v4 = vpop.permute.xlu0 %46 }
+  0x79   :  { %v40_v5 = vpop.permute.xlu1 %39  ;;  %186 = vrcp.f32 %v47_v4 }
+  0x7a   :  {}
+  0x7b   :  {}
+  0x7c   :  {}
+  0x7d   :  {}
+  0x7e   :  {}
+  0x7f   :  {}
+  0x80   :  {}
+  0x81   :  {}
+  0x82   :  { %v185_v7 = vpop.eup %184 }
+  0x83   :  { %v25_v8 = vmul.f32 %v185_v7, %v19_v6 }
+  0x84   :  {}
+  0x85   :  { %v28_v10 = vsub.f32 %v25_v8, %v18_v3 }
+  0x86   :  { %v187_v11 = vpop.eup %186 }
+  0x87   :  { %v30_v12 = vmul.f32 1.442695, %v28_v10  ;;  %v49_v13 = vmul.f32 %v187_v11, %v182_v9 }
+  0x88   :  {}
+  0x89   :  { %188 = vpow2.f32 %v30_v12  ;;  %v52_v14 = vsub.f32 %v49_v13, %v40_v5 }
+  0x8a   :  {}
+  0x8b   :  { %v54_v15 = vmul.f32 1.442695, %v52_v14 }
+  0x8c   :  {}
+  0x8d   :  { %190 = vpow2.f32 %v54_v15 }
+  0x8e   :  {}
+  0x8f   :  {}
+  0x90   :  {}
+  0x91   :  {}
+  0x92   :  {}
+  0x93   :  {}
+  0x94   :  {}
+  0x95   :  {}
+  0x96   :  { %v189_v18 = vpop.eup %188 }
+  0x97   :  { %v35_v19 = vsel /*vm=*/%vm34_vm0, /*on_true_vy=*/%v189_v18, /*on_false_vx=*/0.0 }
+  0x98   :  { %76 = vxpose.xlu0.b32.start [1/2] (short) /*vx=*/%v35_v19, /*width=*/128 }
+  0x99   :  {}
+  0x9a   :  { %v191_v20 = vpop.eup %190 }
+  0x9b   :  { %v59_v21 = vsel /*vm=*/%vm34_vm0, /*on_true_vy=*/%v191_v20, /*on_false_vx=*/0.0 }
+  0x9c   :  { %77 = vxpose.xlu0.b32.end [2/2] (short) /*vx=*/%v59_v21, /*width=*/128 }
+  0x9d   :  {}
+  0x9e   :  {}
+  0x9f   :  {}
+  0xa0   :  {}
+  0xa1   :  {}
+  0xa2   :  {}
+  0xa3   :  {}
+  0xa4   :  {}
+  0xa5   :  {}
+  0xa6   :  {}
+  0xa7   :  {}
+  0xa8   :  {}
+  0xa9   :  {}
+  0xaa   :  {}
+  0xab   :  {}
+  0xac   :  {}
+  0xad   :  {}
+  0xae   :  {}
+  0xaf   :  {}
+  0xb0   :  {}
+  0xb1   :  {}
+  0xb2   :  {}
+  0xb3   :  {}
+  0xb4   :  {}
+  0xb5   :  {}
+  0xb6   :  {}
+  0xb7   :  {}
+  0xb8   :  {}
+  0xb9   :  {}
+  0xba   :  {}
+  0xbb   :  {}
+  0xbc   :  {}
+  0xbd   :  {}
+  0xbe   :  {}
+  0xbf   :  {}
+  0xc0   :  {}
+  0xc1   :  {}
+  0xc2   :  {}
+  0xc3   :  {}
+  0xc4   :  {}
+  0xc5   :  {}
+  0xc6   :  {}
+  0xc7   :  {}
+  0xc8   :  {}
+  0xc9   :  {}
+  0xca   :  {}
+  0xcb   :  {}
+  0xcc   :  {}
+  0xcd   :  {}
+  0xce   :  {}
+  0xcf   :  {}
+  0xd0   :  {}
+  0xd1   :  {}
+  0xd2   :  {}
+  0xd3   :  {}
+  0xd4   :  {}
+  0xd5   :  {}
+  0xd6   :  {}
+  0xd7   :  {}
+  0xd8   :  {}
+  0xd9   :  {}
+  0xda   :  {}
+  0xdb   :  {}
+  0xdc   :  {}
+  0xdd   :  {}
+  0xde   :  {}
+  0xdf   :  {}
+  0xe0   :  {}
+  0xe1   :  {}
+  0xe2   :  {}
+  0xe3   :  {}
+  0xe4   :  {}
+  0xe5   :  {}
+  0xe6   :  {}
+  0xe7   :  {}
+  0xe8   :  {}
+  0xe9   :  {}
+  0xea   :  {}
+  0xeb   :  {}
+  0xec   :  {}
+  0xed   :  {}
+  0xee   :  {}
+  0xef   :  {}
+  0xf0   :  {}
+  0xf1   :  {}
+  0xf2   :  {}
+  0xf3   :  {}
+  0xf4   :  {}
+  0xf5   :  {}
+  0xf6   :  {}
+  0xf7   :  {}
+  0xf8   :  {}
+  0xf9   :  {}
+  0xfa   :  {}
+  0xfb   :  {}
+  0xfc   :  {}
+  0xfd   :  {}
+  0xfe   :  {}
+  0xff   :  {}
+ 0x100   :  {}
+ 0x101   :  {}
+ 0x102   :  {}
+ 0x103   :  {}
+ 0x104   :  {}
+ 0x105   :  {}
+ 0x106   :  {}
+ 0x107   :  {}
+ 0x108   :  {}
+ 0x109   :  {}
+ 0x10a   :  {}
+ 0x10b   :  {}
+ 0x10c   :  {}
+ 0x10d   :  {}
+ 0x10e   :  {}
+ 0x10f   :  {}
+ 0x110   :  {}
+ 0x111   :  {}
+ 0x112   :  {}
+ 0x113   :  {}
+ 0x114   :  { %v78_v23 = vpop.trf.xlu0 }
+ 0x115   :  {}
+ 0x116   :  {}
+ 0x117   :  {}
+ 0x118   :  { %v79_v24 = vpop.trf.xlu0 }
+ 0x119   :  { %v100_v25 = vadd.f32 %v79_v24, %v78_v23 }
+ 0x11a   :  {}
+ 0x11b   :  {}
+ 0x11c   :  { %v80_v26 = vpop.trf.xlu0 }
+ 0x11d   :  { %v104_v27 = vadd.f32 %v100_v25, %v80_v26 }
+ 0x11e   :  {}
+ 0x11f   :  {}
+ 0x120   :  { %v81_v28 = vpop.trf.xlu0 }
+ 0x121   :  { %v108_v29 = vadd.f32 %v104_v27, %v81_v28 }
+ 0x122   :  {}
+ 0x123   :  {}
+ 0x124   :  { %v82_v30 = vpop.trf.xlu0 }
+ 0x125   :  { %v112_v31 = vadd.f32 %v108_v29, %v82_v30 }
+ 0x126   :  {}
+ 0x127   :  {}
+ 0x128   :  { %v83_v32 = vpop.trf.xlu0 }
+ 0x129   :  { %v116_v33 = vadd.f32 %v112_v31, %v83_v32 }
+ 0x12a   :  {}
+ 0x12b   :  {}
+ 0x12c   :  { %v84_v34 = vpop.trf.xlu0 }
+ 0x12d   :  { %v120_v35 = vadd.f32 %v116_v33, %v84_v34 }
+ 0x12e   :  {}
+ 0x12f   :  {}
+ 0x130   :  { %v85_v36 = vpop.trf.xlu0 }
+ 0x131   :  { %v124_v37 = vadd.f32 %v120_v35, %v85_v36 }
+ 0x132   :  {}
+ 0x133   :  {}
+ 0x134   :  { %v86_v38 = vpop.trf.xlu0 }
+ 0x135   :  { %v128_v39 = vadd.f32 %v124_v37, %v86_v38 }
+ 0x136   :  {}
+ 0x137   :  {}
+ 0x138   :  { %v87_v40 = vpop.trf.xlu0 }
+ 0x139   :  { %v132_v41 = vadd.f32 %v128_v39, %v87_v40 }
+ 0x13a   :  {}
+ 0x13b   :  {}
+ 0x13c   :  { %v88_v42 = vpop.trf.xlu0 }
+ 0x13d   :  { %v136_v43 = vadd.f32 %v132_v41, %v88_v42 }
+ 0x13e   :  {}
+ 0x13f   :  {}
+ 0x140   :  { %v89_v44 = vpop.trf.xlu0 }
+ 0x141   :  { %v140_v45 = vadd.f32 %v136_v43, %v89_v44 }
+ 0x142   :  {}
+ 0x143   :  {}
+ 0x144   :  { %v90_v46 = vpop.trf.xlu0 }
+ 0x145   :  { %v144_v47 = vadd.f32 %v140_v45, %v90_v46 }
+ 0x146   :  {}
+ 0x147   :  {}
+ 0x148   :  { %v91_v48 = vpop.trf.xlu0 }
+ 0x149   :  { %v148_v49 = vadd.f32 %v144_v47, %v91_v48 }
+ 0x14a   :  {}
+ 0x14b   :  {}
+ 0x14c   :  { %v92_v50 = vpop.trf.xlu0 }
+ 0x14d   :  { %v152_v51 = vadd.f32 %v148_v49, %v92_v50 }
+ 0x14e   :  {}
+ 0x14f   :  {}
+ 0x150   :  { %v93_v52 = vpop.trf.xlu0 }
+ 0x151   :  { %v156_v53 = vadd.f32 %v152_v51, %v93_v52 }
+ 0x152   :  {}
+ 0x153   :  { %v158_v54 = vrot.slane %v156_v53, 4 }
+ 0x154   :  {}
+ 0x155   :  { %v161_v55 = vadd.f32 %v158_v54, %v156_v53 }
+ 0x156   :  {}
+ 0x157   :  { %v163_v56 = vrot.slane %v161_v55, 2 }
+ 0x158   :  {}
+ 0x159   :  { %v166_v57 = vadd.f32 %v163_v56, %v161_v55 }
+ 0x15a   :  {}
+ 0x15b   :  { %v168_v58 = vrot.slane %v166_v57, 1 }
+ 0x15c   :  {}
+ 0x15d   :  { %v171_v59 = vadd.f32 %v168_v58, %v166_v57 }
+ 0x15e   :  {}
+ 0x15f   :  { %173 = vst [vmem:[#allocation0] sm:$0x1] /*vst_source=*/%v171_v59 }
+ 0x160   :  {}
+ 0x161   :  {}
+ 0x162   :  {}
+ 0x163   :  {}
+ 0x164   :  {}
+ 0x165   :  {}
+ 0x166   :  { %v178_v60 = vld [vmem:[#allocation0] sm:$0x1] }
+ 0x167   :  { %181 = vst [vmem:[%s231_s3] sm:$0x1] /*vst_source=*/%v178_v60 } /* End region 0 */

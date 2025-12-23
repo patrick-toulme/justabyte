@@ -1,0 +1,2 @@
+182q137x6cTk3zu4NnItalK3nmJR236IAERt0LWz/6c=:i=000000af:c=00000037:a=00000010:b=00000011 <no-hlo-instruction>
+TG1RpWNlG+OMxzO9NSN8kEbiw4HEvAmWTqDt5nQsAGk=:i=0000002e:c=00000011:a=00000005:b=00000002 broadcast_multiply_fusion

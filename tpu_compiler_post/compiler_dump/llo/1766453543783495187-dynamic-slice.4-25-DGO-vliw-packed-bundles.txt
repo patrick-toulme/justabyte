@@ -1,0 +1,151 @@
+     0   :  { %s0 = inlined_call_operand.vmem [shape: f32[16,32], index: 0, kind: input, shape index: {}] /* operand 0 */  ;;  %s1 = inlined_call_operand.<no memory space> [shape: s32[], index: 1, kind: input, shape index: {}] /* operand 1 */  ;;  %s2 = inlined_call_operand.<no memory space> [shape: s32[], index: 2, kind: input, shape index: {}] /* operand 2 */  ;;  %s3 = inlined_call_operand.hbm [shape: f32[1,5], index: 3, kind: output, shape index: {}] /* operand 3 */ }
+   0x1   :  { %p4 = scmp.gt.s32.totalorder %s1, 0  ;;  %p82 = scmp.lt.s32.totalorder %s1, 15 }
+   0x2   :  { %p8 = scmp.gt.s32.totalorder %s2, 0  ;;  %p87 = scmp.lt.s32.totalorder %s2, 27 }
+   0x3   :  { %s5 = scalar_select /*predicate=*/%p4, /*on_true=*/%s1, /*on_false=*/0 }
+   0x4   :  { %s9 = scalar_select /*predicate=*/%p8, /*on_true=*/%s2, /*on_false=*/0 }
+   0x5   :  { %s104 = scalar_select /*predicate=*/%p82, /*on_true=*/%s5, /*on_false=*/15 }
+   0x6   :  { %s106 = scalar_select /*predicate=*/%p87, /*on_true=*/%s9, /*on_false=*/27 }
+   0x7   :  { %s12 = sshrl.u32 %s104, 3  ;;  %s25 = sand.u32 7, %s104 /* smod.u32 w/div 8 */ }
+   0x8   :  { %s14 = sshrl.u32 %s106, 7  ;;  %s27 = sand.u32 127, %s106 /* smod.u32 w/div 128 */ }
+     0   :  { %p43 = scmp.lt.s32.totalorder %s12, 1  ;;  %p45 = scmp.lt.s32.totalorder %s14, 0  ;;  %v51 = vlaneseq  ;;  %28 = vsyncpa [#allocation7], 0 }
+   0x1   :  {}
+   0x2   :  { %s44 = scalar_select /*predicate=*/%p43, /*on_true=*/%s12, /*on_false=*/1  ;;  %v52 = vshrl.u32 %v51, 7 }
+   0x3   :  { %s46 = scalar_select /*predicate=*/%p45, /*on_true=*/%s14, /*on_false=*/0  ;;  %v53 = vstv %s25 }
+   0x4   :  {}
+   0x5   :  { %s47 = sadd.s32 %s46, %s44  ;;  %v64 = vand.u32 127, %v51 }
+   0x6   :  { %s102 = sshll.u32 %s47, 3  ;;  %vm54 = vcmp.lt.s32.totalorder %v52, %v53  ;;  %v65 = vstv %s27 }
+   0x7   :  { %s49 = scalar_lea.vmem %s0, %s102 }
+   0x8   :  { %v50 = vld [vmem:[%s49] sm:$0xff] }
+   0x9   :  { %v55 = vsel /*vm=*/%vm54, /*on_true_vy=*/0, /*on_false_vx=*/%v50  ;;  %vm66 = vcmp.lt.s32.totalorder %v64, %v65 }
+   0xa   :  { %v57 = vrot.slane %v55, %v53  ;;  %s68 = ssub.s32 128, %s27 }
+   0xb   :  {}
+   0xc   :  { %v67 = vsel /*vm=*/%vm66, /*on_true_vy=*/0, /*on_false_vx=*/%v57 }
+   0xd   :  { %69 = vrot.lane.b32.xlu0 %v67, %s68 }
+   0xe   :  {}
+   0xf   :  {}
+  0x10   :  {}
+  0x11   :  {}
+  0x12   :  {}
+  0x13   :  {}
+  0x14   :  {}
+  0x15   :  {}
+  0x16   :  {}
+  0x17   :  {}
+  0x18   :  {}
+  0x19   :  {}
+  0x1a   :  {}
+  0x1b   :  {}
+  0x1c   :  {}
+  0x1d   :  {}
+  0x1e   :  {}
+  0x1f   :  {}
+  0x20   :  {}
+  0x21   :  {}
+  0x22   :  {}
+  0x23   :  {}
+  0x24   :  {}
+  0x25   :  {}
+  0x26   :  {}
+  0x27   :  {}
+  0x28   :  {}
+  0x29   :  {}
+  0x2a   :  {}
+  0x2b   :  {}
+  0x2c   :  {}
+  0x2d   :  {}
+  0x2e   :  {}
+  0x2f   :  {}
+  0x30   :  {}
+  0x31   :  {}
+  0x32   :  {}
+  0x33   :  {}
+  0x34   :  {}
+  0x35   :  {}
+  0x36   :  {}
+  0x37   :  {}
+  0x38   :  {}
+  0x39   :  {}
+  0x3a   :  {}
+  0x3b   :  {}
+  0x3c   :  {}
+  0x3d   :  {}
+  0x3e   :  {}
+  0x3f   :  {}
+  0x40   :  {}
+  0x41   :  {}
+  0x42   :  {}
+  0x43   :  {}
+  0x44   :  {}
+  0x45   :  {}
+  0x46   :  {}
+  0x47   :  {}
+  0x48   :  {}
+  0x49   :  {}
+  0x4a   :  {}
+  0x4b   :  {}
+  0x4c   :  {}
+  0x4d   :  {}
+  0x4e   :  {}
+  0x4f   :  {}
+  0x50   :  {}
+  0x51   :  {}
+  0x52   :  {}
+  0x53   :  {}
+  0x54   :  {}
+  0x55   :  {}
+  0x56   :  {}
+  0x57   :  {}
+  0x58   :  {}
+  0x59   :  {}
+  0x5a   :  {}
+  0x5b   :  {}
+  0x5c   :  {}
+  0x5d   :  {}
+  0x5e   :  {}
+  0x5f   :  {}
+  0x60   :  {}
+  0x61   :  {}
+  0x62   :  {}
+  0x63   :  {}
+  0x64   :  {}
+  0x65   :  {}
+  0x66   :  {}
+  0x67   :  {}
+  0x68   :  {}
+  0x69   :  {}
+  0x6a   :  {}
+  0x6b   :  {}
+  0x6c   :  {}
+  0x6d   :  {}
+  0x6e   :  {}
+  0x6f   :  {}
+  0x70   :  {}
+  0x71   :  {}
+  0x72   :  {}
+  0x73   :  {}
+  0x74   :  {}
+  0x75   :  {}
+  0x76   :  {}
+  0x77   :  {}
+  0x78   :  { %s115 = smov [#allocation5] /* materialized constant */ }
+  0x79   :  {}
+  0x7a   :  {}
+  0x7b   :  { %s76 = sshll.u32 %s115, 4 }
+  0x7c   :  {}
+  0x7d   :  {}
+  0x7e   :  { %s77 = int_to_ptr.vmem [resolvable:$true] %s76 }
+  0x7f   :  { %v70 = vpop.permute.xlu0 %69 }
+  0x80   :  { %71 = vst [vmem:[#allocation5] sm:$0x1] /*vst_source=*/%v70 }
+  0x81   :  { %79 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s77, /*size_in_granules=*/16, /*hbm=*/%s3, /*dst_syncflagno=*/[#allocation7] /* 
+base_bounds: (1, 1)
+dynamic_base_bounds: (1, 1)
+window_bounds: (1, 1)
+iteration_bounds: (1, 1)
+strides: (1, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 512 */ }
+     0   :  {}
+   0x1   :  { %80 = dma.done [#allocation7], 16 /* pipeline-emitter-dma-wait */ }
+     0   :  {}
+   0x1   :  { %81 = vsyncpa [#allocation7], 1 }

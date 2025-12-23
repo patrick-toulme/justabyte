@@ -1,0 +1,45 @@
+Total bytes used: 39488 (38.6KiB)
+
+Allocations sorted by size:
+
+cumulative_size; total_size - cumulative_size; allocation
+------------------------------------------------------------------------------
+    4.0KiB( 10%);    34.6KiB; allocation 0: size 4.0KiB, thread-local:
+    8.0KiB( 21%);    30.6KiB; allocation 6: size 4.0KiB, thread-local:
+   12.0KiB( 31%);    26.6KiB; allocation 7: size 4.0KiB, thread-local:
+   16.0KiB( 41%);    22.6KiB; allocation 8: size 4.0KiB, thread-local:
+   20.0KiB( 52%);    18.6KiB; allocation 9: size 4.0KiB, thread-local:
+   24.0KiB( 62%);    14.6KiB; allocation 10: size 4.0KiB, thread-local:
+   28.0KiB( 73%);    10.6KiB; allocation 11: size 4.0KiB, thread-local:
+   32.0KiB( 83%);     6.6KiB; allocation 12: size 4.0KiB, thread-local:
+   36.0KiB( 93%);     2.6KiB; allocation 13: size 4.0KiB, thread-local:
+   37.0KiB( 96%);     1.6KiB; allocation 1: size 1.0KiB, parameter 0, shape |u32[3,2]| at ShapeIndex {}:
+   37.5KiB( 97%);     1.1KiB; allocation 2: size 512B, maybe-live-out:
+   38.0KiB( 99%);       576B; allocation 3: size 512B, maybe-live-out:
+   38.5KiB(100%);        64B; allocation 4: size 512B, maybe-live-out:
+   38.5KiB(100%);        32B; allocation 5: size 32B, output shape is |(u32[2], u32[2], u32[2])|, maybe-live-out:
+   38.6KiB(100%);         0B; allocation 14: size 32B, preallocated-temp:
+   38.6KiB(100%);         0B; allocation 15: size 0B, color 1, preallocated-temp:
+
+
+Allocations sorted by size with their values:
+allocation 0: size 4.0KiB, thread-local:
+allocation 6: size 4.0KiB, thread-local:
+allocation 7: size 4.0KiB, thread-local:
+allocation 8: size 4.0KiB, thread-local:
+allocation 9: size 4.0KiB, thread-local:
+allocation 10: size 4.0KiB, thread-local:
+allocation 11: size 4.0KiB, thread-local:
+allocation 12: size 4.0KiB, thread-local:
+allocation 13: size 4.0KiB, thread-local:
+allocation 1: size 1.0KiB, parameter 0, shape |u32[3,2]| at ShapeIndex {}:
+allocation 2: size 512B, maybe-live-out:
+allocation 3: size 512B, maybe-live-out:
+allocation 4: size 512B, maybe-live-out:
+allocation 5: size 32B, output shape is |(u32[2], u32[2], u32[2])|, maybe-live-out:
+allocation 14: size 32B, preallocated-temp:
+allocation 15: size 0B, color 1, preallocated-temp:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+

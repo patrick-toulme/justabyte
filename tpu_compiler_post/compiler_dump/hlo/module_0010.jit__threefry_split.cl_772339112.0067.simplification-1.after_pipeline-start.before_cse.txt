@@ -1,0 +1,164 @@
+HloModule jit__threefry_split, entry_computation_layout={(u32[2]{0:T(128)})->u32[3,2]{0,1:T(2,128)}}, allow_spmd_sharding_propagation_to_parameters={true}, allow_spmd_sharding_propagation_to_output={true}
+
+ENTRY %main.186 (Arg_0.1: u32[2]) -> u32[3,2] {
+  %Arg_0.1 = u32[2]{0} parameter(0), metadata={op_name="key"}
+  %slice.4 = u32[1]{0} slice(%Arg_0.1), slice={[0:1]}, metadata={op_name="jit(_threefry_split)/jit(main)/slice" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %reshape.5 = u32[] reshape(%slice.4), metadata={op_name="jit(_threefry_split)/jit(main)/squeeze" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %broadcast.2233 = u32[3,1]{1,0} broadcast(%reshape.5), dimensions={}, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %iota.1 = u32[3,1]{1,0} iota(), iota_dimension=0, metadata={op_name="jit(_threefry_split)/jit(main)/iota_2x32_shape" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %slice.6 = u32[1]{0} slice(%Arg_0.1), slice={[1:2]}, metadata={op_name="jit(_threefry_split)/jit(main)/slice" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %reshape.7 = u32[] reshape(%slice.6), metadata={op_name="jit(_threefry_split)/jit(main)/squeeze" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %broadcast.2234 = u32[3,1]{1,0} broadcast(%reshape.7), dimensions={}, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1406 = u32[3,1]{1,0} add(%iota.1, %broadcast.2234), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1407 = u32[3,1]{1,0} add(%broadcast.2233, %add.1406), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %constant.9 = u32[] constant(13)
+  %broadcast.2235 = u32[3,1]{1,0} broadcast(%constant.9), dimensions={}
+  %shift-left.789 = u32[3,1]{1,0} shift-left(%add.1406, %broadcast.2235), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %constant.10 = u32[] constant(19)
+  %broadcast.2236 = u32[3,1]{1,0} broadcast(%constant.10), dimensions={}
+  %shift-right-logical.793 = u32[3,1]{1,0} shift-right-logical(%add.1406, %broadcast.2236), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.790 = u32[3,1]{1,0} or(%shift-left.789, %shift-right-logical.793), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.789 = u32[3,1]{1,0} xor(%add.1407, %or.790), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1408 = u32[3,1]{1,0} add(%add.1407, %xor.789), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %constant.11 = u32[] constant(15)
+  %broadcast.2237 = u32[3,1]{1,0} broadcast(%constant.11), dimensions={}
+  %shift-left.790 = u32[3,1]{1,0} shift-left(%xor.789, %broadcast.2237), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %constant.12 = u32[] constant(17)
+  %broadcast.2238 = u32[3,1]{1,0} broadcast(%constant.12), dimensions={}
+  %shift-right-logical.794 = u32[3,1]{1,0} shift-right-logical(%xor.789, %broadcast.2238), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.791 = u32[3,1]{1,0} or(%shift-left.790, %shift-right-logical.794), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.790 = u32[3,1]{1,0} xor(%add.1408, %or.791), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1409 = u32[3,1]{1,0} add(%add.1408, %xor.790), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %constant.13 = u32[] constant(26)
+  %broadcast.2239 = u32[3,1]{1,0} broadcast(%constant.13), dimensions={}
+  %shift-left.791 = u32[3,1]{1,0} shift-left(%xor.790, %broadcast.2239), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %constant.14 = u32[] constant(6)
+  %broadcast.2240 = u32[3,1]{1,0} broadcast(%constant.14), dimensions={}
+  %shift-right-logical.795 = u32[3,1]{1,0} shift-right-logical(%xor.790, %broadcast.2240), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.792 = u32[3,1]{1,0} or(%shift-left.791, %shift-right-logical.795), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.791 = u32[3,1]{1,0} xor(%add.1409, %or.792), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1410 = u32[3,1]{1,0} add(%add.1409, %xor.791), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1411 = u32[3,1]{1,0} add(%add.1410, %broadcast.2234), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-left.792 = u32[3,1]{1,0} shift-left(%xor.791, %broadcast.2240), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-right-logical.796 = u32[3,1]{1,0} shift-right-logical(%xor.791, %broadcast.2239), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.793 = u32[3,1]{1,0} or(%shift-left.792, %shift-right-logical.796), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.792 = u32[3,1]{1,0} xor(%add.1410, %or.793), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.4 = u32[] xor(%reshape.5, %reshape.7), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %constant.15 = u32[] constant(466688986)
+  %xor.5 = u32[] xor(%xor.4, %constant.15), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %broadcast.2244 = u32[3,1]{1,0} broadcast(%xor.5), dimensions={}, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1412 = u32[3,1]{1,0} add(%xor.792, %broadcast.2244), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %constant.16 = u32[] constant(1)
+  %broadcast.2245 = u32[3,1]{1,0} broadcast(%constant.16), dimensions={}
+  %add.1413 = u32[3,1]{1,0} add(%add.1412, %broadcast.2245), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1414 = u32[3,1]{1,0} add(%add.1411, %add.1413), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-left.793 = u32[3,1]{1,0} shift-left(%add.1413, %broadcast.2238), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-right-logical.797 = u32[3,1]{1,0} shift-right-logical(%add.1413, %broadcast.2237), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.794 = u32[3,1]{1,0} or(%shift-left.793, %shift-right-logical.797), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.793 = u32[3,1]{1,0} xor(%add.1414, %or.794), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1415 = u32[3,1]{1,0} add(%add.1414, %xor.793), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %constant.17 = u32[] constant(29)
+  %broadcast.2248 = u32[3,1]{1,0} broadcast(%constant.17), dimensions={}
+  %shift-left.794 = u32[3,1]{1,0} shift-left(%xor.793, %broadcast.2248), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %constant.18 = u32[] constant(3)
+  %broadcast.2249 = u32[3,1]{1,0} broadcast(%constant.18), dimensions={}
+  %shift-right-logical.798 = u32[3,1]{1,0} shift-right-logical(%xor.793, %broadcast.2249), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.795 = u32[3,1]{1,0} or(%shift-left.794, %shift-right-logical.798), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.794 = u32[3,1]{1,0} xor(%add.1415, %or.795), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1416 = u32[3,1]{1,0} add(%add.1415, %xor.794), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %constant.19 = u32[] constant(16)
+  %broadcast.2250 = u32[3,1]{1,0} broadcast(%constant.19), dimensions={}
+  %shift-left.795 = u32[3,1]{1,0} shift-left(%xor.794, %broadcast.2250), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-right-logical.799 = u32[3,1]{1,0} shift-right-logical(%xor.794, %broadcast.2250), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.796 = u32[3,1]{1,0} or(%shift-left.795, %shift-right-logical.799), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.795 = u32[3,1]{1,0} xor(%add.1416, %or.796), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1417 = u32[3,1]{1,0} add(%add.1416, %xor.795), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1418 = u32[3,1]{1,0} add(%add.1417, %broadcast.2244), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %constant.20 = u32[] constant(24)
+  %broadcast.2253 = u32[3,1]{1,0} broadcast(%constant.20), dimensions={}
+  %shift-left.796 = u32[3,1]{1,0} shift-left(%xor.795, %broadcast.2253), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %constant.21 = u32[] constant(8)
+  %broadcast.2254 = u32[3,1]{1,0} broadcast(%constant.21), dimensions={}
+  %shift-right-logical.800 = u32[3,1]{1,0} shift-right-logical(%xor.795, %broadcast.2254), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.797 = u32[3,1]{1,0} or(%shift-left.796, %shift-right-logical.800), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.796 = u32[3,1]{1,0} xor(%add.1417, %or.797), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1419 = u32[3,1]{1,0} add(%xor.796, %broadcast.2233), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %constant.22 = u32[] constant(2)
+  %broadcast.2256 = u32[3,1]{1,0} broadcast(%constant.22), dimensions={}
+  %add.1420 = u32[3,1]{1,0} add(%add.1419, %broadcast.2256), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1421 = u32[3,1]{1,0} add(%add.1418, %add.1420), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-left.797 = u32[3,1]{1,0} shift-left(%add.1420, %broadcast.2235), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-right-logical.801 = u32[3,1]{1,0} shift-right-logical(%add.1420, %broadcast.2236), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.798 = u32[3,1]{1,0} or(%shift-left.797, %shift-right-logical.801), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.797 = u32[3,1]{1,0} xor(%add.1421, %or.798), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1422 = u32[3,1]{1,0} add(%add.1421, %xor.797), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-left.798 = u32[3,1]{1,0} shift-left(%xor.797, %broadcast.2237), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-right-logical.802 = u32[3,1]{1,0} shift-right-logical(%xor.797, %broadcast.2238), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.799 = u32[3,1]{1,0} or(%shift-left.798, %shift-right-logical.802), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.798 = u32[3,1]{1,0} xor(%add.1422, %or.799), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1423 = u32[3,1]{1,0} add(%add.1422, %xor.798), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-left.799 = u32[3,1]{1,0} shift-left(%xor.798, %broadcast.2239), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-right-logical.803 = u32[3,1]{1,0} shift-right-logical(%xor.798, %broadcast.2240), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.800 = u32[3,1]{1,0} or(%shift-left.799, %shift-right-logical.803), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.799 = u32[3,1]{1,0} xor(%add.1423, %or.800), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1424 = u32[3,1]{1,0} add(%add.1423, %xor.799), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1425 = u32[3,1]{1,0} add(%add.1424, %broadcast.2233), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-left.800 = u32[3,1]{1,0} shift-left(%xor.799, %broadcast.2240), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-right-logical.804 = u32[3,1]{1,0} shift-right-logical(%xor.799, %broadcast.2239), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.801 = u32[3,1]{1,0} or(%shift-left.800, %shift-right-logical.804), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.800 = u32[3,1]{1,0} xor(%add.1424, %or.801), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1426 = u32[3,1]{1,0} add(%xor.800, %broadcast.2234), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1427 = u32[3,1]{1,0} add(%add.1426, %broadcast.2249), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1428 = u32[3,1]{1,0} add(%add.1425, %add.1427), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-left.801 = u32[3,1]{1,0} shift-left(%add.1427, %broadcast.2238), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-right-logical.805 = u32[3,1]{1,0} shift-right-logical(%add.1427, %broadcast.2237), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.802 = u32[3,1]{1,0} or(%shift-left.801, %shift-right-logical.805), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.801 = u32[3,1]{1,0} xor(%add.1428, %or.802), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1429 = u32[3,1]{1,0} add(%add.1428, %xor.801), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-left.802 = u32[3,1]{1,0} shift-left(%xor.801, %broadcast.2248), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-right-logical.806 = u32[3,1]{1,0} shift-right-logical(%xor.801, %broadcast.2249), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.803 = u32[3,1]{1,0} or(%shift-left.802, %shift-right-logical.806), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.802 = u32[3,1]{1,0} xor(%add.1429, %or.803), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1430 = u32[3,1]{1,0} add(%add.1429, %xor.802), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-left.803 = u32[3,1]{1,0} shift-left(%xor.802, %broadcast.2250), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-right-logical.807 = u32[3,1]{1,0} shift-right-logical(%xor.802, %broadcast.2250), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.804 = u32[3,1]{1,0} or(%shift-left.803, %shift-right-logical.807), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.803 = u32[3,1]{1,0} xor(%add.1430, %or.804), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1431 = u32[3,1]{1,0} add(%add.1430, %xor.803), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1432 = u32[3,1]{1,0} add(%add.1431, %broadcast.2234), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-left.804 = u32[3,1]{1,0} shift-left(%xor.803, %broadcast.2253), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-right-logical.808 = u32[3,1]{1,0} shift-right-logical(%xor.803, %broadcast.2254), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.805 = u32[3,1]{1,0} or(%shift-left.804, %shift-right-logical.808), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.804 = u32[3,1]{1,0} xor(%add.1431, %or.805), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1433 = u32[3,1]{1,0} add(%xor.804, %broadcast.2244), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %constant.23 = u32[] constant(4)
+  %broadcast.2278 = u32[3,1]{1,0} broadcast(%constant.23), dimensions={}
+  %add.1434 = u32[3,1]{1,0} add(%add.1433, %broadcast.2278), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1435 = u32[3,1]{1,0} add(%add.1432, %add.1434), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-left.805 = u32[3,1]{1,0} shift-left(%add.1434, %broadcast.2235), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-right-logical.809 = u32[3,1]{1,0} shift-right-logical(%add.1434, %broadcast.2236), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.806 = u32[3,1]{1,0} or(%shift-left.805, %shift-right-logical.809), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.805 = u32[3,1]{1,0} xor(%add.1435, %or.806), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1436 = u32[3,1]{1,0} add(%add.1435, %xor.805), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-left.806 = u32[3,1]{1,0} shift-left(%xor.805, %broadcast.2237), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-right-logical.810 = u32[3,1]{1,0} shift-right-logical(%xor.805, %broadcast.2238), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.807 = u32[3,1]{1,0} or(%shift-left.806, %shift-right-logical.810), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.806 = u32[3,1]{1,0} xor(%add.1436, %or.807), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1437 = u32[3,1]{1,0} add(%add.1436, %xor.806), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-left.807 = u32[3,1]{1,0} shift-left(%xor.806, %broadcast.2239), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-right-logical.811 = u32[3,1]{1,0} shift-right-logical(%xor.806, %broadcast.2240), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.808 = u32[3,1]{1,0} or(%shift-left.807, %shift-right-logical.811), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.807 = u32[3,1]{1,0} xor(%add.1437, %or.808), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1438 = u32[3,1]{1,0} add(%add.1437, %xor.807), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1439 = u32[3,1]{1,0} add(%add.1438, %broadcast.2244), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-left.827 = u32[3,1]{1,0} shift-left(%xor.807, %broadcast.2240), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %shift-right-logical.831 = u32[3,1]{1,0} shift-right-logical(%xor.807, %broadcast.2239), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %or.828 = u32[3,1]{1,0} or(%shift-left.827, %shift-right-logical.831), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %xor.827 = u32[3,1]{1,0} xor(%add.1438, %or.828), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %add.1473 = u32[3,1]{1,0} add(%xor.827, %broadcast.2233), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  %constant.24 = u32[] constant(5)
+  %broadcast.2341 = u32[3,1]{1,0} broadcast(%constant.24), dimensions={}
+  %add.1474 = u32[3,1]{1,0} add(%add.1473, %broadcast.2341), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/tpu.py" source_line=79}
+  ROOT %concatenate.185 = u32[3,2]{1,0} concatenate(%add.1439, %add.1474), dimensions={1}, metadata={op_name="jit(_threefry_split)/jit(main)/concatenate" source_file="/home/ptoulme/tpu.py" source_line=79}
+}
+

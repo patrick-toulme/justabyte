@@ -1,0 +1,1 @@
+ordinal=0 before=143 after=140 expansion=0.979021

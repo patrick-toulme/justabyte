@@ -1,0 +1,449 @@
+     0   :  { %s0 = inlined_call_operand.hbm [shape: f32[16,64], index: 0, kind: input, shape index: {}] /* operand 0 */  ;;  %s1 = inlined_call_operand.vmem [shape: f32[64,64], index: 1, kind: input, shape index: {}] /* operand 1 */  ;;  %s2 = inlined_call_operand.vmem [shape: f32[16], index: 2, kind: output, shape index: {0}] /* operand 2 */  ;;  %s3 = inlined_call_operand.vmem [shape: f32[16,64], index: 3, kind: output, shape index: {1}] /* operand 3 */  ;;  %v273 = vmov 0.0 /* materialized constant */ }
+   0x1   :  { %11 = vst [vmem:[#allocation1] sm:$0xff] /*vst_source=*/%v273 }
+     0   :  { %12 = vsyncpa [#allocation4], 0  ;;  %s274 = smov [#allocation3] /* materialized constant */ }
+   0x1   :  { %s19 = sshll.u32 %s274, 4 }
+   0x2   :  { %s20 = int_to_ptr.vmem [resolvable:$true] %s19 }
+   0x3   :  { %22 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s0, /*size_in_granules=*/256, /*vmem=*/%s20, /*dst_syncflagno=*/[#allocation4] /* 
+base_bounds: (2, 1)
+dynamic_base_bounds: (2, 1)
+window_bounds: (2, 1)
+iteration_bounds: (1, 1, 1)
+strides: (2, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 4096 */ }
+     0   :  { %27 = dma.done [#allocation4], 256 /* pipeline-emitter-dma-wait */  ;;  %v275 = vmov 0.0 /* materialized constant */  ;;  %vm276 = vmmov 0 /* materialized constant */  ;;  %v28 = vlaneseq }
+   0x1   :  { %260 = vmatprep.subr.mxu0 %v275  ;;  %268 = vmatprep.mubr.msk.bf16.mxu0 %vm276, %v275 }
+   0x2   :  { %v29 = vand.u32 127, %v28 }
+   0x3   :  {}
+   0x4   :  { %vm47 = vcmp.ge.s32.totalorder %v29, 64 }
+   0x5   :  {}
+   0x6   :  {}
+   0x7   :  { %v247 = vld [vmem:[%s1 + $0x30] sm:$0xff]  ;;  %v248 = vld [vmem:[%s1 + $0x38] sm:$0xff]  ;;  %v249 = vld [vmem:[%s1 + $0x20] sm:$0xff] }
+   0x8   :  { %v61 = vpack.c.bf16 %v248, %v247  ;;  %v250 = vld [vmem:[%s1 + $0x28] sm:$0xff] }
+   0x9   :  {}
+   0xa   :  { %261 = vmatpush3.bf16.msra.mxu0 %v61  ;;  %v71 = vpack.c.bf16 %v250, %v249 }
+   0xb   :  { %262 = vmatprep.subr.mxu0 %v275  ;;  %v251 = vld [vmem:[%s1 + $0x10] sm:$0xff]  ;;  %v252 = vld [vmem:[%s1 + $0x18] sm:$0xff] }
+   0xc   :  {}
+   0xd   :  {}
+   0xe   :  { %263 = vmatpush3.bf16.msra.mxu0 %v71  ;;  %v81 = vpack.c.bf16 %v252, %v251 }
+   0xf   :  { %264 = vmatprep.subr.mxu0 %v275  ;;  %v85 = vld [vmem:[%s1] sm:$0xff]  ;;  %v253 = vld [vmem:[%s1 + $0x8] sm:$0xff] }
+  0x10   :  {}
+  0x11   :  {}
+  0x12   :  { %265 = vmatpush3.bf16.msra.mxu0 %v81  ;;  %v89 = vpack.c.bf16 %v253, %v85  ;;  %v46 = vld [vmem:[#allocation3] sm:$0xff]  ;;  %v50 = vld [vmem:[#allocation3 + $0x8] sm:$0xff] }
+  0x13   :  { %266 = vmatprep.subr.mxu0 %v275  ;;  %vm272 = vcmp.lt.s32.totalorder %v29, 64 }
+  0x14   :  {}
+  0x15   :  { %v258 = vpack.c.bf16 %v50, %v46 }
+  0x16   :  { %267 = vmatpush3.bf16.msra.mxu0 %v89  ;;  %vm257 = vmpackc.low %vm272, %vm272 }
+  0x17   :  {}
+  0x18   :  {}
+  0x19   :  { %269 = vmatmul.mubr.msk.bf16.vlgmr.msra.gmra.mxu0 %vm257, %v258 }
+  0x1a   :  {}
+  0x1b   :  {}
+  0x1c   :  {}
+  0x1d   :  {}
+  0x1e   :  {}
+  0x1f   :  {}
+  0x20   :  {}
+  0x21   :  {}
+  0x22   :  {}
+  0x23   :  {}
+  0x24   :  {}
+  0x25   :  {}
+  0x26   :  {}
+  0x27   :  {}
+  0x28   :  {}
+  0x29   :  {}
+  0x2a   :  {}
+  0x2b   :  {}
+  0x2c   :  {}
+  0x2d   :  {}
+  0x2e   :  {}
+  0x2f   :  {}
+  0x30   :  {}
+  0x31   :  {}
+  0x32   :  {}
+  0x33   :  {}
+  0x34   :  {}
+  0x35   :  {}
+  0x36   :  {}
+  0x37   :  {}
+  0x38   :  {}
+  0x39   :  {}
+  0x3a   :  {}
+  0x3b   :  {}
+  0x3c   :  {}
+  0x3d   :  {}
+  0x3e   :  {}
+  0x3f   :  {}
+  0x40   :  {}
+  0x41   :  {}
+  0x42   :  {}
+  0x43   :  {}
+  0x44   :  {}
+  0x45   :  {}
+  0x46   :  {}
+  0x47   :  {}
+  0x48   :  {}
+  0x49   :  {}
+  0x4a   :  {}
+  0x4b   :  {}
+  0x4c   :  {}
+  0x4d   :  {}
+  0x4e   :  {}
+  0x4f   :  {}
+  0x50   :  {}
+  0x51   :  {}
+  0x52   :  {}
+  0x53   :  {}
+  0x54   :  {}
+  0x55   :  {}
+  0x56   :  {}
+  0x57   :  {}
+  0x58   :  {}
+  0x59   :  {}
+  0x5a   :  {}
+  0x5b   :  {}
+  0x5c   :  {}
+  0x5d   :  {}
+  0x5e   :  {}
+  0x5f   :  {}
+  0x60   :  {}
+  0x61   :  {}
+  0x62   :  {}
+  0x63   :  {}
+  0x64   :  {}
+  0x65   :  {}
+  0x66   :  {}
+  0x67   :  {}
+  0x68   :  {}
+  0x69   :  {}
+  0x6a   :  {}
+  0x6b   :  {}
+  0x6c   :  {}
+  0x6d   :  {}
+  0x6e   :  {}
+  0x6f   :  {}
+  0x70   :  {}
+  0x71   :  {}
+  0x72   :  {}
+  0x73   :  {}
+  0x74   :  {}
+  0x75   :  {}
+  0x76   :  {}
+  0x77   :  {}
+  0x78   :  {}
+  0x79   :  {}
+  0x7a   :  {}
+  0x7b   :  {}
+  0x7c   :  {}
+  0x7d   :  {}
+  0x7e   :  {}
+  0x7f   :  {}
+  0x80   :  {}
+  0x81   :  {}
+  0x82   :  {}
+  0x83   :  {}
+  0x84   :  {}
+  0x85   :  {}
+  0x86   :  {}
+  0x87   :  {}
+  0x88   :  {}
+  0x89   :  {}
+  0x8a   :  {}
+  0x8b   :  {}
+  0x8c   :  {}
+  0x8d   :  {}
+  0x8e   :  {}
+  0x8f   :  {}
+  0x90   :  {}
+  0x91   :  {}
+  0x92   :  {}
+  0x93   :  {}
+  0x94   :  {}
+  0x95   :  {}
+  0x96   :  {}
+  0x97   :  {}
+  0x98   :  {}
+  0x99   :  {}
+  0x9a   :  {}
+  0x9b   :  {}
+  0x9c   :  {}
+  0x9d   :  {}
+  0x9e   :  {}
+  0x9f   :  {}
+  0xa0   :  {}
+  0xa1   :  {}
+  0xa2   :  {}
+  0xa3   :  {}
+  0xa4   :  {}
+  0xa5   :  {}
+  0xa6   :  {}
+  0xa7   :  {}
+  0xa8   :  {}
+  0xa9   :  {}
+  0xaa   :  {}
+  0xab   :  {}
+  0xac   :  {}
+  0xad   :  {}
+  0xae   :  {}
+  0xaf   :  {}
+  0xb0   :  {}
+  0xb1   :  {}
+  0xb2   :  {}
+  0xb3   :  {}
+  0xb4   :  {}
+  0xb5   :  {}
+  0xb6   :  {}
+  0xb7   :  {}
+  0xb8   :  {}
+  0xb9   :  {}
+  0xba   :  {}
+  0xbb   :  {}
+  0xbc   :  {}
+  0xbd   :  {}
+  0xbe   :  {}
+  0xbf   :  {}
+  0xc0   :  {}
+  0xc1   :  {}
+  0xc2   :  {}
+  0xc3   :  {}
+  0xc4   :  {}
+  0xc5   :  {}
+  0xc6   :  {}
+  0xc7   :  {}
+  0xc8   :  {}
+  0xc9   :  {}
+  0xca   :  {}
+  0xcb   :  {}
+  0xcc   :  {}
+  0xcd   :  {}
+  0xce   :  {}
+  0xcf   :  {}
+  0xd0   :  {}
+  0xd1   :  {}
+  0xd2   :  {}
+  0xd3   :  {}
+  0xd4   :  {}
+  0xd5   :  {}
+  0xd6   :  {}
+  0xd7   :  {}
+  0xd8   :  {}
+  0xd9   :  { %v95 = vpop.f32.mrf.mxu0 }
+  0xda   :  { %v98 = vmul.f32 %v95, %v95  ;;  %105 = vst [vmem:[%s3] sm:$0xff] /*vst_source=*/%v95 }
+  0xdb   :  { %v270 = vpop.f32.mrf.mxu0 }
+  0xdc   :  { %v104 = vsel /*vm=*/%vm272, /*on_true_vy=*/%v98, /*on_false_vx=*/0.0 }
+  0xdd   :  { %v106 = vpop.f32.mrf.mxu0 }
+  0xde   :  { %v110 = vmul.f32 %v106, %v106  ;;  %254 = vst [vmem:[%s3 + $0x8] sm:$0xff] /*vst_source=*/%v106 }
+  0xdf   :  { %v271 = vpop.f32.mrf.mxu0 }
+  0xe0   :  { %v116 = vsel /*vm=*/%vm272, /*on_true_vy=*/%v110, /*on_false_vx=*/0.0 }
+     0   :  {}
+   0x1   :  { %137 = vsyncpa [#allocation4], 1 }
+     0   :  { %141 = vxpose.xlu0.b32.start [1/2] (short) /*vx=*/%v104, /*width=*/128 }
+   0x1   :  {}
+   0x2   :  {}
+   0x3   :  {}
+   0x4   :  { %142 = vxpose.xlu0.b32.end [2/2] (short) /*vx=*/%v116, /*width=*/128 }
+   0x5   :  {}
+   0x6   :  {}
+   0x7   :  {}
+   0x8   :  {}
+   0x9   :  {}
+   0xa   :  {}
+   0xb   :  {}
+   0xc   :  {}
+   0xd   :  {}
+   0xe   :  {}
+   0xf   :  {}
+  0x10   :  {}
+  0x11   :  {}
+  0x12   :  {}
+  0x13   :  {}
+  0x14   :  {}
+  0x15   :  {}
+  0x16   :  {}
+  0x17   :  {}
+  0x18   :  {}
+  0x19   :  {}
+  0x1a   :  {}
+  0x1b   :  {}
+  0x1c   :  {}
+  0x1d   :  {}
+  0x1e   :  {}
+  0x1f   :  {}
+  0x20   :  {}
+  0x21   :  {}
+  0x22   :  {}
+  0x23   :  {}
+  0x24   :  {}
+  0x25   :  {}
+  0x26   :  {}
+  0x27   :  {}
+  0x28   :  {}
+  0x29   :  {}
+  0x2a   :  {}
+  0x2b   :  {}
+  0x2c   :  {}
+  0x2d   :  {}
+  0x2e   :  {}
+  0x2f   :  {}
+  0x30   :  {}
+  0x31   :  {}
+  0x32   :  {}
+  0x33   :  {}
+  0x34   :  {}
+  0x35   :  {}
+  0x36   :  {}
+  0x37   :  {}
+  0x38   :  {}
+  0x39   :  {}
+  0x3a   :  {}
+  0x3b   :  {}
+  0x3c   :  {}
+  0x3d   :  {}
+  0x3e   :  {}
+  0x3f   :  {}
+  0x40   :  {}
+  0x41   :  {}
+  0x42   :  {}
+  0x43   :  {}
+  0x44   :  {}
+  0x45   :  {}
+  0x46   :  {}
+  0x47   :  {}
+  0x48   :  {}
+  0x49   :  {}
+  0x4a   :  {}
+  0x4b   :  {}
+  0x4c   :  {}
+  0x4d   :  {}
+  0x4e   :  {}
+  0x4f   :  {}
+  0x50   :  {}
+  0x51   :  {}
+  0x52   :  {}
+  0x53   :  {}
+  0x54   :  {}
+  0x55   :  {}
+  0x56   :  {}
+  0x57   :  {}
+  0x58   :  {}
+  0x59   :  {}
+  0x5a   :  {}
+  0x5b   :  {}
+  0x5c   :  {}
+  0x5d   :  {}
+  0x5e   :  {}
+  0x5f   :  {}
+  0x60   :  {}
+  0x61   :  {}
+  0x62   :  {}
+  0x63   :  {}
+  0x64   :  {}
+  0x65   :  {}
+  0x66   :  {}
+  0x67   :  {}
+  0x68   :  {}
+  0x69   :  {}
+  0x6a   :  {}
+  0x6b   :  {}
+  0x6c   :  {}
+  0x6d   :  {}
+  0x6e   :  {}
+  0x6f   :  {}
+  0x70   :  {}
+  0x71   :  {}
+  0x72   :  {}
+  0x73   :  {}
+  0x74   :  {}
+  0x75   :  {}
+  0x76   :  {}
+  0x77   :  {}
+  0x78   :  {}
+  0x79   :  {}
+  0x7a   :  {}
+  0x7b   :  {}
+  0x7c   :  { %v143 = vpop.trf.xlu0 }
+  0x7d   :  {}
+  0x7e   :  {}
+  0x7f   :  {}
+  0x80   :  { %v144 = vpop.trf.xlu0 }
+  0x81   :  {}
+  0x82   :  {}
+  0x83   :  {}
+  0x84   :  { %v145 = vpop.trf.xlu0 }
+  0x85   :  {}
+  0x86   :  {}
+  0x87   :  {}
+  0x88   :  { %v146 = vpop.trf.xlu0 }
+  0x89   :  {}
+  0x8a   :  {}
+  0x8b   :  {}
+  0x8c   :  { %v147 = vpop.trf.xlu0 }
+  0x8d   :  {}
+  0x8e   :  {}
+  0x8f   :  {}
+  0x90   :  { %v148 = vpop.trf.xlu0 }
+  0x91   :  {}
+  0x92   :  {}
+  0x93   :  {}
+  0x94   :  { %v149 = vpop.trf.xlu0 }
+  0x95   :  {}
+  0x96   :  {}
+  0x97   :  {}
+  0x98   :  { %v150 = vpop.trf.xlu0 }
+  0x99   :  {}
+  0x9a   :  {}
+  0x9b   :  {}
+  0x9c   :  { %v151 = vpop.trf.xlu0 }
+  0x9d   :  { %v165 = vadd.f32 %v144, %v143 }
+  0x9e   :  {}
+  0x9f   :  { %v169 = vadd.f32 %v165, %v145 }
+  0xa0   :  { %v152 = vpop.trf.xlu0 }
+  0xa1   :  { %v173 = vadd.f32 %v169, %v146 }
+  0xa2   :  {}
+  0xa3   :  { %v177 = vadd.f32 %v173, %v147 }
+  0xa4   :  { %v153 = vpop.trf.xlu0 }
+  0xa5   :  { %v181 = vadd.f32 %v177, %v148 }
+  0xa6   :  {}
+  0xa7   :  { %v185 = vadd.f32 %v181, %v149 }
+  0xa8   :  { %v154 = vpop.trf.xlu0 }
+  0xa9   :  { %v189 = vadd.f32 %v185, %v150 }
+  0xaa   :  {}
+  0xab   :  { %v193 = vadd.f32 %v189, %v151 }
+  0xac   :  { %v155 = vpop.trf.xlu0 }
+  0xad   :  { %v197 = vadd.f32 %v193, %v152 }
+  0xae   :  {}
+  0xaf   :  { %v201 = vadd.f32 %v197, %v153 }
+  0xb0   :  { %v156 = vpop.trf.xlu0 }
+  0xb1   :  { %v205 = vadd.f32 %v201, %v154 }
+  0xb2   :  {}
+  0xb3   :  { %v209 = vadd.f32 %v205, %v155 }
+  0xb4   :  { %v157 = vpop.trf.xlu0 }
+  0xb5   :  { %v213 = vadd.f32 %v209, %v156 }
+  0xb6   :  {}
+  0xb7   :  { %v217 = vadd.f32 %v213, %v157 }
+  0xb8   :  { %v158 = vpop.trf.xlu0 }
+  0xb9   :  { %v221 = vadd.f32 %v217, %v158 }
+  0xba   :  {}
+  0xbb   :  { %v223 = vrot.slane %v221, 4 }
+  0xbc   :  {}
+  0xbd   :  { %v226 = vadd.f32 %v223, %v221 }
+  0xbe   :  {}
+  0xbf   :  { %v228 = vrot.slane %v226, 2 }
+  0xc0   :  {}
+  0xc1   :  { %v231 = vadd.f32 %v228, %v226 }
+  0xc2   :  {}
+  0xc3   :  { %v233 = vrot.slane %v231, 1 }
+  0xc4   :  {}
+  0xc5   :  { %v236 = vadd.f32 %v233, %v231 }
+  0xc6   :  {}
+  0xc7   :  { %238 = vst [vmem:[#allocation1] sm:$0x1] /*vst_source=*/%v236 }
+  0xc8   :  {}
+  0xc9   :  {}
+  0xca   :  {}
+  0xcb   :  {}
+  0xcc   :  {}
+  0xcd   :  {}
+  0xce   :  { %v243 = vld [vmem:[#allocation1] sm:$0x1] }
+  0xcf   :  { %246 = vst [vmem:[%s2] sm:$0x1] /*vst_source=*/%v243 }

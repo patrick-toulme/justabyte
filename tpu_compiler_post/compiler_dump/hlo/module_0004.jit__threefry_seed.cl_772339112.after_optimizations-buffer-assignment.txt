@@ -1,0 +1,90 @@
+BufferAssignment:
+allocation 0: size 512, constant:
+ value: <9 constant.2 @0> (size=512,offset=0): s32[]{:T(128)}
+allocation 1: size 512, output shape is |u32[2]|, maybe-live-out:
+ value: <12 pad_add_fusion @0> (size=512,offset=0): u32[2]{0:T(128)}
+allocation 2: size 512, parameter 0, shape |s32[]| at ShapeIndex {}:
+ value: <6 Arg_0.1 @0> (size=512,offset=0): s32[]{:T(128)}
+allocation 3: size 0, color 1, preallocated-temp:
+allocation 4: size 16896, preallocated-temp:
+ value: <8 convert.6 @0> (size=512,offset=0): u32[]{:T(128)}
+ value: <11 convert.4 @0> (size=512,offset=16384): u32[]{:T(128)}
+allocation 5: size 1024, color 6, preallocated-temp:
+ value: <7 copy @6> (size=512,offset=0): s32[]{:T(128)S(6)}
+ value: <10 shift-right-logical.3 @6> (size=512,offset=512): s32[]{:T(128)S(6)}
+
+Total bytes used: 19456 (19.0KiB)
+
+Used values:
+<6 Arg_0.1 @0>
+ positions:
+  Arg_0.1
+ uses:
+  copy, operand 0
+ from instruction: %Arg_0.1 = s32[]{:T(128)} parameter(0), metadata={op_name="seed"}
+<7 copy @6>
+ positions:
+  copy
+ uses:
+  shift-right-logical.3, operand 0
+  convert.6, operand 0
+ from instruction: %copy = s32[]{:T(128)S(6)} copy(%Arg_0.1)
+<8 convert.6 @0>
+ positions:
+  convert.6
+  bitcast.1
+ uses:
+  bitcast.1, operand 0
+  pad_add_fusion, operand 0
+ from instruction: %convert.6 = u32[]{:T(128)} convert(%copy), metadata={op_name="jit(_threefry_seed)/jit(main)/convert_element_type" source_file="/home/ptoulme/tpu.py" source_line=78}
+<9 constant.2 @0>
+ positions:
+  constant.2
+ uses:
+  shift-right-logical.3, operand 1
+ from instruction: %constant.2 = s32[]{:T(128)} constant(32)
+<10 shift-right-logical.3 @6>
+ positions:
+  shift-right-logical.3
+ uses:
+  convert.4, operand 0
+ from instruction: %shift-right-logical.3 = s32[]{:T(128)S(6)} shift-right-logical(%copy, %constant.2), metadata={op_name="jit(_threefry_seed)/jit(main)/shift_right_logical" source_file="/home/ptoulme/tpu.py" source_line=78}
+<11 convert.4 @0>
+ positions:
+  convert.4
+  bitcast
+ uses:
+  bitcast, operand 0
+  pad_add_fusion, operand 1
+ from instruction: %convert.4 = u32[]{:T(128)} convert(%shift-right-logical.3), metadata={op_name="jit(_threefry_seed)/jit(main)/convert_element_type" source_file="/home/ptoulme/tpu.py" source_line=78}
+<12 pad_add_fusion @0>
+ positions:
+  pad_add_fusion
+ uses:
+ from instruction: %pad_add_fusion = u32[2]{0:T(128)} fusion(%bitcast.1, %bitcast), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(_threefry_seed)/jit(main)/concatenate" source_file="/home/ptoulme/tpu.py" source_line=78}
+
+
+HloLiveRange (max 9):
+  InstructionSequence:
+    0:constant.2
+    1:Arg_0.1
+    2:copy
+    3:convert.6
+    4:shift-right-logical.3
+    5:convert.4
+    6:bitcast.1
+    7:bitcast
+    8:pad_add_fusion
+  BufferLiveRange:
+    Arg_0.1{}:0-9
+    copy{}:2-4
+    convert.6{}:3-8
+    constant.2{}:0-4
+    shift-right-logical.3{}:4-5
+    convert.4{}:5-8
+    pad_add_fusion{}:8-9
+  Live ranges at 5 (peak):
+    Arg_0.1{}: 4 bytes (cumulative: 4 bytes)
+    convert.4{}: 4 bytes (cumulative: 8 bytes)
+    convert.6{}: 4 bytes (cumulative: 12 bytes)
+    shift-right-logical.3{}: 4 bytes (cumulative: 16 bytes)

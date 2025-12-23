@@ -1,0 +1,19 @@
+= control target key start
+LH: loop header
+LB: loop body
+LE: loop exit
+PB: predicated region body
+PF: predicated region fallthrough
+CT: control target
+= control target key end
+
+     0   :  { %s37_s0 = inlined_call_operand.vmem [shape: f32[16], index: 0, kind: input, shape index: {}] /* operand 0 */  ;;  %s38_s1 = inlined_call_operand.vmem [shape: f32[16], index: 1, kind: output, shape index: {}] /* operand 1 */ } /* entry bundle: %add_sqrt_fusion = fusion(%get-tuple-element) */
+   0x1   :  { %v2_v0 = vld [vmem:[%s37_s0] sm:$0x1] }
+   0x2   :  { %v5_v1 = vmul.f32 0.015625, %v2_v0 }
+   0x3   :  { %v9_v2 = vadd.f32 1e-06, %v5_v1 }
+   0x4   :  { %19 = vrsqrt.f32 %v9_v2  ;;  %vm13_vm0 = vcmp.eq.f32.partialorder %v9_v2, inf  ;;  %v16_v4 = vand.u32 2147483648, %v9_v2  ;;  %vm15_vm1 = vcmp.eq.f32.partialorder %v9_v2, 0.0 }
+   0x5   :  { %v20_v3 = vpop.eup %19 }
+   0x6   :  { %v12_v5 = vmul.f32 %v20_v3, %v9_v2 }
+   0x7   :  { %v14_v6 = vsel /*vm=*/%vm13_vm0, /*on_true_vy=*/%v9_v2, /*on_false_vx=*/%v12_v5 }
+   0x8   :  { %v17_v7 = vsel /*vm=*/%vm15_vm1, /*on_true_vy=*/%v16_v4, /*on_false_vx=*/%v14_v6 }
+   0x9   :  { %18 = vst [vmem:[%s38_s1] sm:$0x1] /*vst_source=*/%v17_v7 } /* exit bundle: %add_sqrt_fusion = fusion(%get-tuple-element) */

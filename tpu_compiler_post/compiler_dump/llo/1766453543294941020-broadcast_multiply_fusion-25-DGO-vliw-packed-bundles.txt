@@ -1,0 +1,43 @@
+     0   :  { %s0 = inlined_call_operand.hbm [shape: f32[64,32], index: 0, kind: input, shape index: {}] /* operand 0 */  ;;  %s1 = inlined_call_operand.<no memory space> [shape: f32[], index: 1, kind: input, shape index: {}] /* operand 1 */  ;;  %s2 = inlined_call_operand.hbm [shape: f32[64,32], index: 2, kind: output, shape index: {}] /* operand 2 */ }
+   0x1   :  { %v3 = vstv %s1 }
+     0   :  {}
+   0x1   :  { %4 = vsyncpa [#allocation1], 0 }
+     0   :  { %5 = vsyncpa [#allocation2], 0  ;;  %s56 = smov [#allocation0] /* materialized constant */ }
+   0x1   :  { %s10 = sshll.u32 %s56, 4 }
+   0x2   :  { %s11 = int_to_ptr.vmem [resolvable:$true] %s10 }
+   0x3   :  { %13 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s0, /*size_in_granules=*/512, /*vmem=*/%s11, /*dst_syncflagno=*/[#allocation1] /* 
+base_bounds: (4, 1)
+dynamic_base_bounds: (4, 1)
+window_bounds: (4, 1)
+iteration_bounds: (1, 1)
+strides: (4, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 4096 */ }
+     0   :  { %14 = dma.done [#allocation1], 512 /* pipeline-emitter-dma-wait */ }
+   0x1   :  {}
+   0x2   :  {}
+   0x3   :  { %s57 = smov [#allocation3] /* materialized constant */ }
+   0x4   :  {}
+   0x5   :  {}
+   0x6   :  { %s49 = sshll.u32 %s57, 4 }
+   0x7   :  { %v15 = vld [vmem:[#allocation0] sm:$0xff]  ;;  %v22 = vld [vmem:[#allocation0 + $0x8] sm:$0xff]  ;;  %v30 = vld [vmem:[#allocation0 + $0x10] sm:$0xff] }
+   0x8   :  { %v18 = vmul.f32 %v15, %v3  ;;  %v25 = vmul.f32 %v22, %v3  ;;  %v33 = vmul.f32 %v30, %v3  ;;  %v38 = vld [vmem:[#allocation0 + $0x18] sm:$0xff] }
+   0x9   :  { %v41 = vmul.f32 %v38, %v3  ;;  %s50 = int_to_ptr.vmem [resolvable:$true] %s49 }
+   0xa   :  { %20 = vst [vmem:[#allocation3] sm:$0xff] /*vst_source=*/%v18  ;;  %28 = vst [vmem:[#allocation3 + $0x8] sm:$0xff] /*vst_source=*/%v25  ;;  %36 = vst [vmem:[#allocation3 + $0x10] sm:$0xff] /*vst_source=*/%v33 }
+   0xb   :  { %44 = vst [vmem:[#allocation3 + $0x18] sm:$0xff] /*vst_source=*/%v41 }
+   0xc   :  { %52 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s50, /*size_in_granules=*/512, /*hbm=*/%s2, /*dst_syncflagno=*/[#allocation2] /* 
+base_bounds: (4, 1)
+dynamic_base_bounds: (4, 1)
+window_bounds: (4, 1)
+iteration_bounds: (1, 1)
+strides: (4, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 4096 */ }
+     0   :  {}
+   0x1   :  { %53 = dma.done [#allocation2], 512 /* pipeline-emitter-dma-wait */ }
+     0   :  {}
+   0x1   :  { %54 = vsyncpa [#allocation1], 1 }
+     0   :  {}
+   0x1   :  { %55 = vsyncpa [#allocation2], 1 }

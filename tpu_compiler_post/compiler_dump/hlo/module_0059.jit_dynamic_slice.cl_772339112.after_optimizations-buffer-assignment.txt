@@ -1,0 +1,109 @@
+BufferAssignment:
+allocation 0: size 512, parameter 2, shape |s32[]| at ShapeIndex {}:
+ value: <6 Arg_2.3 @0> (size=512,offset=0): s32[]{:T(128)}
+allocation 1: size 8192, parameter 0, shape |f32[16,32]| at ShapeIndex {}:
+ value: <0 Arg_0.1 @0> (size=8192,offset=0): f32[16,32]{1,0:T(8,128)}
+allocation 2: size 512, output shape is |f32[1,5]|, maybe-live-out:
+ value: <8 dynamic-slice.4 @0> (size=512,offset=0): f32[1,5]{1,0:T(1,128)}
+allocation 3: size 512, parameter 1, shape |s32[]| at ShapeIndex {}:
+ value: <4 Arg_1.2 @0> (size=512,offset=0): s32[]{:T(128)}
+allocation 4: size 8192, color 1, preallocated-temp:
+ value: <2 copy-start{0} @1> (size=8192,offset=0): f32[16,32]{1,0:T(8,128)S(1)}
+allocation 5: size 32, preallocated-temp:
+ value: <1 copy-start{} @0> (size=32,offset=0): (f32[16,32]{1,0:T(8,128)S(1)}, f32[16,32]{1,0:T(8,128)}, u32[]{:S(2)})
+allocation 6: size 4, color 2, preallocated-temp:
+ value: <3 copy-start{2} @2> (size=4,offset=0): u32[]{:S(2)}
+allocation 7: size 1024, color 6, preallocated-temp:
+ value: <5 copy @6> (size=512,offset=0): s32[]{:T(128)S(6)}
+ value: <7 copy.1 @6> (size=512,offset=512): s32[]{:T(128)S(6)}
+
+Total bytes used: 18980 (18.5KiB)
+
+Used values:
+<0 Arg_0.1 @0>
+ positions:
+  Arg_0.1
+  copy-start {1}
+ uses:
+  copy-start, operand 0
+  copy-done, operand 0 {1}
+ from instruction: %Arg_0.1 = f32[16,32]{1,0:T(8,128)} parameter(0), metadata={op_name="args[0]"}
+<1 copy-start{} @0>
+ positions:
+  copy-start {}
+ uses:
+  copy-done, operand 0 {}
+ from instruction: %copy-start = (f32[16,32]{1,0:T(8,128)S(1)}, f32[16,32]{1,0:T(8,128)}, u32[]{:S(2)}) copy-start(%Arg_0.1), cross_program_prefetch_index=0
+<2 copy-start{0} @1>
+ positions:
+  copy-start {0}
+  copy-done
+ uses:
+  copy-done, operand 0 {0}
+  dynamic-slice.4, operand 0
+ from instruction: %copy-start = (f32[16,32]{1,0:T(8,128)S(1)}, f32[16,32]{1,0:T(8,128)}, u32[]{:S(2)}) copy-start(%Arg_0.1), cross_program_prefetch_index=0
+<3 copy-start{2} @2>
+ positions:
+  copy-start {2}
+ uses:
+  copy-done, operand 0 {2}
+ from instruction: %copy-start = (f32[16,32]{1,0:T(8,128)S(1)}, f32[16,32]{1,0:T(8,128)}, u32[]{:S(2)}) copy-start(%Arg_0.1), cross_program_prefetch_index=0
+<4 Arg_1.2 @0>
+ positions:
+  Arg_1.2
+ uses:
+  copy, operand 0
+ from instruction: %Arg_1.2 = s32[]{:T(128)} parameter(1), metadata={op_name="args[1]"}
+<5 copy @6>
+ positions:
+  copy
+ uses:
+  dynamic-slice.4, operand 1
+ from instruction: %copy = s32[]{:T(128)S(6)} copy(%Arg_1.2)
+<6 Arg_2.3 @0>
+ positions:
+  Arg_2.3
+ uses:
+  copy.1, operand 0
+ from instruction: %Arg_2.3 = s32[]{:T(128)} parameter(2), metadata={op_name="args[2]"}
+<7 copy.1 @6>
+ positions:
+  copy.1
+ uses:
+  dynamic-slice.4, operand 2
+ from instruction: %copy.1 = s32[]{:T(128)S(6)} copy(%Arg_2.3)
+<8 dynamic-slice.4 @0>
+ positions:
+  dynamic-slice.4
+ uses:
+ from instruction: %dynamic-slice.4 = f32[1,5]{1,0:T(1,128)} dynamic-slice(%copy-done, %copy, %copy.1), dynamic_slice_sizes={1,5}, metadata={op_name="jit(dynamic_slice)/jit(main)/dynamic_slice" source_file="/home/ptoulme/tpu.py" source_line=96}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"indices_config":{"index_known_bits":[{"zeroes":"0","ones":"0","bitwidth":"32"},{"zeroes":"0","ones":"0","bitwidth":"32"}],"is_index_aligned":[false,false]},"used_scoped_memory_configs":[]}
+
+
+HloLiveRange (max 8):
+  InstructionSequence:
+    0:Arg_0.1
+    1:copy-start
+    2:Arg_2.3
+    3:Arg_1.2
+    4:copy.1
+    5:copy
+    6:copy-done
+    7:dynamic-slice.4
+  BufferLiveRange:
+    Arg_0.1{}:0-8
+    copy-start{}:1-6
+    copy-start{0}:1-7
+    copy-start{2}:1-6
+    Arg_1.2{}:0-8
+    copy{}:5-7
+    Arg_2.3{}:0-8
+    copy.1{}:4-7
+    dynamic-slice.4{}:7-8
+  Live ranges at 7 (peak):
+    Arg_0.1{}: 2048 bytes (cumulative: 2048 bytes)
+    copy-start{0}: 2048 bytes (cumulative: 4096 bytes)
+    dynamic-slice.4{}: 20 bytes (cumulative: 4116 bytes)
+    Arg_1.2{}: 4 bytes (cumulative: 4120 bytes)
+    Arg_2.3{}: 4 bytes (cumulative: 4124 bytes)
+    copy{}: 4 bytes (cumulative: 4128 bytes)
+    copy.1{}: 4 bytes (cumulative: 4132 bytes)

@@ -1,0 +1,23 @@
+
+%s0 = inlined_call_operand.vmem [shape: f32[5], index: 0, kind: input, shape index: {}] /* operand 0 */
+%s1 = inlined_call_operand.hbm [shape: f32[5], index: 1, kind: output, shape index: {}] /* operand 1 */
+
+%2 = vsyncpa [#allocation2], 0
+%v3 = vld [vmem:[%s0] sm:$0x1]
+%4 = vst [vmem:[#allocation0] sm:$0x1] /*vst_source=*/%v3
+%s15 = smov [#allocation0] /* materialized constant */
+%s9 = sshll.u32 %s15, 4
+%s10 = int_to_ptr.vmem [resolvable:$true] %s9
+%12 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s10, /*size_in_granules=*/16, /*hbm=*/%s1, /*dst_syncflagno=*/[#allocation2] /* 
+base_bounds: (1)
+dynamic_base_bounds: (1)
+window_bounds: (1)
+iteration_bounds: (1)
+strides: (1)
+pad_low: (0)
+pad_high: (0)
+element_size_in_bytes: 512 */
+
+%13 = dma.done [#allocation2], 16 /* pipeline-emitter-dma-wait */
+
+%14 = vsyncpa [#allocation2], 1

@@ -1,0 +1,5 @@
+
+New basic block in region: region1 {members=9 hlo=copy.1 parent=0}
+  Length to end: 3, %s15 = smov [#allocation0] /* materialized constant */
+  Length to end: 2, %s9 = sshll.u32 %s15, 4
+  Length to end: 1, %s10 = int_to_ptr.vmem [resolvable:$true] %s9

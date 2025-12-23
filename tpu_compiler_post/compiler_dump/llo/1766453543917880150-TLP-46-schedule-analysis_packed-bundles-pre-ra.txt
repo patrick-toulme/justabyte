@@ -1,0 +1,11 @@
+Schedule analysis:
+	total scheduled bundles:    218
+	empty scheduled bundles:    91
+	non empty scheduled bundles: 127
+	 114.00 scheduled bundles (89.76%): <no hlo>
+	   8.00 scheduled bundles ( 6.30%): %copy-start = (f32[1,5]{1,0:T(1,128)S(1)}, f32[1,5]{1,0:T(1,128)}, u32[]{:S(2)}) copy-start(%Arg_0.1)
+	   2.50 scheduled bundles ( 1.97%): %copy-done = f32[1,5]{1,0:T(1,128)S(1)} copy-done(%copy-start)
+	   2.50 scheduled bundles ( 1.97%): %copy.1 = f32[5]{0:T(128)} copy(%bitcast.1)
+	[opcode]      11 scheduled bundles ( 8.66%): copy-start           (1 instances,  11.00 avg)
+	[opcode]       5 scheduled bundles ( 3.94%): copy-done            (1 instances,   5.00 avg)
+	[opcode]       4 scheduled bundles ( 3.15%): copy                 (1 instances,   4.00 avg)

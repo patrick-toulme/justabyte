@@ -1,0 +1,23 @@
+Total bytes used: 66560 (65.0KiB)
+
+Allocations sorted by size:
+
+cumulative_size; total_size - cumulative_size; allocation
+------------------------------------------------------------------------------
+   32.0KiB( 49%);    33.0KiB; allocation 1: size 32.0KiB, output shape is |f32[64,64]|, maybe-live-out:
+   64.0KiB( 98%);     1.0KiB; allocation 2: size 32.0KiB, parameter 0, shape |f32[64,64]| at ShapeIndex {}:
+   64.5KiB( 99%);       512B; allocation 0: size 512B, parameter 1, shape |f32[]| at ShapeIndex {}:
+   65.0KiB(100%);         0B; allocation 4: size 512B, color 6, preallocated-temp:
+   65.0KiB(100%);         0B; allocation 3: size 0B, color 1, preallocated-temp:
+
+
+Allocations sorted by size with their values:
+allocation 1: size 32.0KiB, output shape is |f32[64,64]|, maybe-live-out:
+allocation 2: size 32.0KiB, parameter 0, shape |f32[64,64]| at ShapeIndex {}:
+allocation 0: size 512B, parameter 1, shape |f32[]| at ShapeIndex {}:
+allocation 4: size 512B, color 6, preallocated-temp:
+allocation 3: size 0B, color 1, preallocated-temp:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+

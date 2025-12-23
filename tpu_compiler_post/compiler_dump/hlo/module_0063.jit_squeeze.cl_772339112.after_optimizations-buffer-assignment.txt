@@ -1,0 +1,70 @@
+BufferAssignment:
+allocation 0: size 512, parameter 0, shape |f32[1,5]| at ShapeIndex {}:
+ value: <0 Arg_0.1 @0> (size=512,offset=0): f32[1,5]{1,0:T(1,128)}
+allocation 1: size 512, output shape is |f32[5]|, maybe-live-out:
+ value: <4 copy.1 @0> (size=512,offset=0): f32[5]{0:T(128)}
+allocation 2: size 512, color 1, preallocated-temp:
+ value: <2 copy-start{0} @1> (size=512,offset=0): f32[1,5]{1,0:T(1,128)S(1)}
+allocation 3: size 32, preallocated-temp:
+ value: <1 copy-start{} @0> (size=32,offset=0): (f32[1,5]{1,0:T(1,128)S(1)}, f32[1,5]{1,0:T(1,128)}, u32[]{:S(2)})
+allocation 4: size 4, color 2, preallocated-temp:
+ value: <3 copy-start{2} @2> (size=4,offset=0): u32[]{:S(2)}
+
+Total bytes used: 1572 (1.5KiB)
+
+Used values:
+<0 Arg_0.1 @0>
+ positions:
+  Arg_0.1
+  copy-start {1}
+ uses:
+  copy-start, operand 0
+  copy-done, operand 0 {1}
+ from instruction: %Arg_0.1 = f32[1,5]{1,0:T(1,128)} parameter(0), metadata={op_name="args[0]"}
+<1 copy-start{} @0>
+ positions:
+  copy-start {}
+ uses:
+  copy-done, operand 0 {}
+ from instruction: %copy-start = (f32[1,5]{1,0:T(1,128)S(1)}, f32[1,5]{1,0:T(1,128)}, u32[]{:S(2)}) copy-start(%Arg_0.1)
+<2 copy-start{0} @1>
+ positions:
+  copy-start {0}
+  copy-done
+  bitcast.1
+ uses:
+  copy-done, operand 0 {0}
+  bitcast.1, operand 0
+  copy.1, operand 0
+ from instruction: %copy-start = (f32[1,5]{1,0:T(1,128)S(1)}, f32[1,5]{1,0:T(1,128)}, u32[]{:S(2)}) copy-start(%Arg_0.1)
+<3 copy-start{2} @2>
+ positions:
+  copy-start {2}
+ uses:
+  copy-done, operand 0 {2}
+ from instruction: %copy-start = (f32[1,5]{1,0:T(1,128)S(1)}, f32[1,5]{1,0:T(1,128)}, u32[]{:S(2)}) copy-start(%Arg_0.1)
+<4 copy.1 @0>
+ positions:
+  copy.1
+ uses:
+ from instruction: %copy.1 = f32[5]{0:T(128)} copy(%bitcast.1)
+
+
+HloLiveRange (max 5):
+  InstructionSequence:
+    0:Arg_0.1
+    1:copy-start
+    2:copy-done
+    3:bitcast.1
+    4:copy.1
+  BufferLiveRange:
+    Arg_0.1{}:0-5
+    copy-start{}:1-2
+    copy-start{0}:1-4
+    copy-start{2}:1-2
+    copy.1{}:4-5
+  Live ranges at 1 (peak):
+    copy-start{}: 24 bytes (cumulative: 24 bytes)
+    Arg_0.1{}: 20 bytes (cumulative: 44 bytes)
+    copy-start{0}: 20 bytes (cumulative: 64 bytes)
+    copy-start{2}: 4 bytes (cumulative: 68 bytes)

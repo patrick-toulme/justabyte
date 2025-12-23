@@ -1,0 +1,398 @@
+= control target key start
+LH: loop header
+LB: loop body
+LE: loop exit
+PB: predicated region body
+PF: predicated region fallthrough
+CT: control target
+= control target key end
+
+     0   :  { %s0 = inlined_call_operand.vmem [shape: u32[16], index: 0, kind: input, shape index: {}] /* operand 0 */  ;;  %s1 = inlined_call_operand.vmem [shape: u32[16], index: 1, kind: input, shape index: {}] /* operand 1 */  ;;  %s2 = inlined_call_operand.vmem [shape: u32[16], index: 2, kind: input, shape index: {}] /* operand 2 */  ;;  %s3 = inlined_call_operand.<no memory space> [shape: u32[], index: 3, kind: input, shape index: {}] /* operand 3 */  ;;  %s4 = inlined_call_operand.<no memory space> [shape: u32[], index: 4, kind: input, shape index: {}] /* operand 4 */  ;;  %s5 = inlined_call_operand.<no memory space> [shape: u32[], index: 5, kind: input, shape index: {}] /* operand 5 */  ;;  %s6 = inlined_call_operand.hbm [shape: f32[16,64], index: 6, kind: output, shape index: {}] /* operand 6 */ } /* Start region 0 */
+   0x1   :  { %v7 = vstv %s3  ;;  %v8 = vstv %s4  ;;  %v9 = vstv %s5 }
+   0x2   :  { %v25 = vld [vmem:[%s2] ss:$0 sm:$0xff] } /* Start region 1 */
+   0x3   :  { %v17 = vld [vmem:[%s0] ss:$0 sm:$0xff]  ;;  %27 = vbcast.lane.b32.xlu0 %v25, 256 }
+   0x4   :  { %19 = vbcast.lane.b32.xlu1 %v17, 256 }
+   0x5   :  { %10 = vsyncpa [#allocation2], 0  ;;  %v21 = vld [vmem:[%s1] ss:$0 sm:$0xff]  ;;  %v29 = vlaneseq  ;;  %v951 = vmov -0.00020021426 /* materialized constant */ }
+   0x6   :  { %v952 = vmov 0.00010095056 /* materialized constant */  ;;  %v953 = vmov 0.0013493432 /* materialized constant */  ;;  %v954 = vmov -0.0036734284 /* materialized constant */ }
+   0x7   :  { %470 = vbcast.lane.b32.xlu0 %v25, 264  ;;  %v30 = vand.u32 127, %v29  ;;  %v955 = vmov 0.0057395077 /* materialized constant */  ;;  %v956 = vmov -0.0076224613 /* materialized constant */ }
+   0x8   :  { %23 = vbcast.lane.b32.xlu1 %v21, 256  ;;  %v957 = vmov 0.0094388705 /* materialized constant */  ;;  %v958 = vmov 1.001674 /* materialized constant */  ;;  %s960 = smov [#allocation0] /* materialized constant */ }
+   0x9   :  { %v959 = vmov 2.8329768 /* materialized constant */  ;;  %s905 = sshll.u32 %s960, 4 }
+   0xa   :  { %s906 = int_to_ptr.vmem [resolvable:$true] %s905 }
+   0xb   :  { %460 = vbcast.lane.b32.xlu0 %v17, 264  ;;  %s929 = scalar_lea.vmem %s906, 256  ;;  %p934 = scmp.lt.s32.totalorder %s906, %s906 }
+   0xc   :  { %465 = vbcast.lane.b32.xlu1 %v21, 264  ;;  %p930 = scmp.ne.s32.totalorder %s906, %s929  ;;  %p935 = scmp.lt.s32.totalorder %s929, %s929 }
+   0xd   :  {}
+   0xe   :  { %p936 = por %p935, %p934 }
+   0xf   :  {}
+  0x10   :  { %p937 = pnand %p936, %p930 }
+  0x11   :  {}
+  0x12   :  {}
+  0x13   :  {}
+  0x14   :  {}
+  0x15   :  {}
+  0x16   :  {}
+  0x17   :  {}
+  0x18   :  {}
+  0x19   :  {}
+  0x1a   :  {}
+  0x1b   :  {}
+  0x1c   :  {}
+  0x1d   :  {}
+  0x1e   :  {}
+  0x1f   :  {}
+  0x20   :  {}
+  0x21   :  {}
+  0x22   :  {}
+  0x23   :  {}
+  0x24   :  {}
+  0x25   :  {}
+  0x26   :  {}
+  0x27   :  {}
+  0x28   :  {}
+  0x29   :  {}
+  0x2a   :  {}
+  0x2b   :  {}
+  0x2c   :  {}
+  0x2d   :  {}
+  0x2e   :  {}
+  0x2f   :  {}
+  0x30   :  {}
+  0x31   :  {}
+  0x32   :  {}
+  0x33   :  {}
+  0x34   :  {}
+  0x35   :  {}
+  0x36   :  {}
+  0x37   :  {}
+  0x38   :  {}
+  0x39   :  {}
+  0x3a   :  {}
+  0x3b   :  {}
+  0x3c   :  {}
+  0x3d   :  {}
+  0x3e   :  {}
+  0x3f   :  {}
+  0x40   :  {}
+  0x41   :  {}
+  0x42   :  {}
+  0x43   :  {}
+  0x44   :  {}
+  0x45   :  {}
+  0x46   :  {}
+  0x47   :  {}
+  0x48   :  {}
+  0x49   :  {}
+  0x4a   :  {}
+  0x4b   :  {}
+  0x4c   :  {}
+  0x4d   :  {}
+  0x4e   :  {}
+  0x4f   :  {}
+  0x50   :  {}
+  0x51   :  {}
+  0x52   :  {}
+  0x53   :  {}
+  0x54   :  {}
+  0x55   :  {}
+  0x56   :  {}
+  0x57   :  {}
+  0x58   :  {}
+  0x59   :  {}
+  0x5a   :  {}
+  0x5b   :  {}
+  0x5c   :  {}
+  0x5d   :  {}
+  0x5e   :  {}
+  0x5f   :  {}
+  0x60   :  {}
+  0x61   :  {}
+  0x62   :  {}
+  0x63   :  {}
+  0x64   :  {}
+  0x65   :  {}
+  0x66   :  {}
+  0x67   :  {}
+  0x68   :  {}
+  0x69   :  {}
+  0x6a   :  {}
+  0x6b   :  {}
+  0x6c   :  {}
+  0x6d   :  {}
+  0x6e   :  {}
+  0x6f   :  {}
+  0x70   :  {}
+  0x71   :  {}
+  0x72   :  {}
+  0x73   :  {}
+  0x74   :  {}
+  0x75   :  { %v28 = vpop.permute.xlu0 %27 }
+  0x76   :  { %v20 = vpop.permute.xlu1 %19  ;;  %v35 = vadd.s32 %v30, %v28 }
+  0x77   :  {}
+  0x78   :  { %vm39 = vcmp.lt.u32.totalorder %v35, %v28  ;;  %v53 = vadd.s32 %v35, %v8 }
+  0x79   :  { %v471 = vpop.permute.xlu0 %470 }
+  0x7a   :  { %v24 = vpop.permute.xlu1 %23  ;;  %v59 = vshll.u32 %v53, 13  ;;  %v60 = vshrl.u32 %v53, 19  ;;  %v478 = vadd.s32 %v471, %v30 }
+  0x7b   :  { %v44 = vsel /*vm=*/%vm39, /*on_true_vy=*/%v20, /*on_false_vx=*/%v24 }
+  0x7c   :  { %v49 = vadd.s32 %v44, %v9  ;;  %v61 = vor.u32 %v60, %v59  ;;  %vm482 = vcmp.lt.u32.totalorder %v478, %v471  ;;  %v496 = vadd.s32 %v478, %v8 }
+  0x7d   :  { %v461 = vpop.permute.xlu0 %460 }
+  0x7e   :  { %v466 = vpop.permute.xlu1 %465  ;;  %v57 = vadd.s32 %v53, %v49  ;;  %v502 = vshll.u32 %v496, 13  ;;  %v503 = vshrl.u32 %v496, 19 }
+  0x7f   :  { %v487 = vsel /*vm=*/%vm482, /*on_true_vy=*/%v461, /*on_false_vx=*/%v466 }
+  0x80   :  { %v62 = vxor.u32 %v61, %v57  ;;  %v492 = vadd.s32 %v487, %v9  ;;  %v504 = vor.u32 %v503, %v502 }
+  0x81   :  {}
+  0x82   :  { %v65 = vadd.s32 %v62, %v57  ;;  %v67 = vshll.u32 %v62, 15  ;;  %v68 = vshrl.u32 %v62, 17  ;;  %v500 = vadd.s32 %v496, %v492 }
+  0x83   :  {}
+  0x84   :  { %v69 = vor.u32 %v68, %v67  ;;  %v505 = vxor.u32 %v504, %v500 }
+  0x85   :  {}
+  0x86   :  { %v70 = vxor.u32 %v69, %v65  ;;  %v508 = vadd.s32 %v505, %v500  ;;  %v510 = vshll.u32 %v505, 15  ;;  %v511 = vshrl.u32 %v505, 17 }
+  0x87   :  {}
+  0x88   :  { %v73 = vadd.s32 %v70, %v65  ;;  %v75 = vshll.u32 %v70, 26  ;;  %v76 = vshrl.u32 %v70, 6  ;;  %v512 = vor.u32 %v511, %v510 }
+  0x89   :  {}
+  0x8a   :  { %v77 = vor.u32 %v76, %v75  ;;  %v513 = vxor.u32 %v512, %v508 }
+  0x8b   :  {}
+  0x8c   :  { %v78 = vxor.u32 %v77, %v73  ;;  %v516 = vadd.s32 %v513, %v508  ;;  %v518 = vshll.u32 %v513, 26  ;;  %v519 = vshrl.u32 %v513, 6 }
+  0x8d   :  {}
+  0x8e   :  { %v81 = vadd.s32 %v78, %v73  ;;  %v87 = vshll.u32 %v78, 6  ;;  %v88 = vshrl.u32 %v78, 26  ;;  %v520 = vor.u32 %v519, %v518 }
+  0x8f   :  {}
+  0x90   :  { %v89 = vor.u32 %v88, %v87  ;;  %v521 = vxor.u32 %v520, %v516  ;;  %v85 = vadd.s32 %v81, %v8 }
+  0x91   :  {}
+  0x92   :  { %v90 = vxor.u32 %v89, %v81  ;;  %v524 = vadd.s32 %v521, %v516  ;;  %v530 = vshll.u32 %v521, 6  ;;  %v531 = vshrl.u32 %v521, 26 }
+  0x93   :  {}
+  0x94   :  { %v93 = vadd.s32 %v90, %v7  ;;  %v532 = vor.u32 %v531, %v530  ;;  %v528 = vadd.s32 %v524, %v8 }
+  0x95   :  {}
+  0x96   :  { %v97 = vadd.s32 1, %v93  ;;  %v533 = vxor.u32 %v532, %v524 }
+  0x97   :  {}
+  0x98   :  { %v101 = vadd.s32 %v97, %v85  ;;  %v103 = vshll.u32 %v97, 17  ;;  %v104 = vshrl.u32 %v97, 15  ;;  %v536 = vadd.s32 %v533, %v7 }
+  0x99   :  {}
+  0x9a   :  { %v105 = vor.u32 %v104, %v103  ;;  %v540 = vadd.s32 1, %v536 }
+  0x9b   :  {}
+  0x9c   :  { %v106 = vxor.u32 %v105, %v101  ;;  %v544 = vadd.s32 %v540, %v528  ;;  %v546 = vshll.u32 %v540, 17  ;;  %v547 = vshrl.u32 %v540, 15 }
+  0x9d   :  {}
+  0x9e   :  { %v109 = vadd.s32 %v106, %v101  ;;  %v111 = vshll.u32 %v106, 29  ;;  %v112 = vshrl.u32 %v106, 3  ;;  %v548 = vor.u32 %v547, %v546 }
+  0x9f   :  {}
+  0xa0   :  { %v113 = vor.u32 %v112, %v111  ;;  %v549 = vxor.u32 %v548, %v544 }
+  0xa1   :  {}
+  0xa2   :  { %v114 = vxor.u32 %v113, %v109  ;;  %v552 = vadd.s32 %v549, %v544  ;;  %v554 = vshll.u32 %v549, 29  ;;  %v555 = vshrl.u32 %v549, 3 }
+  0xa3   :  {}
+  0xa4   :  { %v117 = vadd.s32 %v114, %v109  ;;  %v119 = vshll.u32 %v114, 16  ;;  %v120 = vshrl.u32 %v114, 16  ;;  %v556 = vor.u32 %v555, %v554 }
+  0xa5   :  {}
+  0xa6   :  { %v121 = vor.u32 %v120, %v119  ;;  %v557 = vxor.u32 %v556, %v552 }
+  0xa7   :  {}
+  0xa8   :  { %v122 = vxor.u32 %v121, %v117  ;;  %v560 = vadd.s32 %v557, %v552  ;;  %v562 = vshll.u32 %v557, 16  ;;  %v563 = vshrl.u32 %v557, 16 }
+  0xa9   :  {}
+  0xaa   :  { %v125 = vadd.s32 %v122, %v117  ;;  %v131 = vshll.u32 %v122, 24  ;;  %v132 = vshrl.u32 %v122, 8  ;;  %v564 = vor.u32 %v563, %v562 }
+  0xab   :  {}
+  0xac   :  { %v133 = vor.u32 %v132, %v131  ;;  %v565 = vxor.u32 %v564, %v560  ;;  %v129 = vadd.s32 %v125, %v7 }
+  0xad   :  {}
+  0xae   :  { %v134 = vxor.u32 %v133, %v125  ;;  %v568 = vadd.s32 %v565, %v560  ;;  %v574 = vshll.u32 %v565, 24  ;;  %v575 = vshrl.u32 %v565, 8 }
+  0xaf   :  {}
+  0xb0   :  { %v137 = vadd.s32 %v134, %v9  ;;  %v576 = vor.u32 %v575, %v574  ;;  %v572 = vadd.s32 %v568, %v7 }
+  0xb1   :  {}
+  0xb2   :  { %v141 = vadd.s32 2, %v137  ;;  %v577 = vxor.u32 %v576, %v568 }
+  0xb3   :  {}
+  0xb4   :  { %v145 = vadd.s32 %v141, %v129  ;;  %v147 = vshll.u32 %v141, 13  ;;  %v148 = vshrl.u32 %v141, 19  ;;  %v580 = vadd.s32 %v577, %v9 }
+  0xb5   :  {}
+  0xb6   :  { %v149 = vor.u32 %v148, %v147  ;;  %v584 = vadd.s32 2, %v580 }
+  0xb7   :  {}
+  0xb8   :  { %v150 = vxor.u32 %v149, %v145  ;;  %v588 = vadd.s32 %v584, %v572  ;;  %v590 = vshll.u32 %v584, 13  ;;  %v591 = vshrl.u32 %v584, 19 }
+  0xb9   :  {}
+  0xba   :  { %v153 = vadd.s32 %v150, %v145  ;;  %v155 = vshll.u32 %v150, 15  ;;  %v156 = vshrl.u32 %v150, 17  ;;  %v592 = vor.u32 %v591, %v590 }
+  0xbb   :  {}
+  0xbc   :  { %v157 = vor.u32 %v156, %v155  ;;  %v593 = vxor.u32 %v592, %v588 }
+  0xbd   :  {}
+  0xbe   :  { %v158 = vxor.u32 %v157, %v153  ;;  %v596 = vadd.s32 %v593, %v588  ;;  %v598 = vshll.u32 %v593, 15  ;;  %v599 = vshrl.u32 %v593, 17 }
+  0xbf   :  {}
+  0xc0   :  { %v161 = vadd.s32 %v158, %v153  ;;  %v163 = vshll.u32 %v158, 26  ;;  %v164 = vshrl.u32 %v158, 6  ;;  %v600 = vor.u32 %v599, %v598 }
+  0xc1   :  {}
+  0xc2   :  { %v165 = vor.u32 %v164, %v163  ;;  %v601 = vxor.u32 %v600, %v596 }
+  0xc3   :  {}
+  0xc4   :  { %v166 = vxor.u32 %v165, %v161  ;;  %v604 = vadd.s32 %v601, %v596  ;;  %v606 = vshll.u32 %v601, 26  ;;  %v607 = vshrl.u32 %v601, 6 }
+  0xc5   :  {}
+  0xc6   :  { %v169 = vadd.s32 %v166, %v161  ;;  %v175 = vshll.u32 %v166, 6  ;;  %v176 = vshrl.u32 %v166, 26  ;;  %v608 = vor.u32 %v607, %v606 }
+  0xc7   :  {}
+  0xc8   :  { %v177 = vor.u32 %v176, %v175  ;;  %v609 = vxor.u32 %v608, %v604  ;;  %v173 = vadd.s32 %v169, %v9 }
+  0xc9   :  {}
+  0xca   :  { %v178 = vxor.u32 %v177, %v169  ;;  %v612 = vadd.s32 %v609, %v604  ;;  %v618 = vshll.u32 %v609, 6  ;;  %v619 = vshrl.u32 %v609, 26 }
+  0xcb   :  {}
+  0xcc   :  { %v181 = vadd.s32 %v178, %v8  ;;  %v620 = vor.u32 %v619, %v618  ;;  %v616 = vadd.s32 %v612, %v9 }
+  0xcd   :  {}
+  0xce   :  { %v185 = vadd.s32 3, %v181  ;;  %v621 = vxor.u32 %v620, %v612 }
+  0xcf   :  {}
+  0xd0   :  { %v189 = vadd.s32 %v185, %v173  ;;  %v191 = vshll.u32 %v185, 17  ;;  %v192 = vshrl.u32 %v185, 15  ;;  %v624 = vadd.s32 %v621, %v8 }
+  0xd1   :  {}
+  0xd2   :  { %v193 = vor.u32 %v192, %v191  ;;  %v628 = vadd.s32 3, %v624 }
+  0xd3   :  {}
+  0xd4   :  { %v194 = vxor.u32 %v193, %v189  ;;  %v632 = vadd.s32 %v628, %v616  ;;  %v634 = vshll.u32 %v628, 17  ;;  %v635 = vshrl.u32 %v628, 15 }
+  0xd5   :  {}
+  0xd6   :  { %v197 = vadd.s32 %v194, %v189  ;;  %v199 = vshll.u32 %v194, 29  ;;  %v200 = vshrl.u32 %v194, 3  ;;  %v636 = vor.u32 %v635, %v634 }
+  0xd7   :  {}
+  0xd8   :  { %v201 = vor.u32 %v200, %v199  ;;  %v637 = vxor.u32 %v636, %v632 }
+  0xd9   :  {}
+  0xda   :  { %v202 = vxor.u32 %v201, %v197  ;;  %v640 = vadd.s32 %v637, %v632  ;;  %v642 = vshll.u32 %v637, 29  ;;  %v643 = vshrl.u32 %v637, 3 }
+  0xdb   :  {}
+  0xdc   :  { %v205 = vadd.s32 %v202, %v197  ;;  %v207 = vshll.u32 %v202, 16  ;;  %v208 = vshrl.u32 %v202, 16  ;;  %v644 = vor.u32 %v643, %v642 }
+  0xdd   :  {}
+  0xde   :  { %v209 = vor.u32 %v208, %v207  ;;  %v645 = vxor.u32 %v644, %v640 }
+  0xdf   :  {}
+  0xe0   :  { %v210 = vxor.u32 %v209, %v205  ;;  %v648 = vadd.s32 %v645, %v640  ;;  %v650 = vshll.u32 %v645, 16  ;;  %v651 = vshrl.u32 %v645, 16 }
+  0xe1   :  {}
+  0xe2   :  { %v213 = vadd.s32 %v210, %v205  ;;  %v219 = vshll.u32 %v210, 24  ;;  %v220 = vshrl.u32 %v210, 8  ;;  %v652 = vor.u32 %v651, %v650 }
+  0xe3   :  {}
+  0xe4   :  { %v221 = vor.u32 %v220, %v219  ;;  %v653 = vxor.u32 %v652, %v648  ;;  %v217 = vadd.s32 %v213, %v8 }
+  0xe5   :  {}
+  0xe6   :  { %v222 = vxor.u32 %v221, %v213  ;;  %v656 = vadd.s32 %v653, %v648  ;;  %v662 = vshll.u32 %v653, 24  ;;  %v663 = vshrl.u32 %v653, 8 }
+  0xe7   :  {}
+  0xe8   :  { %v225 = vadd.s32 %v222, %v7  ;;  %v664 = vor.u32 %v663, %v662  ;;  %v660 = vadd.s32 %v656, %v8 }
+  0xe9   :  {}
+  0xea   :  { %v229 = vadd.s32 4, %v225  ;;  %v665 = vxor.u32 %v664, %v656 }
+  0xeb   :  {}
+  0xec   :  { %v233 = vadd.s32 %v229, %v217  ;;  %v235 = vshll.u32 %v229, 13  ;;  %v236 = vshrl.u32 %v229, 19  ;;  %v668 = vadd.s32 %v665, %v7 }
+  0xed   :  {}
+  0xee   :  { %v237 = vor.u32 %v236, %v235  ;;  %v672 = vadd.s32 4, %v668 }
+  0xef   :  {}
+  0xf0   :  { %v238 = vxor.u32 %v237, %v233  ;;  %v676 = vadd.s32 %v672, %v660  ;;  %v678 = vshll.u32 %v672, 13  ;;  %v679 = vshrl.u32 %v672, 19 }
+  0xf1   :  {}
+  0xf2   :  { %v241 = vadd.s32 %v238, %v233  ;;  %v243 = vshll.u32 %v238, 15  ;;  %v244 = vshrl.u32 %v238, 17  ;;  %v680 = vor.u32 %v679, %v678 }
+  0xf3   :  {}
+  0xf4   :  { %v245 = vor.u32 %v244, %v243  ;;  %v681 = vxor.u32 %v680, %v676 }
+  0xf5   :  {}
+  0xf6   :  { %v246 = vxor.u32 %v245, %v241  ;;  %v684 = vadd.s32 %v681, %v676  ;;  %v686 = vshll.u32 %v681, 15  ;;  %v687 = vshrl.u32 %v681, 17 }
+  0xf7   :  {}
+  0xf8   :  { %v249 = vadd.s32 %v246, %v241  ;;  %v251 = vshll.u32 %v246, 26  ;;  %v252 = vshrl.u32 %v246, 6  ;;  %v688 = vor.u32 %v687, %v686 }
+  0xf9   :  {}
+  0xfa   :  { %v253 = vor.u32 %v252, %v251  ;;  %v689 = vxor.u32 %v688, %v684 }
+  0xfb   :  {}
+  0xfc   :  { %v254 = vxor.u32 %v253, %v249  ;;  %v692 = vadd.s32 %v689, %v684  ;;  %v694 = vshll.u32 %v689, 26  ;;  %v695 = vshrl.u32 %v689, 6 }
+  0xfd   :  {}
+  0xfe   :  { %v257 = vadd.s32 %v254, %v249  ;;  %v263 = vshll.u32 %v254, 6  ;;  %v264 = vshrl.u32 %v254, 26  ;;  %v696 = vor.u32 %v695, %v694 }
+  0xff   :  {}
+ 0x100   :  { %v265 = vor.u32 %v264, %v263  ;;  %v697 = vxor.u32 %v696, %v692  ;;  %v261 = vadd.s32 %v257, %v7 }
+ 0x101   :  {}
+ 0x102   :  { %v266 = vxor.u32 %v265, %v257  ;;  %v700 = vadd.s32 %v697, %v692  ;;  %v706 = vshll.u32 %v697, 6  ;;  %v707 = vshrl.u32 %v697, 26 }
+ 0x103   :  {}
+ 0x104   :  { %v269 = vadd.s32 %v266, %v9  ;;  %v708 = vor.u32 %v707, %v706  ;;  %v704 = vadd.s32 %v700, %v7 }
+ 0x105   :  {}
+ 0x106   :  { %v273 = vadd.s32 5, %v269  ;;  %v709 = vxor.u32 %v708, %v700 }
+ 0x107   :  {}
+ 0x108   :  { %v275 = vxor.u32 %v273, %v261  ;;  %v712 = vadd.s32 %v709, %v9 }
+ 0x109   :  {}
+ 0x10a   :  { %v276 = vshrl.u32 %v275, 9  ;;  %v716 = vadd.s32 5, %v712 }
+ 0x10b   :  {}
+ 0x10c   :  { %v277 = vor.u32 1065353216, %v276  ;;  %v718 = vxor.u32 %v716, %v704 }
+ 0x10d   :  {}
+ 0x10e   :  { %v281 = vadd.f32 -1.0, %v277  ;;  %v719 = vshrl.u32 %v718, 9 }
+ 0x10f   :  {}
+ 0x110   :  { %v285 = vmul.f32 2.0, %v281  ;;  %v720 = vor.u32 1065353216, %v719 }
+ 0x111   :  {}
+ 0x112   :  { %v289 = vadd.f32 -0.99999994, %v285  ;;  %v724 = vadd.f32 -1.0, %v720 }
+ 0x113   :  {}
+ 0x114   :  { %v293 = vmax.f32 %v289, -0.99999994  ;;  %v728 = vmul.f32 2.0, %v724 }
+ 0x115   :  {}
+ 0x116   :  { %v305 = vxor.u32 2147483648, %v293  ;;  %v732 = vadd.f32 -0.99999994, %v728  ;;  %v295 = vand.u32 2147483647, %v293  ;;  %v303 = vmul.f32 inf, %v293 }
+ 0x117   :  {}
+ 0x118   :  { %v308 = vmul.f32 %v305, %v293  ;;  %v736 = vmax.f32 %v732, -0.99999994  ;;  %vm298 = vcmp.eq.f32.partialorder %v295, 1.0 }
+ 0x119   :  {}
+ 0x11a   :  { %v310 = vadd.f32 1.0, %v308  ;;  %v748 = vxor.u32 2147483648, %v736  ;;  %v313 = vmul.f32 -0.5, %v308  ;;  %v316 = vand.u32 2147483647, %v308 }
+ 0x11b   :  { %v738 = vand.u32 2147483647, %v736  ;;  %v746 = vmul.f32 inf, %v736 }
+ 0x11c   :  { %921 = vlog2.f32 %v310  ;;  %v751 = vmul.f32 %v748, %v736  ;;  %v314 = vadd.f32 1.0, %v313  ;;  %vm317 = vcmp.lt.f32.partialorder %v316, 0.0004427343 }
+ 0x11d   :  { %vm741 = vcmp.eq.f32.partialorder %v738, 1.0 }
+ 0x11e   :  { %v753 = vadd.f32 1.0, %v751  ;;  %v315 = vmul.f32 %v314, %v308  ;;  %v756 = vmul.f32 -0.5, %v751  ;;  %v759 = vand.u32 2147483647, %v751 }
+ 0x11f   :  {}
+ 0x120   :  { %923 = vlog2.f32 %v753  ;;  %v757 = vadd.f32 1.0, %v756  ;;  %vm760 = vcmp.lt.f32.partialorder %v759, 0.0004427343 }
+ 0x121   :  {}
+ 0x122   :  { %v758 = vmul.f32 %v757, %v751 }
+ 0x123   :  {}
+ 0x124   :  {}
+ 0x125   :  {}
+ 0x126   :  {}
+ 0x127   :  {}
+ 0x128   :  {}
+ 0x129   :  { %v922 = vpop.eup %921 }
+ 0x12a   :  { %v312 = vmul.f32 0.6931472, %v922 }
+ 0x12b   :  {}
+ 0x12c   :  { %v318 = vsel /*vm=*/%vm317, /*on_true_vy=*/%v315, /*on_false_vx=*/%v312 }
+ 0x12d   :  { %v319 = vxor.u32 2147483648, %v318  ;;  %v924 = vpop.eup %923 }
+ 0x12e   :  { %v755 = vmul.f32 0.6931472, %v924 }
+ 0x12f   :  { %925 = vrsqrt.f32 %v319  ;;  %vm367 = vcmp.eq.f32.partialorder %v319, inf  ;;  %v370 = vand.u32 2147483648, %v319  ;;  %vm369 = vcmp.eq.f32.partialorder %v319, 0.0 }
+ 0x130   :  { %v761 = vsel /*vm=*/%vm760, /*on_true_vy=*/%v758, /*on_false_vx=*/%v755  ;;  %vm322 = vcmp.lt.f32.partialorder %v319, 5.0  ;;  %v363 = vadd.f32 -2.5, %v319 }
+ 0x131   :  { %v762 = vxor.u32 2147483648, %v761  ;;  %v359 = vsel /*vm=*/%vm322, /*on_true_vy=*/2.8102264e-08, /*on_false_vx=*/%v951  ;;  %v355 = vsel /*vm=*/%vm322, /*on_true_vy=*/3.4327394e-07, /*on_false_vx=*/%v952 }
+ 0x132   :  { %v351 = vsel /*vm=*/%vm322, /*on_true_vy=*/-3.5233877e-06, /*on_false_vx=*/%v953  ;;  %v347 = vsel /*vm=*/%vm322, /*on_true_vy=*/-4.3915065e-06, /*on_false_vx=*/%v954  ;;  %v343 = vsel /*vm=*/%vm322, /*on_true_vy=*/0.00021858087, /*on_false_vx=*/%v955 }
+ 0x133   :  { %927 = vrsqrt.f32 %v762  ;;  %vm810 = vcmp.eq.f32.partialorder %v762, inf  ;;  %v813 = vand.u32 2147483648, %v762  ;;  %vm812 = vcmp.eq.f32.partialorder %v762, 0.0 }
+ 0x134   :  { %vm765 = vcmp.lt.f32.partialorder %v762, 5.0  ;;  %v806 = vadd.f32 -2.5, %v762  ;;  %v339 = vsel /*vm=*/%vm322, /*on_true_vy=*/-0.001253725, /*on_false_vx=*/%v956  ;;  %v335 = vsel /*vm=*/%vm322, /*on_true_vy=*/-0.0041776816, /*on_false_vx=*/%v957 }
+ 0x135   :  { %v802 = vsel /*vm=*/%vm765, /*on_true_vy=*/2.8102264e-08, /*on_false_vx=*/%v951  ;;  %v798 = vsel /*vm=*/%vm765, /*on_true_vy=*/3.4327394e-07, /*on_false_vx=*/%v952  ;;  %v794 = vsel /*vm=*/%vm765, /*on_true_vy=*/-3.5233877e-06, /*on_false_vx=*/%v953 }
+ 0x136   :  { %v790 = vsel /*vm=*/%vm765, /*on_true_vy=*/-4.3915065e-06, /*on_false_vx=*/%v954  ;;  %v786 = vsel /*vm=*/%vm765, /*on_true_vy=*/0.00021858087, /*on_false_vx=*/%v955  ;;  %v331 = vsel /*vm=*/%vm322, /*on_true_vy=*/0.24664073, /*on_false_vx=*/%v958 }
+ 0x137   :  { %v782 = vsel /*vm=*/%vm765, /*on_true_vy=*/-0.001253725, /*on_false_vx=*/%v956  ;;  %v327 = vsel /*vm=*/%vm322, /*on_true_vy=*/1.5014094, /*on_false_vx=*/%v959  ;;  %v778 = vsel /*vm=*/%vm765, /*on_true_vy=*/-0.0041776816, /*on_false_vx=*/%v957 }
+ 0x138   :  { %v774 = vsel /*vm=*/%vm765, /*on_true_vy=*/0.24664073, /*on_false_vx=*/%v958  ;;  %v770 = vsel /*vm=*/%vm765, /*on_true_vy=*/1.5014094, /*on_false_vx=*/%v959 }
+ 0x139   :  {}
+ 0x13a   :  {}
+ 0x13b   :  {}
+ 0x13c   :  { %v926 = vpop.eup %925 }
+ 0x13d   :  { %v366 = vmul.f32 %v926, %v319 }
+ 0x13e   :  {}
+ 0x13f   :  { %v368 = vsel /*vm=*/%vm367, /*on_true_vy=*/%v319, /*on_false_vx=*/%v366 }
+ 0x140   :  { %v371 = vsel /*vm=*/%vm369, /*on_true_vy=*/%v370, /*on_false_vx=*/%v368  ;;  %v928 = vpop.eup %927 }
+ 0x141   :  { %v374 = vadd.f32 -3.0, %v371  ;;  %v809 = vmul.f32 %v928, %v762 }
+ 0x142   :  {}
+ 0x143   :  { %v378 = vsel /*vm=*/%vm322, /*on_true_vy=*/%v363, /*on_false_vx=*/%v374  ;;  %v811 = vsel /*vm=*/%vm810, /*on_true_vy=*/%v762, /*on_false_vx=*/%v809 }
+ 0x144   :  { %v382 = vmul.f32 %v378, %v359  ;;  %v814 = vsel /*vm=*/%vm812, /*on_true_vy=*/%v813, /*on_false_vx=*/%v811 }
+ 0x145   :  { %v817 = vadd.f32 -3.0, %v814 }
+ 0x146   :  { %v386 = vadd.f32 %v382, %v355 }
+ 0x147   :  { %v821 = vsel /*vm=*/%vm765, /*on_true_vy=*/%v806, /*on_false_vx=*/%v817 }
+ 0x148   :  { %v390 = vmul.f32 %v386, %v378  ;;  %v825 = vmul.f32 %v821, %v802 }
+ 0x149   :  {}
+ 0x14a   :  { %v394 = vadd.f32 %v390, %v351  ;;  %v829 = vadd.f32 %v825, %v798 }
+ 0x14b   :  {}
+ 0x14c   :  { %v398 = vmul.f32 %v394, %v378  ;;  %v833 = vmul.f32 %v829, %v821 }
+ 0x14d   :  {}
+ 0x14e   :  { %v402 = vadd.f32 %v398, %v347  ;;  %v837 = vadd.f32 %v833, %v794 }
+ 0x14f   :  {}
+ 0x150   :  { %v406 = vmul.f32 %v402, %v378  ;;  %v841 = vmul.f32 %v837, %v821 }
+ 0x151   :  {}
+ 0x152   :  { %v410 = vadd.f32 %v406, %v343  ;;  %v845 = vadd.f32 %v841, %v790 }
+ 0x153   :  {}
+ 0x154   :  { %v414 = vmul.f32 %v410, %v378  ;;  %v849 = vmul.f32 %v845, %v821 }
+ 0x155   :  {}
+ 0x156   :  { %v418 = vadd.f32 %v414, %v339  ;;  %v853 = vadd.f32 %v849, %v786 }
+ 0x157   :  {}
+ 0x158   :  { %v422 = vmul.f32 %v418, %v378  ;;  %v857 = vmul.f32 %v853, %v821 }
+ 0x159   :  {}
+ 0x15a   :  { %v426 = vadd.f32 %v422, %v335  ;;  %v861 = vadd.f32 %v857, %v782 }
+ 0x15b   :  {}
+ 0x15c   :  { %v430 = vmul.f32 %v426, %v378  ;;  %v865 = vmul.f32 %v861, %v821 }
+ 0x15d   :  {}
+ 0x15e   :  { %v434 = vadd.f32 %v430, %v331  ;;  %v869 = vadd.f32 %v865, %v778 }
+ 0x15f   :  {}
+ 0x160   :  { %v438 = vmul.f32 %v434, %v378  ;;  %v873 = vmul.f32 %v869, %v821 }
+ 0x161   :  {}
+ 0x162   :  { %v442 = vadd.f32 %v438, %v327  ;;  %v877 = vadd.f32 %v873, %v774 }
+ 0x163   :  {}
+ 0x164   :  { %v446 = vmul.f32 %v442, %v293  ;;  %v881 = vmul.f32 %v877, %v821 }
+ 0x165   :  {}
+ 0x166   :  { %v450 = vsel /*vm=*/%vm298, /*on_true_vy=*/%v303, /*on_false_vx=*/%v446  ;;  %v885 = vadd.f32 %v881, %v770 }
+ 0x167   :  { %v454 = vmul.f32 1.4142135, %v450 }
+ 0x168   :  { %v889 = vmul.f32 %v885, %v736 }
+ 0x169   :  { %456 = vst [vmem:[#allocation0] sm:$0xff] /*vst_source=*/%v454 }
+ 0x16a   :  { %v893 = vsel /*vm=*/%vm741, /*on_true_vy=*/%v746, /*on_false_vx=*/%v889 }
+ 0x16b   :  { %v897 = vmul.f32 1.4142135, %v893 }
+ 0x16c   :  {}
+ 0x16d   :  { %900 = vst [vmem:[#allocation0 + $0x8] sm:$0xff] /*vst_source=*/%v897 }
+ 0x16e   :  { %940 = shalt.err (!%p937) /* BoundsCheck 5 [deref of %s906] for %908 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s906, /*size_in_granules=*/256, /*hbm=*/%s6, /*dst_syncflagno=*/[#allocation2] /* 
+base_bounds: (2, 1)
+dynamic_base_bounds: (2, 1)
+window_bounds: (2, 1)
+iteration_bounds: (1, 1)
+strides: (2, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 4096 */
+hlo: select_multiply_fusion
+ */ }
+ 0x16f   :  { %908 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s906, /*size_in_granules=*/256, /*hbm=*/%s6, /*dst_syncflagno=*/[#allocation2] /* 
+base_bounds: (2, 1)
+dynamic_base_bounds: (2, 1)
+window_bounds: (2, 1)
+iteration_bounds: (1, 1)
+strides: (2, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 4096 */ }
+ 0x170   :  { %949 = dma.done.wait [#allocation2], 256 /* pipeline-emitter-dma-wait */ }
+ 0x171   :  { %950 = vsyncadd [#allocation2], 4294967040 }
+ 0x172   :  { %910 = vsyncpa [#allocation2], 1 } /* End region 0 :: End region 1 */

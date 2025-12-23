@@ -1,0 +1,54 @@
+= control target key start
+LH: loop header
+LB: loop body
+LE: loop exit
+PB: predicated region body
+PF: predicated region fallthrough
+CT: control target
+= control target key end
+
+     0   :  { %s183_s0 = inlined_call_operand.vmem [shape: f32[16,32], index: 0, kind: input, shape index: {}] /* operand 0 */  ;;  %s184_s1 = inlined_call_operand.<no memory space> [shape: s32[], index: 1, kind: input, shape index: {}] /* operand 1 */  ;;  %s185_s2 = inlined_call_operand.<no memory space> [shape: s32[], index: 2, kind: input, shape index: {}] /* operand 2 */  ;;  %s186_s3 = inlined_call_operand.hbm [shape: f32[1,5], index: 3, kind: output, shape index: {}] /* operand 3 */ } /* entry bundle: %dynamic-slice.4 = dynamic-slice(%copy-done, %copy, %copy.1) */
+   0x1   :  { %p4_p0 = scmp.gt.s32.totalorder %s184_s1, 0  ;;  %p82_p1 = scmp.lt.s32.totalorder %s184_s1, 15 }
+   0x2   :  { %p8_p2 = scmp.gt.s32.totalorder %s185_s2, 0  ;;  %p87_p3 = scmp.lt.s32.totalorder %s185_s2, 27 }
+   0x3   :  { %s188_s1 = smov (!%p4_p0, %s184_s1), 0 }
+   0x4   :  { %s190_s2 = smov (!%p8_p2, %s185_s2), 0  ;;  %s192_s1 = smov (!%p82_p1, %s188_s1), 15 }
+   0x5   :  { %s194_s2 = smov (!%p87_p3, %s190_s2), 27  ;;  %s12_s24 = sshrl.u32 %s192_s1, 3 }
+   0x6   :  { %s25_s1 = sand.u32 7, %s192_s1 /* smod.u32 w/div 8 */  ;;  %s14_s25 = sshrl.u32 %s194_s2, 7 }
+   0x7   :  { %s27_s2 = sand.u32 127, %s194_s2 /* smod.u32 w/div 128 */ }
+   0x8   :  { %p43_p4 = scmp.lt.s32.totalorder %s12_s24, 1  ;;  %p45_p5 = scmp.lt.s32.totalorder %s14_s25, 0  ;;  %v51_v0 = vlaneseq } /* Start region 1 */
+   0x9   :  { %28 = vsyncpa [#allocation7], 0  ;;  %v53_v2 = vstv %s25_s1  ;;  %v65_v4 = vstv %s27_s2  ;;  %s68_s30 = ssub.s32 128, %s27_s2  ;;  %s138_s4 = smov [#allocation5] /* materialized constant */ }
+   0xa   :  { %s196_s24 = smov (!%p43_p4, %s12_s24), 1  ;;  %v52_v1 = vshrl.u32 %v51_v0, 7  ;;  %s198_s25 = smov (!%p45_p5, %s14_s25), 0  ;;  %v64_v3 = vand.u32 127, %v51_v0 }
+   0xb   :  { %s47_s26 = sadd.s32 %s198_s25, %s196_s24  ;;  %s76_s5 = sshll.u32 %s138_s4, 4  ;;  %s77_s5 = int_to_ptr.vmem [resolvable:$true] %s76_s5 }
+   0xc   :  { %s102_s27 = sshll.u32 %s47_s26, 3  ;;  %vm54_vm0 = vcmp.lt.s32.totalorder %v52_v1, %v53_v2  ;;  %vm66_vm1 = vcmp.lt.s32.totalorder %v64_v3, %v65_v4  ;;  %s116_s6 = scalar_lea.vmem %s77_s5, 16 }
+   0xd   :  { %s49_s0 = scalar_lea.vmem %s183_s0, %s102_s27  ;;  %p117_p6 = scmp.ne.s32.totalorder %s77_s5, %s116_s6 }
+   0xe   :  { %v50_v5 = vld [vmem:[%s49_s0] sm:$0xff]  ;;  %s120_s7 = scalar_lea.vmem %s77_s5, 32  ;;  %p121_p7 = scmp.lt.s32.totalorder %s77_s5, %s77_s5 }
+   0xf   :  { %v55_v6 = vsel /*vm=*/%vm54_vm0, /*on_true_vy=*/0, /*on_false_vx=*/%v50_v5  ;;  %p122_p8 = scmp.lt.s32.totalorder %s120_s7, %s116_s6 }
+  0x10   :  { %v57_v7 = vrot.slane %v55_v6, %v53_v2 }
+  0x11   :  { %p123_p9 = por %p122_p8, %p121_p7 }
+  0x12   :  { %v67_v8 = vsel /*vm=*/%vm66_vm1, /*on_true_vy=*/0, /*on_false_vx=*/%v57_v7 }
+  0x13   :  { %69 = vrot.lane.b32.xlu0 %v67_v8, %s68_s30  ;;  %p124_p10 = pnand %p123_p9, %p117_p6 }
+  0x14   :  { %v70_v9 = vpop.permute.xlu0 %69 }
+  0x15   :  { %71 = vst [vmem:[#allocation5] sm:$0x1] /*vst_source=*/%v70_v9 }
+  0x16   :  { %127 = shalt.err (!%p124_p10) /* BoundsCheck 2 [deref of %s77] for %79 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s77, /*size_in_granules=*/16, /*hbm=*/%s3, /*dst_syncflagno=*/[#allocation7] /* 
+base_bounds: (1, 1)
+dynamic_base_bounds: (1, 1)
+window_bounds: (1, 1)
+iteration_bounds: (1, 1)
+strides: (1, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 512 */
+hlo: dynamic-slice.4
+ */ }
+  0x17   :  { %79 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s77_s5, /*size_in_granules=*/16, /*hbm=*/%s186_s3, /*dst_syncflagno=*/[#allocation7] /* 
+base_bounds: (1, 1)
+dynamic_base_bounds: (1, 1)
+window_bounds: (1, 1)
+iteration_bounds: (1, 1)
+strides: (1, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 512 */ }
+  0x18   :  { %136 = dma.done.wait [#allocation7], 16 /* pipeline-emitter-dma-wait */ }
+  0x19   :  { %137 = vsyncadd [#allocation7], 4294967280 }
+  0x1a   :  { %81 = vsyncpa [#allocation7], 1 } /* exit bundle: %dynamic-slice.4 = dynamic-slice(%copy-done, %copy, %copy.1) */

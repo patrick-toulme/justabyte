@@ -1,0 +1,2 @@
+WLwT63O4mpPolnq6gYBkKFFNv+xbIKqRXtdFOnfVEKQ=:i=000000aa:c=00000036:a=0000000f:b=0000000d <no-hlo-instruction>
+b4R3atqGNDI4gbJn+U2E6cm0yKxRjsFRJtQdO1UaZqg=:i=000000e9:c=0000001f:a=0000000a:b=00000002 slice_reduce_fusion

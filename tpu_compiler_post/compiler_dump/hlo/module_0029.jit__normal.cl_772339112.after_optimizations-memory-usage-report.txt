@@ -1,0 +1,44 @@
+Total bytes used: 109060 (106.5KiB)
+
+Allocations sorted by size:
+
+cumulative_size; total_size - cumulative_size; allocation
+------------------------------------------------------------------------------
+   64.5KiB( 61%);    42.0KiB; allocation 4: size 64.5KiB, preallocated-temp:
+   96.5KiB( 91%);    10.0KiB; allocation 1: size 32.0KiB, output shape is |f32[64,64]|, maybe-live-out:
+  105.0KiB( 99%);     1.5KiB; allocation 3: size 8.5KiB, color 1, preallocated-temp:
+  105.5KiB( 99%);     1.0KiB; allocation 0: size 512B, constant:
+  106.0KiB(100%);       516B; allocation 2: size 512B, parameter 0, shape |u32[2]| at ShapeIndex {}:
+  106.5KiB(100%);         4B; allocation 6: size 512B, color 6, preallocated-temp:
+  106.5KiB(100%);         0B; allocation 5: size 4B, color 2, preallocated-temp:
+
+
+Allocations sorted by size with their values:
+allocation 4: size 64.5KiB, preallocated-temp:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+	     512B( 46%);       512B;        49152;                1; u32[1]
+	   1.0KiB( 91%);       512B;        65536;                1; u32[1]
+	   1.0KiB( 94%);        32B;        32768;                1; (u32[1], u32[1])
+	   1.1KiB( 97%);        32B;            0;                1; (u32[64], u32[64])
+	   1.1KiB(100%);        32B;        16384;                1; (u32[2], u32[2], u32[])
+
+allocation 1: size 32.0KiB, output shape is |f32[64,64]|, maybe-live-out:
+allocation 3: size 8.5KiB, color 1, preallocated-temp:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+	     512B( 33%);       512B;         4096;                1; u32[64]
+	   1.0KiB( 67%);       512B;         8192;                1; u32[64]
+	   1.5KiB(100%);       512B;            0;                2; u32[64], u32[2]
+
+allocation 0: size 512B, constant:
+allocation 2: size 512B, parameter 0, shape |u32[2]| at ShapeIndex {}:
+allocation 6: size 512B, color 6, preallocated-temp:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+	     512B(100%);       512B;            0;                2; 2×u32[]
+
+allocation 5: size 4B, color 2, preallocated-temp:

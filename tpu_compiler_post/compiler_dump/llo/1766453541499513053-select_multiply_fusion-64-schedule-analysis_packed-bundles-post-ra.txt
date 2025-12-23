@@ -1,0 +1,6 @@
+Schedule analysis:
+	total scheduled bundles:    371
+	empty scheduled bundles:    213
+	non empty scheduled bundles: 158
+	 158.00 scheduled bundles (100.00%): %select_multiply_fusion = f32[16,64]{1,0:T(8,128)} fusion(%broadcast_add_fusion, %get-tuple-element.5, %get-tuple-element.4, %xor.50, %bitcast.1, /*index=5*/%bitcast), kind=kLoop, calls=%fused_computation.20, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/mul" source_file="/home/ptoulme/tpu.py" source_line=81}
+	[opcode]     158 scheduled bundles (100.00%): fusion               (1 instances, 158.00 avg)

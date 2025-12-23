@@ -1,0 +1,20 @@
+
+New basic block in region: region0 {members=17 hlo=dynamic-slice.4 parent=-1}
+  Length to end: 7, %s1 = inlined_call_operand.<no memory space> [shape: s32[], index: 1, kind: input, shape index: {}] /* operand 1 */
+  Length to end: 6, %p4 = scmp.gt.s32.totalorder %s1, 0
+  Length to end: 4, %s5 = scalar_select /*predicate=*/%p4, /*on_true=*/%s1, /*on_false=*/0
+  Length to end: 2, %s104 = scalar_select /*predicate=*/%p82, /*on_true=*/%s5, /*on_false=*/15
+
+New basic block in region: region1 {members=29 hlo=dynamic-slice.4 parent=0}
+  Length to end: 128, %p43 = scmp.lt.s32.totalorder %s12, 1
+  Length to end: 126, %s44 = scalar_select /*predicate=*/%p43, /*on_true=*/%s12, /*on_false=*/1
+  Length to end: 124, %s47 = sadd.s32 %s46, %s44
+  Length to end: 123, %s102 = sshll.u32 %s47, 3
+  Length to end: 122, %s49 = scalar_lea.vmem %s0, %s102
+  Length to end: 121, %v50 = vld [vmem:[%s49] sm:$0xff]
+  Length to end: 120, %v55 = vsel /*vm=*/%vm54, /*on_true_vy=*/0, /*on_false_vx=*/%v50
+  Length to end: 119, %v57 = vrot.slane %v55, %v53
+  Length to end: 117, %v67 = vsel /*vm=*/%vm66, /*on_true_vy=*/0, /*on_false_vx=*/%v57
+  Length to end: 116, %69 = vrot.lane.b32.xlu0 %v67, %s68
+  Length to end: 2, %v70 = vpop.permute.xlu0 %69
+  Length to end: 1, %71 = vst [vmem:[#allocation5] sm:$0x1] /*vst_source=*/%v70

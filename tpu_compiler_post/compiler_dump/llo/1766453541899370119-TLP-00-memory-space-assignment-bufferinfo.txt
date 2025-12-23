@@ -1,0 +1,6 @@
+buffer_id,buffer_name,alt_mem_benefit,size,definition_time,use_times,use_names,is_scoped
+330,"<330 select_multiply_fusion>",1.02011e-10,32768,13,"","",0
+323,"<323 Arg_0.1>",2.55029e-11,512,1,"3","fusion.23, operand 0",0
+321,"<321 fusion.21{0}>",2.55028e-11,512,10,"13","select_multiply_fusion, operand 2",0
+322,"<322 fusion.21{1}>",2.55028e-11,512,10,"13","select_multiply_fusion, operand 1",0
+319,"<319 broadcast_add_fusion>",1.27513e-11,512,2,"13","select_multiply_fusion, operand 0",0

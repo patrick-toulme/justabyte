@@ -1,0 +1,15 @@
+
+%s0 = inlined_call_operand.vmem [shape: f32[16], index: 0, kind: input, shape index: {}] /* operand 0 */
+%s1 = inlined_call_operand.vmem [shape: f32[16], index: 1, kind: output, shape index: {}] /* operand 1 */
+%v2 = vld [vmem:[%s0] sm:$0x1]
+%v5 = vmul.f32 0.015625, %v2
+%v9 = vadd.f32 1e-06, %v5
+%19 = vrsqrt.f32 %v9
+%v20 = vpop.eup %19
+%vm13 = vcmp.eq.f32.partialorder %v9, inf
+%v16 = vand.u32 2147483648, %v9
+%v12 = vmul.f32 %v20, %v9
+%vm15 = vcmp.eq.f32.partialorder %v9, 0.0
+%v14 = vsel /*vm=*/%vm13, /*on_true_vy=*/%v9, /*on_false_vx=*/%v12
+%v17 = vsel /*vm=*/%vm15, /*on_true_vy=*/%v16, /*on_false_vx=*/%v14
+%18 = vst [vmem:[%s1] sm:$0x1] /*vst_source=*/%v17

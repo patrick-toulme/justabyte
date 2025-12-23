@@ -1,0 +1,78 @@
+
+%s0 = inlined_call_operand.vmem [shape: f32[64,32], index: 0, kind: input, shape index: {}] /* operand 0 */
+%s1 = inlined_call_operand.vmem [shape: f32[16], index: 1, kind: input, shape index: {}] /* operand 1 */
+%s2 = inlined_call_operand.vmem [shape: f32[16], index: 2, kind: input, shape index: {}] /* operand 2 */
+%s3 = inlined_call_operand.vmem [shape: f32[16,64], index: 3, kind: input, shape index: {}] /* operand 3 */
+%s4 = inlined_call_operand.vmem [shape: f32[16], index: 4, kind: input, shape index: {}] /* operand 4 */
+%s5 = inlined_call_operand.hbm [shape: f32[16,32], index: 5, kind: output, shape index: {}] /* operand 5 */
+
+%v74 = vld [vmem:[%s4] ss:$0 sm:$0xff]
+%v69 = vld [vmem:[%s2] ss:$0 sm:$0xff]
+%76 = vbcast.lane.b32.xlu0 %v74, 256
+%71 = vbcast.lane.b32.xlu1 %v69, 256
+%6 = vsyncpa [#allocation3], 0
+%111 = vbcast.lane.b32.xlu0 %v74, 264
+%104 = vbcast.lane.b32.xlu1 %v69, 264
+%v65 = vld [vmem:[%s1] ss:$0 sm:$0xff]
+%v17 = vlaneseq
+%67 = vbcast.lane.b32.xlu0 %v65, 256
+%99 = vbcast.lane.b32.xlu1 %v65, 264
+%v18 = vand.u32 127, %v17
+%v147 = vld [vmem:[%s0 + $0x18] sm:$0xff]
+%vm38 = vcmp.ge.s32.totalorder %v18, 64
+%vm174 = vcmp.lt.s32.totalorder %v18, 64
+%163 = vmatprep.subr.msk.mxu0 %vm174, %v147
+%v148 = vld [vmem:[%s0 + $0x10] sm:$0xff]
+%164 = vmatpush3.xpose.msk.msra.mxu0 %vm174, %v147
+%165 = vmatprep.subr.msk.mxu0 %vm174, %v148
+%v149 = vld [vmem:[%s0 + $0x8] sm:$0xff]
+%166 = vmatpush3.xpose.msk.msra.mxu0 %vm174, %v148
+%167 = vmatprep.subr.msk.mxu0 %vm174, %v149
+%v59 = vld [vmem:[%s0] sm:$0xff]
+%168 = vmatpush3.xpose.msk.msra.mxu0 %vm174, %v149
+%169 = vmatprep.subr.msk.mxu0 %vm174, %v59
+%170 = vmatpush3.xpose.msk.msra.mxu0 %vm174, %v59
+%v77 = vpop.permute.xlu0 %76
+%v78 = vrcp.pop %v77
+%v112 = vpop.permute.xlu0 %111
+%v113 = vrcp.pop %v112
+%v72 = vpop.permute.xlu1 %71
+%v73 = vld [vmem:[%s3] sm:$0xff]
+%v105 = vpop.permute.xlu1 %104
+%v79 = vmul.f32 %v78, %v73
+%v152 = vld [vmem:[%s3 + $0x8] sm:$0xff]
+%v68 = vpop.permute.xlu0 %67
+%v82 = vsub.f32 %v79, %v72
+%v84 = vmul.f32 1.442695, %v82
+%v114 = vmul.f32 %v152, %v113
+%v86 = vrcp.pop %v68
+%v100 = vpop.permute.xlu1 %99
+%v85 = vpow.pop %v84
+%v117 = vsub.f32 %v114, %v105
+%v119 = vmul.f32 1.442695, %v117
+%v121 = vrcp.pop %v100
+%v120 = vpow.pop %v119
+%v87 = vmul.f32 %v86, %v85
+%171 = vmatprep.mubr.msk.f32.mxu0 %vm174, %v87
+%v122 = vmul.f32 %v121, %v120
+%172 = vmatmul.mubr.msk.f32.vlgmr.msra.gmra.mxu0 %vm174, %v122
+%s175 = smov [#allocation1] /* materialized constant */
+%s139 = sshll.u32 %s175, 4
+%v173 = vpop.f32.mrf.mxu0
+%131 = vst [vmem:[#allocation1 + $0x8] sm:$0xff] /*vst_source=*/%v173
+%s140 = int_to_ptr.vmem [resolvable:$true] %s139
+%v93 = vpop.f32.mrf.mxu0
+%94 = vst [vmem:[#allocation1] sm:$0xff] /*vst_source=*/%v93
+%142 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s140, /*size_in_granules=*/256, /*hbm=*/%s5, /*dst_syncflagno=*/[#allocation3] /* 
+base_bounds: (2, 1)
+dynamic_base_bounds: (2, 1)
+window_bounds: (2, 1)
+iteration_bounds: (1, 1, 1)
+strides: (2, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 4096 */
+
+%145 = dma.done [#allocation3], 256 /* pipeline-emitter-dma-wait */
+
+%146 = vsyncpa [#allocation3], 1

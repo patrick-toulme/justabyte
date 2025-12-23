@@ -1,0 +1,9 @@
+HloModule jit_dynamic_slice, entry_computation_layout={(f32[16,32]{1,0:T(8,128)}, s32[]{:T(128)}, s32[]{:T(128)})->f32[1,5]{1,0:T(1,128)}}, allow_spmd_sharding_propagation_to_parameters={true,true,true}, allow_spmd_sharding_propagation_to_output={true}
+
+ENTRY %main.5 (Arg_0.1: f32[16,32], Arg_1.2: s32[], Arg_2.3: s32[]) -> f32[1,5] {
+  %Arg_0.1 = f32[16,32]{1,0:T(8,128)} parameter(0), metadata={op_name="args[0]"}
+  %Arg_1.2 = s32[]{:T(128)} parameter(1), metadata={op_name="args[1]"}
+  %Arg_2.3 = s32[]{:T(128)} parameter(2), metadata={op_name="args[2]"}
+  ROOT %dynamic-slice.4 = f32[1,5]{1,0:T(1,128)} dynamic-slice(%Arg_0.1, %Arg_1.2, %Arg_2.3), dynamic_slice_sizes={1,5}, metadata={op_name="jit(dynamic_slice)/jit(main)/dynamic_slice" source_file="/home/ptoulme/tpu.py" source_line=96}
+}
+
