@@ -1,0 +1,19 @@
+= control target key start
+LH: loop header
+LB: loop body
+LE: loop exit
+PB: predicated region body
+PF: predicated region fallthrough
+CT: control target
+= control target key end
+
+     0   :  { %v3_v0 = vlaneseq  ;;  %s97_s0 = inlined_call_operand.vmem [shape: u32[2048], index: 0, kind: output, shape index: {0}] /* operand 0 */  ;;  %s98_s1 = inlined_call_operand.vmem [shape: u32[2048], index: 1, kind: output, shape index: {1}] /* operand 1 */ } /* entry bundle: %fusion.28 = fusion() */
+   0x1   :  { %v6_v1 = vand.u32 65535, %v3_v0  ;;  %v15_v2 = vshrl.u32 %v3_v0, 16  ;;  %v39_v3 = vadd.s32 1024, %v3_v0 }
+   0x2   :  { %v9_v4 = vmul.u32 128, %v6_v1  ;;  %v18_v5 = vmul.u32 128, %v15_v2  ;;  %v40_v6 = vand.u32 65535, %v39_v3  ;;  %v49_v7 = vshrl.u32 %v39_v3, 16 }
+   0x3   :  { %v20_v8 = vshrl.u32 %v9_v4, 16  ;;  %v43_v9 = vmul.u32 128, %v40_v6  ;;  %v52_v10 = vmul.u32 128, %v49_v7  ;;  %v11_v13 = vand.u32 65535, %v9_v4 }
+   0x4   :  { %v23_v11 = vadd.s32 %v20_v8, %v18_v5  ;;  %v54_v12 = vshrl.u32 %v43_v9, 16  ;;  %v45_v17 = vand.u32 65535, %v43_v9 }
+   0x5   :  { %v25_v14 = vand.u32 65535, %v23_v11  ;;  %v28_v15 = vshrl.u32 %v23_v11, 16  ;;  %v57_v16 = vadd.s32 %v54_v12, %v52_v10 }
+   0x6   :  { %v26_v18 = vshll.u32 %v25_v14, 16  ;;  %v29_v19 = vshrl.u32 %v25_v14, 16  ;;  %v59_v20 = vand.u32 65535, %v57_v16  ;;  %v62_v21 = vshrl.u32 %v57_v16, 16 }
+   0x7   :  { %v27_v22 = vor.u32 %v26_v18, %v11_v13  ;;  %v32_v23 = vadd.s32 %v29_v19, %v28_v15  ;;  %v60_v24 = vshll.u32 %v59_v20, 16  ;;  %v63_v25 = vshrl.u32 %v59_v20, 16 }
+   0x8   :  { %35 = vst [vmem:[%s97_s0] sm:$0xff] /*vst_source=*/%v27_v22  ;;  %36 = vst [vmem:[%s98_s1] sm:$0xff] /*vst_source=*/%v32_v23  ;;  %v61_v26 = vor.u32 %v60_v24, %v45_v17  ;;  %v66_v27 = vadd.s32 %v63_v25, %v62_v21 }
+   0x9   :  { %73 = vst [vmem:[%s97_s0 + $0x8] sm:$0xff] /*vst_source=*/%v61_v26  ;;  %74 = vst [vmem:[%s98_s1 + $0x8] sm:$0xff] /*vst_source=*/%v66_v27 } /* exit bundle: %fusion.28 = fusion() */

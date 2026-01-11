@@ -1,0 +1,53 @@
+Total bytes used: 52288 (51.1KiB)
+
+Allocations sorted by size:
+
+cumulative_size; total_size - cumulative_size; allocation
+------------------------------------------------------------------------------
+    4.0KiB(  8%);    47.1KiB; allocation 0: size 4.0KiB, thread-local:
+    8.0KiB( 16%);    43.1KiB; allocation 7: size 4.0KiB, thread-local:
+   12.0KiB( 24%);    39.1KiB; allocation 8: size 4.0KiB, thread-local:
+   16.0KiB( 31%);    35.1KiB; allocation 9: size 4.0KiB, thread-local:
+   20.0KiB( 39%);    31.1KiB; allocation 10: size 4.0KiB, thread-local:
+   24.0KiB( 47%);    27.1KiB; allocation 11: size 4.0KiB, thread-local:
+   28.0KiB( 55%);    23.1KiB; allocation 12: size 4.0KiB, thread-local:
+   32.0KiB( 63%);    19.1KiB; allocation 13: size 4.0KiB, thread-local:
+   36.0KiB( 71%);    15.1KiB; allocation 14: size 4.0KiB, thread-local:
+   40.0KiB( 78%);    11.1KiB; allocation 15: size 4.0KiB, thread-local:
+   44.0KiB( 86%);     7.1KiB; allocation 16: size 4.0KiB, thread-local:
+   48.0KiB( 94%);     3.1KiB; allocation 17: size 4.0KiB, thread-local:
+   49.0KiB( 96%);     2.1KiB; allocation 1: size 1.0KiB, parameter 0, shape |u32[4,2]| at ShapeIndex {}:
+   49.5KiB( 97%);     1.6KiB; allocation 2: size 512B, maybe-live-out:
+   50.0KiB( 98%);     1.1KiB; allocation 3: size 512B, maybe-live-out:
+   50.5KiB( 99%);       576B; allocation 4: size 512B, maybe-live-out:
+   51.0KiB(100%);        64B; allocation 5: size 512B, maybe-live-out:
+   51.0KiB(100%);        32B; allocation 6: size 32B, output shape is |(u32[2], u32[2], u32[2], u32[2])|, maybe-live-out:
+   51.1KiB(100%);         0B; allocation 18: size 32B, preallocated-temp:
+   51.1KiB(100%);         0B; allocation 19: size 0B, color 1, preallocated-temp:
+
+
+Allocations sorted by size with their values:
+allocation 0: size 4.0KiB, thread-local:
+allocation 7: size 4.0KiB, thread-local:
+allocation 8: size 4.0KiB, thread-local:
+allocation 9: size 4.0KiB, thread-local:
+allocation 10: size 4.0KiB, thread-local:
+allocation 11: size 4.0KiB, thread-local:
+allocation 12: size 4.0KiB, thread-local:
+allocation 13: size 4.0KiB, thread-local:
+allocation 14: size 4.0KiB, thread-local:
+allocation 15: size 4.0KiB, thread-local:
+allocation 16: size 4.0KiB, thread-local:
+allocation 17: size 4.0KiB, thread-local:
+allocation 1: size 1.0KiB, parameter 0, shape |u32[4,2]| at ShapeIndex {}:
+allocation 2: size 512B, maybe-live-out:
+allocation 3: size 512B, maybe-live-out:
+allocation 4: size 512B, maybe-live-out:
+allocation 5: size 512B, maybe-live-out:
+allocation 6: size 32B, output shape is |(u32[2], u32[2], u32[2], u32[2])|, maybe-live-out:
+allocation 18: size 32B, preallocated-temp:
+allocation 19: size 0B, color 1, preallocated-temp:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+

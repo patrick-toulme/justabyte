@@ -1,0 +1,59 @@
+HloModule jit_reference_attention, entry_computation_layout={(bf16[8,2048,128]{2,1,0:T(8,128)(2,1)}, bf16[8,2048,128]{2,1,0:T(8,128)(2,1)}, bf16[8,2048,128]{2,1,0:T(8,128)(2,1)})->f32[8,2048,128]{2,1,0:T(8,128)}}, allow_spmd_sharding_propagation_to_parameters={true,true,true}, allow_spmd_sharding_propagation_to_output={true}
+
+%_where.20 (Arg_0.15: pred[8,2048,2048], Arg_1.16: f32[8,2048,2048], Arg_2.17: f32[]) -> f32[8,2048,2048] {
+  %Arg_0.15 = pred[8,2048,2048]{2,1,0} parameter(0), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/pjit"}
+  %Arg_1.16 = f32[8,2048,2048]{2,1,0} parameter(1), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/pjit"}
+  %Arg_2.17 = f32[] parameter(2), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/pjit"}
+  %broadcast.18 = f32[8,2048,2048]{2,1,0} broadcast(%Arg_2.17), dimensions={}, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/vmap(jit(_where))/broadcast_in_dim" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=195}
+  ROOT %select.19 = f32[8,2048,2048]{2,1,0} select(%Arg_0.15, %Arg_1.16, %broadcast.18), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/vmap(jit(_where))/select_n" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=195}
+}
+
+%region_0.25 (Arg_0.22: f32[], Arg_1.23: f32[]) -> f32[] {
+  %Arg_0.22 = f32[] parameter(0), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/reduce_max"}
+  %Arg_1.23 = f32[] parameter(1), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/reduce_max"}
+  ROOT %maximum.24 = f32[] maximum(%Arg_0.22, %Arg_1.23), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/reduce_max" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=196}
+}
+
+%region_1.36 (Arg_0.33: f32[], Arg_1.34: f32[]) -> f32[] {
+  %Arg_0.33 = f32[] parameter(0), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/reduce_sum"}
+  %Arg_1.34 = f32[] parameter(1), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/reduce_sum"}
+  ROOT %add.35 = f32[] add(%Arg_0.33, %Arg_1.34), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/reduce_sum" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=198}
+}
+
+%_wrapped.45 (Arg_0.5: pred[8,2048,2048], Arg_1.6: bf16[8,2048,128], Arg_2.7: bf16[8,2048,128], Arg_3.8: bf16[8,2048,128]) -> f32[8,2048,128] {
+  %Arg_0.5 = pred[8,2048,2048]{2,1,0} parameter(0), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/pjit"}
+  %Arg_1.6 = bf16[8,2048,128]{2,1,0} parameter(1), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/pjit"}
+  %convert.12 = f32[8,2048,128]{2,1,0} convert(%Arg_1.6), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/convert_element_type" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=184}
+  %Arg_2.7 = bf16[8,2048,128]{2,1,0} parameter(2), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/pjit"}
+  %convert.13 = f32[8,2048,128]{2,1,0} convert(%Arg_2.7), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/convert_element_type" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=184}
+  %dot.14 = f32[8,2048,2048]{2,1,0} dot(%convert.12, %convert.13), lhs_batch_dims={0}, lhs_contracting_dims={2}, rhs_batch_dims={0}, rhs_contracting_dims={2}, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/vmap(sd,td->st)/dot_general" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=184}
+  %constant.11 = f32[] constant(-2.38197633e+38)
+  %call.21 = f32[8,2048,2048]{2,1,0} call(%Arg_0.5, %dot.14, %constant.11), to_apply=%_where.20
+  %constant.10 = f32[] constant(-inf)
+  %reduce.26 = f32[8,2048]{1,0} reduce(%call.21, %constant.10), dimensions={2}, to_apply=%region_0.25, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/reduce_max" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=196}
+  %reshape.27 = f32[8,2048,1]{2,1,0} reshape(%reduce.26), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/broadcast_in_dim" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=197}
+  %broadcast.28 = f32[8,2048,1]{2,1,0} broadcast(%reshape.27), dimensions={0,1,2}, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/sub" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=197}
+  %reshape.29 = f32[8,2048]{1,0} reshape(%broadcast.28), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/sub" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=197}
+  %broadcast.30 = f32[8,2048,2048]{2,1,0} broadcast(%reshape.29), dimensions={0,1}, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/sub" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=197}
+  %subtract.31 = f32[8,2048,2048]{2,1,0} subtract(%call.21, %broadcast.30), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/sub" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=197}
+  %exponential.32 = f32[8,2048,2048]{2,1,0} exponential(%subtract.31), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/exp" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=197}
+  %constant.9 = f32[] constant(0)
+  %reduce.37 = f32[8,2048]{1,0} reduce(%exponential.32, %constant.9), dimensions={2}, to_apply=%region_1.36, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/reduce_sum" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=198}
+  %reshape.38 = f32[8,2048,1]{2,1,0} reshape(%reduce.37), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/broadcast_in_dim" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=199}
+  %broadcast.39 = f32[8,2048,1]{2,1,0} broadcast(%reshape.38), dimensions={0,1,2}, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/div" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=199}
+  %reshape.40 = f32[8,2048]{1,0} reshape(%broadcast.39), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/div" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=199}
+  %broadcast.41 = f32[8,2048,2048]{2,1,0} broadcast(%reshape.40), dimensions={0,1}, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/div" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=199}
+  %divide.42 = f32[8,2048,2048]{2,1,0} divide(%exponential.32, %broadcast.41), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/div" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=199}
+  %Arg_3.8 = bf16[8,2048,128]{2,1,0} parameter(3), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/pjit"}
+  %convert.43 = f32[8,2048,128]{2,1,0} convert(%Arg_3.8), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/convert_element_type" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=201}
+  ROOT %dot.44 = f32[8,2048,128]{2,1,0} dot(%divide.42, %convert.43), lhs_batch_dims={0}, lhs_contracting_dims={2}, rhs_batch_dims={0}, rhs_contracting_dims={1}, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/vmap(st,td->sd)/dot_general" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=201}
+}
+
+ENTRY %main.47 (Arg_0.1: bf16[8,2048,128], Arg_1.2: bf16[8,2048,128], Arg_2.3: bf16[8,2048,128]) -> f32[8,2048,128] {
+  %constant.4 = pred[8,2048,2048]{2,1,0} constant({...})
+  %Arg_0.1 = bf16[8,2048,128]{2,1,0} parameter(0), metadata={op_name="q"}
+  %Arg_1.2 = bf16[8,2048,128]{2,1,0} parameter(1), metadata={op_name="k"}
+  %Arg_2.3 = bf16[8,2048,128]{2,1,0} parameter(2), metadata={op_name="v"}
+  ROOT %call.46 = f32[8,2048,128]{2,1,0} call(%constant.4, %Arg_0.1, %Arg_1.2, %Arg_2.3), to_apply=%_wrapped.45
+}
+

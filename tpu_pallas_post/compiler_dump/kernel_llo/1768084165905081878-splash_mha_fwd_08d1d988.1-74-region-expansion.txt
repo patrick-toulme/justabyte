@@ -1,0 +1,5 @@
+ordinal=0 before=12709 after=15136 expansion=1.19097
+ordinal=1 before=12706 after=15127 expansion=1.19054
+ordinal=35 before=12555 after=14959 expansion=1.19148
+ordinal=55 before=12018 after=13796 expansion=1.14794
+ordinal=107 before=12674 after=15095 expansion=1.19102

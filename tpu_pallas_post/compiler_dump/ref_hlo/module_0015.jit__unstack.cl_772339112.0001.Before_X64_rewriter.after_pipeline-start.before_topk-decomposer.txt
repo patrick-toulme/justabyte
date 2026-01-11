@@ -1,0 +1,15 @@
+HloModule jit__unstack, entry_computation_layout={(u32[4,2]{0,1:T(2,128)})->(u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)})}, allow_spmd_sharding_propagation_to_parameters={true}, allow_spmd_sharding_propagation_to_output={true,true,true,true}
+
+ENTRY %main.11 (Arg_0.1: u32[4,2]) -> (u32[2], u32[2], u32[2], u32[2]) {
+  %Arg_0.1 = u32[4,2]{1,0} parameter(0), metadata={op_name="x"}
+  %slice.2 = u32[1,2]{1,0} slice(%Arg_0.1), slice={[0:1], [0:2]}, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_reference.py" source_line=89}
+  %reshape.6 = u32[2]{0} reshape(%slice.2), metadata={op_name="jit(_unstack)/jit(main)/squeeze" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_reference.py" source_line=89}
+  %slice.3 = u32[1,2]{1,0} slice(%Arg_0.1), slice={[1:2], [0:2]}, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_reference.py" source_line=89}
+  %reshape.7 = u32[2]{0} reshape(%slice.3), metadata={op_name="jit(_unstack)/jit(main)/squeeze" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_reference.py" source_line=89}
+  %slice.4 = u32[1,2]{1,0} slice(%Arg_0.1), slice={[2:3], [0:2]}, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_reference.py" source_line=89}
+  %reshape.8 = u32[2]{0} reshape(%slice.4), metadata={op_name="jit(_unstack)/jit(main)/squeeze" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_reference.py" source_line=89}
+  %slice.5 = u32[1,2]{1,0} slice(%Arg_0.1), slice={[3:4], [0:2]}, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_reference.py" source_line=89}
+  %reshape.9 = u32[2]{0} reshape(%slice.5), metadata={op_name="jit(_unstack)/jit(main)/squeeze" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_reference.py" source_line=89}
+  ROOT %tuple.10 = (u32[2]{0}, u32[2]{0}, u32[2]{0}, u32[2]{0}) tuple(%reshape.6, %reshape.7, %reshape.8, %reshape.9)
+}
+

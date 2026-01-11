@@ -1,0 +1,6 @@
+Schedule analysis:
+	total scheduled bundles:    2601
+	empty scheduled bundles:    122
+	non empty scheduled bundles: 2479
+	2479.00 scheduled bundles (100.00%): %fusion.5 = (f32[8,2048]{1,0:T(8,128)S(1)}, f32[8,2048,2048]{1,2,0:T(8,128)}) fusion(%constant.4, %copy-done, %Arg_1.2), kind=kOutput, calls=%fused_computation.7, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/vmap(sd,td->st)/dot_general" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=184}
+	[opcode]    2479 scheduled bundles (100.00%): fusion               (1 instances, 2479.00 avg)

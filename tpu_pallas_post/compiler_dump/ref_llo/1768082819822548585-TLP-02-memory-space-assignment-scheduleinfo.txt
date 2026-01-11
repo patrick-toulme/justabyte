@@ -1,0 +1,10 @@
+time,instruction_name
+0,constant.4
+1,Arg_2.3
+2,Arg_1.2
+3,Arg_0.1
+4,fusion.5
+5,get-tuple-element.1
+6,get-tuple-element
+7,fusion.2
+8,fusion

@@ -1,0 +1,6 @@
+Schedule analysis:
+	total scheduled bundles:    10
+	empty scheduled bundles:    0
+	non empty scheduled bundles: 10
+	  10.00 scheduled bundles (100.00%): %fusion.28 = (u32[2048]{0:T(1024)S(1)}, u32[2048]{0:T(1024)S(1)}) fusion(), kind=kLoop, calls=%fused_computation.42, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_reference.py" source_line=90}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"fusion_formation_source":{"fusion_creating_compiler_pass":"TpuAdvancedMOF","fusion_id":"42"}}
+	[opcode]      10 scheduled bundles (100.00%): fusion               (1 instances,  10.00 avg)

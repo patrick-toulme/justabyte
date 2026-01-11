@@ -1,0 +1,7 @@
+buffer_id,buffer_name,alt_mem_benefit,size,definition_time,use_times,use_names,is_scoped
+339,"<339 fusion.21>",1.15413e-09,4194304,15,"","",0
+334,"<334 fusion.28{0}>",1.0201e-10,8192,12,"15","fusion.21, operand 5",0
+335,"<335 fusion.28{1}>",1.0201e-10,8192,12,"15","fusion.21, operand 3",0
+326,"<326 Arg_0.1>",2.55029e-11,512,1,"2","fusion.40, operand 0",0
+337,"<337 fusion.36{0}>",2.5493e-11,512,9,"15","fusion.21, operand 6",0
+338,"<338 fusion.36{1}>",2.5493e-11,512,9,"15","fusion.21, operand 4",0

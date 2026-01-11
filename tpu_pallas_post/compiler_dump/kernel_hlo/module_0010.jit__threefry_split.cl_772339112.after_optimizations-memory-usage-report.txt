@@ -1,0 +1,44 @@
+Total bytes used: 40448 (39.5KiB)
+
+Allocations sorted by size:
+
+cumulative_size; total_size - cumulative_size; allocation
+------------------------------------------------------------------------------
+   32.5KiB( 82%);     7.0KiB; allocation 4: size 32.5KiB, preallocated-temp:
+   37.0KiB( 94%);     2.5KiB; allocation 3: size 4.5KiB, color 1, preallocated-temp:
+   38.0KiB( 96%);     1.5KiB; allocation 1: size 1.0KiB, output shape is |u32[4,2]|, maybe-live-out:
+   38.5KiB( 97%);     1.0KiB; allocation 0: size 512B, constant:
+   39.0KiB( 99%);       512B; allocation 2: size 512B, parameter 0, shape |u32[2]| at ShapeIndex {}:
+   39.5KiB(100%);         0B; allocation 5: size 512B, color 6, preallocated-temp:
+
+
+Allocations sorted by size with their values:
+allocation 4: size 32.5KiB, preallocated-temp:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+	     512B( 89%);       512B;        32768;                1; u32[1]
+	     544B( 94%);        32B;        16384;                1; (u32[4,1], u32[4,1])
+	     576B(100%);        32B;            0;                1; (u32[1], u32[1])
+
+allocation 3: size 4.5KiB, color 1, preallocated-temp:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+	     512B( 50%);       512B;         4096;                1; u32[4,1]
+	   1.0KiB(100%);       512B;            0;                1; u32[4,1]
+
+allocation 1: size 1.0KiB, output shape is |u32[4,2]|, maybe-live-out:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+	   1.0KiB(100%);     1.0KiB;            0;                2; u32[1], u32[4,2]
+
+allocation 0: size 512B, constant:
+allocation 2: size 512B, parameter 0, shape |u32[2]| at ShapeIndex {}:
+allocation 5: size 512B, color 6, preallocated-temp:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+	     512B(100%);       512B;            0;                2; 2×u32[]
+

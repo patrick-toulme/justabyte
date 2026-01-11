@@ -1,0 +1,2 @@
+ordinal=0 before=211 after=209 expansion=0.990521
+ordinal=19 before=10 after=11 expansion=1.1

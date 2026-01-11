@@ -1,0 +1,206 @@
+HloModule jit__threefry_split, entry_computation_layout={(u32[2]{0:T(128)})->u32[4,2]{0,1:T(2,128)}}, allow_spmd_sharding_propagation_to_parameters={true}, allow_spmd_sharding_propagation_to_output={true}
+
+ENTRY %main.186 (Arg_0.1: u32[2]) -> u32[4,2] {
+  %Arg_0.1 = u32[2]{0} parameter(0), metadata={op_name="key"}
+  %slice.4 = u32[1]{0} slice(%Arg_0.1), slice={[0:1]}, metadata={op_name="jit(_threefry_split)/jit(main)/slice" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %reshape.5 = u32[] reshape(%slice.4), metadata={op_name="jit(_threefry_split)/jit(main)/squeeze" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.517 = u32[4]{0} broadcast(%reshape.5), dimensions={}, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %iota.1 = u32[4,1]{1,0} iota(), iota_dimension=0, metadata={op_name="jit(_threefry_split)/jit(main)/iota_2x32_shape" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %reshape.240 = u32[4]{0} reshape(%iota.1), metadata={op_name="jit(_threefry_split)/jit(main)/iota_2x32_shape" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %slice.6 = u32[1]{0} slice(%Arg_0.1), slice={[1:2]}, metadata={op_name="jit(_threefry_split)/jit(main)/slice" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %reshape.7 = u32[] reshape(%slice.6), metadata={op_name="jit(_threefry_split)/jit(main)/squeeze" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.516 = u32[4]{0} broadcast(%reshape.7), dimensions={}, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.320 = u32[4]{0} add(%reshape.240, %broadcast.516), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.321 = u32[4]{0} add(%broadcast.517, %add.320), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant.9 = u32[] constant(13)
+  %broadcast.518 = u32[4]{0} broadcast(%constant.9), dimensions={}
+  %shift-left.179 = u32[4]{0} shift-left(%add.320, %broadcast.518), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant.10 = u32[] constant(19)
+  %broadcast.519 = u32[4]{0} broadcast(%constant.10), dimensions={}
+  %shift-right-logical.183 = u32[4]{0} shift-right-logical(%add.320, %broadcast.519), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.180 = u32[4]{0} or(%shift-left.179, %shift-right-logical.183), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.179 = u32[4]{0} xor(%add.321, %or.180), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.322 = u32[4]{0} add(%add.321, %xor.179), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant.11 = u32[] constant(15)
+  %broadcast.520 = u32[4]{0} broadcast(%constant.11), dimensions={}
+  %shift-left.180 = u32[4]{0} shift-left(%xor.179, %broadcast.520), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant.12 = u32[] constant(17)
+  %broadcast.521 = u32[4]{0} broadcast(%constant.12), dimensions={}
+  %shift-right-logical.184 = u32[4]{0} shift-right-logical(%xor.179, %broadcast.521), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.181 = u32[4]{0} or(%shift-left.180, %shift-right-logical.184), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.180 = u32[4]{0} xor(%add.322, %or.181), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.323 = u32[4]{0} add(%add.322, %xor.180), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant.13 = u32[] constant(26)
+  %broadcast.522 = u32[4]{0} broadcast(%constant.13), dimensions={}
+  %shift-left.181 = u32[4]{0} shift-left(%xor.180, %broadcast.522), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant.14 = u32[] constant(6)
+  %broadcast.523 = u32[4]{0} broadcast(%constant.14), dimensions={}
+  %shift-right-logical.185 = u32[4]{0} shift-right-logical(%xor.180, %broadcast.523), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.182 = u32[4]{0} or(%shift-left.181, %shift-right-logical.185), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.181 = u32[4]{0} xor(%add.323, %or.182), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.324 = u32[4]{0} add(%add.323, %xor.181), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.524 = u32[4]{0} broadcast(%reshape.7), dimensions={}, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.325 = u32[4]{0} add(%add.324, %broadcast.524), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.525 = u32[4]{0} broadcast(%constant.14), dimensions={}
+  %shift-left.182 = u32[4]{0} shift-left(%xor.181, %broadcast.525), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.526 = u32[4]{0} broadcast(%constant.13), dimensions={}
+  %shift-right-logical.186 = u32[4]{0} shift-right-logical(%xor.181, %broadcast.526), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.183 = u32[4]{0} or(%shift-left.182, %shift-right-logical.186), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.182 = u32[4]{0} xor(%add.324, %or.183), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.4 = u32[] xor(%reshape.5, %reshape.7), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant.15 = u32[] constant(466688986)
+  %xor.5 = u32[] xor(%xor.4, %constant.15), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.527 = u32[4]{0} broadcast(%xor.5), dimensions={}, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.326 = u32[4]{0} add(%xor.182, %broadcast.527), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant.16 = u32[] constant(1)
+  %broadcast.528 = u32[4]{0} broadcast(%constant.16), dimensions={}
+  %add.327 = u32[4]{0} add(%add.326, %broadcast.528), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.328 = u32[4]{0} add(%add.325, %add.327), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.529 = u32[4]{0} broadcast(%constant.12), dimensions={}
+  %shift-left.183 = u32[4]{0} shift-left(%add.327, %broadcast.529), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.530 = u32[4]{0} broadcast(%constant.11), dimensions={}
+  %shift-right-logical.187 = u32[4]{0} shift-right-logical(%add.327, %broadcast.530), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.184 = u32[4]{0} or(%shift-left.183, %shift-right-logical.187), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.183 = u32[4]{0} xor(%add.328, %or.184), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.329 = u32[4]{0} add(%add.328, %xor.183), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant.17 = u32[] constant(29)
+  %broadcast.531 = u32[4]{0} broadcast(%constant.17), dimensions={}
+  %shift-left.184 = u32[4]{0} shift-left(%xor.183, %broadcast.531), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant.18 = u32[] constant(3)
+  %broadcast.532 = u32[4]{0} broadcast(%constant.18), dimensions={}
+  %shift-right-logical.188 = u32[4]{0} shift-right-logical(%xor.183, %broadcast.532), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.185 = u32[4]{0} or(%shift-left.184, %shift-right-logical.188), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.184 = u32[4]{0} xor(%add.329, %or.185), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.330 = u32[4]{0} add(%add.329, %xor.184), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant.19 = u32[] constant(16)
+  %broadcast.533 = u32[4]{0} broadcast(%constant.19), dimensions={}
+  %shift-left.185 = u32[4]{0} shift-left(%xor.184, %broadcast.533), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.534 = u32[4]{0} broadcast(%constant.19), dimensions={}
+  %shift-right-logical.189 = u32[4]{0} shift-right-logical(%xor.184, %broadcast.534), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.186 = u32[4]{0} or(%shift-left.185, %shift-right-logical.189), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.185 = u32[4]{0} xor(%add.330, %or.186), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.331 = u32[4]{0} add(%add.330, %xor.185), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.535 = u32[4]{0} broadcast(%xor.5), dimensions={}, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.332 = u32[4]{0} add(%add.331, %broadcast.535), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant.20 = u32[] constant(24)
+  %broadcast.536 = u32[4]{0} broadcast(%constant.20), dimensions={}
+  %shift-left.186 = u32[4]{0} shift-left(%xor.185, %broadcast.536), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant.21 = u32[] constant(8)
+  %broadcast.537 = u32[4]{0} broadcast(%constant.21), dimensions={}
+  %shift-right-logical.190 = u32[4]{0} shift-right-logical(%xor.185, %broadcast.537), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.187 = u32[4]{0} or(%shift-left.186, %shift-right-logical.190), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.186 = u32[4]{0} xor(%add.331, %or.187), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.538 = u32[4]{0} broadcast(%reshape.5), dimensions={}, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.333 = u32[4]{0} add(%xor.186, %broadcast.538), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant.22 = u32[] constant(2)
+  %broadcast.539 = u32[4]{0} broadcast(%constant.22), dimensions={}
+  %add.334 = u32[4]{0} add(%add.333, %broadcast.539), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.335 = u32[4]{0} add(%add.332, %add.334), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.540 = u32[4]{0} broadcast(%constant.9), dimensions={}
+  %shift-left.187 = u32[4]{0} shift-left(%add.334, %broadcast.540), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.541 = u32[4]{0} broadcast(%constant.10), dimensions={}
+  %shift-right-logical.191 = u32[4]{0} shift-right-logical(%add.334, %broadcast.541), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.188 = u32[4]{0} or(%shift-left.187, %shift-right-logical.191), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.187 = u32[4]{0} xor(%add.335, %or.188), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.336 = u32[4]{0} add(%add.335, %xor.187), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.542 = u32[4]{0} broadcast(%constant.11), dimensions={}
+  %shift-left.188 = u32[4]{0} shift-left(%xor.187, %broadcast.542), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.543 = u32[4]{0} broadcast(%constant.12), dimensions={}
+  %shift-right-logical.192 = u32[4]{0} shift-right-logical(%xor.187, %broadcast.543), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.189 = u32[4]{0} or(%shift-left.188, %shift-right-logical.192), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.188 = u32[4]{0} xor(%add.336, %or.189), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.337 = u32[4]{0} add(%add.336, %xor.188), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.544 = u32[4]{0} broadcast(%constant.13), dimensions={}
+  %shift-left.189 = u32[4]{0} shift-left(%xor.188, %broadcast.544), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.545 = u32[4]{0} broadcast(%constant.14), dimensions={}
+  %shift-right-logical.193 = u32[4]{0} shift-right-logical(%xor.188, %broadcast.545), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.190 = u32[4]{0} or(%shift-left.189, %shift-right-logical.193), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.189 = u32[4]{0} xor(%add.337, %or.190), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.338 = u32[4]{0} add(%add.337, %xor.189), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.546 = u32[4]{0} broadcast(%reshape.5), dimensions={}, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.339 = u32[4]{0} add(%add.338, %broadcast.546), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.547 = u32[4]{0} broadcast(%constant.14), dimensions={}
+  %shift-left.190 = u32[4]{0} shift-left(%xor.189, %broadcast.547), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.548 = u32[4]{0} broadcast(%constant.13), dimensions={}
+  %shift-right-logical.194 = u32[4]{0} shift-right-logical(%xor.189, %broadcast.548), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.191 = u32[4]{0} or(%shift-left.190, %shift-right-logical.194), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.190 = u32[4]{0} xor(%add.338, %or.191), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.549 = u32[4]{0} broadcast(%reshape.7), dimensions={}, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.340 = u32[4]{0} add(%xor.190, %broadcast.549), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.550 = u32[4]{0} broadcast(%constant.18), dimensions={}
+  %add.341 = u32[4]{0} add(%add.340, %broadcast.550), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.342 = u32[4]{0} add(%add.339, %add.341), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.551 = u32[4]{0} broadcast(%constant.12), dimensions={}
+  %shift-left.191 = u32[4]{0} shift-left(%add.341, %broadcast.551), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.552 = u32[4]{0} broadcast(%constant.11), dimensions={}
+  %shift-right-logical.195 = u32[4]{0} shift-right-logical(%add.341, %broadcast.552), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.192 = u32[4]{0} or(%shift-left.191, %shift-right-logical.195), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.191 = u32[4]{0} xor(%add.342, %or.192), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.343 = u32[4]{0} add(%add.342, %xor.191), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.553 = u32[4]{0} broadcast(%constant.17), dimensions={}
+  %shift-left.192 = u32[4]{0} shift-left(%xor.191, %broadcast.553), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.554 = u32[4]{0} broadcast(%constant.18), dimensions={}
+  %shift-right-logical.196 = u32[4]{0} shift-right-logical(%xor.191, %broadcast.554), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.193 = u32[4]{0} or(%shift-left.192, %shift-right-logical.196), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.192 = u32[4]{0} xor(%add.343, %or.193), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.344 = u32[4]{0} add(%add.343, %xor.192), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.555 = u32[4]{0} broadcast(%constant.19), dimensions={}
+  %shift-left.193 = u32[4]{0} shift-left(%xor.192, %broadcast.555), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.556 = u32[4]{0} broadcast(%constant.19), dimensions={}
+  %shift-right-logical.197 = u32[4]{0} shift-right-logical(%xor.192, %broadcast.556), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.194 = u32[4]{0} or(%shift-left.193, %shift-right-logical.197), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.193 = u32[4]{0} xor(%add.344, %or.194), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.345 = u32[4]{0} add(%add.344, %xor.193), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.557 = u32[4]{0} broadcast(%reshape.7), dimensions={}, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.346 = u32[4]{0} add(%add.345, %broadcast.557), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.558 = u32[4]{0} broadcast(%constant.20), dimensions={}
+  %shift-left.194 = u32[4]{0} shift-left(%xor.193, %broadcast.558), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.559 = u32[4]{0} broadcast(%constant.21), dimensions={}
+  %shift-right-logical.198 = u32[4]{0} shift-right-logical(%xor.193, %broadcast.559), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.195 = u32[4]{0} or(%shift-left.194, %shift-right-logical.198), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.194 = u32[4]{0} xor(%add.345, %or.195), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.560 = u32[4]{0} broadcast(%xor.5), dimensions={}, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.347 = u32[4]{0} add(%xor.194, %broadcast.560), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant.23 = u32[] constant(4)
+  %broadcast.561 = u32[4]{0} broadcast(%constant.23), dimensions={}
+  %add.348 = u32[4]{0} add(%add.347, %broadcast.561), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.349 = u32[4]{0} add(%add.346, %add.348), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.562 = u32[4]{0} broadcast(%constant.9), dimensions={}
+  %shift-left.195 = u32[4]{0} shift-left(%add.348, %broadcast.562), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.563 = u32[4]{0} broadcast(%constant.10), dimensions={}
+  %shift-right-logical.199 = u32[4]{0} shift-right-logical(%add.348, %broadcast.563), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.196 = u32[4]{0} or(%shift-left.195, %shift-right-logical.199), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.195 = u32[4]{0} xor(%add.349, %or.196), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.350 = u32[4]{0} add(%add.349, %xor.195), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.564 = u32[4]{0} broadcast(%constant.11), dimensions={}
+  %shift-left.196 = u32[4]{0} shift-left(%xor.195, %broadcast.564), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.565 = u32[4]{0} broadcast(%constant.12), dimensions={}
+  %shift-right-logical.200 = u32[4]{0} shift-right-logical(%xor.195, %broadcast.565), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.197 = u32[4]{0} or(%shift-left.196, %shift-right-logical.200), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.196 = u32[4]{0} xor(%add.350, %or.197), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.351 = u32[4]{0} add(%add.350, %xor.196), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.566 = u32[4]{0} broadcast(%constant.13), dimensions={}
+  %shift-left.197 = u32[4]{0} shift-left(%xor.196, %broadcast.566), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.567 = u32[4]{0} broadcast(%constant.14), dimensions={}
+  %shift-right-logical.201 = u32[4]{0} shift-right-logical(%xor.196, %broadcast.567), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.198 = u32[4]{0} or(%shift-left.197, %shift-right-logical.201), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.197 = u32[4]{0} xor(%add.351, %or.198), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.352 = u32[4]{0} add(%add.351, %xor.197), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.568 = u32[4]{0} broadcast(%xor.5), dimensions={}, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.353 = u32[4]{0} add(%add.352, %broadcast.568), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %reshape.350 = u32[4,1]{1,0} reshape(%add.353), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.569 = u32[4]{0} broadcast(%constant.14), dimensions={}
+  %shift-left.198 = u32[4]{0} shift-left(%xor.197, %broadcast.569), metadata={op_name="jit(_threefry_split)/jit(main)/shift_left" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.570 = u32[4]{0} broadcast(%constant.13), dimensions={}
+  %shift-right-logical.202 = u32[4]{0} shift-right-logical(%xor.197, %broadcast.570), metadata={op_name="jit(_threefry_split)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %or.199 = u32[4]{0} or(%shift-left.198, %shift-right-logical.202), metadata={op_name="jit(_threefry_split)/jit(main)/or" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %xor.198 = u32[4]{0} xor(%add.352, %or.199), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %broadcast.571 = u32[4]{0} broadcast(%reshape.5), dimensions={}, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %add.354 = u32[4]{0} add(%xor.198, %broadcast.571), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant.24 = u32[] constant(5)
+  %broadcast.572 = u32[4]{0} broadcast(%constant.24), dimensions={}
+  %add.355 = u32[4]{0} add(%add.354, %broadcast.572), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %reshape.356 = u32[4,1]{1,0} reshape(%add.355), metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  ROOT %concatenate.185 = u32[4,2]{1,0} concatenate(%reshape.350, %reshape.356), dimensions={1}, metadata={op_name="jit(_threefry_split)/jit(main)/concatenate" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+}
+

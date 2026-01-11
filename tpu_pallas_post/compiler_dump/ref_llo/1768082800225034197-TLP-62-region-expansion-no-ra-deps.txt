@@ -1,0 +1,1 @@
+ordinal=0 before=483 after=480 expansion=0.993789

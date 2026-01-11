@@ -1,0 +1,43 @@
+Total bytes used: 4282880 (4.08MiB)
+
+Allocations sorted by size:
+
+cumulative_size; total_size - cumulative_size; allocation
+------------------------------------------------------------------------------
+   4.00MiB( 98%);    86.5KiB; allocation 1: size 4.00MiB, output shape is |bf16[8,2048,128]|, maybe-live-out:
+   4.06MiB( 99%);    22.0KiB; allocation 4: size 64.5KiB, preallocated-temp:
+   4.08MiB(100%);     1.5KiB; allocation 3: size 20.5KiB, color 1, preallocated-temp:
+   4.08MiB(100%);     1.0KiB; allocation 0: size 512B, constant:
+   4.08MiB(100%);       512B; allocation 2: size 512B, parameter 0, shape |u32[2]| at ShapeIndex {}:
+   4.08MiB(100%);         0B; allocation 5: size 512B, color 6, preallocated-temp:
+
+
+Allocations sorted by size with their values:
+allocation 1: size 4.00MiB, output shape is |bf16[8,2048,128]|, maybe-live-out:
+allocation 4: size 64.5KiB, preallocated-temp:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+	     512B( 46%);       512B;        65536;                1; u32[1]
+	   1.0KiB( 91%);       512B;        49152;                1; u32[1]
+	   1.0KiB( 94%);        32B;        16384;                1; (u32[2048], u32[2048])
+	   1.1KiB( 97%);        32B;            0;                1; (u32[1], u32[1])
+	   1.1KiB(100%);        32B;        32768;                1; (u32[8], u32[8])
+
+allocation 3: size 20.5KiB, color 1, preallocated-temp:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+	   8.0KiB( 47%);     8.0KiB;            0;                1; u32[2048]
+	  16.0KiB( 94%);     8.0KiB;         8192;                1; u32[2048]
+	  16.5KiB( 97%);       512B;        20480;                1; u32[8]
+	  17.0KiB(100%);       512B;        16384;                1; u32[8]
+
+allocation 0: size 512B, constant:
+allocation 2: size 512B, parameter 0, shape |u32[2]| at ShapeIndex {}:
+allocation 5: size 512B, color 6, preallocated-temp:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+	     512B(100%);       512B;            0;                2; 2×u32[]
+

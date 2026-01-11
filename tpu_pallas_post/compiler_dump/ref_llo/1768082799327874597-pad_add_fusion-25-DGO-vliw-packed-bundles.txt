@@ -1,0 +1,143 @@
+     0   :  { %s0 = inlined_call_operand.<no memory space> [shape: u32[1], index: 0, kind: input, shape index: {}] /* operand 0 */  ;;  %s1 = inlined_call_operand.<no memory space> [shape: u32[1], index: 1, kind: input, shape index: {}] /* operand 1 */  ;;  %s2 = inlined_call_operand.hbm [shape: u32[2], index: 2, kind: output, shape index: {}] /* operand 2 */ }
+   0x1   :  { %v3 = vstv %s0  ;;  %v5 = vstv %s1 }
+     0   :  { %v11 = vlaneseq  ;;  %7 = vsyncpa [#allocation12], 0 }
+   0x1   :  {}
+   0x2   :  { %v12 = vadd.s32 1024, %v11  ;;  %v19 = vand.u32 127, %v11 }
+   0x3   :  { %vm15 = vcmask 1046528 /* [0:6,0:127] */ }
+   0x4   :  { %vm13 = vcmp.lt.s32.totalorder %v12, 1025 }
+   0x5   :  { %v14 = vsel /*vm=*/%vm13, /*on_true_vy=*/%v3, /*on_false_vx=*/0 }
+   0x6   :  { %v16 = vsel /*vm=*/%vm15, /*on_true_vy=*/%v14, /*on_false_vx=*/0  ;;  %vm20 = vcmp.lt.s32.totalorder %v19, 127 }
+   0x7   :  { %v17 = vrot.slane %v16, 7  ;;  %s43 = smov 1 /* materialized constant */ }
+   0x8   :  {}
+   0x9   :  { %v21 = vsel /*vm=*/%vm20, /*on_true_vy=*/%v14, /*on_false_vx=*/%v17 }
+   0xa   :  { %22 = vrot.lane.b32.xlu0 %v21, %s43 }
+   0xb   :  {}
+   0xc   :  {}
+   0xd   :  {}
+   0xe   :  {}
+   0xf   :  {}
+  0x10   :  {}
+  0x11   :  {}
+  0x12   :  {}
+  0x13   :  {}
+  0x14   :  {}
+  0x15   :  {}
+  0x16   :  {}
+  0x17   :  {}
+  0x18   :  {}
+  0x19   :  {}
+  0x1a   :  {}
+  0x1b   :  {}
+  0x1c   :  {}
+  0x1d   :  {}
+  0x1e   :  {}
+  0x1f   :  {}
+  0x20   :  {}
+  0x21   :  {}
+  0x22   :  {}
+  0x23   :  {}
+  0x24   :  {}
+  0x25   :  {}
+  0x26   :  {}
+  0x27   :  {}
+  0x28   :  {}
+  0x29   :  {}
+  0x2a   :  {}
+  0x2b   :  {}
+  0x2c   :  {}
+  0x2d   :  {}
+  0x2e   :  {}
+  0x2f   :  {}
+  0x30   :  {}
+  0x31   :  {}
+  0x32   :  {}
+  0x33   :  {}
+  0x34   :  {}
+  0x35   :  {}
+  0x36   :  {}
+  0x37   :  {}
+  0x38   :  {}
+  0x39   :  {}
+  0x3a   :  {}
+  0x3b   :  {}
+  0x3c   :  {}
+  0x3d   :  {}
+  0x3e   :  {}
+  0x3f   :  {}
+  0x40   :  {}
+  0x41   :  {}
+  0x42   :  {}
+  0x43   :  {}
+  0x44   :  {}
+  0x45   :  {}
+  0x46   :  {}
+  0x47   :  {}
+  0x48   :  {}
+  0x49   :  {}
+  0x4a   :  {}
+  0x4b   :  {}
+  0x4c   :  {}
+  0x4d   :  {}
+  0x4e   :  {}
+  0x4f   :  {}
+  0x50   :  {}
+  0x51   :  {}
+  0x52   :  {}
+  0x53   :  {}
+  0x54   :  {}
+  0x55   :  {}
+  0x56   :  {}
+  0x57   :  {}
+  0x58   :  {}
+  0x59   :  {}
+  0x5a   :  {}
+  0x5b   :  {}
+  0x5c   :  {}
+  0x5d   :  {}
+  0x5e   :  {}
+  0x5f   :  {}
+  0x60   :  {}
+  0x61   :  {}
+  0x62   :  {}
+  0x63   :  {}
+  0x64   :  {}
+  0x65   :  {}
+  0x66   :  {}
+  0x67   :  {}
+  0x68   :  {}
+  0x69   :  {}
+  0x6a   :  {}
+  0x6b   :  {}
+  0x6c   :  {}
+  0x6d   :  {}
+  0x6e   :  {}
+  0x6f   :  {}
+  0x70   :  {}
+  0x71   :  {}
+  0x72   :  {}
+  0x73   :  {}
+  0x74   :  {}
+  0x75   :  {}
+  0x76   :  {}
+  0x77   :  { %vm26 = vcmp.lt.s32.totalorder %v11, 1  ;;  %s44 = smov [#allocation10] /* materialized constant */ }
+  0x78   :  {}
+  0x79   :  {}
+  0x7a   :  { %v27 = vsel /*vm=*/%vm26, /*on_true_vy=*/%v5, /*on_false_vx=*/0  ;;  %s37 = sshll.u32 %s44, 4 }
+  0x7b   :  {}
+  0x7c   :  { %v23 = vpop.permute.xlu0 %22 }
+  0x7d   :  { %v30 = vadd.s32 %v27, %v23  ;;  %s38 = int_to_ptr.vmem [resolvable:$true] %s37 }
+  0x7e   :  {}
+  0x7f   :  { %32 = vst [vmem:[#allocation10] sm:$0x1] /*vst_source=*/%v30 }
+  0x80   :  { %40 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s38, /*size_in_granules=*/16, /*hbm=*/%s2, /*dst_syncflagno=*/[#allocation12] /* 
+base_bounds: (1)
+dynamic_base_bounds: (1)
+window_bounds: (1)
+iteration_bounds: (1)
+strides: (1)
+pad_low: (0)
+pad_high: (0)
+element_size_in_bytes: 512 */ }
+     0   :  {}
+   0x1   :  { %41 = dma.done [#allocation12], 16 /* pipeline-emitter-dma-wait */ }
+     0   :  {}
+   0x1   :  { %42 = vsyncpa [#allocation12], 1 }

@@ -1,0 +1,6 @@
+Schedule analysis:
+	total scheduled bundles:    23
+	empty scheduled bundles:    0
+	non empty scheduled bundles: 23
+	  23.00 scheduled bundles (100.00%): %copy.1 = s8[1,4,4]{2,1,0:T(4,128)(4,1)} copy(%Arg_0.1)
+	[opcode]      23 scheduled bundles (100.00%): copy                 (1 instances,  23.00 avg)

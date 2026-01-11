@@ -1,0 +1,3 @@
+ordinal=0 before=5436 after=5454 expansion=1.00331
+ordinal=2 before=5436 after=5449 expansion=1.00239
+ordinal=1096 before=5416 after=5431 expansion=1.00277

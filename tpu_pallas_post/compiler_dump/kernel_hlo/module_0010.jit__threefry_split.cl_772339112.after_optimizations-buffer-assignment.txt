@@ -1,0 +1,136 @@
+BufferAssignment:
+allocation 0: size 512, constant:
+ value: <169 constant.15 @0> (size=512,offset=0): u32[]{:T(128)}
+allocation 1: size 1024, output shape is |u32[4,2]|, maybe-live-out:
+ value: <166 fusion.16{0} @0> (size=512,offset=0): u32[1]{0:T(128)}
+ value: <174 pad_add_fusion @0> (size=1024,offset=0): u32[4,2]{0,1:T(2,128)}
+allocation 2: size 512, parameter 0, shape |u32[2]| at ShapeIndex {}:
+ value: <164 Arg_0.1 @0> (size=512,offset=0): u32[2]{0:T(128)}
+allocation 3: size 4608, color 1, preallocated-temp:
+ value: <172 add_add_fusion{0} @1> (size=512,offset=0): u32[4,1]{0,1:T(1,128)S(1)}
+ value: <173 add_add_fusion{1} @1> (size=512,offset=4096): u32[4,1]{0,1:T(1,128)S(1)}
+allocation 4: size 33280, preallocated-temp:
+ value: <165 fusion.16{} @0> (size=32,offset=0): (u32[1]{0:T(128)}, u32[1]{0:T(128)})
+ value: <167 fusion.16{1} @0> (size=512,offset=32768): u32[1]{0:T(128)}
+ value: <171 add_add_fusion{} @0> (size=32,offset=16384): (u32[4,1]{0,1:T(1,128)S(1)}, u32[4,1]{0,1:T(1,128)S(1)})
+allocation 5: size 512, color 6, preallocated-temp:
+ value: <168 xor.4 @6> (size=512,offset=0): u32[]{:T(128)S(6)}
+ value: <170 xor.5 @6> (size=512,offset=0): u32[]{:T(128)S(6)}
+
+Total bytes used: 40448 (39.5KiB)
+
+Used values:
+<164 Arg_0.1 @0>
+ positions:
+  Arg_0.1
+ uses:
+  fusion.16, operand 0
+ from instruction: %Arg_0.1 = u32[2]{0:T(128)} parameter(0), metadata={op_name="key"}
+<165 fusion.16{} @0>
+ positions:
+  fusion.16 {}
+ uses:
+  get-tuple-element, operand 0 {}
+  get-tuple-element.1, operand 0 {}
+ from instruction: %fusion.16 = (u32[1]{0:T(128)}, u32[1]{0:T(128)}) fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation.43, metadata={op_name="jit(_threefry_split)/jit(main)/slice" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+<166 fusion.16{0} @0>
+ positions:
+  fusion.16 {0}
+  bitcast.1
+  get-tuple-element
+ uses:
+  add_add_fusion, operand 2
+  xor.4, operand 1
+  bitcast.1, operand 0
+ from instruction: %fusion.16 = (u32[1]{0:T(128)}, u32[1]{0:T(128)}) fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation.43, metadata={op_name="jit(_threefry_split)/jit(main)/slice" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+<167 fusion.16{1} @0>
+ positions:
+  fusion.16 {1}
+  bitcast
+  get-tuple-element.1
+ uses:
+  add_add_fusion, operand 0
+  xor.4, operand 0
+  bitcast, operand 0
+ from instruction: %fusion.16 = (u32[1]{0:T(128)}, u32[1]{0:T(128)}) fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation.43, metadata={op_name="jit(_threefry_split)/jit(main)/slice" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+<168 xor.4 @6>
+ positions:
+  xor.4
+ uses:
+  xor.5, operand 0
+ from instruction: %xor.4 = u32[]{:T(128)S(6)} xor(%bitcast, %bitcast.1), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+<169 constant.15 @0>
+ positions:
+  constant.15
+ uses:
+  xor.5, operand 1
+ from instruction: %constant.15 = u32[]{:T(128)} constant(466688986)
+<170 xor.5 @6>
+ positions:
+  xor.5
+ uses:
+  add_add_fusion, operand 1
+ from instruction: %xor.5 = u32[]{:T(128)S(6)} xor(%xor.4, %constant.15), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+<171 add_add_fusion{} @0>
+ positions:
+  add_add_fusion {}
+ uses:
+  get-tuple-element.2, operand 0 {}
+  get-tuple-element.3, operand 0 {}
+ from instruction: %add_add_fusion = (u32[4,1]{0,1:T(1,128)S(1)}, u32[4,1]{0,1:T(1,128)S(1)}) fusion(%bitcast, %xor.5, %bitcast.1), kind=kLoop, calls=%fused_computation.1, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"fusion_formation_source":{"fusion_creating_compiler_pass":"TpuAdvancedMOF","fusion_id":"42"}}
+<172 add_add_fusion{0} @1>
+ positions:
+  add_add_fusion {0}
+  get-tuple-element.2
+ uses:
+  pad_add_fusion, operand 0
+ from instruction: %add_add_fusion = (u32[4,1]{0,1:T(1,128)S(1)}, u32[4,1]{0,1:T(1,128)S(1)}) fusion(%bitcast, %xor.5, %bitcast.1), kind=kLoop, calls=%fused_computation.1, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"fusion_formation_source":{"fusion_creating_compiler_pass":"TpuAdvancedMOF","fusion_id":"42"}}
+<173 add_add_fusion{1} @1>
+ positions:
+  add_add_fusion {1}
+  get-tuple-element.3
+ uses:
+  pad_add_fusion, operand 1
+ from instruction: %add_add_fusion = (u32[4,1]{0,1:T(1,128)S(1)}, u32[4,1]{0,1:T(1,128)S(1)}) fusion(%bitcast, %xor.5, %bitcast.1), kind=kLoop, calls=%fused_computation.1, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"fusion_formation_source":{"fusion_creating_compiler_pass":"TpuAdvancedMOF","fusion_id":"42"}}
+<174 pad_add_fusion @0>
+ positions:
+  pad_add_fusion
+ uses:
+ from instruction: %pad_add_fusion = u32[4,2]{0,1:T(2,128)} fusion(%get-tuple-element.2, %get-tuple-element.3), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(_threefry_split)/jit(main)/concatenate" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+
+
+HloLiveRange (max 13):
+  InstructionSequence:
+    0:constant.15
+    1:Arg_0.1
+    2:fusion.16
+    3:get-tuple-element.1
+    4:get-tuple-element
+    5:bitcast
+    6:bitcast.1
+    7:xor.4
+    8:xor.5
+    9:add_add_fusion
+    10:get-tuple-element.3
+    11:get-tuple-element.2
+    12:pad_add_fusion
+  BufferLiveRange:
+    Arg_0.1{}:0-13
+    fusion.16{}:2-4
+    fusion.16{0}:2-9
+    fusion.16{1}:2-9
+    xor.4{}:7-8
+    constant.15{}:0-8
+    xor.5{}:8-9
+    add_add_fusion{}:9-11
+    add_add_fusion{0}:9-12
+    add_add_fusion{1}:9-12
+    pad_add_fusion{}:12-13
+  Live ranges at 9 (peak):
+    add_add_fusion{}: 16 bytes (cumulative: 16 bytes)
+    add_add_fusion{0}: 16 bytes (cumulative: 32 bytes)
+    add_add_fusion{1}: 16 bytes (cumulative: 48 bytes)
+    Arg_0.1{}: 8 bytes (cumulative: 56 bytes)
+    fusion.16{0}: 4 bytes (cumulative: 60 bytes)
+    fusion.16{1}: 4 bytes (cumulative: 64 bytes)
+    xor.5{}: 4 bytes (cumulative: 68 bytes)

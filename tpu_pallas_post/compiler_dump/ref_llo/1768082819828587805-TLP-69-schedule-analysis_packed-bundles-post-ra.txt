@@ -1,0 +1,17 @@
+Schedule analysis:
+	total scheduled bundles:    292
+	empty scheduled bundles:    112
+	non empty scheduled bundles: 180
+	 135.50 scheduled bundles (75.28%): <no hlo>
+	  10.00 scheduled bundles ( 5.56%): %copy-start = (bf16[8,2048,128]{2,1,0:T(8,128)(2,1)S(1)}, bf16[8,2048,128]{2,1,0:T(8,128)(2,1)}, u32[]{:S(2)}) copy-start(%Arg_0.1), cross_program_prefetch_index=0
+	   8.00 scheduled bundles ( 4.44%): %copy-start.1 = (pred[8,2048,2048]{1,2,0:T(32,128)(4,1)S(1)}, pred[8,2048,2048]{1,2,0:T(32,128)(4,1)}, u32[]{:S(2)}) copy-start(%constant.4)
+	   7.50 scheduled bundles ( 4.17%): %copy-start.2 = (bf16[8,2048,128]{2,1,0:T(8,128)(2,1)S(1)}, bf16[8,2048,128]{2,1,0:T(8,128)(2,1)}, u32[]{:S(2)}) copy-start(%Arg_2.3)
+	   4.50 scheduled bundles ( 2.50%): %fusion.5 = (f32[8,2048]{1,0:T(8,128)S(1)}, f32[8,2048,2048]{1,2,0:T(8,128)}) fusion(%constant.4, %copy-done, %Arg_1.2), kind=kOutput, calls=%fused_computation.7, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/vmap(sd,td->st)/dot_general" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=184}
+	   3.50 scheduled bundles ( 1.94%): %fusion = f32[8,2048,128]{2,1,0:T(8,128)} fusion(%copy-done.2, %fusion.2, %get-tuple-element, %copy-done.1, %get-tuple-element.1), kind=kOutput, calls=%fused_computation, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/vmap(st,td->sd)/dot_general" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=201}
+	   3.00 scheduled bundles ( 1.67%): %copy-done.1 = pred[8,2048,2048]{1,2,0:T(32,128)(4,1)S(1)} copy-done(%copy-start.1)
+	   3.00 scheduled bundles ( 1.67%): %fusion.2 = f32[8,2048]{1,0:T(8,128)S(1)} fusion(%get-tuple-element, %copy-done.1, %get-tuple-element.1), kind=kLoop, calls=%fused_computation.3, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/reduce_sum" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=198}
+	   2.50 scheduled bundles ( 1.39%): %copy-done = bf16[8,2048,128]{2,1,0:T(8,128)(2,1)S(1)} copy-done(%copy-start)
+	   2.50 scheduled bundles ( 1.39%): %copy-done.2 = bf16[8,2048,128]{2,1,0:T(8,128)(2,1)S(1)} copy-done(%copy-start.2)
+	[opcode]      38 scheduled bundles (21.11%): copy-start           (3 instances,  12.67 avg)
+	[opcode]      18 scheduled bundles (10.00%): fusion               (3 instances,   6.00 avg)
+	[opcode]      16 scheduled bundles ( 8.89%): copy-done            (3 instances,   5.33 avg)

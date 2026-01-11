@@ -1,0 +1,7 @@
+HloModule jit_convert_element_type, is_scheduled=true, entry_computation_layout={(pred[8,2048,2048]{2,1,0:T(32,128)(4,1)})->pred[8,2048,2048]{2,1,0:T(32,128)(4,1)}}, allow_spmd_sharding_propagation_to_parameters={true}, allow_spmd_sharding_propagation_to_output={true}
+
+ENTRY %main.2 (Arg_0.1: pred[8,2048,2048]) -> pred[8,2048,2048] {
+  %Arg_0.1 = pred[8,2048,2048]{2,1,0:T(8,128)(4,1)} parameter(0), metadata={op_name="args[0]"}
+  ROOT %copy = pred[8,2048,2048]{2,1,0:T(8,128)(4,1)} copy(%Arg_0.1)
+}
+

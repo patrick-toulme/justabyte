@@ -1,0 +1,4 @@
+ordinal=0 before=2514 after=2601 expansion=1.03461
+ordinal=2 before=2505 after=2592 expansion=1.03473
+ordinal=28 before=2423 after=2511 expansion=1.03632
+ordinal=2127 before=2481 after=2569 expansion=1.03547

@@ -1,0 +1,6 @@
+Schedule analysis:
+	total scheduled bundles:    168
+	empty scheduled bundles:    116
+	non empty scheduled bundles: 52
+	  52.00 scheduled bundles (100.00%): %fusion.40 = (u32[1]{0:T(128)}, u32[1]{0:T(128)}) fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation.56, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/slice" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}
+	[opcode]      52 scheduled bundles (100.00%): fusion               (1 instances,  52.00 avg)

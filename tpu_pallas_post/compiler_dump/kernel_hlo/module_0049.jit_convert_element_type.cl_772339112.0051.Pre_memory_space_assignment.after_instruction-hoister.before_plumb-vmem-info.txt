@@ -1,0 +1,8 @@
+HloModule jit_convert_element_type, is_scheduled=true, entry_computation_layout={(s8[1,1,1]{2,1,0:T(4,128)(4,1)})->s8[1,1,1]{2,1,0:T(4,128)(4,1)}}, allow_spmd_sharding_propagation_to_parameters={true}, allow_spmd_sharding_propagation_to_output={true}
+
+ENTRY %main.2 (Arg_0.1: s8[1,1,1]) -> s8[1,1,1] {
+  %Arg_0.1 = s8[1,1,1]{2,1,0:T(4,128)(4,1)} parameter(0), metadata={op_name="args[0]"}
+  %copy.1 = s8[1,1,1]{2,1,0:T(4,128)(4,1)S(6)} copy(%Arg_0.1)
+  ROOT %copy = s8[1,1,1]{2,1,0:T(4,128)(4,1)} copy(%copy.1)
+}
+

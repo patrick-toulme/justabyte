@@ -1,0 +1,15 @@
+
+New basic block in region: region1 {members=42 hlo=fusion.40 parent=0}
+  Length to end: 3, %s62 = smov [#allocation10] /* materialized constant */
+  Length to end: 2, %s12 = sshll.u32 %s62, 4
+  Length to end: 1, %s13 = int_to_ptr.vmem [resolvable:$true] %s12
+
+New basic block in region: region1 {members=42 hlo=fusion.40 parent=0}
+  Length to end: 128, %25 = dma.done [#allocation14], 16 /* pipeline-emitter-dma-wait */
+  Length to end: 121, %v26 = vld [vmem:[#allocation10] sm:$0x1]
+  Length to end: 120, %v28 = vsel /*vm=*/%vm27, /*on_true_vy=*/0, /*on_false_vx=*/%v26
+  Length to end: 119, %v29 = vrot.slane %v28, 1
+  Length to end: 117, %v33 = vsel /*vm=*/%vm32, /*on_true_vy=*/%v29, /*on_false_vx=*/%v26
+  Length to end: 116, %34 = vrot.lane.b32.xlu0 %v33, %s64
+  Length to end: 2, %v35 = vpop.permute.xlu0 %34
+  Length to end: 1, %38 = vst [vmem:[#allocation15] sm:$0x1] /*vst_source=*/%v35

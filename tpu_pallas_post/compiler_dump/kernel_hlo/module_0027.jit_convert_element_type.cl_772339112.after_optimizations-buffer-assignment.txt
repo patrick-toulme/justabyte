@@ -1,0 +1,33 @@
+BufferAssignment:
+allocation 0: size 512, parameter 0, shape |s8[1,4,4]| at ShapeIndex {}:
+ value: <0 Arg_0.1 @0> (size=512,offset=0): s8[1,4,4]{2,1,0:T(4,128)(4,1)}
+allocation 1: size 512, output shape is |s8[1,4,4]|, maybe-live-out:
+ value: <1 copy.1 @0> (size=512,offset=0): s8[1,4,4]{2,1,0:T(4,128)(4,1)}
+allocation 2: size 0, color 1, preallocated-temp:
+
+Total bytes used: 1024 (1.0KiB)
+
+Used values:
+<0 Arg_0.1 @0>
+ positions:
+  Arg_0.1
+ uses:
+  copy.1, operand 0
+ from instruction: %Arg_0.1 = s8[1,4,4]{2,1,0:T(4,128)(4,1)} parameter(0), metadata={op_name="args[0]"}
+<1 copy.1 @0>
+ positions:
+  copy.1
+ uses:
+ from instruction: %copy.1 = s8[1,4,4]{2,1,0:T(4,128)(4,1)} copy(%Arg_0.1)
+
+
+HloLiveRange (max 2):
+  InstructionSequence:
+    0:Arg_0.1
+    1:copy.1
+  BufferLiveRange:
+    Arg_0.1{}:0-2
+    copy.1{}:1-2
+  Live ranges at 1 (peak):
+    Arg_0.1{}: 16 bytes (cumulative: 16 bytes)
+    copy.1{}: 16 bytes (cumulative: 32 bytes)

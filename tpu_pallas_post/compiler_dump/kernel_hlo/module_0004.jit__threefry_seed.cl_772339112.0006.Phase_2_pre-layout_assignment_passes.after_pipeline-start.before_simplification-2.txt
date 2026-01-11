@@ -1,0 +1,13 @@
+HloModule jit__threefry_seed, entry_computation_layout={(s32[]{:T(128)})->u32[2]{0:T(128)}}, allow_spmd_sharding_propagation_to_parameters={true}, allow_spmd_sharding_propagation_to_output={true}
+
+ENTRY %main.9 (Arg_0.1: s32[]) -> u32[2] {
+  %Arg_0.1 = s32[] parameter(0), metadata={op_name="seed"}
+  %constant.2 = s32[] constant(32)
+  %shift-right-logical.3 = s32[] shift-right-logical(%Arg_0.1, %constant.2), metadata={op_name="jit(_threefry_seed)/jit(main)/shift_right_logical" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=124}
+  %convert.4 = u32[] convert(%shift-right-logical.3), metadata={op_name="jit(_threefry_seed)/jit(main)/convert_element_type" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=124}
+  %reshape.5 = u32[1]{0} reshape(%convert.4), metadata={op_name="jit(_threefry_seed)/jit(main)/broadcast_in_dim" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=124}
+  %convert.6 = u32[] convert(%Arg_0.1), metadata={op_name="jit(_threefry_seed)/jit(main)/convert_element_type" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=124}
+  %reshape.7 = u32[1]{0} reshape(%convert.6), metadata={op_name="jit(_threefry_seed)/jit(main)/broadcast_in_dim" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=124}
+  ROOT %concatenate.8 = u32[2]{0} concatenate(%reshape.5, %reshape.7), dimensions={0}, metadata={op_name="jit(_threefry_seed)/jit(main)/concatenate" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=124}
+}
+

@@ -1,0 +1,29 @@
+
+New basic block in region: region29 {members=26 hlo=copy.1 parent=1}
+  Length to end: 1, %s14627 = smov 0 /* copy for cssa */
+
+New basic block in region: region34 {members=73 hlo=copy.1 parent=1}
+  Length to end: 15, %s14732 = smov %s14731 /* phi copy :: iteration index, stage = 0 */
+  Length to end: 14, %s14630 = smov %s14732 /* phi copy :: iteration index, stage = 0 */
+  Length to end: 13, %s96 = srem.u32.pop %s14630, %s14679
+  Length to end: 4, %s12558 = sshll.u32 %s96, 11
+  Length to end: 3, %s101 = scalar_lea.vmem [#allocation0], %s12558
+  Length to end: 2, %s115 = sshll.u32 %s101, 4
+  Length to end: 1, %s116 = int_to_ptr.vmem [resolvable:$true] %s115
+
+New basic block in region: region19 {members=2065 hlo=copy.1 parent=34}
+  Length to end: 11, %s12564 = sadd.s32 4294967291, %s14630
+  Length to end: 10, %s127 = srem.u32.pop %s12564, %s14680
+  Length to end: 1, %s12565 = sshll.u32 %s127, 11
+
+New basic block in region: region19 {members=2065 hlo=copy.1 parent=34}
+  Length to end: 9, %133 = dma.done %s128, 32768 /* pipeline-emitter-dma-wait */
+  Length to end: 2, %v154 = vld [vmem:[%s132] sm:$0x3]
+  Length to end: 1, %163 = vst [vmem:[%s147] sm:$0x3] /*vst_source=*/%v154
+
+New basic block in region: region34 {members=73 hlo=copy.1 parent=1}
+  Length to end: 10, %s14619 = sadd.s32 4294967290, %s14630
+  Length to end: 9, %s12472 = srem.u32.pop %s14619, %s14679
+
+New basic block in region: region3 {members=27 hlo=copy.1 parent=1}
+  Length to end: 1, %s14628 = smov %s29 /* copy for cssa */

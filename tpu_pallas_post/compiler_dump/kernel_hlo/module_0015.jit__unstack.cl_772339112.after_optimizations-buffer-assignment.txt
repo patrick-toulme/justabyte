@@ -1,0 +1,190 @@
+BufferAssignment:
+allocation 0: size 4096, thread-local:
+ value: <11 add.3 @0> (size=4096,offset=0): u32[]
+allocation 1: size 1024, parameter 0, shape |u32[4,2]| at ShapeIndex {}:
+ value: <23 Arg_0.1 @0> (size=1024,offset=0): u32[4,2]{0,1:T(2,128)}
+allocation 2: size 512, maybe-live-out:
+ value: <25 slice_reduce_fusion{0} @0> (size=512,offset=0): u32[2]{0:T(128)}
+allocation 3: size 512, maybe-live-out:
+ value: <26 slice_reduce_fusion{1} @0> (size=512,offset=0): u32[2]{0:T(128)}
+allocation 4: size 512, maybe-live-out:
+ value: <27 slice_reduce_fusion{2} @0> (size=512,offset=0): u32[2]{0:T(128)}
+allocation 5: size 512, maybe-live-out:
+ value: <28 slice_reduce_fusion{3} @0> (size=512,offset=0): u32[2]{0:T(128)}
+allocation 6: size 32, output shape is |(u32[2], u32[2], u32[2], u32[2])|, maybe-live-out:
+ value: <29 tuple.10{} @0> (size=32,offset=0): (u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)})
+allocation 7: size 4096, thread-local:
+ value: <10 rhs.3 @0> (size=4096,offset=0): u32[]
+allocation 8: size 4096, thread-local:
+ value: <0 lhs @0> (size=4096,offset=0): u32[]
+allocation 9: size 4096, thread-local:
+ value: <1 rhs @0> (size=4096,offset=0): u32[]
+allocation 10: size 4096, thread-local:
+ value: <2 add @0> (size=4096,offset=0): u32[]
+allocation 11: size 4096, thread-local:
+ value: <3 lhs.1 @0> (size=4096,offset=0): u32[]
+allocation 12: size 4096, thread-local:
+ value: <4 rhs.1 @0> (size=4096,offset=0): u32[]
+allocation 13: size 4096, thread-local:
+ value: <5 add.1 @0> (size=4096,offset=0): u32[]
+allocation 14: size 4096, thread-local:
+ value: <6 lhs.2 @0> (size=4096,offset=0): u32[]
+allocation 15: size 4096, thread-local:
+ value: <7 rhs.2 @0> (size=4096,offset=0): u32[]
+allocation 16: size 4096, thread-local:
+ value: <8 add.2 @0> (size=4096,offset=0): u32[]
+allocation 17: size 4096, thread-local:
+ value: <9 lhs.3 @0> (size=4096,offset=0): u32[]
+allocation 18: size 32, preallocated-temp:
+ value: <24 slice_reduce_fusion{} @0> (size=32,offset=0): (u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)})
+allocation 19: size 0, color 1, preallocated-temp:
+
+Total bytes used: 52288 (51.1KiB)
+
+Used values:
+<0 lhs @0>
+ positions:
+  lhs
+ uses:
+  add, operand 0
+ from instruction: %lhs = u32[] parameter(0)
+<1 rhs @0>
+ positions:
+  rhs
+ uses:
+  add, operand 1
+ from instruction: %rhs = u32[] parameter(1)
+<2 add @0>
+ positions:
+  add
+ uses:
+ from instruction: %add = u32[] add(%lhs, %rhs)
+<3 lhs.1 @0>
+ positions:
+  lhs.1
+ uses:
+  add.1, operand 0
+ from instruction: %lhs.1 = u32[] parameter(0)
+<4 rhs.1 @0>
+ positions:
+  rhs.1
+ uses:
+  add.1, operand 1
+ from instruction: %rhs.1 = u32[] parameter(1)
+<5 add.1 @0>
+ positions:
+  add.1
+ uses:
+ from instruction: %add.1 = u32[] add(%lhs.1, %rhs.1)
+<6 lhs.2 @0>
+ positions:
+  lhs.2
+ uses:
+  add.2, operand 0
+ from instruction: %lhs.2 = u32[] parameter(0)
+<7 rhs.2 @0>
+ positions:
+  rhs.2
+ uses:
+  add.2, operand 1
+ from instruction: %rhs.2 = u32[] parameter(1)
+<8 add.2 @0>
+ positions:
+  add.2
+ uses:
+ from instruction: %add.2 = u32[] add(%lhs.2, %rhs.2)
+<9 lhs.3 @0>
+ positions:
+  lhs.3
+ uses:
+  add.3, operand 0
+ from instruction: %lhs.3 = u32[] parameter(0)
+<10 rhs.3 @0>
+ positions:
+  rhs.3
+ uses:
+  add.3, operand 1
+ from instruction: %rhs.3 = u32[] parameter(1)
+<11 add.3 @0>
+ positions:
+  add.3
+ uses:
+ from instruction: %add.3 = u32[] add(%lhs.3, %rhs.3)
+<23 Arg_0.1 @0>
+ positions:
+  Arg_0.1
+ uses:
+  slice_reduce_fusion, operand 0
+ from instruction: %Arg_0.1 = u32[4,2]{0,1:T(2,128)} parameter(0), metadata={op_name="x"}
+<24 slice_reduce_fusion{} @0>
+ positions:
+  slice_reduce_fusion {}
+ uses:
+  get-tuple-element, operand 0 {}
+  get-tuple-element.1, operand 0 {}
+  get-tuple-element.2, operand 0 {}
+  get-tuple-element.3, operand 0 {}
+ from instruction: %slice_reduce_fusion = (u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}) fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+<25 slice_reduce_fusion{0} @0>
+ positions:
+  slice_reduce_fusion {0}
+  tuple.10 {3}
+  get-tuple-element
+ uses:
+  tuple.10, operand 3
+ from instruction: %slice_reduce_fusion = (u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}) fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+<26 slice_reduce_fusion{1} @0>
+ positions:
+  slice_reduce_fusion {1}
+  tuple.10 {2}
+  get-tuple-element.1
+ uses:
+  tuple.10, operand 2
+ from instruction: %slice_reduce_fusion = (u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}) fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+<27 slice_reduce_fusion{2} @0>
+ positions:
+  slice_reduce_fusion {2}
+  tuple.10 {1}
+  get-tuple-element.2
+ uses:
+  tuple.10, operand 1
+ from instruction: %slice_reduce_fusion = (u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}) fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+<28 slice_reduce_fusion{3} @0>
+ positions:
+  slice_reduce_fusion {3}
+  tuple.10 {0}
+  get-tuple-element.3
+ uses:
+  tuple.10, operand 0
+ from instruction: %slice_reduce_fusion = (u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}) fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+<29 tuple.10{} @0>
+ positions:
+  tuple.10 {}
+ uses:
+ from instruction: %tuple.10 = (u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}) tuple(%get-tuple-element.3, %get-tuple-element.2, %get-tuple-element.1, %get-tuple-element)
+
+
+HloLiveRange (max 7):
+  InstructionSequence:
+    0:Arg_0.1
+    1:slice_reduce_fusion
+    2:get-tuple-element.3
+    3:get-tuple-element.2
+    4:get-tuple-element.1
+    5:get-tuple-element
+    6:tuple.10
+  BufferLiveRange:
+    Arg_0.1{}:0-7
+    slice_reduce_fusion{}:1-5
+    slice_reduce_fusion{0}:1-7
+    slice_reduce_fusion{1}:1-7
+    slice_reduce_fusion{2}:1-7
+    slice_reduce_fusion{3}:1-7
+    tuple.10{}:6-7
+  Live ranges at 6 (peak):
+    Arg_0.1{}: 32 bytes (cumulative: 32 bytes)
+    tuple.10{}: 32 bytes (cumulative: 64 bytes)
+    slice_reduce_fusion{0}: 8 bytes (cumulative: 72 bytes)
+    slice_reduce_fusion{1}: 8 bytes (cumulative: 80 bytes)
+    slice_reduce_fusion{2}: 8 bytes (cumulative: 88 bytes)
+    slice_reduce_fusion{3}: 8 bytes (cumulative: 96 bytes)

@@ -1,0 +1,9 @@
+time,instruction_name
+0,constant.5
+1,constant.4
+2,Arg_2.3
+3,Arg_1.2
+4,Arg_0.1
+5,iota.1
+6,splash_mha_fwd_08d1d988.1
+7,get-tuple-element.0

@@ -1,0 +1,7 @@
+Schedule analysis:
+	total scheduled bundles:    192
+	empty scheduled bundles:    83
+	non empty scheduled bundles: 109
+	 107.00 scheduled bundles (98.17%): <no hlo>
+	   2.00 scheduled bundles ( 1.83%): %copy.1 = pred[8,2048,2048]{2,1,0:T(32,128)(4,1)} copy(%Arg_0.1)
+	[opcode]       3 scheduled bundles ( 2.75%): copy                 (1 instances,   3.00 avg)

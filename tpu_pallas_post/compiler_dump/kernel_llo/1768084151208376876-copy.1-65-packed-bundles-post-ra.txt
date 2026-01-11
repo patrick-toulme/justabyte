@@ -1,0 +1,74 @@
+= control target key start
+LH: loop header
+LB: loop body
+LE: loop exit
+PB: predicated region body
+PF: predicated region fallthrough
+CT: control target
+= control target key end
+
+     0   :  { %2 = vsyncpa [#allocation1], 0  ;;  %s98_s0 = inlined_call_operand.hbm [shape: s8[1,4,4], index: 0, kind: input, shape index: {}] /* operand 0 */  ;;  %s99_s1 = inlined_call_operand.hbm [shape: s8[1,4,4], index: 1, kind: output, shape index: {}] /* operand 1 */ } /* Start region 0 :: Start region 1 */
+   0x1   :  { %3 = vsyncpa [#allocation2], 0  ;;  %s80_s6 = smov [#allocation0] /* materialized constant */ }
+   0x2   :  { %s8_s7 = sshll.u32 %s80_s6, 4  ;;  %s9_s7 = int_to_ptr.vmem [resolvable:$true] %s8_s7 }
+   0x3   :  { %s44_s8 = scalar_lea.vmem %s9_s7, 16  ;;  %s48_s9 = scalar_lea.vmem %s9_s7, 32 }
+   0x4   :  { %p45_p0 = scmp.ne.s32.totalorder %s9_s7, %s44_s8  ;;  %p49_p1 = scmp.lt.s32.totalorder %s9_s7, %s9_s7 }
+   0x5   :  { %p50_p2 = scmp.lt.s32.totalorder %s48_s9, %s44_s8 }
+   0x6   :  {}
+   0x7   :  { %p51_p3 = por %p50_p2, %p49_p1 }
+   0x8   :  {}
+   0x9   :  { %p52_p4 = pnand %p51_p3, %p45_p0 }
+   0xa   :  {}
+   0xb   :  { %55 = shalt.err (!%p52_p4) /* BoundsCheck 0 [deref of %s9] for %11 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s0, /*size_in_granules=*/16, /*vmem=*/%s9, /*dst_syncflagno=*/[#allocation1] /* 
+base_bounds: (1, 1, 1)
+dynamic_base_bounds: (1, 1, 1)
+window_bounds: (1, 1, 1)
+iteration_bounds: (1, 1, 1)
+strides: (1, 1, 1)
+pad_low: (0, 0, 0)
+pad_high: (0, 0, 0)
+element_size_in_bytes: 512 */
+hlo: copy.1
+ */ }
+   0xc   :  { %11 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s98_s0, /*size_in_granules=*/16, /*vmem=*/%s9_s7, /*dst_syncflagno=*/[#allocation1] /* 
+base_bounds: (1, 1, 1)
+dynamic_base_bounds: (1, 1, 1)
+window_bounds: (1, 1, 1)
+iteration_bounds: (1, 1, 1)
+strides: (1, 1, 1)
+pad_low: (0, 0, 0)
+pad_high: (0, 0, 0)
+element_size_in_bytes: 512 */ }
+   0xd   :  { %s81_s0 = smov [#allocation3] /* materialized constant */  ;;  %76 = dma.done.wait [#allocation1], 16 /* pipeline-emitter-dma-wait */ }
+   0xe   :  { %s27_s12 = sshll.u32 %s81_s0, 4  ;;  %s28_s12 = int_to_ptr.vmem [resolvable:$true] %s27_s12 }
+   0xf   :  { %77 = vsyncadd [#allocation1], 4294967280  ;;  %v13_v0 = vld [vmem:[#allocation0] ss:$0 sm:$0x1]  ;;  %s56_s13 = scalar_lea.vmem %s28_s12, 16  ;;  %p61_p6 = scmp.lt.s32.totalorder %s28_s12, %s28_s12 }
+  0x10   :  { %22 = vst [vmem:[#allocation3] sm:$0x1] /*vst_source=*/%v13_v0  ;;  %p57_p5 = scmp.ne.s32.totalorder %s28_s12, %s56_s13  ;;  %s60_s14 = scalar_lea.vmem %s28_s12, 32 }
+  0x11   :  { %p62_p7 = scmp.lt.s32.totalorder %s60_s14, %s56_s13 }
+  0x12   :  {}
+  0x13   :  { %p63_p8 = por %p62_p7, %p61_p6 }
+  0x14   :  {}
+  0x15   :  { %p64_p9 = pnand %p63_p8, %p57_p5 }
+  0x16   :  {}
+  0x17   :  { %67 = shalt.err (!%p64_p9) /* BoundsCheck 3 [deref of %s28] for %30 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s28, /*size_in_granules=*/16, /*hbm=*/%s1, /*dst_syncflagno=*/[#allocation2] /* 
+base_bounds: (1, 1, 1)
+dynamic_base_bounds: (1, 1, 1)
+window_bounds: (1, 1, 1)
+iteration_bounds: (1, 1, 1)
+strides: (1, 1, 1)
+pad_low: (0, 0, 0)
+pad_high: (0, 0, 0)
+element_size_in_bytes: 512 */
+hlo: copy.1
+ */ }
+  0x18   :  { %30 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s28_s12, /*size_in_granules=*/16, /*hbm=*/%s99_s1, /*dst_syncflagno=*/[#allocation2] /* 
+base_bounds: (1, 1, 1)
+dynamic_base_bounds: (1, 1, 1)
+window_bounds: (1, 1, 1)
+iteration_bounds: (1, 1, 1)
+strides: (1, 1, 1)
+pad_low: (0, 0, 0)
+pad_high: (0, 0, 0)
+element_size_in_bytes: 512 */ }
+  0x19   :  { %78 = dma.done.wait [#allocation2], 16 /* pipeline-emitter-dma-wait */ }
+  0x1a   :  { %79 = vsyncadd [#allocation2], 4294967280 }
+  0x1b   :  { %32 = vsyncpa [#allocation1], 1 }
+  0x1c   :  { %33 = vsyncpa [#allocation2], 1 } /* End region 0 :: End region 1 */

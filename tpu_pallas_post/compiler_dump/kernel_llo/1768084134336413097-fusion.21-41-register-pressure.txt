@@ -1,0 +1,455 @@
+Register pressure for sregs is 106
+len=50420 lr=[3, 50423) wt=321 users=32            :: %s3 = inlined_call_operand.vmem [shape: u32[2048], index: 3, kind: input, shape index: {}] /* operand 3 */
+len=50419 lr=[4, 50423) wt=11 users=1              :: %s4 = inlined_call_operand.vmem [shape: u32[8], index: 4, kind: input, shape index: {}]
+len=50418 lr=[5, 50423) wt=321 users=32            :: %s5 = inlined_call_operand.vmem [shape: u32[2048], index: 5, kind: input, shape index: {}] /* operand 5 */
+len=50417 lr=[6, 50423) wt=11 users=1              :: %s6 = inlined_call_operand.vmem [shape: u32[8], index: 6, kind: input, shape index: {}]
+len=50416 lr=[7, 50423) wt=31 users=3              :: %s7 = inlined_call_operand.hbm [shape: bf16[8,2048,128], index: 7, kind: output, shape index: {}] /* operand 7 */
+                                        use: lr=[50382, 50409) %s119674 = scalar_lea.hbm %s7, %s120392
+                                        use: lr=[50400, 50402) %s121471 = scalar_lea.hbm %s7, 131072
+                                        use: lr=[50401, 50403) %p121472 = scmp.lt.s32.totalorder %s119674, %s7
+len=50400 lr=[19, 50419) wt=30 users=2             :: %s121502 = smov %s121501 /* copy for cssa :: phi copy :: iteration index, stage = 0 iter bound = 1 */
+                                        use: lr=[21, 25) %s34 = sadd.s32 1, %s121502
+                                        use: lr=[50419, 50423) %s121496 = smov %s121502 /* copy for cssa :: phi copy :: iteration index, stage = 0 iter bound = 1 */
+len=50397 lr=[20, 50417) wt=70 users=6             :: %s121506 = smov %s121505 /* phi copy :: iteration index, stage = 0 */
+len=50395 lr=[25, 50420) wt=20 users=1             :: %s37 = scalar_select /*predicate=*/%p36, /*on_true=*/0, /*on_false=*/%s34 /* copy for cssa */
+len=50359 lr=[18, 50377) wt=30 users=2             :: %s121498 = smov %s121497 /* phi copy :: iteration index, stage = 1 iter bound = 1 */
+                                        use: lr=[29, 488) %s120390 = sshll.u32 %s121498, 8
+                                        use: lr=[50377, 50382) %s120392 = sshll.u32 %s121498, 11
+len=479 lr=[35, 514) wt=30 users=2                 :: %s357 = sshrl.u32 %s356, 7
+                                        use: lr=[47, 50) %s362 = scalar_lea.vmem %s360, %s357
+                                        use: lr=[514, 516) %s390 = scalar_lea.vmem %s388, %s357
+len=474 lr=[44, 518) wt=30 users=2                 :: %s366 = sor.u32 256, %s364
+                                        use: lr=[52, 52) %367 = vbcast.lane.b32.xlu0 %v363, %s366
+                                        use: lr=[518, 518) %395 = vbcast.lane.b32.xlu0 %v391, %s366
+len=473 lr=[58, 531) wt=30 users=2                 :: %s4292 = sor.u32 256, %s4290
+                                        use: lr=[70, 70) %4293 = vbcast.lane.b32.xlu1 %v4289, %s4292
+                                        use: lr=[531, 531) %4310 = vbcast.lane.b32.xlu1 %v4306, %s4292
+len=470 lr=[53, 523) wt=30 users=2                 :: %s4283 = sshrl.u32 %s4282, 7
+                                        use: lr=[60, 63) %s4288 = scalar_lea.vmem %s4286, %s4283
+                                        use: lr=[523, 528) %s4305 = scalar_lea.vmem %s4303, %s4283
+len=468 lr=[43, 511) wt=30 users=2                 :: %s119746 = sshll.u32 %s355, 3
+                                        use: lr=[45, 47) %s360 = scalar_lea.vmem %s3, %s119746
+                                        use: lr=[511, 514) %s388 = scalar_lea.vmem %s5, %s119746
+len=466 lr=[89, 555) wt=30 users=2                 :: %s8014 = sor.u32 256, %s8012
+                                        use: lr=[95, 95) %8015 = vbcast.lane.b32.xlu0 %v8011, %s8014
+                                        use: lr=[555, 555) %8032 = vbcast.lane.b32.xlu0 %v8028, %s8014
+len=465 lr=[55, 520) wt=30 users=2                 :: %s119765 = sshll.u32 %s4281, 3
+                                        use: lr=[57, 60) %s4286 = scalar_lea.vmem %s3, %s119765
+                                        use: lr=[520, 523) %s4303 = scalar_lea.vmem %s5, %s119765
+len=463 lr=[76, 539) wt=30 users=2                 :: %s11736 = sor.u32 256, %s11734
+                                        use: lr=[83, 83) %11737 = vbcast.lane.b32.xlu1 %v11733, %s11736
+                                        use: lr=[539, 539) %11754 = vbcast.lane.b32.xlu1 %v11750, %s11736
+len=462 lr=[67, 529) wt=30 users=2                 :: %s11727 = sshrl.u32 %s11726, 7
+                                        use: lr=[79, 81) %s11732 = scalar_lea.vmem %s11730, %s11727
+                                        use: lr=[529, 534) %s11749 = scalar_lea.vmem %s11747, %s11727
+len=452 lr=[84, 536) wt=30 users=2                 :: %s8005 = sshrl.u32 %s8004, 7
+                                        use: lr=[90, 92) %s8010 = scalar_lea.vmem %s8008, %s8005
+                                        use: lr=[536, 546) %s8027 = scalar_lea.vmem %s8025, %s8005
+len=450 lr=[117, 567) wt=30 users=2                :: %s15458 = sor.u32 256, %s15456
+                                        use: lr=[123, 123) %15459 = vbcast.lane.b32.xlu0 %v15455, %s15458
+                                        use: lr=[567, 567) %15476 = vbcast.lane.b32.xlu0 %v15472, %s15458
+len=449 lr=[75, 524) wt=30 users=2                 :: %s119805 = sshll.u32 %s11725, 3
+                                        use: lr=[77, 79) %s11730 = scalar_lea.vmem %s3, %s119805
+                                        use: lr=[524, 529) %s11747 = scalar_lea.vmem %s5, %s119805
+len=447 lr=[104, 551) wt=30 users=2                :: %s19180 = sor.u32 256, %s19178
+                                        use: lr=[111, 111) %19181 = vbcast.lane.b32.xlu1 %v19177, %s19180
+                                        use: lr=[551, 551) %19198 = vbcast.lane.b32.xlu1 %v19194, %s19180
+len=446 lr=[86, 532) wt=30 users=2                 :: %s119785 = sshll.u32 %s8003, 3
+                                        use: lr=[88, 90) %s8008 = scalar_lea.vmem %s3, %s119785
+                                        use: lr=[532, 536) %s8025 = scalar_lea.vmem %s5, %s119785
+len=438 lr=[97, 535) wt=30 users=2                 :: %s19171 = sshrl.u32 %s19170, 7
+                                        use: lr=[107, 109) %s19176 = scalar_lea.vmem %s19174, %s19171
+                                        use: lr=[535, 543) %s19193 = scalar_lea.vmem %s19191, %s19171
+len=437 lr=[112, 549) wt=30 users=2                :: %s15449 = sshrl.u32 %s15448, 7
+                                        use: lr=[118, 120) %s15454 = scalar_lea.vmem %s15452, %s15449
+                                        use: lr=[549, 559) %s15471 = scalar_lea.vmem %s15469, %s15449
+len=435 lr=[145, 580) wt=30 users=2                :: %s22902 = sor.u32 256, %s22900
+                                        use: lr=[151, 151) %22903 = vbcast.lane.b32.xlu0 %v22899, %s22902
+                                        use: lr=[580, 580) %22920 = vbcast.lane.b32.xlu0 %v22916, %s22902
+len=432 lr=[132, 564) wt=30 users=2                :: %s26624 = sor.u32 256, %s26622
+                                        use: lr=[139, 139) %26625 = vbcast.lane.b32.xlu1 %v26621, %s26624
+                                        use: lr=[564, 564) %26642 = vbcast.lane.b32.xlu1 %v26638, %s26624
+len=427 lr=[103, 530) wt=30 users=2                :: %s119845 = sshll.u32 %s19169, 3
+                                        use: lr=[105, 107) %s19174 = scalar_lea.vmem %s3, %s119845
+                                        use: lr=[530, 535) %s19191 = scalar_lea.vmem %s5, %s119845
+len=426 lr=[114, 540) wt=30 users=2                :: %s119825 = sshll.u32 %s15447, 3
+                                        use: lr=[116, 118) %s15452 = scalar_lea.vmem %s3, %s119825
+                                        use: lr=[540, 549) %s15469 = scalar_lea.vmem %s5, %s119825
+len=422 lr=[125, 547) wt=30 users=2                :: %s26615 = sshrl.u32 %s26614, 7
+                                        use: lr=[135, 137) %s26620 = scalar_lea.vmem %s26618, %s26615
+                                        use: lr=[547, 556) %s26637 = scalar_lea.vmem %s26635, %s26615
+len=417 lr=[160, 577) wt=30 users=2                :: %s34068 = sor.u32 256, %s34066
+                                        use: lr=[167, 167) %34069 = vbcast.lane.b32.xlu1 %v34065, %s34068
+                                        use: lr=[577, 577) %34086 = vbcast.lane.b32.xlu1 %v34082, %s34068
+len=415 lr=[173, 588) wt=30 users=2                :: %s30346 = sor.u32 256, %s30344
+                                        use: lr=[179, 179) %30347 = vbcast.lane.b32.xlu0 %v30343, %s30346
+                                        use: lr=[588, 588) %30364 = vbcast.lane.b32.xlu0 %v30360, %s30346
+len=410 lr=[140, 550) wt=30 users=2                :: %s22893 = sshrl.u32 %s22892, 7
+                                        use: lr=[146, 148) %s22898 = scalar_lea.vmem %s22896, %s22893
+                                        use: lr=[550, 571) %s22915 = scalar_lea.vmem %s22913, %s22893
+len=406 lr=[131, 537) wt=30 users=2                :: %s119885 = sshll.u32 %s26613, 3
+                                        use: lr=[133, 135) %s26618 = scalar_lea.vmem %s3, %s119885
+                                        use: lr=[537, 547) %s26635 = scalar_lea.vmem %s5, %s119885
+len=399 lr=[142, 541) wt=30 users=2                :: %s119865 = sshll.u32 %s22891, 3
+                                        use: lr=[144, 146) %s22896 = scalar_lea.vmem %s3, %s119865
+                                        use: lr=[541, 550) %s22913 = scalar_lea.vmem %s5, %s119865
+len=399 lr=[153, 552) wt=30 users=2                :: %s34059 = sshrl.u32 %s34058, 7
+                                        use: lr=[163, 165) %s34064 = scalar_lea.vmem %s34062, %s34059
+                                        use: lr=[552, 568) %s34081 = scalar_lea.vmem %s34079, %s34059
+len=398 lr=[188, 586) wt=30 users=2                :: %s41512 = sor.u32 256, %s41510
+                                        use: lr=[195, 195) %41513 = vbcast.lane.b32.xlu1 %v41509, %s41512
+                                        use: lr=[586, 586) %41530 = vbcast.lane.b32.xlu1 %v41526, %s41512
+len=396 lr=[201, 597) wt=30 users=2                :: %s37790 = sor.u32 256, %s37788
+                                        use: lr=[207, 207) %37791 = vbcast.lane.b32.xlu0 %v37787, %s37790
+                                        use: lr=[597, 597) %37808 = vbcast.lane.b32.xlu0 %v37804, %s37790
+len=388 lr=[196, 584) wt=30 users=2                :: %s37781 = sshrl.u32 %s37780, 7
+                                        use: lr=[202, 204) %s37786 = scalar_lea.vmem %s37784, %s37781
+                                        use: lr=[584, 591) %s37803 = scalar_lea.vmem %s37801, %s37781
+len=385 lr=[159, 544) wt=30 users=2                :: %s119925 = sshll.u32 %s34057, 3
+                                        use: lr=[161, 163) %s34062 = scalar_lea.vmem %s3, %s119925
+                                        use: lr=[544, 552) %s34079 = scalar_lea.vmem %s5, %s119925
+len=385 lr=[168, 553) wt=30 users=2                :: %s30337 = sshrl.u32 %s30336, 7
+                                        use: lr=[174, 176) %s30342 = scalar_lea.vmem %s30340, %s30337
+                                        use: lr=[553, 582) %s30359 = scalar_lea.vmem %s30357, %s30337
+len=380 lr=[198, 578) wt=30 users=2                :: %s119945 = sshll.u32 %s37779, 3
+                                        use: lr=[200, 202) %s37784 = scalar_lea.vmem %s3, %s119945
+                                        use: lr=[578, 584) %s37801 = scalar_lea.vmem %s5, %s119945
+len=379 lr=[216, 595) wt=30 users=2                :: %s48956 = sor.u32 256, %s48954
+                                        use: lr=[223, 223) %48957 = vbcast.lane.b32.xlu1 %v48953, %s48956
+                                        use: lr=[595, 595) %48974 = vbcast.lane.b32.xlu1 %v48970, %s48956
+len=376 lr=[181, 557) wt=30 users=2                :: %s41503 = sshrl.u32 %s41502, 7
+                                        use: lr=[191, 193) %s41508 = scalar_lea.vmem %s41506, %s41503
+                                        use: lr=[557, 581) %s41525 = scalar_lea.vmem %s41523, %s41503
+len=376 lr=[229, 605) wt=30 users=2                :: %s45234 = sor.u32 256, %s45232
+                                        use: lr=[235, 235) %45235 = vbcast.lane.b32.xlu0 %v45231, %s45234
+                                        use: lr=[605, 605) %45252 = vbcast.lane.b32.xlu0 %v45248, %s45234
+len=375 lr=[170, 545) wt=30 users=2                :: %s119905 = sshll.u32 %s30335, 3
+                                        use: lr=[172, 174) %s30340 = scalar_lea.vmem %s3, %s119905
+                                        use: lr=[545, 553) %s30357 = scalar_lea.vmem %s5, %s119905
+len=374 lr=[209, 583) wt=30 users=2                :: %s48947 = sshrl.u32 %s48946, 7
+                                        use: lr=[219, 221) %s48952 = scalar_lea.vmem %s48950, %s48947
+                                        use: lr=[583, 589) %s48969 = scalar_lea.vmem %s48967, %s48947
+len=369 lr=[224, 593) wt=30 users=2                :: %s45225 = sshrl.u32 %s45224, 7
+                                        use: lr=[230, 232) %s45230 = scalar_lea.vmem %s45228, %s45225
+                                        use: lr=[593, 599) %s45247 = scalar_lea.vmem %s45245, %s45225
+len=361 lr=[187, 548) wt=30 users=2                :: %s119965 = sshll.u32 %s41501, 3
+                                        use: lr=[189, 191) %s41506 = scalar_lea.vmem %s3, %s119965
+                                        use: lr=[548, 557) %s41523 = scalar_lea.vmem %s5, %s119965
+len=361 lr=[226, 587) wt=30 users=2                :: %s119985 = sshll.u32 %s45223, 3
+                                        use: lr=[228, 230) %s45228 = scalar_lea.vmem %s3, %s119985
+                                        use: lr=[587, 593) %s45245 = scalar_lea.vmem %s5, %s119985
+len=359 lr=[215, 574) wt=30 users=2                :: %s120005 = sshll.u32 %s48945, 3
+                                        use: lr=[217, 219) %s48950 = scalar_lea.vmem %s3, %s120005
+                                        use: lr=[574, 583) %s48967 = scalar_lea.vmem %s5, %s120005
+len=359 lr=[244, 603) wt=30 users=2                :: %s56400 = sor.u32 256, %s56398
+                                        use: lr=[251, 251) %56401 = vbcast.lane.b32.xlu1 %v56397, %s56400
+                                        use: lr=[603, 603) %56418 = vbcast.lane.b32.xlu1 %v56414, %s56400
+len=357 lr=[257, 614) wt=30 users=2                :: %s52678 = sor.u32 256, %s52676
+                                        use: lr=[263, 263) %52679 = vbcast.lane.b32.xlu0 %v52675, %s52678
+                                        use: lr=[614, 614) %52696 = vbcast.lane.b32.xlu0 %v52692, %s52678
+len=355 lr=[237, 592) wt=30 users=2                :: %s56391 = sshrl.u32 %s56390, 7
+                                        use: lr=[247, 249) %s56396 = scalar_lea.vmem %s56394, %s56391
+                                        use: lr=[592, 598) %s56413 = scalar_lea.vmem %s56411, %s56391
+len=349 lr=[252, 601) wt=30 users=2                :: %s52669 = sshrl.u32 %s52668, 7
+                                        use: lr=[258, 260) %s52674 = scalar_lea.vmem %s52672, %s52669
+                                        use: lr=[601, 608) %s52691 = scalar_lea.vmem %s52689, %s52669
+len=342 lr=[243, 585) wt=30 users=2                :: %s120045 = sshll.u32 %s56389, 3
+                                        use: lr=[245, 247) %s56394 = scalar_lea.vmem %s3, %s120045
+                                        use: lr=[585, 592) %s56411 = scalar_lea.vmem %s5, %s120045
+len=342 lr=[254, 596) wt=30 users=2                :: %s120025 = sshll.u32 %s52667, 3
+                                        use: lr=[256, 258) %s52672 = scalar_lea.vmem %s3, %s120025
+                                        use: lr=[596, 601) %s52689 = scalar_lea.vmem %s5, %s120025
+len=340 lr=[272, 612) wt=30 users=2                :: %s63844 = sor.u32 256, %s63842
+                                        use: lr=[279, 279) %63845 = vbcast.lane.b32.xlu1 %v63841, %s63844
+                                        use: lr=[612, 612) %63862 = vbcast.lane.b32.xlu1 %v63858, %s63844
+len=338 lr=[285, 623) wt=30 users=2                :: %s60122 = sor.u32 256, %s60120
+                                        use: lr=[293, 293) %60123 = vbcast.lane.b32.xlu0 %v60119, %s60122
+                                        use: lr=[623, 623) %60140 = vbcast.lane.b32.xlu0 %v60136, %s60122
+len=335 lr=[265, 600) wt=30 users=2                :: %s63835 = sshrl.u32 %s63834, 7
+                                        use: lr=[275, 277) %s63840 = scalar_lea.vmem %s63838, %s63835
+                                        use: lr=[600, 606) %s63857 = scalar_lea.vmem %s63855, %s63835
+len=330 lr=[280, 610) wt=30 users=2                :: %s60113 = sshrl.u32 %s60112, 7
+                                        use: lr=[286, 288) %s60118 = scalar_lea.vmem %s60116, %s60113
+                                        use: lr=[610, 616) %s60135 = scalar_lea.vmem %s60133, %s60113
+len=323 lr=[271, 594) wt=30 users=2                :: %s120085 = sshll.u32 %s63833, 3
+                                        use: lr=[273, 275) %s63838 = scalar_lea.vmem %s3, %s120085
+                                        use: lr=[594, 600) %s63855 = scalar_lea.vmem %s5, %s120085
+len=322 lr=[282, 604) wt=30 users=2                :: %s120065 = sshll.u32 %s60111, 3
+                                        use: lr=[284, 286) %s60116 = scalar_lea.vmem %s3, %s120065
+                                        use: lr=[604, 610) %s60133 = scalar_lea.vmem %s5, %s120065
+len=317 lr=[304, 621) wt=30 users=2                :: %s71288 = sor.u32 256, %s71286
+                                        use: lr=[313, 313) %71289 = vbcast.lane.b32.xlu1 %v71285, %s71288
+                                        use: lr=[621, 621) %71306 = vbcast.lane.b32.xlu1 %v71302, %s71288
+len=314 lr=[295, 609) wt=30 users=2                :: %s71279 = sshrl.u32 %s71278, 7
+                                        use: lr=[307, 309) %s71284 = scalar_lea.vmem %s71282, %s71279
+                                        use: lr=[609, 615) %s71301 = scalar_lea.vmem %s71299, %s71279
+len=312 lr=[319, 631) wt=30 users=2                :: %s67566 = sor.u32 256, %s67564
+                                        use: lr=[328, 328) %67567 = vbcast.lane.b32.xlu0 %v67563, %s67566
+                                        use: lr=[631, 631) %67584 = vbcast.lane.b32.xlu0 %v67580, %s67566
+len=305 lr=[314, 619) wt=30 users=2                :: %s67557 = sshrl.u32 %s67556, 7
+                                        use: lr=[321, 325) %s67562 = scalar_lea.vmem %s67560, %s67557
+                                        use: lr=[619, 625) %s67579 = scalar_lea.vmem %s67577, %s67557
+len=299 lr=[303, 602) wt=30 users=2                :: %s120125 = sshll.u32 %s71277, 3
+                                        use: lr=[305, 307) %s71282 = scalar_lea.vmem %s3, %s120125
+                                        use: lr=[602, 609) %s71299 = scalar_lea.vmem %s5, %s120125
+len=297 lr=[316, 613) wt=30 users=2                :: %s120105 = sshll.u32 %s67555, 3
+                                        use: lr=[318, 321) %s67560 = scalar_lea.vmem %s3, %s120105
+                                        use: lr=[613, 619) %s67577 = scalar_lea.vmem %s5, %s120105
+len=289 lr=[340, 629) wt=30 users=2                :: %s78732 = sor.u32 256, %s78730
+                                        use: lr=[349, 349) %78733 = vbcast.lane.b32.xlu1 %v78729, %s78732
+                                        use: lr=[629, 629) %78750 = vbcast.lane.b32.xlu1 %v78746, %s78732
+len=287 lr=[330, 617) wt=30 users=2                :: %s78723 = sshrl.u32 %s78722, 7
+                                        use: lr=[343, 347) %s78728 = scalar_lea.vmem %s78726, %s78723
+                                        use: lr=[617, 624) %s78745 = scalar_lea.vmem %s78743, %s78723
+len=284 lr=[355, 639) wt=30 users=2                :: %s75010 = sor.u32 256, %s75008
+                                        use: lr=[362, 362) %75011 = vbcast.lane.b32.xlu0 %v75007, %s75010
+                                        use: lr=[639, 639) %75028 = vbcast.lane.b32.xlu0 %v75024, %s75010
+len=277 lr=[350, 627) wt=30 users=2                :: %s75001 = sshrl.u32 %s75000, 7
+                                        use: lr=[357, 359) %s75006 = scalar_lea.vmem %s75004, %s75001
+                                        use: lr=[627, 633) %s75023 = scalar_lea.vmem %s75021, %s75001
+len=272 lr=[339, 611) wt=30 users=2                :: %s120165 = sshll.u32 %s78721, 3
+                                        use: lr=[341, 343) %s78726 = scalar_lea.vmem %s3, %s120165
+                                        use: lr=[611, 617) %s78743 = scalar_lea.vmem %s5, %s120165
+len=270 lr=[352, 622) wt=30 users=2                :: %s120145 = sshll.u32 %s74999, 3
+                                        use: lr=[354, 357) %s75004 = scalar_lea.vmem %s3, %s120145
+                                        use: lr=[622, 627) %s75021 = scalar_lea.vmem %s5, %s120145
+len=265 lr=[372, 637) wt=30 users=2                :: %s86176 = sor.u32 256, %s86174
+                                        use: lr=[380, 380) %86177 = vbcast.lane.b32.xlu1 %v86173, %s86176
+                                        use: lr=[637, 637) %86194 = vbcast.lane.b32.xlu1 %v86190, %s86176
+len=262 lr=[364, 626) wt=30 users=2                :: %s86167 = sshrl.u32 %s86166, 7
+                                        use: lr=[376, 378) %s86172 = scalar_lea.vmem %s86170, %s86167
+                                        use: lr=[626, 632) %s86189 = scalar_lea.vmem %s86187, %s86167
+len=259 lr=[386, 645) wt=30 users=2                :: %s82454 = sor.u32 256, %s82452
+                                        use: lr=[393, 393) %82455 = vbcast.lane.b32.xlu0 %v82451, %s82454
+                                        use: lr=[645, 645) %82472 = vbcast.lane.b32.xlu0 %v82468, %s82454
+len=255 lr=[381, 636) wt=30 users=2                :: %s82445 = sshrl.u32 %s82444, 7
+                                        use: lr=[388, 390) %s82450 = scalar_lea.vmem %s82448, %s82445
+                                        use: lr=[636, 641) %s82467 = scalar_lea.vmem %s82465, %s82445
+len=249 lr=[371, 620) wt=30 users=2                :: %s120205 = sshll.u32 %s86165, 3
+                                        use: lr=[373, 376) %s86170 = scalar_lea.vmem %s3, %s120205
+                                        use: lr=[620, 626) %s86187 = scalar_lea.vmem %s5, %s120205
+len=247 lr=[383, 630) wt=30 users=2                :: %s120185 = sshll.u32 %s82443, 3
+                                        use: lr=[385, 388) %s82448 = scalar_lea.vmem %s3, %s120185
+                                        use: lr=[630, 636) %s82465 = scalar_lea.vmem %s5, %s120185
+len=242 lr=[402, 644) wt=30 users=2                :: %s93620 = sor.u32 256, %s93618
+                                        use: lr=[410, 410) %93621 = vbcast.lane.b32.xlu1 %v93617, %s93620
+                                        use: lr=[644, 644) %93638 = vbcast.lane.b32.xlu1 %v93634, %s93620
+len=239 lr=[395, 634) wt=30 users=2                :: %s93611 = sshrl.u32 %s93610, 7
+                                        use: lr=[406, 408) %s93616 = scalar_lea.vmem %s93614, %s93611
+                                        use: lr=[634, 640) %s93633 = scalar_lea.vmem %s93631, %s93611
+len=233 lr=[416, 649) wt=30 users=2                :: %s89898 = sor.u32 256, %s89896
+                                        use: lr=[423, 423) %89899 = vbcast.lane.b32.xlu0 %v89895, %s89898
+                                        use: lr=[649, 649) %89916 = vbcast.lane.b32.xlu0 %v89912, %s89898
+len=231 lr=[411, 642) wt=30 users=2                :: %s89889 = sshrl.u32 %s89888, 7
+                                        use: lr=[418, 420) %s89894 = scalar_lea.vmem %s89892, %s89889
+                                        use: lr=[642, 647) %s89911 = scalar_lea.vmem %s89909, %s89889
+len=227 lr=[401, 628) wt=30 users=2                :: %s120245 = sshll.u32 %s93609, 3
+                                        use: lr=[403, 406) %s93614 = scalar_lea.vmem %s3, %s120245
+                                        use: lr=[628, 634) %s93631 = scalar_lea.vmem %s5, %s120245
+len=225 lr=[413, 638) wt=30 users=2                :: %s120225 = sshll.u32 %s89887, 3
+                                        use: lr=[415, 418) %s89892 = scalar_lea.vmem %s3, %s120225
+                                        use: lr=[638, 642) %s89909 = scalar_lea.vmem %s5, %s120225
+len=215 lr=[433, 648) wt=30 users=2                :: %s101064 = sor.u32 256, %s101062
+                                        use: lr=[441, 441) %101065 = vbcast.lane.b32.xlu1 %v101061, %s101064
+                                        use: lr=[648, 648) %101082 = vbcast.lane.b32.xlu1 %v101078, %s101064
+len=208 lr=[447, 655) wt=30 users=2                :: %s97342 = sor.u32 256, %s97340
+                                        use: lr=[454, 454) %97343 = vbcast.lane.b32.xlu0 %v97339, %s97342
+                                        use: lr=[655, 655) %97360 = vbcast.lane.b32.xlu0 %v97356, %s97342
+len=190 lr=[463, 653) wt=30 users=2                :: %s108508 = sor.u32 256, %s108506
+                                        use: lr=[471, 471) %108509 = vbcast.lane.b32.xlu1 %v108505, %s108508
+                                        use: lr=[653, 653) %108526 = vbcast.lane.b32.xlu1 %v108522, %s108508
+len=183 lr=[477, 660) wt=30 users=2                :: %s104786 = sor.u32 256, %s104784
+                                        use: lr=[484, 484) %104787 = vbcast.lane.b32.xlu0 %v104783, %s104786
+                                        use: lr=[660, 660) %104804 = vbcast.lane.b32.xlu0 %v104800, %s104786
+len=165 lr=[493, 658) wt=30 users=2                :: %s115952 = sor.u32 256, %s115950
+                                        use: lr=[501, 501) %115953 = vbcast.lane.b32.xlu1 %v115949, %s115952
+                                        use: lr=[658, 658) %115970 = vbcast.lane.b32.xlu1 %v115966, %s115952
+len=135 lr=[425, 560) wt=30 users=2                :: %s101055 = sshrl.u32 %s101054, 7
+                                        use: lr=[437, 439) %s101060 = scalar_lea.vmem %s101058, %s101055
+                                        use: lr=[560, 646) %s101077 = scalar_lea.vmem %s101075, %s101055
+len=126 lr=[432, 558) wt=30 users=2                :: %s120285 = sshll.u32 %s101053, 3
+                                        use: lr=[434, 437) %s101058 = scalar_lea.vmem %s3, %s120285
+                                        use: lr=[558, 560) %s101075 = scalar_lea.vmem %s5, %s120285
+len=120 lr=[442, 562) wt=30 users=2                :: %s97333 = sshrl.u32 %s97332, 7
+                                        use: lr=[449, 451) %s97338 = scalar_lea.vmem %s97336, %s97333
+                                        use: lr=[562, 651) %s97355 = scalar_lea.vmem %s97353, %s97333
+len=117 lr=[444, 561) wt=30 users=2                :: %s120265 = sshll.u32 %s97331, 3
+                                        use: lr=[446, 449) %s97336 = scalar_lea.vmem %s3, %s120265
+                                        use: lr=[561, 562) %s97353 = scalar_lea.vmem %s5, %s120265
+len=109 lr=[456, 565) wt=30 users=2                :: %s108499 = sshrl.u32 %s108498, 7
+                                        use: lr=[467, 469) %s108504 = scalar_lea.vmem %s108502, %s108499
+                                        use: lr=[565, 650) %s108521 = scalar_lea.vmem %s108519, %s108499
+len=101 lr=[462, 563) wt=30 users=2                :: %s120325 = sshll.u32 %s108497, 3
+                                        use: lr=[464, 467) %s108502 = scalar_lea.vmem %s3, %s120325
+                                        use: lr=[563, 565) %s108519 = scalar_lea.vmem %s5, %s120325
+len=97 lr=[472, 569) wt=30 users=2                 :: %s104777 = sshrl.u32 %s104776, 7
+                                        use: lr=[479, 481) %s104782 = scalar_lea.vmem %s104780, %s104777
+                                        use: lr=[569, 657) %s104799 = scalar_lea.vmem %s104797, %s104777
+len=92 lr=[474, 566) wt=30 users=2                 :: %s120305 = sshll.u32 %s104775, 3
+                                        use: lr=[476, 479) %s104780 = scalar_lea.vmem %s3, %s120305
+                                        use: lr=[566, 569) %s104797 = scalar_lea.vmem %s5, %s120305
+len=86 lr=[486, 572) wt=30 users=2                 :: %s115943 = sshrl.u32 %s115942, 7
+                                        use: lr=[497, 499) %s115948 = scalar_lea.vmem %s115946, %s115943
+                                        use: lr=[572, 656) %s115965 = scalar_lea.vmem %s115963, %s115943
+len=78 lr=[492, 570) wt=30 users=2                 :: %s120365 = sshll.u32 %s115941, 3
+                                        use: lr=[494, 497) %s115946 = scalar_lea.vmem %s3, %s120365
+                                        use: lr=[570, 572) %s115963 = scalar_lea.vmem %s5, %s120365
+len=73 lr=[502, 575) wt=30 users=2                 :: %s112221 = sshrl.u32 %s112220, 7
+                                        use: lr=[510, 512) %s112226 = scalar_lea.vmem %s112224, %s112221
+                                        use: lr=[575, 661) %s112243 = scalar_lea.vmem %s112241, %s112221
+len=69 lr=[504, 573) wt=30 users=2                 :: %s120345 = sshll.u32 %s112219, 3
+                                        use: lr=[507, 510) %s112224 = scalar_lea.vmem %s3, %s120345
+                                        use: lr=[573, 575) %s112241 = scalar_lea.vmem %s5, %s120345
+len=3 lr=[505, 508) wt=20 users=1                  :: %s112228 = sand.u32 255, %s112222
+len=3 lr=[507, 510) wt=20 users=1                  :: %s112224 = scalar_lea.vmem %s3, %s120345
+Register pressure for vregs is 134
+len=50415 lr=[8, 50423) wt=10241 users=1024        :: %v8 = vstv %s0
+len=50414 lr=[9, 50423) wt=10241 users=1024        :: %v9 = vstv %s1
+len=50413 lr=[10, 50423) wt=10241 users=1024       :: %v10 = vstv %s2
+len=49174 lr=[336, 49510) wt=330 users=32          :: %v3803 = vpop.permute.xlu0 %3802
+len=49003 lr=[323, 49326) wt=330 users=32          :: %v3316 = vpop.permute.xlu1 %3315
+len=48924 lr=[672, 49596) wt=2570 users=256        :: %v415 = vand.u32 127, %v414
+len=48843 lr=[667, 49510) wt=90 users=8            :: %v115954 = vpop.permute.xlu1 %115953
+len=48835 lr=[324, 49159) wt=330 users=32          :: %v2829 = vpop.permute.xlu0 %2828
+len=48822 lr=[739, 49561) wt=650 users=64          :: %v3816 = vpop.permute.xlu0 %3815
+len=48638 lr=[311, 48949) wt=330 users=32          :: %v2342 = vpop.permute.xlu1 %2341
+len=48627 lr=[698, 49325) wt=650 users=64          :: %v3329 = vpop.permute.xlu1 %3328
+len=48528 lr=[977, 49505) wt=90 users=8            :: %v115971 = vpop.permute.xlu1 %115970
+len=48472 lr=[302, 48774) wt=330 users=32          :: %v1855 = vpop.permute.xlu0 %1854
+len=48433 lr=[721, 49154) wt=650 users=64          :: %v2842 = vpop.permute.xlu0 %2841
+len=48295 lr=[680, 48975) wt=650 users=64          :: %v2355 = vpop.permute.xlu1 %2354
+len=48250 lr=[301, 48551) wt=330 users=32          :: %v1368 = vpop.permute.xlu1 %1367
+len=48084 lr=[291, 48375) wt=330 users=32          :: %v881 = vpop.permute.xlu1 %880
+len=48041 lr=[703, 48744) wt=650 users=64          :: %v1868 = vpop.permute.xlu0 %1867
+len=47887 lr=[292, 48179) wt=330 users=32          :: %v380 = vpop.permute.xlu0 %379
+len=47879 lr=[671, 48550) wt=650 users=64          :: %v1381 = vpop.permute.xlu1 %1380
+len=47632 lr=[685, 48317) wt=650 users=64          :: %v894 = vpop.permute.xlu0 %893
+len=47525 lr=[668, 48193) wt=650 users=64          :: %v408 = vpop.permute.xlu1 %407
+len=47319 lr=[670, 47989) wt=90 users=8            :: %v112232 = vpop.permute.xlu0 %112231
+len=46912 lr=[999, 47911) wt=90 users=8            :: %v112249 = vpop.permute.xlu0 %112248
+len=45757 lr=[665, 46422) wt=90 users=8            :: %v108510 = vpop.permute.xlu1 %108509
+len=45365 lr=[960, 46325) wt=90 users=8            :: %v108527 = vpop.permute.xlu1 %108526
+len=44220 lr=[666, 44886) wt=90 users=8            :: %v104788 = vpop.permute.xlu0 %104787
+len=43825 lr=[982, 44807) wt=90 users=8            :: %v104805 = vpop.permute.xlu0 %104804
+len=42697 lr=[663, 43360) wt=90 users=8            :: %v101066 = vpop.permute.xlu1 %101065
+len=42266 lr=[948, 43214) wt=90 users=8            :: %v101083 = vpop.permute.xlu1 %101082
+len=41108 lr=[664, 41772) wt=90 users=8            :: %v97344 = vpop.permute.xlu0 %97343
+len=40751 lr=[964, 41715) wt=90 users=8            :: %v97361 = vpop.permute.xlu0 %97360
+len=39531 lr=[652, 40183) wt=90 users=8            :: %v93622 = vpop.permute.xlu1 %93621
+len=39109 lr=[931, 40040) wt=90 users=8            :: %v93639 = vpop.permute.xlu1 %93638
+len=38004 lr=[659, 38663) wt=90 users=8            :: %v89900 = vpop.permute.xlu0 %89899
+len=37635 lr=[950, 38585) wt=90 users=8            :: %v89917 = vpop.permute.xlu0 %89916
+len=36488 lr=[635, 37123) wt=90 users=8            :: %v86178 = vpop.permute.xlu1 %86177
+len=36129 lr=[915, 37044) wt=90 users=8            :: %v86195 = vpop.permute.xlu1 %86194
+len=35022 lr=[643, 35665) wt=90 users=8            :: %v82456 = vpop.permute.xlu0 %82455
+len=34563 lr=[935, 35498) wt=90 users=8            :: %v82473 = vpop.permute.xlu0 %82472
+len=33408 lr=[607, 34015) wt=90 users=8            :: %v78734 = vpop.permute.xlu1 %78733
+len=32903 lr=[897, 33800) wt=90 users=8            :: %v78751 = vpop.permute.xlu1 %78750
+len=31801 lr=[618, 32419) wt=90 users=8            :: %v75012 = vpop.permute.xlu0 %75011
+len=31495 lr=[919, 32414) wt=90 users=8            :: %v75029 = vpop.permute.xlu0 %75028
+len=30344 lr=[579, 30923) wt=90 users=8            :: %v71290 = vpop.permute.xlu1 %71289
+len=29836 lr=[879, 30715) wt=90 users=8            :: %v71307 = vpop.permute.xlu1 %71306
+len=28779 lr=[590, 29369) wt=90 users=8            :: %v67568 = vpop.permute.xlu0 %67567
+len=28373 lr=[902, 29275) wt=90 users=8            :: %v67585 = vpop.permute.xlu0 %67584
+len=27251 lr=[538, 27789) wt=90 users=8            :: %v63846 = vpop.permute.xlu1 %63845
+len=26774 lr=[861, 27635) wt=90 users=8            :: %v63863 = vpop.permute.xlu1 %63862
+len=25709 lr=[554, 26263) wt=90 users=8            :: %v60124 = vpop.permute.xlu0 %60123
+len=25331 lr=[884, 26215) wt=90 users=8            :: %v60141 = vpop.permute.xlu0 %60140
+len=24196 lr=[519, 24715) wt=90 users=8            :: %v56402 = vpop.permute.xlu1 %56401
+len=23739 lr=[843, 24582) wt=90 users=8            :: %v56419 = vpop.permute.xlu1 %56418
+len=22637 lr=[525, 23162) wt=90 users=8            :: %v52680 = vpop.permute.xlu0 %52679
+len=22103 lr=[866, 22969) wt=90 users=8            :: %v52697 = vpop.permute.xlu0 %52696
+len=21072 lr=[496, 21568) wt=90 users=8            :: %v48958 = vpop.permute.xlu1 %48957
+len=20599 lr=[825, 21424) wt=90 users=8            :: %v48975 = vpop.permute.xlu1 %48974
+len=19459 lr=[509, 19968) wt=90 users=8            :: %v45236 = vpop.permute.xlu0 %45235
+len=19119 lr=[848, 19967) wt=90 users=8            :: %v45253 = vpop.permute.xlu0 %45252
+len=18056 lr=[466, 18522) wt=90 users=8            :: %v41514 = vpop.permute.xlu1 %41513
+len=17598 lr=[807, 18405) wt=90 users=8            :: %v41531 = vpop.permute.xlu1 %41530
+len=16487 lr=[478, 16965) wt=90 users=8            :: %v37792 = vpop.permute.xlu0 %37791
+len=15994 lr=[830, 16824) wt=90 users=8            :: %v37809 = vpop.permute.xlu0 %37808
+len=14943 lr=[436, 15379) wt=90 users=8            :: %v34070 = vpop.permute.xlu1 %34069
+len=14589 lr=[789, 15378) wt=90 users=8            :: %v34087 = vpop.permute.xlu1 %34086
+len=13388 lr=[448, 13836) wt=90 users=8            :: %v30348 = vpop.permute.xlu0 %30347
+len=12925 lr=[812, 13737) wt=90 users=8            :: %v30365 = vpop.permute.xlu0 %30364
+len=11889 lr=[405, 12294) wt=90 users=8            :: %v26626 = vpop.permute.xlu1 %26625
+len=11390 lr=[771, 12161) wt=90 users=8            :: %v26643 = vpop.permute.xlu1 %26642
+len=10356 lr=[417, 10773) wt=90 users=8            :: %v22904 = vpop.permute.xlu0 %22903
+len=9855 lr=[794, 10649) wt=90 users=8             :: %v22921 = vpop.permute.xlu0 %22920
+len=8800 lr=[375, 9175) wt=90 users=8              :: %v19182 = vpop.permute.xlu1 %19181
+len=8325 lr=[753, 9078) wt=90 users=8              :: %v19199 = vpop.permute.xlu1 %19198
+len=7319 lr=[387, 7706) wt=90 users=8              :: %v15460 = vpop.permute.xlu0 %15459
+len=6803 lr=[776, 7579) wt=90 users=8              :: %v15477 = vpop.permute.xlu0 %15476
+len=5679 lr=[345, 6024) wt=90 users=8              :: %v11738 = vpop.permute.xlu1 %11737
+len=5154 lr=[734, 5888) wt=90 users=8              :: %v11755 = vpop.permute.xlu1 %11754
+len=4164 lr=[356, 4520) wt=90 users=8              :: %v8016 = vpop.permute.xlu0 %8015
+len=3656 lr=[758, 4414) wt=90 users=8              :: %v8033 = vpop.permute.xlu0 %8032
+len=2720 lr=[335, 3055) wt=90 users=8              :: %v4294 = vpop.permute.xlu1 %4293
+len=2122 lr=[716, 2838) wt=90 users=8              :: %v4311 = vpop.permute.xlu1 %4310
+len=366 lr=[1390, 1756) wt=60 users=5              :: %v1677 = vmax.f32 %v1673, -0.99609375
+len=353 lr=[1379, 1732) wt=60 users=5              :: %v1190 = vmax.f32 %v1186, -0.99609375
+len=350 lr=[1528, 1878) wt=60 users=5              :: %v2164 = vmax.f32 %v2160, -0.99609375
+len=329 lr=[1359, 1688) wt=60 users=5              :: %v704 = vmax.f32 %v700, -0.99609375
+len=305 lr=[1460, 1765) wt=20 users=1              :: %v1687 = vmul.f32 inf, %v1677
+len=286 lr=[1412, 1698) wt=20 users=1              :: %v714 = vmul.f32 inf, %v704
+len=282 lr=[1458, 1740) wt=20 users=1              :: %v1200 = vmul.f32 inf, %v1190
+len=268 lr=[1459, 1727) wt=20 users=1              :: %v1679 = vand.u32 2147483647, %v1677
+len=252 lr=[1404, 1656) wt=20 users=1              :: %v706 = vand.u32 2147483647, %v704
+len=245 lr=[1454, 1699) wt=20 users=1              :: %v1192 = vand.u32 2147483647, %v1190
+len=206 lr=[1517, 1723) wt=20 users=1              :: %v1224 = vsel /*vm=*/%vm1219, /*on_true_vy=*/1.5014094, /*on_false_vx=*/%v121507
+len=205 lr=[1543, 1748) wt=20 users=1              :: %v1711 = vsel /*vm=*/%vm1706, /*on_true_vy=*/1.5014094, /*on_false_vx=*/%v121507
+len=200 lr=[1473, 1673) wt=20 users=1              :: %v3874 = vshll.u32 %v3868, 13
+len=199 lr=[1456, 1655) wt=40 users=3              :: %v3868 = vadd.s32 %v3829, %v9
+                                        use: lr=[1473, 1673) %v3874 = vshll.u32 %v3868, 13
+                                        use: lr=[1631, 1710) %v3872 = vadd.s32 %v3868, %v3864
+                                        use: lr=[1655, 1673) %v3875 = vshrl.u32 %v3868, 19
+len=191 lr=[1488, 1679) wt=20 users=1              :: %v738 = vsel /*vm=*/%vm733, /*on_true_vy=*/1.5014094, /*on_false_vx=*/%v121507
+len=182 lr=[1522, 1704) wt=20 users=1              :: %v1228 = vsel /*vm=*/%vm1219, /*on_true_vy=*/0.24664073, /*on_false_vx=*/%v121508
+len=171 lr=[1490, 1661) wt=20 users=1              :: %v742 = vsel /*vm=*/%vm733, /*on_true_vy=*/0.24664073, /*on_false_vx=*/%v121508
+len=160 lr=[1523, 1683) wt=20 users=1              :: %v1232 = vsel /*vm=*/%vm1219, /*on_true_vy=*/-0.0041776816, /*on_false_vx=*/%v121509
+len=153 lr=[1444, 1597) wt=30 users=2              :: %v3851 = vsel /*vm=*/%vm3838, /*on_true_vy=*/%v3847, /*on_false_vx=*/%v3843
+                                        use: lr=[1576, 1597) %v3855 = vadd.s32 1, %v3851
+                                        use: lr=[1597, 1614) %v3859 = vsel /*vm=*/%vm3833, /*on_true_vy=*/%v3855, /*on_false_vx=*/%v3851
+len=150 lr=[1494, 1644) wt=20 users=1              :: %v746 = vsel /*vm=*/%vm733, /*on_true_vy=*/-0.0041776816, /*on_false_vx=*/%v121509
+len=141 lr=[1525, 1666) wt=20 users=1              :: %v1236 = vsel /*vm=*/%vm1219, /*on_true_vy=*/-0.001253725, /*on_false_vx=*/%v121510
+len=132 lr=[1496, 1628) wt=20 users=1              :: %v750 = vsel /*vm=*/%vm733, /*on_true_vy=*/-0.001253725, /*on_false_vx=*/%v121510
+len=125 lr=[1545, 1670) wt=90 users=8              :: %v789 = vsel /*vm=*/%vm733, /*on_true_vy=*/%v774, /*on_false_vx=*/%v785
+len=122 lr=[1526, 1648) wt=20 users=1              :: %v1240 = vsel /*vm=*/%vm1219, /*on_true_vy=*/0.00021858087, /*on_false_vx=*/%v121511
+len=113 lr=[1498, 1611) wt=20 users=1              :: %v754 = vsel /*vm=*/%vm733, /*on_true_vy=*/0.00021858087, /*on_false_vx=*/%v121511
+len=98 lr=[1534, 1632) wt=20 users=1               :: %v1244 = vsel /*vm=*/%vm1219, /*on_true_vy=*/-4.3915065e-06, /*on_false_vx=*/%v121512
+len=95 lr=[1546, 1641) wt=20 users=1               :: %v1735 = vsel /*vm=*/%vm1706, /*on_true_vy=*/-3.5233877e-06, /*on_false_vx=*/%v121513
+len=93 lr=[1501, 1594) wt=20 users=1               :: %v758 = vsel /*vm=*/%vm733, /*on_true_vy=*/-4.3915065e-06, /*on_false_vx=*/%v121512
+len=87 lr=[1483, 1570) wt=90 users=8               :: %v1216 = vxor.u32 2147483648, %v1215
+len=80 lr=[1535, 1615) wt=20 users=1               :: %v1248 = vsel /*vm=*/%vm1219, /*on_true_vy=*/-3.5233877e-06, /*on_false_vx=*/%v121513
+len=76 lr=[1519, 1595) wt=90 users=8               :: %v1703 = vxor.u32 2147483648, %v1702
+len=74 lr=[1503, 1577) wt=20 users=1               :: %v762 = vsel /*vm=*/%vm733, /*on_true_vy=*/-3.5233877e-06, /*on_false_vx=*/%v121513
+len=73 lr=[1551, 1624) wt=20 users=1               :: %v1739 = vsel /*vm=*/%vm1706, /*on_true_vy=*/3.4327394e-07, /*on_false_vx=*/%v121514
+len=69 lr=[1518, 1587) wt=20 users=1               :: %v1260 = vadd.f32 -2.5, %v1216
+len=68 lr=[1515, 1583) wt=20 users=1               :: %v3413 = vadd.s32 %v3409, %v9
+len=68 lr=[1544, 1612) wt=20 users=1               :: %v1747 = vadd.f32 -2.5, %v1703
+len=61 lr=[1555, 1616) wt=20 users=1               :: %v1743 = vsel /*vm=*/%vm1706, /*on_true_vy=*/2.8102264e-08, /*on_false_vx=*/%v121515
+len=60 lr=[1538, 1598) wt=20 users=1               :: %v1252 = vsel /*vm=*/%vm1219, /*on_true_vy=*/3.4327394e-07, /*on_false_vx=*/%v121514
+len=51 lr=[1539, 1590) wt=20 users=1               :: %v1256 = vsel /*vm=*/%vm1219, /*on_true_vy=*/2.8102264e-08, /*on_false_vx=*/%v121515
+len=50 lr=[1558, 1608) wt=50 users=4               :: %v2179 = vmul.f32 %v2176, %v2164
+                                        use: lr=[1565, 1574) %v2181 = vadd.f32 1.0, %v2179
+                                        use: lr=[1566, 1582) %v2184 = vmul.f32 -0.5, %v2179
+                                        use: lr=[1575, 1604) %v2187 = vand.u32 2147483647, %v2179
+                                        use: lr=[1608, 1642) %v2186 = vmul.f32 %v2185, %v2179
+len=43 lr=[1524, 1567) wt=30 users=2               :: %v2567 = vadd.s32 %v2564, %v2559
+                                        use: lr=[1559, 1568) %v2576 = vxor.u32 %v2575, %v2567
+                                        use: lr=[1567, 1589) %v2571 = vadd.s32 %v2567, %v9
+len=42 lr=[1557, 1599) wt=20 users=1               :: %v1754 = vand.u32 2147483648, %v1703
+len=38 lr=[1563, 1601) wt=30 users=2               :: %v3002 = vadd.s32 %v2999, %v2994
+                                        use: lr=[1593, 1606) %v3007 = vxor.u32 %v3006, %v3002
+                                        use: lr=[1601, 1638) %v3010 = vadd.s32 %v3007, %v3002
+len=31 lr=[1542, 1573) wt=20 users=1               :: %v1267 = vand.u32 2147483648, %v1216
+len=19 lr=[1552, 1571) wt=40 users=3               :: %v2999 = vxor.u32 %v2998, %v2994
+                                        use: lr=[1563, 1601) %v3002 = vadd.s32 %v2999, %v2994
+                                        use: lr=[1564, 1580) %v3004 = vshll.u32 %v2999, 26
+                                        use: lr=[1571, 1580) %v3005 = vshrl.u32 %v2999, 6
+len=19 lr=[1553, 1572) wt=20 users=1               :: %v3421 = vadd.s32 %v3418, %v8
+len=16 lr=[1564, 1580) wt=20 users=1               :: %v3004 = vshll.u32 %v2999, 26
+len=16 lr=[1566, 1582) wt=20 users=1               :: %v2184 = vmul.f32 -0.5, %v2179
+len=9 lr=[1559, 1568) wt=20 users=1                :: %v2576 = vxor.u32 %v2575, %v2567
+len=9 lr=[1560, 1569) wt=20 users=1                :: %v797 = vadd.f32 %v793, %v766
+len=9 lr=[1561, 1570) wt=20 users=1                :: %v1263 = vmul.f32 %v120442, %v1216
+len=9 lr=[1565, 1574) wt=20 users=1                :: %v2181 = vadd.f32 1.0, %v2179

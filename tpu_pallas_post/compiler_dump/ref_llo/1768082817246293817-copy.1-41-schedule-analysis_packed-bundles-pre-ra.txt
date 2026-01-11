@@ -1,0 +1,6 @@
+Schedule analysis:
+	total scheduled bundles:    809
+	empty scheduled bundles:    29
+	non empty scheduled bundles: 780
+	 780.00 scheduled bundles (100.00%): %copy.1 = pred[8,2048,2048]{2,1,0:T(32,128)(4,1)} copy(%Arg_0.1)
+	[opcode]     780 scheduled bundles (100.00%): copy                 (1 instances, 780.00 avg)

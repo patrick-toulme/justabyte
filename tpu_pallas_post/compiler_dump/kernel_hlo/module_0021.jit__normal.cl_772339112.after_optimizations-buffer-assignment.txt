@@ -1,0 +1,168 @@
+BufferAssignment:
+allocation 0: size 512, constant:
+ value: <331 constant.80 @0> (size=512,offset=0): u32[]{:T(128)}
+allocation 1: size 4194304, output shape is |bf16[8,2048,128]|, maybe-live-out:
+ value: <339 fusion.21 @0> (size=4194304,offset=0): bf16[8,2048,128]{2,1,0:T(8,128)(2,1)}
+allocation 2: size 512, parameter 0, shape |u32[2]| at ShapeIndex {}:
+ value: <326 Arg_0.1 @0> (size=512,offset=0): u32[2]{0:T(128)}
+allocation 3: size 20992, color 1, preallocated-temp:
+ value: <334 fusion.28{0} @1> (size=8192,offset=0): u32[2048]{0:T(1024)S(1)}
+ value: <335 fusion.28{1} @1> (size=8192,offset=8192): u32[2048]{0:T(1024)S(1)}
+ value: <337 fusion.36{0} @1> (size=512,offset=16384): u32[8]{0:T(128)S(1)}
+ value: <338 fusion.36{1} @1> (size=512,offset=20480): u32[8]{0:T(128)S(1)}
+allocation 4: size 66048, preallocated-temp:
+ value: <327 fusion.40{} @0> (size=32,offset=0): (u32[1]{0:T(128)}, u32[1]{0:T(128)})
+ value: <328 fusion.40{0} @0> (size=512,offset=49152): u32[1]{0:T(128)}
+ value: <329 fusion.40{1} @0> (size=512,offset=65536): u32[1]{0:T(128)}
+ value: <333 fusion.28{} @0> (size=32,offset=16384): (u32[2048]{0:T(1024)S(1)}, u32[2048]{0:T(1024)S(1)})
+ value: <336 fusion.36{} @0> (size=32,offset=32768): (u32[8]{0:T(128)S(1)}, u32[8]{0:T(128)S(1)})
+allocation 5: size 512, color 6, preallocated-temp:
+ value: <330 xor.49 @6> (size=512,offset=0): u32[]{:T(128)S(6)}
+ value: <332 xor.50 @6> (size=512,offset=0): u32[]{:T(128)S(6)}
+
+Total bytes used: 4282880 (4.08MiB)
+
+Used values:
+<326 Arg_0.1 @0>
+ positions:
+  Arg_0.1
+ uses:
+  fusion.40, operand 0
+ from instruction: %Arg_0.1 = u32[2]{0:T(128)} parameter(0), metadata={op_name="key"}
+<327 fusion.40{} @0>
+ positions:
+  fusion.40 {}
+ uses:
+  get-tuple-element, operand 0 {}
+  get-tuple-element.1, operand 0 {}
+ from instruction: %fusion.40 = (u32[1]{0:T(128)}, u32[1]{0:T(128)}) fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation.56, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/slice" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}
+<328 fusion.40{0} @0>
+ positions:
+  fusion.40 {0}
+  bitcast.1
+  get-tuple-element
+ uses:
+  fusion.21, operand 1
+  xor.49, operand 1
+  bitcast.1, operand 0
+ from instruction: %fusion.40 = (u32[1]{0:T(128)}, u32[1]{0:T(128)}) fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation.56, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/slice" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}
+<329 fusion.40{1} @0>
+ positions:
+  fusion.40 {1}
+  bitcast
+  get-tuple-element.1
+ uses:
+  fusion.21, operand 2
+  xor.49, operand 0
+  bitcast, operand 0
+ from instruction: %fusion.40 = (u32[1]{0:T(128)}, u32[1]{0:T(128)}) fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation.56, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/slice" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}
+<330 xor.49 @6>
+ positions:
+  xor.49
+ uses:
+  xor.50, operand 0
+ from instruction: %xor.49 = u32[]{:T(128)S(6)} xor(%bitcast, %bitcast.1), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}
+<331 constant.80 @0>
+ positions:
+  constant.80
+ uses:
+  xor.50, operand 1
+ from instruction: %constant.80 = u32[]{:T(128)} constant(466688986)
+<332 xor.50 @6>
+ positions:
+  xor.50
+ uses:
+  fusion.21, operand 0
+ from instruction: %xor.50 = u32[]{:T(128)S(6)} xor(%xor.49, %constant.80), metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}
+<333 fusion.28{} @0>
+ positions:
+  fusion.28 {}
+ uses:
+  get-tuple-element.4, operand 0 {}
+  get-tuple-element.5, operand 0 {}
+ from instruction: %fusion.28 = (u32[2048]{0:T(1024)S(1)}, u32[2048]{0:T(1024)S(1)}) fusion(), kind=kLoop, calls=%fused_computation.42, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"fusion_formation_source":{"fusion_creating_compiler_pass":"TpuAdvancedMOF","fusion_id":"42"}}
+<334 fusion.28{0} @1>
+ positions:
+  fusion.28 {0}
+  get-tuple-element.4
+ uses:
+  fusion.21, operand 5
+ from instruction: %fusion.28 = (u32[2048]{0:T(1024)S(1)}, u32[2048]{0:T(1024)S(1)}) fusion(), kind=kLoop, calls=%fused_computation.42, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"fusion_formation_source":{"fusion_creating_compiler_pass":"TpuAdvancedMOF","fusion_id":"42"}}
+<335 fusion.28{1} @1>
+ positions:
+  fusion.28 {1}
+  get-tuple-element.5
+ uses:
+  fusion.21, operand 3
+ from instruction: %fusion.28 = (u32[2048]{0:T(1024)S(1)}, u32[2048]{0:T(1024)S(1)}) fusion(), kind=kLoop, calls=%fused_computation.42, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"fusion_formation_source":{"fusion_creating_compiler_pass":"TpuAdvancedMOF","fusion_id":"42"}}
+<336 fusion.36{} @0>
+ positions:
+  fusion.36 {}
+ uses:
+  get-tuple-element.6, operand 0 {}
+  get-tuple-element.7, operand 0 {}
+ from instruction: %fusion.36 = (u32[8]{0:T(128)S(1)}, u32[8]{0:T(128)S(1)}) fusion(), kind=kLoop, calls=%fused_computation.52, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"fusion_formation_source":{"fusion_creating_compiler_pass":"TpuAdvancedMOF","fusion_id":"42"}}
+<337 fusion.36{0} @1>
+ positions:
+  fusion.36 {0}
+  get-tuple-element.6
+ uses:
+  fusion.21, operand 6
+ from instruction: %fusion.36 = (u32[8]{0:T(128)S(1)}, u32[8]{0:T(128)S(1)}) fusion(), kind=kLoop, calls=%fused_computation.52, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"fusion_formation_source":{"fusion_creating_compiler_pass":"TpuAdvancedMOF","fusion_id":"42"}}
+<338 fusion.36{1} @1>
+ positions:
+  fusion.36 {1}
+  get-tuple-element.7
+ uses:
+  fusion.21, operand 4
+ from instruction: %fusion.36 = (u32[8]{0:T(128)S(1)}, u32[8]{0:T(128)S(1)}) fusion(), kind=kLoop, calls=%fused_computation.52, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"fusion_formation_source":{"fusion_creating_compiler_pass":"TpuAdvancedMOF","fusion_id":"42"}}
+<339 fusion.21 @0>
+ positions:
+  fusion.21
+ uses:
+ from instruction: %fusion.21 = bf16[8,2048,128]{2,1,0:T(8,128)(2,1)} fusion(%xor.50, %bitcast.1, %bitcast, %get-tuple-element.5, %get-tuple-element.7, /*index=5*/%get-tuple-element.4, %get-tuple-element.6), kind=kLoop, calls=%fused_computation.32, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/mul" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}
+
+
+HloLiveRange (max 16):
+  InstructionSequence:
+    0:constant.80
+    1:Arg_0.1
+    2:fusion.40
+    3:get-tuple-element.1
+    4:get-tuple-element
+    5:bitcast
+    6:bitcast.1
+    7:xor.49
+    8:xor.50
+    9:fusion.36
+    10:get-tuple-element.7
+    11:get-tuple-element.6
+    12:fusion.28
+    13:get-tuple-element.5
+    14:get-tuple-element.4
+    15:fusion.21
+  BufferLiveRange:
+    Arg_0.1{}:0-16
+    fusion.40{}:2-4
+    fusion.40{0}:2-15
+    fusion.40{1}:2-15
+    xor.49{}:7-8
+    constant.80{}:0-8
+    xor.50{}:8-15
+    fusion.28{}:12-14
+    fusion.28{0}:12-15
+    fusion.28{1}:12-15
+    fusion.36{}:9-11
+    fusion.36{0}:9-15
+    fusion.36{1}:9-15
+    fusion.21{}:15-16
+  Live ranges at 15 (peak):
+    fusion.21{}: 4194304 bytes (cumulative: 4194304 bytes)
+    fusion.28{0}: 8192 bytes (cumulative: 4202496 bytes)
+    fusion.28{1}: 8192 bytes (cumulative: 4210688 bytes)
+    fusion.36{0}: 32 bytes (cumulative: 4210720 bytes)
+    fusion.36{1}: 32 bytes (cumulative: 4210752 bytes)
+    Arg_0.1{}: 8 bytes (cumulative: 4210760 bytes)
+    fusion.40{0}: 4 bytes (cumulative: 4210764 bytes)
+    fusion.40{1}: 4 bytes (cumulative: 4210768 bytes)
+    xor.50{}: 4 bytes (cumulative: 4210772 bytes)

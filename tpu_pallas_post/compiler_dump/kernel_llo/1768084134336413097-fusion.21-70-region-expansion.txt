@@ -1,0 +1,4 @@
+ordinal=0 before=12573 after=12790 expansion=1.01726
+ordinal=1 before=12571 after=12786 expansion=1.0171
+ordinal=35 before=12554 after=12751 expansion=1.01569
+ordinal=50 before=12559 after=12774 expansion=1.01712

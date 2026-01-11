@@ -1,0 +1,37 @@
+Total bytes used: 19456 (19.0KiB)
+
+Allocations sorted by size:
+
+cumulative_size; total_size - cumulative_size; allocation
+------------------------------------------------------------------------------
+   16.5KiB( 87%);     2.5KiB; allocation 4: size 16.5KiB, preallocated-temp:
+   17.5KiB( 92%);     1.5KiB; allocation 5: size 1.0KiB, color 6, preallocated-temp:
+   18.0KiB( 95%);     1.0KiB; allocation 0: size 512B, constant:
+   18.5KiB( 97%);       512B; allocation 1: size 512B, output shape is |u32[2]|, maybe-live-out:
+   19.0KiB(100%);         0B; allocation 2: size 512B, parameter 0, shape |s32[]| at ShapeIndex {}:
+   19.0KiB(100%);         0B; allocation 3: size 0B, color 1, preallocated-temp:
+
+
+Allocations sorted by size with their values:
+allocation 4: size 16.5KiB, preallocated-temp:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+	     512B( 50%);       512B;            0;                1; u32[]
+	   1.0KiB(100%);       512B;        16384;                1; u32[]
+
+allocation 5: size 1.0KiB, color 6, preallocated-temp:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+	     512B( 50%);       512B;            0;                1; s32[]
+	   1.0KiB(100%);       512B;          512;                1; s32[]
+
+allocation 0: size 512B, constant:
+allocation 1: size 512B, output shape is |u32[2]|, maybe-live-out:
+allocation 2: size 512B, parameter 0, shape |s32[]| at ShapeIndex {}:
+allocation 3: size 0B, color 1, preallocated-temp:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+

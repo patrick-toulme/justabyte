@@ -1,0 +1,6 @@
+Schedule analysis:
+	total scheduled bundles:    134
+	empty scheduled bundles:    2
+	non empty scheduled bundles: 132
+	 132.00 scheduled bundles (100.00%): %iota.1 = s32[2048,128]{1,0:T(8,128)S(1)} iota(), iota_dimension=0, metadata={op_name="jit(splash_attention_kernel)/jit(main)/splash_attention_kernel/splash_kernel_b1024_h8_s2048/jit(_splash_attention)/broadcast_in_dim" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=1045}
+	[opcode]     132 scheduled bundles (100.00%): iota                 (1 instances, 132.00 avg)

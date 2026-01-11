@@ -1,0 +1,515 @@
+
+%s0 = inlined_call_operand.vmem [shape: s32[2048,128], index: 0, kind: output, shape index: {}] /* operand 0 */
+%v1 = vlaneseq
+%v2 = vshrl.u32 %v1, 7
+%5 = vst [vmem:[%s0] sm:$0xff] /*vst_source=*/%v2
+%v9 = vadd.s32 8, %v2
+%v15 = vadd.s32 16, %v2
+%v21 = vadd.s32 24, %v2
+%v27 = vadd.s32 32, %v2
+%v33 = vadd.s32 40, %v2
+%v39 = vadd.s32 48, %v2
+%v45 = vadd.s32 56, %v2
+%v51 = vadd.s32 64, %v2
+%1536 = vst [vmem:[%s0 + $0x8] sm:$0xff] /*vst_source=*/%v9
+%1537 = vst [vmem:[%s0 + $0x10] sm:$0xff] /*vst_source=*/%v15
+%1538 = vst [vmem:[%s0 + $0x18] sm:$0xff] /*vst_source=*/%v21
+%1539 = vst [vmem:[%s0 + $0x20] sm:$0xff] /*vst_source=*/%v27
+%v57 = vadd.s32 72, %v2
+%v63 = vadd.s32 80, %v2
+%v69 = vadd.s32 88, %v2
+%v75 = vadd.s32 96, %v2
+%1540 = vst [vmem:[%s0 + $0x28] sm:$0xff] /*vst_source=*/%v33
+%1541 = vst [vmem:[%s0 + $0x30] sm:$0xff] /*vst_source=*/%v39
+%1542 = vst [vmem:[%s0 + $0x38] sm:$0xff] /*vst_source=*/%v45
+%1543 = vst [vmem:[%s0 + $0x40] sm:$0xff] /*vst_source=*/%v51
+%v81 = vadd.s32 104, %v2
+%v87 = vadd.s32 112, %v2
+%v93 = vadd.s32 120, %v2
+%v99 = vadd.s32 128, %v2
+%1544 = vst [vmem:[%s0 + $0x48] sm:$0xff] /*vst_source=*/%v57
+%1545 = vst [vmem:[%s0 + $0x50] sm:$0xff] /*vst_source=*/%v63
+%1546 = vst [vmem:[%s0 + $0x58] sm:$0xff] /*vst_source=*/%v69
+%1547 = vst [vmem:[%s0 + $0x60] sm:$0xff] /*vst_source=*/%v75
+%v105 = vadd.s32 136, %v2
+%v111 = vadd.s32 144, %v2
+%v117 = vadd.s32 152, %v2
+%v123 = vadd.s32 160, %v2
+%1548 = vst [vmem:[%s0 + $0x68] sm:$0xff] /*vst_source=*/%v81
+%1549 = vst [vmem:[%s0 + $0x70] sm:$0xff] /*vst_source=*/%v87
+%1550 = vst [vmem:[%s0 + $0x78] sm:$0xff] /*vst_source=*/%v93
+%1551 = vst [vmem:[%s0 + $0x80] sm:$0xff] /*vst_source=*/%v99
+%v129 = vadd.s32 168, %v2
+%v135 = vadd.s32 176, %v2
+%v141 = vadd.s32 184, %v2
+%v147 = vadd.s32 192, %v2
+%1552 = vst [vmem:[%s0 + $0x88] sm:$0xff] /*vst_source=*/%v105
+%1553 = vst [vmem:[%s0 + $0x90] sm:$0xff] /*vst_source=*/%v111
+%1554 = vst [vmem:[%s0 + $0x98] sm:$0xff] /*vst_source=*/%v117
+%1555 = vst [vmem:[%s0 + $0xa0] sm:$0xff] /*vst_source=*/%v123
+%v153 = vadd.s32 200, %v2
+%v159 = vadd.s32 208, %v2
+%v165 = vadd.s32 216, %v2
+%v171 = vadd.s32 224, %v2
+%1556 = vst [vmem:[%s0 + $0xa8] sm:$0xff] /*vst_source=*/%v129
+%1557 = vst [vmem:[%s0 + $0xb0] sm:$0xff] /*vst_source=*/%v135
+%1558 = vst [vmem:[%s0 + $0xb8] sm:$0xff] /*vst_source=*/%v141
+%1559 = vst [vmem:[%s0 + $0xc0] sm:$0xff] /*vst_source=*/%v147
+%v177 = vadd.s32 232, %v2
+%v183 = vadd.s32 240, %v2
+%v189 = vadd.s32 248, %v2
+%v195 = vadd.s32 256, %v2
+%1560 = vst [vmem:[%s0 + $0xc8] sm:$0xff] /*vst_source=*/%v153
+%1561 = vst [vmem:[%s0 + $0xd0] sm:$0xff] /*vst_source=*/%v159
+%1562 = vst [vmem:[%s0 + $0xd8] sm:$0xff] /*vst_source=*/%v165
+%1563 = vst [vmem:[%s0 + $0xe0] sm:$0xff] /*vst_source=*/%v171
+%v201 = vadd.s32 264, %v2
+%v207 = vadd.s32 272, %v2
+%v213 = vadd.s32 280, %v2
+%v219 = vadd.s32 288, %v2
+%1564 = vst [vmem:[%s0 + $0xe8] sm:$0xff] /*vst_source=*/%v177
+%1565 = vst [vmem:[%s0 + $0xf0] sm:$0xff] /*vst_source=*/%v183
+%1566 = vst [vmem:[%s0 + $0xf8] sm:$0xff] /*vst_source=*/%v189
+%1567 = vst [vmem:[%s0 + $0x100] sm:$0xff] /*vst_source=*/%v195
+%v225 = vadd.s32 296, %v2
+%v231 = vadd.s32 304, %v2
+%v237 = vadd.s32 312, %v2
+%v243 = vadd.s32 320, %v2
+%1568 = vst [vmem:[%s0 + $0x108] sm:$0xff] /*vst_source=*/%v201
+%1569 = vst [vmem:[%s0 + $0x110] sm:$0xff] /*vst_source=*/%v207
+%1570 = vst [vmem:[%s0 + $0x118] sm:$0xff] /*vst_source=*/%v213
+%1571 = vst [vmem:[%s0 + $0x120] sm:$0xff] /*vst_source=*/%v219
+%v249 = vadd.s32 328, %v2
+%v255 = vadd.s32 336, %v2
+%v261 = vadd.s32 344, %v2
+%v267 = vadd.s32 352, %v2
+%1572 = vst [vmem:[%s0 + $0x128] sm:$0xff] /*vst_source=*/%v225
+%1573 = vst [vmem:[%s0 + $0x130] sm:$0xff] /*vst_source=*/%v231
+%1574 = vst [vmem:[%s0 + $0x138] sm:$0xff] /*vst_source=*/%v237
+%1575 = vst [vmem:[%s0 + $0x140] sm:$0xff] /*vst_source=*/%v243
+%v273 = vadd.s32 360, %v2
+%v279 = vadd.s32 368, %v2
+%v285 = vadd.s32 376, %v2
+%v291 = vadd.s32 384, %v2
+%1576 = vst [vmem:[%s0 + $0x148] sm:$0xff] /*vst_source=*/%v249
+%1577 = vst [vmem:[%s0 + $0x150] sm:$0xff] /*vst_source=*/%v255
+%1578 = vst [vmem:[%s0 + $0x158] sm:$0xff] /*vst_source=*/%v261
+%1579 = vst [vmem:[%s0 + $0x160] sm:$0xff] /*vst_source=*/%v267
+%v297 = vadd.s32 392, %v2
+%v303 = vadd.s32 400, %v2
+%v309 = vadd.s32 408, %v2
+%v315 = vadd.s32 416, %v2
+%1580 = vst [vmem:[%s0 + $0x168] sm:$0xff] /*vst_source=*/%v273
+%1581 = vst [vmem:[%s0 + $0x170] sm:$0xff] /*vst_source=*/%v279
+%1582 = vst [vmem:[%s0 + $0x178] sm:$0xff] /*vst_source=*/%v285
+%1583 = vst [vmem:[%s0 + $0x180] sm:$0xff] /*vst_source=*/%v291
+%v321 = vadd.s32 424, %v2
+%v327 = vadd.s32 432, %v2
+%v333 = vadd.s32 440, %v2
+%v339 = vadd.s32 448, %v2
+%1584 = vst [vmem:[%s0 + $0x188] sm:$0xff] /*vst_source=*/%v297
+%1585 = vst [vmem:[%s0 + $0x190] sm:$0xff] /*vst_source=*/%v303
+%1586 = vst [vmem:[%s0 + $0x198] sm:$0xff] /*vst_source=*/%v309
+%1587 = vst [vmem:[%s0 + $0x1a0] sm:$0xff] /*vst_source=*/%v315
+%v345 = vadd.s32 456, %v2
+%v351 = vadd.s32 464, %v2
+%v357 = vadd.s32 472, %v2
+%v363 = vadd.s32 480, %v2
+%1588 = vst [vmem:[%s0 + $0x1a8] sm:$0xff] /*vst_source=*/%v321
+%1589 = vst [vmem:[%s0 + $0x1b0] sm:$0xff] /*vst_source=*/%v327
+%1590 = vst [vmem:[%s0 + $0x1b8] sm:$0xff] /*vst_source=*/%v333
+%1591 = vst [vmem:[%s0 + $0x1c0] sm:$0xff] /*vst_source=*/%v339
+%v369 = vadd.s32 488, %v2
+%v375 = vadd.s32 496, %v2
+%v381 = vadd.s32 504, %v2
+%v387 = vadd.s32 512, %v2
+%1592 = vst [vmem:[%s0 + $0x1c8] sm:$0xff] /*vst_source=*/%v345
+%1593 = vst [vmem:[%s0 + $0x1d0] sm:$0xff] /*vst_source=*/%v351
+%1594 = vst [vmem:[%s0 + $0x1d8] sm:$0xff] /*vst_source=*/%v357
+%1595 = vst [vmem:[%s0 + $0x1e0] sm:$0xff] /*vst_source=*/%v363
+%v393 = vadd.s32 520, %v2
+%v399 = vadd.s32 528, %v2
+%v405 = vadd.s32 536, %v2
+%v411 = vadd.s32 544, %v2
+%1596 = vst [vmem:[%s0 + $0x1e8] sm:$0xff] /*vst_source=*/%v369
+%1597 = vst [vmem:[%s0 + $0x1f0] sm:$0xff] /*vst_source=*/%v375
+%1598 = vst [vmem:[%s0 + $0x1f8] sm:$0xff] /*vst_source=*/%v381
+%1599 = vst [vmem:[%s0 + $0x200] sm:$0xff] /*vst_source=*/%v387
+%v417 = vadd.s32 552, %v2
+%v423 = vadd.s32 560, %v2
+%v429 = vadd.s32 568, %v2
+%v435 = vadd.s32 576, %v2
+%1600 = vst [vmem:[%s0 + $0x208] sm:$0xff] /*vst_source=*/%v393
+%1601 = vst [vmem:[%s0 + $0x210] sm:$0xff] /*vst_source=*/%v399
+%1602 = vst [vmem:[%s0 + $0x218] sm:$0xff] /*vst_source=*/%v405
+%1603 = vst [vmem:[%s0 + $0x220] sm:$0xff] /*vst_source=*/%v411
+%v441 = vadd.s32 584, %v2
+%v447 = vadd.s32 592, %v2
+%v453 = vadd.s32 600, %v2
+%v459 = vadd.s32 608, %v2
+%1604 = vst [vmem:[%s0 + $0x228] sm:$0xff] /*vst_source=*/%v417
+%1605 = vst [vmem:[%s0 + $0x230] sm:$0xff] /*vst_source=*/%v423
+%1606 = vst [vmem:[%s0 + $0x238] sm:$0xff] /*vst_source=*/%v429
+%1607 = vst [vmem:[%s0 + $0x240] sm:$0xff] /*vst_source=*/%v435
+%v465 = vadd.s32 616, %v2
+%v471 = vadd.s32 624, %v2
+%v477 = vadd.s32 632, %v2
+%v483 = vadd.s32 640, %v2
+%1608 = vst [vmem:[%s0 + $0x248] sm:$0xff] /*vst_source=*/%v441
+%1609 = vst [vmem:[%s0 + $0x250] sm:$0xff] /*vst_source=*/%v447
+%1610 = vst [vmem:[%s0 + $0x258] sm:$0xff] /*vst_source=*/%v453
+%1611 = vst [vmem:[%s0 + $0x260] sm:$0xff] /*vst_source=*/%v459
+%v489 = vadd.s32 648, %v2
+%v495 = vadd.s32 656, %v2
+%v501 = vadd.s32 664, %v2
+%v507 = vadd.s32 672, %v2
+%1612 = vst [vmem:[%s0 + $0x268] sm:$0xff] /*vst_source=*/%v465
+%1613 = vst [vmem:[%s0 + $0x270] sm:$0xff] /*vst_source=*/%v471
+%1614 = vst [vmem:[%s0 + $0x278] sm:$0xff] /*vst_source=*/%v477
+%1615 = vst [vmem:[%s0 + $0x280] sm:$0xff] /*vst_source=*/%v483
+%v513 = vadd.s32 680, %v2
+%v519 = vadd.s32 688, %v2
+%v525 = vadd.s32 696, %v2
+%v531 = vadd.s32 704, %v2
+%1616 = vst [vmem:[%s0 + $0x288] sm:$0xff] /*vst_source=*/%v489
+%1617 = vst [vmem:[%s0 + $0x290] sm:$0xff] /*vst_source=*/%v495
+%1618 = vst [vmem:[%s0 + $0x298] sm:$0xff] /*vst_source=*/%v501
+%1619 = vst [vmem:[%s0 + $0x2a0] sm:$0xff] /*vst_source=*/%v507
+%v537 = vadd.s32 712, %v2
+%v543 = vadd.s32 720, %v2
+%v549 = vadd.s32 728, %v2
+%v555 = vadd.s32 736, %v2
+%1620 = vst [vmem:[%s0 + $0x2a8] sm:$0xff] /*vst_source=*/%v513
+%1621 = vst [vmem:[%s0 + $0x2b0] sm:$0xff] /*vst_source=*/%v519
+%1622 = vst [vmem:[%s0 + $0x2b8] sm:$0xff] /*vst_source=*/%v525
+%1623 = vst [vmem:[%s0 + $0x2c0] sm:$0xff] /*vst_source=*/%v531
+%v561 = vadd.s32 744, %v2
+%v567 = vadd.s32 752, %v2
+%v573 = vadd.s32 760, %v2
+%v579 = vadd.s32 768, %v2
+%1624 = vst [vmem:[%s0 + $0x2c8] sm:$0xff] /*vst_source=*/%v537
+%1625 = vst [vmem:[%s0 + $0x2d0] sm:$0xff] /*vst_source=*/%v543
+%1626 = vst [vmem:[%s0 + $0x2d8] sm:$0xff] /*vst_source=*/%v549
+%1627 = vst [vmem:[%s0 + $0x2e0] sm:$0xff] /*vst_source=*/%v555
+%v585 = vadd.s32 776, %v2
+%v591 = vadd.s32 784, %v2
+%v597 = vadd.s32 792, %v2
+%v603 = vadd.s32 800, %v2
+%1628 = vst [vmem:[%s0 + $0x2e8] sm:$0xff] /*vst_source=*/%v561
+%1629 = vst [vmem:[%s0 + $0x2f0] sm:$0xff] /*vst_source=*/%v567
+%1630 = vst [vmem:[%s0 + $0x2f8] sm:$0xff] /*vst_source=*/%v573
+%1631 = vst [vmem:[%s0 + $0x300] sm:$0xff] /*vst_source=*/%v579
+%v609 = vadd.s32 808, %v2
+%v615 = vadd.s32 816, %v2
+%v621 = vadd.s32 824, %v2
+%v627 = vadd.s32 832, %v2
+%1632 = vst [vmem:[%s0 + $0x308] sm:$0xff] /*vst_source=*/%v585
+%1633 = vst [vmem:[%s0 + $0x310] sm:$0xff] /*vst_source=*/%v591
+%1634 = vst [vmem:[%s0 + $0x318] sm:$0xff] /*vst_source=*/%v597
+%1635 = vst [vmem:[%s0 + $0x320] sm:$0xff] /*vst_source=*/%v603
+%v633 = vadd.s32 840, %v2
+%v639 = vadd.s32 848, %v2
+%v645 = vadd.s32 856, %v2
+%v651 = vadd.s32 864, %v2
+%1636 = vst [vmem:[%s0 + $0x328] sm:$0xff] /*vst_source=*/%v609
+%1637 = vst [vmem:[%s0 + $0x330] sm:$0xff] /*vst_source=*/%v615
+%1638 = vst [vmem:[%s0 + $0x338] sm:$0xff] /*vst_source=*/%v621
+%1639 = vst [vmem:[%s0 + $0x340] sm:$0xff] /*vst_source=*/%v627
+%v657 = vadd.s32 872, %v2
+%v663 = vadd.s32 880, %v2
+%v669 = vadd.s32 888, %v2
+%v675 = vadd.s32 896, %v2
+%1640 = vst [vmem:[%s0 + $0x348] sm:$0xff] /*vst_source=*/%v633
+%1641 = vst [vmem:[%s0 + $0x350] sm:$0xff] /*vst_source=*/%v639
+%1642 = vst [vmem:[%s0 + $0x358] sm:$0xff] /*vst_source=*/%v645
+%1643 = vst [vmem:[%s0 + $0x360] sm:$0xff] /*vst_source=*/%v651
+%v681 = vadd.s32 904, %v2
+%v687 = vadd.s32 912, %v2
+%v693 = vadd.s32 920, %v2
+%v699 = vadd.s32 928, %v2
+%1644 = vst [vmem:[%s0 + $0x368] sm:$0xff] /*vst_source=*/%v657
+%1645 = vst [vmem:[%s0 + $0x370] sm:$0xff] /*vst_source=*/%v663
+%1646 = vst [vmem:[%s0 + $0x378] sm:$0xff] /*vst_source=*/%v669
+%1647 = vst [vmem:[%s0 + $0x380] sm:$0xff] /*vst_source=*/%v675
+%v705 = vadd.s32 936, %v2
+%v711 = vadd.s32 944, %v2
+%v717 = vadd.s32 952, %v2
+%v723 = vadd.s32 960, %v2
+%1648 = vst [vmem:[%s0 + $0x388] sm:$0xff] /*vst_source=*/%v681
+%1649 = vst [vmem:[%s0 + $0x390] sm:$0xff] /*vst_source=*/%v687
+%1650 = vst [vmem:[%s0 + $0x398] sm:$0xff] /*vst_source=*/%v693
+%1651 = vst [vmem:[%s0 + $0x3a0] sm:$0xff] /*vst_source=*/%v699
+%v729 = vadd.s32 968, %v2
+%v735 = vadd.s32 976, %v2
+%v741 = vadd.s32 984, %v2
+%v747 = vadd.s32 992, %v2
+%1652 = vst [vmem:[%s0 + $0x3a8] sm:$0xff] /*vst_source=*/%v705
+%1653 = vst [vmem:[%s0 + $0x3b0] sm:$0xff] /*vst_source=*/%v711
+%1654 = vst [vmem:[%s0 + $0x3b8] sm:$0xff] /*vst_source=*/%v717
+%1655 = vst [vmem:[%s0 + $0x3c0] sm:$0xff] /*vst_source=*/%v723
+%v753 = vadd.s32 1000, %v2
+%v759 = vadd.s32 1008, %v2
+%v765 = vadd.s32 1016, %v2
+%v771 = vadd.s32 1024, %v2
+%1656 = vst [vmem:[%s0 + $0x3c8] sm:$0xff] /*vst_source=*/%v729
+%1657 = vst [vmem:[%s0 + $0x3d0] sm:$0xff] /*vst_source=*/%v735
+%1658 = vst [vmem:[%s0 + $0x3d8] sm:$0xff] /*vst_source=*/%v741
+%1659 = vst [vmem:[%s0 + $0x3e0] sm:$0xff] /*vst_source=*/%v747
+%v777 = vadd.s32 1032, %v2
+%v783 = vadd.s32 1040, %v2
+%v789 = vadd.s32 1048, %v2
+%v795 = vadd.s32 1056, %v2
+%1660 = vst [vmem:[%s0 + $0x3e8] sm:$0xff] /*vst_source=*/%v753
+%1661 = vst [vmem:[%s0 + $0x3f0] sm:$0xff] /*vst_source=*/%v759
+%1662 = vst [vmem:[%s0 + $0x3f8] sm:$0xff] /*vst_source=*/%v765
+%1663 = vst [vmem:[%s0 + $0x400] sm:$0xff] /*vst_source=*/%v771
+%v801 = vadd.s32 1064, %v2
+%v807 = vadd.s32 1072, %v2
+%v813 = vadd.s32 1080, %v2
+%v819 = vadd.s32 1088, %v2
+%1664 = vst [vmem:[%s0 + $0x408] sm:$0xff] /*vst_source=*/%v777
+%1665 = vst [vmem:[%s0 + $0x410] sm:$0xff] /*vst_source=*/%v783
+%1666 = vst [vmem:[%s0 + $0x418] sm:$0xff] /*vst_source=*/%v789
+%1667 = vst [vmem:[%s0 + $0x420] sm:$0xff] /*vst_source=*/%v795
+%v825 = vadd.s32 1096, %v2
+%v831 = vadd.s32 1104, %v2
+%v837 = vadd.s32 1112, %v2
+%v843 = vadd.s32 1120, %v2
+%1668 = vst [vmem:[%s0 + $0x428] sm:$0xff] /*vst_source=*/%v801
+%1669 = vst [vmem:[%s0 + $0x430] sm:$0xff] /*vst_source=*/%v807
+%1670 = vst [vmem:[%s0 + $0x438] sm:$0xff] /*vst_source=*/%v813
+%1671 = vst [vmem:[%s0 + $0x440] sm:$0xff] /*vst_source=*/%v819
+%v849 = vadd.s32 1128, %v2
+%v855 = vadd.s32 1136, %v2
+%v861 = vadd.s32 1144, %v2
+%v867 = vadd.s32 1152, %v2
+%1672 = vst [vmem:[%s0 + $0x448] sm:$0xff] /*vst_source=*/%v825
+%1673 = vst [vmem:[%s0 + $0x450] sm:$0xff] /*vst_source=*/%v831
+%1674 = vst [vmem:[%s0 + $0x458] sm:$0xff] /*vst_source=*/%v837
+%1675 = vst [vmem:[%s0 + $0x460] sm:$0xff] /*vst_source=*/%v843
+%v873 = vadd.s32 1160, %v2
+%v879 = vadd.s32 1168, %v2
+%v885 = vadd.s32 1176, %v2
+%v891 = vadd.s32 1184, %v2
+%1676 = vst [vmem:[%s0 + $0x468] sm:$0xff] /*vst_source=*/%v849
+%1677 = vst [vmem:[%s0 + $0x470] sm:$0xff] /*vst_source=*/%v855
+%1678 = vst [vmem:[%s0 + $0x478] sm:$0xff] /*vst_source=*/%v861
+%1679 = vst [vmem:[%s0 + $0x480] sm:$0xff] /*vst_source=*/%v867
+%v897 = vadd.s32 1192, %v2
+%v903 = vadd.s32 1200, %v2
+%v909 = vadd.s32 1208, %v2
+%v915 = vadd.s32 1216, %v2
+%1680 = vst [vmem:[%s0 + $0x488] sm:$0xff] /*vst_source=*/%v873
+%1681 = vst [vmem:[%s0 + $0x490] sm:$0xff] /*vst_source=*/%v879
+%1682 = vst [vmem:[%s0 + $0x498] sm:$0xff] /*vst_source=*/%v885
+%1683 = vst [vmem:[%s0 + $0x4a0] sm:$0xff] /*vst_source=*/%v891
+%v921 = vadd.s32 1224, %v2
+%v927 = vadd.s32 1232, %v2
+%v933 = vadd.s32 1240, %v2
+%v939 = vadd.s32 1248, %v2
+%1684 = vst [vmem:[%s0 + $0x4a8] sm:$0xff] /*vst_source=*/%v897
+%1685 = vst [vmem:[%s0 + $0x4b0] sm:$0xff] /*vst_source=*/%v903
+%1686 = vst [vmem:[%s0 + $0x4b8] sm:$0xff] /*vst_source=*/%v909
+%1687 = vst [vmem:[%s0 + $0x4c0] sm:$0xff] /*vst_source=*/%v915
+%v945 = vadd.s32 1256, %v2
+%v951 = vadd.s32 1264, %v2
+%v957 = vadd.s32 1272, %v2
+%v963 = vadd.s32 1280, %v2
+%1688 = vst [vmem:[%s0 + $0x4c8] sm:$0xff] /*vst_source=*/%v921
+%1689 = vst [vmem:[%s0 + $0x4d0] sm:$0xff] /*vst_source=*/%v927
+%1690 = vst [vmem:[%s0 + $0x4d8] sm:$0xff] /*vst_source=*/%v933
+%1691 = vst [vmem:[%s0 + $0x4e0] sm:$0xff] /*vst_source=*/%v939
+%v969 = vadd.s32 1288, %v2
+%v975 = vadd.s32 1296, %v2
+%v981 = vadd.s32 1304, %v2
+%v987 = vadd.s32 1312, %v2
+%1692 = vst [vmem:[%s0 + $0x4e8] sm:$0xff] /*vst_source=*/%v945
+%1693 = vst [vmem:[%s0 + $0x4f0] sm:$0xff] /*vst_source=*/%v951
+%1694 = vst [vmem:[%s0 + $0x4f8] sm:$0xff] /*vst_source=*/%v957
+%1695 = vst [vmem:[%s0 + $0x500] sm:$0xff] /*vst_source=*/%v963
+%v993 = vadd.s32 1320, %v2
+%v999 = vadd.s32 1328, %v2
+%v1005 = vadd.s32 1336, %v2
+%v1011 = vadd.s32 1344, %v2
+%1696 = vst [vmem:[%s0 + $0x508] sm:$0xff] /*vst_source=*/%v969
+%1697 = vst [vmem:[%s0 + $0x510] sm:$0xff] /*vst_source=*/%v975
+%1698 = vst [vmem:[%s0 + $0x518] sm:$0xff] /*vst_source=*/%v981
+%1699 = vst [vmem:[%s0 + $0x520] sm:$0xff] /*vst_source=*/%v987
+%v1017 = vadd.s32 1352, %v2
+%v1023 = vadd.s32 1360, %v2
+%v1029 = vadd.s32 1368, %v2
+%v1035 = vadd.s32 1376, %v2
+%1700 = vst [vmem:[%s0 + $0x528] sm:$0xff] /*vst_source=*/%v993
+%1701 = vst [vmem:[%s0 + $0x530] sm:$0xff] /*vst_source=*/%v999
+%1702 = vst [vmem:[%s0 + $0x538] sm:$0xff] /*vst_source=*/%v1005
+%1703 = vst [vmem:[%s0 + $0x540] sm:$0xff] /*vst_source=*/%v1011
+%v1041 = vadd.s32 1384, %v2
+%v1047 = vadd.s32 1392, %v2
+%v1053 = vadd.s32 1400, %v2
+%v1059 = vadd.s32 1408, %v2
+%1704 = vst [vmem:[%s0 + $0x548] sm:$0xff] /*vst_source=*/%v1017
+%1705 = vst [vmem:[%s0 + $0x550] sm:$0xff] /*vst_source=*/%v1023
+%1706 = vst [vmem:[%s0 + $0x558] sm:$0xff] /*vst_source=*/%v1029
+%1707 = vst [vmem:[%s0 + $0x560] sm:$0xff] /*vst_source=*/%v1035
+%v1065 = vadd.s32 1416, %v2
+%v1071 = vadd.s32 1424, %v2
+%v1077 = vadd.s32 1432, %v2
+%v1083 = vadd.s32 1440, %v2
+%1708 = vst [vmem:[%s0 + $0x568] sm:$0xff] /*vst_source=*/%v1041
+%1709 = vst [vmem:[%s0 + $0x570] sm:$0xff] /*vst_source=*/%v1047
+%1710 = vst [vmem:[%s0 + $0x578] sm:$0xff] /*vst_source=*/%v1053
+%1711 = vst [vmem:[%s0 + $0x580] sm:$0xff] /*vst_source=*/%v1059
+%v1089 = vadd.s32 1448, %v2
+%v1095 = vadd.s32 1456, %v2
+%v1101 = vadd.s32 1464, %v2
+%v1107 = vadd.s32 1472, %v2
+%1712 = vst [vmem:[%s0 + $0x588] sm:$0xff] /*vst_source=*/%v1065
+%1713 = vst [vmem:[%s0 + $0x590] sm:$0xff] /*vst_source=*/%v1071
+%1714 = vst [vmem:[%s0 + $0x598] sm:$0xff] /*vst_source=*/%v1077
+%1715 = vst [vmem:[%s0 + $0x5a0] sm:$0xff] /*vst_source=*/%v1083
+%v1113 = vadd.s32 1480, %v2
+%v1119 = vadd.s32 1488, %v2
+%v1125 = vadd.s32 1496, %v2
+%v1131 = vadd.s32 1504, %v2
+%1716 = vst [vmem:[%s0 + $0x5a8] sm:$0xff] /*vst_source=*/%v1089
+%1717 = vst [vmem:[%s0 + $0x5b0] sm:$0xff] /*vst_source=*/%v1095
+%1718 = vst [vmem:[%s0 + $0x5b8] sm:$0xff] /*vst_source=*/%v1101
+%1719 = vst [vmem:[%s0 + $0x5c0] sm:$0xff] /*vst_source=*/%v1107
+%v1137 = vadd.s32 1512, %v2
+%v1143 = vadd.s32 1520, %v2
+%v1149 = vadd.s32 1528, %v2
+%v1155 = vadd.s32 1536, %v2
+%1720 = vst [vmem:[%s0 + $0x5c8] sm:$0xff] /*vst_source=*/%v1113
+%1721 = vst [vmem:[%s0 + $0x5d0] sm:$0xff] /*vst_source=*/%v1119
+%1722 = vst [vmem:[%s0 + $0x5d8] sm:$0xff] /*vst_source=*/%v1125
+%1723 = vst [vmem:[%s0 + $0x5e0] sm:$0xff] /*vst_source=*/%v1131
+%v1161 = vadd.s32 1544, %v2
+%v1167 = vadd.s32 1552, %v2
+%v1173 = vadd.s32 1560, %v2
+%v1179 = vadd.s32 1568, %v2
+%1724 = vst [vmem:[%s0 + $0x5e8] sm:$0xff] /*vst_source=*/%v1137
+%1725 = vst [vmem:[%s0 + $0x5f0] sm:$0xff] /*vst_source=*/%v1143
+%1726 = vst [vmem:[%s0 + $0x5f8] sm:$0xff] /*vst_source=*/%v1149
+%1727 = vst [vmem:[%s0 + $0x600] sm:$0xff] /*vst_source=*/%v1155
+%v1185 = vadd.s32 1576, %v2
+%v1191 = vadd.s32 1584, %v2
+%v1197 = vadd.s32 1592, %v2
+%v1203 = vadd.s32 1600, %v2
+%1728 = vst [vmem:[%s0 + $0x608] sm:$0xff] /*vst_source=*/%v1161
+%1729 = vst [vmem:[%s0 + $0x610] sm:$0xff] /*vst_source=*/%v1167
+%1730 = vst [vmem:[%s0 + $0x618] sm:$0xff] /*vst_source=*/%v1173
+%1731 = vst [vmem:[%s0 + $0x620] sm:$0xff] /*vst_source=*/%v1179
+%v1209 = vadd.s32 1608, %v2
+%v1215 = vadd.s32 1616, %v2
+%v1221 = vadd.s32 1624, %v2
+%v1227 = vadd.s32 1632, %v2
+%1732 = vst [vmem:[%s0 + $0x628] sm:$0xff] /*vst_source=*/%v1185
+%1733 = vst [vmem:[%s0 + $0x630] sm:$0xff] /*vst_source=*/%v1191
+%1734 = vst [vmem:[%s0 + $0x638] sm:$0xff] /*vst_source=*/%v1197
+%1735 = vst [vmem:[%s0 + $0x640] sm:$0xff] /*vst_source=*/%v1203
+%v1233 = vadd.s32 1640, %v2
+%v1239 = vadd.s32 1648, %v2
+%v1245 = vadd.s32 1656, %v2
+%v1251 = vadd.s32 1664, %v2
+%1736 = vst [vmem:[%s0 + $0x648] sm:$0xff] /*vst_source=*/%v1209
+%1737 = vst [vmem:[%s0 + $0x650] sm:$0xff] /*vst_source=*/%v1215
+%1738 = vst [vmem:[%s0 + $0x658] sm:$0xff] /*vst_source=*/%v1221
+%1739 = vst [vmem:[%s0 + $0x660] sm:$0xff] /*vst_source=*/%v1227
+%v1257 = vadd.s32 1672, %v2
+%v1263 = vadd.s32 1680, %v2
+%v1269 = vadd.s32 1688, %v2
+%v1275 = vadd.s32 1696, %v2
+%1740 = vst [vmem:[%s0 + $0x668] sm:$0xff] /*vst_source=*/%v1233
+%1741 = vst [vmem:[%s0 + $0x670] sm:$0xff] /*vst_source=*/%v1239
+%1742 = vst [vmem:[%s0 + $0x678] sm:$0xff] /*vst_source=*/%v1245
+%1743 = vst [vmem:[%s0 + $0x680] sm:$0xff] /*vst_source=*/%v1251
+%v1281 = vadd.s32 1704, %v2
+%v1287 = vadd.s32 1712, %v2
+%v1293 = vadd.s32 1720, %v2
+%v1299 = vadd.s32 1728, %v2
+%1744 = vst [vmem:[%s0 + $0x688] sm:$0xff] /*vst_source=*/%v1257
+%1745 = vst [vmem:[%s0 + $0x690] sm:$0xff] /*vst_source=*/%v1263
+%1746 = vst [vmem:[%s0 + $0x698] sm:$0xff] /*vst_source=*/%v1269
+%1747 = vst [vmem:[%s0 + $0x6a0] sm:$0xff] /*vst_source=*/%v1275
+%v1305 = vadd.s32 1736, %v2
+%v1311 = vadd.s32 1744, %v2
+%v1317 = vadd.s32 1752, %v2
+%v1323 = vadd.s32 1760, %v2
+%1748 = vst [vmem:[%s0 + $0x6a8] sm:$0xff] /*vst_source=*/%v1281
+%1749 = vst [vmem:[%s0 + $0x6b0] sm:$0xff] /*vst_source=*/%v1287
+%1750 = vst [vmem:[%s0 + $0x6b8] sm:$0xff] /*vst_source=*/%v1293
+%1751 = vst [vmem:[%s0 + $0x6c0] sm:$0xff] /*vst_source=*/%v1299
+%v1329 = vadd.s32 1768, %v2
+%v1335 = vadd.s32 1776, %v2
+%v1341 = vadd.s32 1784, %v2
+%v1347 = vadd.s32 1792, %v2
+%1752 = vst [vmem:[%s0 + $0x6c8] sm:$0xff] /*vst_source=*/%v1305
+%1753 = vst [vmem:[%s0 + $0x6d0] sm:$0xff] /*vst_source=*/%v1311
+%1754 = vst [vmem:[%s0 + $0x6d8] sm:$0xff] /*vst_source=*/%v1317
+%1755 = vst [vmem:[%s0 + $0x6e0] sm:$0xff] /*vst_source=*/%v1323
+%v1353 = vadd.s32 1800, %v2
+%v1359 = vadd.s32 1808, %v2
+%v1365 = vadd.s32 1816, %v2
+%v1371 = vadd.s32 1824, %v2
+%1756 = vst [vmem:[%s0 + $0x6e8] sm:$0xff] /*vst_source=*/%v1329
+%1757 = vst [vmem:[%s0 + $0x6f0] sm:$0xff] /*vst_source=*/%v1335
+%1758 = vst [vmem:[%s0 + $0x6f8] sm:$0xff] /*vst_source=*/%v1341
+%1759 = vst [vmem:[%s0 + $0x700] sm:$0xff] /*vst_source=*/%v1347
+%v1377 = vadd.s32 1832, %v2
+%v1383 = vadd.s32 1840, %v2
+%v1389 = vadd.s32 1848, %v2
+%v1395 = vadd.s32 1856, %v2
+%1760 = vst [vmem:[%s0 + $0x708] sm:$0xff] /*vst_source=*/%v1353
+%1761 = vst [vmem:[%s0 + $0x710] sm:$0xff] /*vst_source=*/%v1359
+%1762 = vst [vmem:[%s0 + $0x718] sm:$0xff] /*vst_source=*/%v1365
+%1763 = vst [vmem:[%s0 + $0x720] sm:$0xff] /*vst_source=*/%v1371
+%v1401 = vadd.s32 1864, %v2
+%v1407 = vadd.s32 1872, %v2
+%v1413 = vadd.s32 1880, %v2
+%v1419 = vadd.s32 1888, %v2
+%1764 = vst [vmem:[%s0 + $0x728] sm:$0xff] /*vst_source=*/%v1377
+%1765 = vst [vmem:[%s0 + $0x730] sm:$0xff] /*vst_source=*/%v1383
+%1766 = vst [vmem:[%s0 + $0x738] sm:$0xff] /*vst_source=*/%v1389
+%1767 = vst [vmem:[%s0 + $0x740] sm:$0xff] /*vst_source=*/%v1395
+%v1425 = vadd.s32 1896, %v2
+%v1431 = vadd.s32 1904, %v2
+%v1437 = vadd.s32 1912, %v2
+%v1443 = vadd.s32 1920, %v2
+%1768 = vst [vmem:[%s0 + $0x748] sm:$0xff] /*vst_source=*/%v1401
+%1769 = vst [vmem:[%s0 + $0x750] sm:$0xff] /*vst_source=*/%v1407
+%1770 = vst [vmem:[%s0 + $0x758] sm:$0xff] /*vst_source=*/%v1413
+%1771 = vst [vmem:[%s0 + $0x760] sm:$0xff] /*vst_source=*/%v1419
+%v1449 = vadd.s32 1928, %v2
+%v1455 = vadd.s32 1936, %v2
+%v1461 = vadd.s32 1944, %v2
+%v1467 = vadd.s32 1952, %v2
+%1772 = vst [vmem:[%s0 + $0x768] sm:$0xff] /*vst_source=*/%v1425
+%1773 = vst [vmem:[%s0 + $0x770] sm:$0xff] /*vst_source=*/%v1431
+%1774 = vst [vmem:[%s0 + $0x778] sm:$0xff] /*vst_source=*/%v1437
+%1775 = vst [vmem:[%s0 + $0x780] sm:$0xff] /*vst_source=*/%v1443
+%v1473 = vadd.s32 1960, %v2
+%v1479 = vadd.s32 1968, %v2
+%v1485 = vadd.s32 1976, %v2
+%v1491 = vadd.s32 1984, %v2
+%1776 = vst [vmem:[%s0 + $0x788] sm:$0xff] /*vst_source=*/%v1449
+%1777 = vst [vmem:[%s0 + $0x790] sm:$0xff] /*vst_source=*/%v1455
+%1778 = vst [vmem:[%s0 + $0x798] sm:$0xff] /*vst_source=*/%v1461
+%1779 = vst [vmem:[%s0 + $0x7a0] sm:$0xff] /*vst_source=*/%v1467
+%v1497 = vadd.s32 1992, %v2
+%v1503 = vadd.s32 2000, %v2
+%v1509 = vadd.s32 2008, %v2
+%v1515 = vadd.s32 2016, %v2
+%1780 = vst [vmem:[%s0 + $0x7a8] sm:$0xff] /*vst_source=*/%v1473
+%1781 = vst [vmem:[%s0 + $0x7b0] sm:$0xff] /*vst_source=*/%v1479
+%1782 = vst [vmem:[%s0 + $0x7b8] sm:$0xff] /*vst_source=*/%v1485
+%1783 = vst [vmem:[%s0 + $0x7c0] sm:$0xff] /*vst_source=*/%v1491
+%v1521 = vadd.s32 2024, %v2
+%v1527 = vadd.s32 2032, %v2
+%v1533 = vadd.s32 2040, %v2
+%1784 = vst [vmem:[%s0 + $0x7c8] sm:$0xff] /*vst_source=*/%v1497
+%1785 = vst [vmem:[%s0 + $0x7d0] sm:$0xff] /*vst_source=*/%v1503
+%1786 = vst [vmem:[%s0 + $0x7d8] sm:$0xff] /*vst_source=*/%v1509
+%1787 = vst [vmem:[%s0 + $0x7e0] sm:$0xff] /*vst_source=*/%v1515
+%1788 = vst [vmem:[%s0 + $0x7e8] sm:$0xff] /*vst_source=*/%v1521
+%1789 = vst [vmem:[%s0 + $0x7f0] sm:$0xff] /*vst_source=*/%v1527
+%1790 = vst [vmem:[%s0 + $0x7f8] sm:$0xff] /*vst_source=*/%v1533

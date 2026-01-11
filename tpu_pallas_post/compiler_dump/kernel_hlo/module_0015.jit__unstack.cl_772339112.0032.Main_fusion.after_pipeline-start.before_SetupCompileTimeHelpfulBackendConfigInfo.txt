@@ -1,0 +1,40 @@
+HloModule jit__unstack, entry_computation_layout={(u32[4,2]{0,1:T(2,128)})->(u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)})}, allow_spmd_sharding_propagation_to_parameters={true}, allow_spmd_sharding_propagation_to_output={true,true,true,true}
+
+%slice.2.reduce_sub_computation (lhs: u32[], rhs: u32[]) -> u32[] {
+  %lhs = u32[] parameter(0)
+  %rhs = u32[] parameter(1)
+  ROOT %add = u32[] add(%lhs, %rhs)
+}
+
+%slice.3.reduce_sub_computation (lhs.1: u32[], rhs.1: u32[]) -> u32[] {
+  %lhs.1 = u32[] parameter(0)
+  %rhs.1 = u32[] parameter(1)
+  ROOT %add.1 = u32[] add(%lhs.1, %rhs.1)
+}
+
+%slice.4.reduce_sub_computation (lhs.2: u32[], rhs.2: u32[]) -> u32[] {
+  %lhs.2 = u32[] parameter(0)
+  %rhs.2 = u32[] parameter(1)
+  ROOT %add.2 = u32[] add(%lhs.2, %rhs.2)
+}
+
+%slice.5.reduce_sub_computation (lhs.3: u32[], rhs.3: u32[]) -> u32[] {
+  %lhs.3 = u32[] parameter(0)
+  %rhs.3 = u32[] parameter(1)
+  ROOT %add.3 = u32[] add(%lhs.3, %rhs.3)
+}
+
+ENTRY %main.11 (Arg_0.1: u32[4,2]) -> (u32[2], u32[2], u32[2], u32[2]) {
+  %Arg_0.1 = u32[4,2]{0,1:T(2,128)} parameter(0), metadata={op_name="x"}
+  %slice.2 = u32[1,2]{0,1:T(2,128)} slice(%Arg_0.1), slice={[0:1], [0:2]}, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %constant = u32[]{:T(128)} constant(0), metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %reduce = u32[2]{0:T(128)} reduce(%slice.2, %constant), dimensions={0}, to_apply=%slice.2.reduce_sub_computation, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %slice.3 = u32[1,2]{0,1:T(2,128)} slice(%Arg_0.1), slice={[1:2], [0:2]}, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %reduce.1 = u32[2]{0:T(128)} reduce(%slice.3, %constant), dimensions={0}, to_apply=%slice.3.reduce_sub_computation, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %slice.4 = u32[1,2]{0,1:T(2,128)} slice(%Arg_0.1), slice={[2:3], [0:2]}, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %reduce.2 = u32[2]{0:T(128)} reduce(%slice.4, %constant), dimensions={0}, to_apply=%slice.4.reduce_sub_computation, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %slice.5 = u32[1,2]{0,1:T(2,128)} slice(%Arg_0.1), slice={[3:4], [0:2]}, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  %reduce.3 = u32[2]{0:T(128)} reduce(%slice.5, %constant), dimensions={0}, to_apply=%slice.5.reduce_sub_computation, metadata={op_name="jit(_unstack)/jit(main)/split" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+  ROOT %tuple.10 = (u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}, u32[2]{0:T(128)}) tuple(%reduce, %reduce.1, %reduce.2, %reduce.3)
+}
+

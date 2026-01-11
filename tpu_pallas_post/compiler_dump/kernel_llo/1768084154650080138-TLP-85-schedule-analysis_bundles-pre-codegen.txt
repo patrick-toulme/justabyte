@@ -1,0 +1,7 @@
+Schedule analysis:
+	total scheduled bundles:    114
+	empty scheduled bundles:    5
+	non empty scheduled bundles: 109
+	 107.00 scheduled bundles (98.17%): <no hlo>
+	   2.00 scheduled bundles ( 1.83%): %copy.1 = s8[1,2,2]{2,1,0:T(4,128)(4,1)} copy(%Arg_0.1), backend_config={"flag_configs":[],"window_config":{"kernel_window_bounds":[],"output_window_bounds":["1","1","1"],"input_window_bounds":[],"estimated_cycles":"2121","iteration_bounds":["1","1","1"]},"scoped_memory_configs":[],"used_scoped_memory_configs":[{"memory_space":"1","offset":"0","size":"2048"}],"retry_config":{"retry_count":"0"}}
+	[opcode]       3 scheduled bundles ( 2.75%): copy                 (1 instances,   3.00 avg)

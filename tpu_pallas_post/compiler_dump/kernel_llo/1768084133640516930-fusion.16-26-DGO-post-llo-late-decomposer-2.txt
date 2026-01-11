@@ -1,0 +1,90 @@
+
+%s0 = inlined_call_operand.hbm [shape: u32[2], index: 0, kind: input, shape index: {}] /* operand 0 */
+%s1 = inlined_call_operand.hbm [shape: u32[1], index: 1, kind: output, shape index: {0}] /* operand 1 */
+%s2 = inlined_call_operand.hbm [shape: u32[1], index: 2, kind: output, shape index: {1}] /* operand 2 */
+
+%4 = vsyncpa [#allocation11], 0
+
+%5 = vsyncpa [#allocation14], 0
+
+%6 = vsyncpa [#allocation12], 0
+
+%7 = vsyncpa [#allocation17], 0
+%s62 = smov [#allocation10] /* materialized constant */
+%s63 = smov [#allocation13] /* materialized constant */
+%s12 = sshll.u32 %s62, 4
+%s20 = sshll.u32 %s63, 4
+%s13 = int_to_ptr.vmem [resolvable:$true] %s12
+%s21 = int_to_ptr.vmem [resolvable:$true] %s20
+%15 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s0, /*size_in_granules=*/16, /*vmem=*/%s13, /*dst_syncflagno=*/[#allocation11] /* 
+base_bounds: (1)
+dynamic_base_bounds: (1)
+window_bounds: (1)
+iteration_bounds: (1)
+strides: (1)
+pad_low: (0)
+pad_high: (0)
+element_size_in_bytes: 512 */
+%23 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s0, /*size_in_granules=*/16, /*vmem=*/%s21, /*dst_syncflagno=*/[#allocation14] /* 
+base_bounds: (1)
+dynamic_base_bounds: (1)
+window_bounds: (1)
+iteration_bounds: (1)
+strides: (1)
+pad_low: (0)
+pad_high: (0)
+element_size_in_bytes: 512 */
+
+%24 = dma.done [#allocation11], 16 /* pipeline-emitter-dma-wait */
+
+%25 = dma.done [#allocation14], 16 /* pipeline-emitter-dma-wait */
+%v30 = vlaneseq
+%s66 = smov [#allocation16] /* materialized constant */
+%s52 = sshll.u32 %s66, 4
+%v31 = vand.u32 127, %v30
+%vm27 = vcmask 1040384 /* [0:0,0:127] */
+%s53 = int_to_ptr.vmem [resolvable:$true] %s52
+%v26 = vld [vmem:[#allocation10] sm:$0x1]
+%v36 = vld [vmem:[#allocation13] sm:$0x1]
+%v28 = vsel /*vm=*/%vm27, /*on_true_vy=*/0, /*on_false_vx=*/%v26
+%vm32 = vcmp.lt.s32.totalorder %v31, 1
+%s64 = smov 127 /* materialized constant */
+%39 = vst [vmem:[#allocation16] sm:$0x1] /*vst_source=*/%v36
+%v29 = vrot.slane %v28, 1
+%55 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s53, /*size_in_granules=*/16, /*hbm=*/%s2, /*dst_syncflagno=*/[#allocation17] /* 
+base_bounds: (1)
+dynamic_base_bounds: (1)
+window_bounds: (1)
+iteration_bounds: (1)
+strides: (1)
+pad_low: (0)
+pad_high: (0)
+element_size_in_bytes: 512 */
+%v33 = vsel /*vm=*/%vm32, /*on_true_vy=*/%v29, /*on_false_vx=*/%v26
+%34 = vrot.lane.b32.xlu0 %v33, %s64
+%s65 = smov [#allocation15] /* materialized constant */
+%s44 = sshll.u32 %s65, 4
+%s45 = int_to_ptr.vmem [resolvable:$true] %s44
+%v35 = vpop.permute.xlu0 %34
+%38 = vst [vmem:[#allocation15] sm:$0x1] /*vst_source=*/%v35
+%47 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s45, /*size_in_granules=*/16, /*hbm=*/%s1, /*dst_syncflagno=*/[#allocation12] /* 
+base_bounds: (1)
+dynamic_base_bounds: (1)
+window_bounds: (1)
+iteration_bounds: (1)
+strides: (1)
+pad_low: (0)
+pad_high: (0)
+element_size_in_bytes: 512 */
+
+%56 = dma.done [#allocation12], 16 /* pipeline-emitter-dma-wait */
+
+%57 = dma.done [#allocation17], 16 /* pipeline-emitter-dma-wait */
+
+%58 = vsyncpa [#allocation11], 1
+
+%59 = vsyncpa [#allocation14], 1
+
+%60 = vsyncpa [#allocation12], 1
+
+%61 = vsyncpa [#allocation17], 1

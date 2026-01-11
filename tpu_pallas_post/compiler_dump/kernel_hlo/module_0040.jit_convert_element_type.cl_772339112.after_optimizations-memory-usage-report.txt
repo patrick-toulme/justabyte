@@ -1,0 +1,19 @@
+Total bytes used: 1024 (1.0KiB)
+
+Allocations sorted by size:
+
+cumulative_size; total_size - cumulative_size; allocation
+------------------------------------------------------------------------------
+      512B( 50%);       512B; allocation 0: size 512B, parameter 0, shape |s8[1,2,2]| at ShapeIndex {}:
+    1.0KiB(100%);         0B; allocation 1: size 512B, output shape is |s8[1,2,2]|, maybe-live-out:
+    1.0KiB(100%);         0B; allocation 2: size 0B, color 1, preallocated-temp:
+
+
+Allocations sorted by size with their values:
+allocation 0: size 512B, parameter 0, shape |s8[1,2,2]| at ShapeIndex {}:
+allocation 1: size 512B, output shape is |s8[1,2,2]|, maybe-live-out:
+allocation 2: size 0B, color 1, preallocated-temp:
+
+	cumulative_size;       size;       offset; used_by_n_values; shapes_list
+	------------------------------------------------------------
+

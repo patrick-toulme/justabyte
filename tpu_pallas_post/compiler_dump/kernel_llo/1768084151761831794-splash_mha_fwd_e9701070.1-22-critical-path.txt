@@ -1,0 +1,302 @@
+
+New basic block in region: region0 {members=17 hlo=splash_mha_fwd_e9701070.1 parent=-1}
+  Length to end: 2, %s0 = inlined_call_operand.hbm [shape: s8[1,4,4], index: 0, kind: input, shape index: {}] /* operand 0 */
+  Length to end: 1, %16 = dma.hbm_to_smem /*hbm=*/%s0, /*size_in_granules=*/16, /*smem=*/%s7275, /*dst_syncflagno=*/[#allocation2]
+
+New basic block in region: region102 {members=32 hlo=splash_mha_fwd_e9701070.1 parent=1}
+  Length to end: 1, %s7211 = smov 0 /* copy for cssa */
+
+New basic block in region: region107 {members=208 hlo=splash_mha_fwd_e9701070.1 parent=1}
+  Length to end: 30, %s7335 = smov %s7334 /* phi copy :: iteration index, stage = 0 iter bound = 2 */
+  Length to end: 29, %s7226 = smov %s7335 /* phi copy :: iteration index, stage = 0 iter bound = 2 */
+  Length to end: 28, %s49 = sadd.s32 1, %s7226 /* loc(unknown) */
+  Length to end: 27, %p50 = scmp.ge.s32.totalorder %s49, 4 /* loc(unknown) */
+  Length to end: 25, %s53 = scalar_select /*predicate=*/%p50, /*on_true=*/%s52, /*on_false=*/%s7222 /* loc(unknown) */
+  Length to end: 23, %p54 = scmp.ge.s32.totalorder %s53, 4 /* loc(unknown) */
+  Length to end: 21, %s55 = scalar_select /*predicate=*/%p54, /*on_true=*/0, /*on_false=*/%s53 /* loc(unknown) */
+  Length to end: 19, %s109 = sand.u32 3, %s55 /* loc(unknown) */
+  Length to end: 18, %s111 = sshrl.u32 %s109, 2 /* loc(unknown) */
+  Length to end: 17, %s6532 = sshll.u32 %s111, 7 /* loc(unknown) */
+  Length to end: 16, %s113 = sadd.s32 %s6532, %s110 /* loc(unknown) */
+  Length to end: 15, %s114 = sadd.s32 %s6531, %s113 /* loc(unknown) */
+  Length to end: 14, %s115 = sld [smem:[#allocation3 + %s114]] /* loc(unknown) */
+  Length to end: 8, %s118 = sshrl.u32 %s115, %s6533 /* loc(unknown) */
+  Length to end: 7, %s119 = sand.u32 255, %s118 /* loc(unknown) */
+  Length to end: 6, %s120 = sshll.u32 %s119, 24 /* loc(unknown) */
+  Length to end: 5, %s121 = sshra.s32 %s120, 24 /* loc(unknown) */
+  Length to end: 4, %s123 = ssub.s32 %s104, %s121 /* loc(unknown) */
+  Length to end: 3, %s124 = sor.u32 %s123, %s60 /* loc(unknown) */
+  Length to end: 2, %p125 = scmp.eq.s32.totalorder %s124, 0 /* loc(unknown) */
+
+New basic block in region: region35 {members=69 hlo=splash_mha_fwd_e9701070.1 parent=107}
+  Length to end: 2, %s455 = sand.u32 1, %s7246 /* loc(unknown) */
+  Length to end: 1, %s6561 = sshll.u32 %s455, 8 /* loc(unknown) */
+
+New basic block in region: region35 {members=69 hlo=splash_mha_fwd_e9701070.1 parent=107}
+  Length to end: 2, %s464 = sand.u32 1, %s7258 /* loc(unknown) */
+  Length to end: 1, %s6562 = sshll.u32 %s464, 8 /* loc(unknown) */
+
+New basic block in region: region35 {members=69 hlo=splash_mha_fwd_e9701070.1 parent=107}
+  Length to end: 2, %s473 = sand.u32 1, %s7270 /* loc(unknown) */
+  Length to end: 1, %s6563 = sshll.u32 %s473, 8 /* loc(unknown) */
+
+New basic block in region: region35 {members=69 hlo=splash_mha_fwd_e9701070.1 parent=107}
+  Length to end: 6, %s6565 = sshll.u32 %s7234, 6 /* loc(unknown) */
+  Length to end: 5, %p559 = scmp.lt.s32.totalorder %s6565, 255 /* loc(unknown) */
+  Length to end: 3, %s560 = scalar_select /*predicate=*/%p559, /*on_true=*/%s6565, /*on_false=*/255 /* loc(unknown) */
+  Length to end: 1, %s6566 = sshll.u32 %s560, 3 /* loc(unknown) */
+
+New basic block in region: region51 {members=194 hlo=splash_mha_fwd_e9701070.1 parent=35}
+  Length to end: 1, %v7277 = vmov 0.0 /* materialized constant */
+
+New basic block in region: region35 {members=69 hlo=splash_mha_fwd_e9701070.1 parent=107}
+  Length to end: 14, %s766 = sand.u32 3, %s7234 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":569:22 to :45) */
+  Length to end: 13, %s768 = sshrl.u32 %s766, 2 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":569:22 to :45) */
+  Length to end: 12, %s6569 = sshll.u32 %s768, 7 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":569:22 to :45) */
+  Length to end: 11, %s770 = sadd.s32 %s6569, %s767 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":569:22 to :45) */
+  Length to end: 10, %s771 = sadd.s32 %s6568, %s770 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":569:22 to :45) */
+  Length to end: 9, %s772 = sld [smem:[#allocation4 + %s771]] /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":569:22 to :45) */
+  Length to end: 3, %s775 = sshrl.u32 %s772, %s6570 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":569:22 to :45) */
+  Length to end: 2, %s776 = sand.u32 255, %s775 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":569:22 to :45) */
+  Length to end: 1, %s777 = sshll.u32 %s776, 24 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":567:21 to :40) */
+
+New basic block in region: region55 {members=4300 hlo=splash_mha_fwd_e9701070.1 parent=35}
+  Length to end: 877, %v1011 = vld [vmem:[%s466 + $0x78] sm:$0xf] /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":746:10 to :27) */
+  Length to end: 876, %v6619 = vcombine.low %v1011, %v1012 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":746:10 to :27) */
+  Length to end: 874, %7001 = vmatprep.subr.mxu0 %v6619
+  Length to end: 873, %7002 = vmatpush3.bf16.xpose.msra.mxu0 %v6611
+  Length to end: 866, %7003 = vmatprep.subr.mxu0 %v6618
+  Length to end: 865, %7004 = vmatpush3.bf16.xpose.msra.mxu0 %v6610
+  Length to end: 858, %7005 = vmatprep.subr.mxu0 %v6617
+  Length to end: 857, %7006 = vmatpush3.bf16.xpose.msra.mxu0 %v6609
+  Length to end: 850, %7007 = vmatprep.subr.mxu0 %v6616
+  Length to end: 849, %7008 = vmatpush3.bf16.xpose.msra.mxu0 %v6608
+  Length to end: 842, %7009 = vmatprep.subr.mxu0 %v6615
+  Length to end: 841, %7010 = vmatpush3.bf16.xpose.msra.mxu0 %v6607
+  Length to end: 834, %7011 = vmatprep.subr.mxu0 %v6614
+  Length to end: 833, %7012 = vmatpush3.bf16.xpose.msra.mxu0 %v6606
+  Length to end: 826, %7013 = vmatprep.subr.mxu0 %v6613
+  Length to end: 825, %7014 = vmatpush3.bf16.xpose.msra.mxu0 %v6605
+  Length to end: 818, %7015 = vmatprep.subr.mxu0 %v6612
+  Length to end: 817, %7016 = vmatpush3.bf16.xpose.msra.mxu0 %v6604
+  Length to end: 810, %7018 = vmatmul.mubr.bf16.vlgmr.msra.gmra.mxu0 %v6572
+  Length to end: 803, %7019 = vmatprep.mubr.bf16.mxu0 %v6573
+  Length to end: 802, %7020 = vmatmul.mubr.bf16.gmra.mxu0 %v6573
+  Length to end: 795, %7021 = vmatprep.mubr.bf16.mxu0 %v6574
+  Length to end: 794, %7022 = vmatmul.mubr.bf16.gmra.mxu0 %v6574
+  Length to end: 787, %7023 = vmatprep.mubr.bf16.mxu0 %v6575
+  Length to end: 786, %7024 = vmatmul.mubr.bf16.gmra.mxu0 %v6575
+  Length to end: 779, %7025 = vmatprep.mubr.bf16.mxu0 %v6576
+  Length to end: 778, %7026 = vmatmul.mubr.bf16.gmra.mxu0 %v6576
+  Length to end: 771, %7027 = vmatprep.mubr.bf16.mxu0 %v6577
+  Length to end: 770, %7028 = vmatmul.mubr.bf16.gmra.mxu0 %v6577
+  Length to end: 763, %7029 = vmatprep.mubr.bf16.mxu0 %v6578
+  Length to end: 762, %7030 = vmatmul.mubr.bf16.gmra.mxu0 %v6578
+  Length to end: 755, %7031 = vmatprep.mubr.bf16.mxu0 %v6579
+  Length to end: 754, %7032 = vmatmul.mubr.bf16.gmra.mxu0 %v6579
+  Length to end: 747, %7033 = vmatprep.mubr.bf16.mxu0 %v6580
+  Length to end: 746, %7034 = vmatmul.mubr.bf16.gmra.mxu0 %v6580
+  Length to end: 739, %7035 = vmatprep.mubr.bf16.mxu0 %v6581
+  Length to end: 738, %7036 = vmatmul.mubr.bf16.gmra.mxu0 %v6581
+  Length to end: 731, %7037 = vmatprep.mubr.bf16.mxu0 %v6582
+  Length to end: 730, %7038 = vmatmul.mubr.bf16.gmra.mxu0 %v6582
+  Length to end: 723, %7039 = vmatprep.mubr.bf16.mxu0 %v6583
+  Length to end: 722, %7040 = vmatmul.mubr.bf16.gmra.mxu0 %v6583
+  Length to end: 715, %7041 = vmatprep.mubr.bf16.mxu0 %v6584
+  Length to end: 714, %7042 = vmatmul.mubr.bf16.gmra.mxu0 %v6584
+  Length to end: 707, %7043 = vmatprep.mubr.bf16.mxu0 %v6585
+  Length to end: 706, %7044 = vmatmul.mubr.bf16.gmra.mxu0 %v6585
+  Length to end: 699, %7045 = vmatprep.mubr.bf16.mxu0 %v6586
+  Length to end: 698, %7046 = vmatmul.mubr.bf16.gmra.mxu0 %v6586
+  Length to end: 691, %7047 = vmatprep.mubr.bf16.mxu0 %v6587
+  Length to end: 690, %7048 = vmatmul.mubr.bf16.gmra.mxu0 %v6587
+  Length to end: 683, %7049 = vmatprep.mubr.bf16.mxu0 %v6588
+  Length to end: 682, %7050 = vmatmul.mubr.bf16.gmra.mxu0 %v6588
+  Length to end: 675, %7051 = vmatprep.mubr.bf16.mxu0 %v6589
+  Length to end: 674, %7052 = vmatmul.mubr.bf16.gmra.mxu0 %v6589
+  Length to end: 667, %7053 = vmatprep.mubr.bf16.mxu0 %v6590
+  Length to end: 666, %7054 = vmatmul.mubr.bf16.gmra.mxu0 %v6590
+  Length to end: 659, %7055 = vmatprep.mubr.bf16.mxu0 %v6591
+  Length to end: 658, %7056 = vmatmul.mubr.bf16.gmra.mxu0 %v6591
+  Length to end: 651, %7057 = vmatprep.mubr.bf16.mxu0 %v6592
+  Length to end: 650, %7058 = vmatmul.mubr.bf16.gmra.mxu0 %v6592
+  Length to end: 643, %7059 = vmatprep.mubr.bf16.mxu0 %v6593
+  Length to end: 642, %7060 = vmatmul.mubr.bf16.gmra.mxu0 %v6593
+  Length to end: 635, %7061 = vmatprep.mubr.bf16.mxu0 %v6594
+  Length to end: 634, %7062 = vmatmul.mubr.bf16.gmra.mxu0 %v6594
+  Length to end: 627, %7063 = vmatprep.mubr.bf16.mxu0 %v6595
+  Length to end: 626, %7064 = vmatmul.mubr.bf16.gmra.mxu0 %v6595
+  Length to end: 619, %7065 = vmatprep.mubr.bf16.mxu0 %v6596
+  Length to end: 618, %7066 = vmatmul.mubr.bf16.gmra.mxu0 %v6596
+  Length to end: 611, %7067 = vmatprep.mubr.bf16.mxu0 %v6597
+  Length to end: 610, %7068 = vmatmul.mubr.bf16.gmra.mxu0 %v6597
+  Length to end: 603, %7069 = vmatprep.mubr.bf16.mxu0 %v6598
+  Length to end: 602, %7070 = vmatmul.mubr.bf16.gmra.mxu0 %v6598
+  Length to end: 595, %7071 = vmatprep.mubr.bf16.mxu0 %v6599
+  Length to end: 594, %7072 = vmatmul.mubr.bf16.gmra.mxu0 %v6599
+  Length to end: 587, %7073 = vmatprep.mubr.bf16.mxu0 %v6600
+  Length to end: 586, %7074 = vmatmul.mubr.bf16.gmra.mxu0 %v6600
+  Length to end: 579, %7075 = vmatprep.mubr.bf16.mxu0 %v6601
+  Length to end: 578, %7076 = vmatmul.mubr.bf16.gmra.mxu0 %v6601
+  Length to end: 571, %7077 = vmatprep.mubr.bf16.mxu0 %v6602
+  Length to end: 570, %7078 = vmatmul.mubr.bf16.gmra.mxu0 %v6602
+  Length to end: 563, %7079 = vmatprep.mubr.bf16.mxu0 %v6603
+  Length to end: 562, %7080 = vmatmul.mubr.bf16.gmra.mxu0 %v6603
+  Length to end: 450, %4642 = vmatprep.mubr.f32.mxu0 %v3173 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 449, %4643 = vmatmul.mubr.f32.vlgmr.msra.gmra.mxu0 %v3171 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 446, %4647 = vmatprep.mubr.f32.mxu0 %v3181 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 445, %4648 = vmatmul.mubr.f32.gmra.mxu0 %v3179 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 442, %4652 = vmatprep.mubr.f32.mxu0 %v3189 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 441, %4653 = vmatmul.mubr.f32.gmra.mxu0 %v3187 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 438, %4657 = vmatprep.mubr.f32.mxu0 %v3197 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 437, %4658 = vmatmul.mubr.f32.gmra.mxu0 %v3195 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 434, %4662 = vmatprep.mubr.f32.mxu0 %v3205 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 433, %4663 = vmatmul.mubr.f32.gmra.mxu0 %v3203 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 430, %4667 = vmatprep.mubr.f32.mxu0 %v3213 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 429, %4668 = vmatmul.mubr.f32.gmra.mxu0 %v3211 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 426, %4672 = vmatprep.mubr.f32.mxu0 %v3221 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 425, %4673 = vmatmul.mubr.f32.gmra.mxu0 %v3219 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 422, %4677 = vmatprep.mubr.f32.mxu0 %v3229 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 421, %4678 = vmatmul.mubr.f32.gmra.mxu0 %v3227 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 418, %4682 = vmatprep.mubr.f32.mxu0 %v3237 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 417, %4683 = vmatmul.mubr.f32.gmra.mxu0 %v3235 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 414, %4687 = vmatprep.mubr.f32.mxu0 %v3245 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 413, %4688 = vmatmul.mubr.f32.gmra.mxu0 %v3243 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 410, %4692 = vmatprep.mubr.f32.mxu0 %v3253 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 409, %4693 = vmatmul.mubr.f32.gmra.mxu0 %v3251 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 406, %4697 = vmatprep.mubr.f32.mxu0 %v3261 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 405, %4698 = vmatmul.mubr.f32.gmra.mxu0 %v3259 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 402, %4702 = vmatprep.mubr.f32.mxu0 %v3269 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 401, %4703 = vmatmul.mubr.f32.gmra.mxu0 %v3267 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 398, %4707 = vmatprep.mubr.f32.mxu0 %v3277 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 397, %4708 = vmatmul.mubr.f32.gmra.mxu0 %v3275 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 394, %4712 = vmatprep.mubr.f32.mxu0 %v3285 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 393, %4713 = vmatmul.mubr.f32.gmra.mxu0 %v3283 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 390, %4717 = vmatprep.mubr.f32.mxu0 %v3293 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 389, %4718 = vmatmul.mubr.f32.gmra.mxu0 %v3291 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 386, %4722 = vmatprep.mubr.f32.mxu0 %v3301 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 385, %4723 = vmatmul.mubr.f32.gmra.mxu0 %v3299 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 382, %4727 = vmatprep.mubr.f32.mxu0 %v3309 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 381, %4728 = vmatmul.mubr.f32.gmra.mxu0 %v3307 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 378, %4732 = vmatprep.mubr.f32.mxu0 %v3317 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 377, %4733 = vmatmul.mubr.f32.gmra.mxu0 %v3315 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 374, %4737 = vmatprep.mubr.f32.mxu0 %v3325 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 373, %4738 = vmatmul.mubr.f32.gmra.mxu0 %v3323 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 370, %4742 = vmatprep.mubr.f32.mxu0 %v3333 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 369, %4743 = vmatmul.mubr.f32.gmra.mxu0 %v3331 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 366, %4747 = vmatprep.mubr.f32.mxu0 %v3341 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 365, %4748 = vmatmul.mubr.f32.gmra.mxu0 %v3339 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 362, %4752 = vmatprep.mubr.f32.mxu0 %v3349 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 361, %4753 = vmatmul.mubr.f32.gmra.mxu0 %v3347 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 358, %4757 = vmatprep.mubr.f32.mxu0 %v3357 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 357, %4758 = vmatmul.mubr.f32.gmra.mxu0 %v3355 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 354, %4762 = vmatprep.mubr.f32.mxu0 %v3365 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 353, %4763 = vmatmul.mubr.f32.gmra.mxu0 %v3363 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 350, %4767 = vmatprep.mubr.f32.mxu0 %v3373 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 349, %4768 = vmatmul.mubr.f32.gmra.mxu0 %v3371 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 346, %4772 = vmatprep.mubr.f32.mxu0 %v3381 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 345, %4773 = vmatmul.mubr.f32.gmra.mxu0 %v3379 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 342, %4777 = vmatprep.mubr.f32.mxu0 %v3389 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 341, %4778 = vmatmul.mubr.f32.gmra.mxu0 %v3387 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 338, %4782 = vmatprep.mubr.f32.mxu0 %v3397 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 337, %4783 = vmatmul.mubr.f32.gmra.mxu0 %v3395 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 334, %4787 = vmatprep.mubr.f32.mxu0 %v3405 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 333, %4788 = vmatmul.mubr.f32.gmra.mxu0 %v3403 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 330, %4792 = vmatprep.mubr.f32.mxu0 %v3413 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 329, %4793 = vmatmul.mubr.f32.gmra.mxu0 %v3411 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 326, %4797 = vmatprep.mubr.f32.mxu0 %v3421 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 325, %4798 = vmatmul.mubr.f32.gmra.mxu0 %v3419 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 322, %4802 = vmatprep.mubr.f32.mxu0 %v3429 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 321, %4803 = vmatmul.mubr.f32.gmra.mxu0 %v3427 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 318, %4807 = vmatprep.mubr.f32.mxu0 %v3437 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 317, %4808 = vmatmul.mubr.f32.gmra.mxu0 %v3435 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 314, %4812 = vmatprep.mubr.f32.mxu0 %v3445 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 313, %4813 = vmatmul.mubr.f32.gmra.mxu0 %v3443 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 310, %4817 = vmatprep.mubr.f32.mxu0 %v3453 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 309, %4818 = vmatmul.mubr.f32.gmra.mxu0 %v3451 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 306, %4822 = vmatprep.mubr.f32.mxu0 %v3461 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 305, %4823 = vmatmul.mubr.f32.gmra.mxu0 %v3459 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 302, %4827 = vmatprep.mubr.f32.mxu0 %v3469 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 301, %4828 = vmatmul.mubr.f32.gmra.mxu0 %v3467 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 298, %4832 = vmatprep.mubr.f32.mxu0 %v3477 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 297, %4833 = vmatmul.mubr.f32.gmra.mxu0 %v3475 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 294, %4837 = vmatprep.mubr.f32.mxu0 %v3485 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 293, %4838 = vmatmul.mubr.f32.gmra.mxu0 %v3483 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 290, %4842 = vmatprep.mubr.f32.mxu0 %v3493 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 289, %4843 = vmatmul.mubr.f32.gmra.mxu0 %v3491 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 286, %4847 = vmatprep.mubr.f32.mxu0 %v3501 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 285, %4848 = vmatmul.mubr.f32.gmra.mxu0 %v3499 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 282, %4852 = vmatprep.mubr.f32.mxu0 %v3509 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 281, %4853 = vmatmul.mubr.f32.gmra.mxu0 %v3507 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 278, %4857 = vmatprep.mubr.f32.mxu0 %v3517 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 277, %4858 = vmatmul.mubr.f32.gmra.mxu0 %v3515 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 274, %4862 = vmatprep.mubr.f32.mxu0 %v3525 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 273, %4863 = vmatmul.mubr.f32.gmra.mxu0 %v3523 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 270, %4867 = vmatprep.mubr.f32.mxu0 %v3533 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 269, %4868 = vmatmul.mubr.f32.gmra.mxu0 %v3531 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 266, %4872 = vmatprep.mubr.f32.mxu0 %v3541 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 265, %4873 = vmatmul.mubr.f32.gmra.mxu0 %v3539 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 262, %4877 = vmatprep.mubr.f32.mxu0 %v3549 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 261, %4878 = vmatmul.mubr.f32.gmra.mxu0 %v3547 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 258, %4882 = vmatprep.mubr.f32.mxu0 %v3557 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 257, %4883 = vmatmul.mubr.f32.gmra.mxu0 %v3555 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 254, %4887 = vmatprep.mubr.f32.mxu0 %v3565 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 253, %4888 = vmatmul.mubr.f32.gmra.mxu0 %v3563 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 250, %4892 = vmatprep.mubr.f32.mxu0 %v3573 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 249, %4893 = vmatmul.mubr.f32.gmra.mxu0 %v3571 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 246, %4897 = vmatprep.mubr.f32.mxu0 %v3581 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 245, %4898 = vmatmul.mubr.f32.gmra.mxu0 %v3579 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 242, %4902 = vmatprep.mubr.f32.mxu0 %v3589 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 241, %4903 = vmatmul.mubr.f32.gmra.mxu0 %v3587 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 238, %4907 = vmatprep.mubr.f32.mxu0 %v3597 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 237, %4908 = vmatmul.mubr.f32.gmra.mxu0 %v3595 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 234, %4912 = vmatprep.mubr.f32.mxu0 %v3605 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 233, %4913 = vmatmul.mubr.f32.gmra.mxu0 %v3603 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 230, %4917 = vmatprep.mubr.f32.mxu0 %v3613 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 229, %4918 = vmatmul.mubr.f32.gmra.mxu0 %v3611 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 226, %4922 = vmatprep.mubr.f32.mxu0 %v3621 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 225, %4923 = vmatmul.mubr.f32.gmra.mxu0 %v3619 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 222, %4927 = vmatprep.mubr.f32.mxu0 %v3629 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 221, %4928 = vmatmul.mubr.f32.gmra.mxu0 %v3627 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 218, %4932 = vmatprep.mubr.f32.mxu0 %v3637 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 217, %4933 = vmatmul.mubr.f32.gmra.mxu0 %v3635 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 214, %4937 = vmatprep.mubr.f32.mxu0 %v3645 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 213, %4938 = vmatmul.mubr.f32.gmra.mxu0 %v3643 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 210, %4942 = vmatprep.mubr.f32.mxu0 %v3653 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 209, %4943 = vmatmul.mubr.f32.gmra.mxu0 %v3651 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 206, %4947 = vmatprep.mubr.f32.mxu0 %v3661 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 205, %4948 = vmatmul.mubr.f32.gmra.mxu0 %v3659 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 202, %4952 = vmatprep.mubr.f32.mxu0 %v3669 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 201, %4953 = vmatmul.mubr.f32.gmra.mxu0 %v3667 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 198, %4957 = vmatprep.mubr.f32.mxu0 %v3677 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 197, %4958 = vmatmul.mubr.f32.gmra.mxu0 %v3675 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 5, %v4959 = vpop.f32.mrf.mxu0 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 4, %v5345 = vadd.f32 %v5344, %v4959 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":801:13 to :48) */
+  Length to end: 2, %v5539 = vadd.f32 %v5475, %v5345 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":804:23 to :58) */
+
+New basic block in region: region59 {members=513 hlo=splash_mha_fwd_e9701070.1 parent=35}
+  Length to end: 19, %v5608 = vld [vmem:[#allocation12] sm:$0xff] /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":816:8 to :26) */
+  Length to end: 18, %v5672 = vrcp.pop %v5608 /* loc("/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py":817:25 to :32) */
+  Length to end: 4, %v5864 = vmul.f32 %v5800, %v5672
+  Length to end: 2, %v6782 = vpack.c.bf16 %v5865, %v5864
+
+New basic block in region: region35 {members=69 hlo=splash_mha_fwd_e9701070.1 parent=107}
+  Length to end: 4, %s7282 = smov [#allocation12] /* materialized constant */
+  Length to end: 3, %s6375 = sshll.u32 %s7282, 4
+  Length to end: 2, %s6376 = int_to_ptr.vmem [resolvable:$true] %s6375
+  Length to end: 1, %7174 = dma.vmem_to_hbm [thread:$0]  (%p317), /*vmem=*/%s6376, /*size_in_granules=*/8192, /*hbm=*/%s7, /*dst_syncflagno=*/[#allocation13] /* 
+base_bounds: (64, 1)
+dynamic_base_bounds: (64, 1)
+window_bounds: (64, 1)
+iteration_bounds: (8, 4, 4)
+strides: (64, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 4096 */
+
+New basic block in region: region107 {members=208 hlo=splash_mha_fwd_e9701070.1 parent=1}
+  Length to end: 4, %p7210 = scmp.ge.s32.totalorder %s7214, 2
+  Length to end: 2, %p7200 = pnand %p7210, %p324
+
+New basic block in region: region3 {members=33 hlo=splash_mha_fwd_e9701070.1 parent=1}
+  Length to end: 1, %s7212 = smov %s37 /* copy for cssa */

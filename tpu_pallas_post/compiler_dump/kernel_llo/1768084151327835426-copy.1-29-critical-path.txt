@@ -1,0 +1,10 @@
+
+New basic block in region: region1 {members=18 hlo=copy.1 parent=0}
+  Length to end: 3, %s30 = smov [#allocation0] /* materialized constant */
+  Length to end: 2, %s8 = sshll.u32 %s30, 4
+  Length to end: 1, %s9 = int_to_ptr.vmem [resolvable:$true] %s8
+
+New basic block in region: region1 {members=18 hlo=copy.1 parent=0}
+  Length to end: 9, %12 = dma.done [#allocation1], 256 /* pipeline-emitter-dma-wait */
+  Length to end: 2, %v13 = vld [vmem:[#allocation0] sm:$0xff]
+  Length to end: 1, %14 = vst [vmem:[#allocation3] sm:$0xff] /*vst_source=*/%v13

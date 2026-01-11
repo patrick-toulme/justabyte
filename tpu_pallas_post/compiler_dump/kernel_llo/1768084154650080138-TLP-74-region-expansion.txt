@@ -1,0 +1,1 @@
+ordinal=0 before=198 after=192 expansion=0.969697

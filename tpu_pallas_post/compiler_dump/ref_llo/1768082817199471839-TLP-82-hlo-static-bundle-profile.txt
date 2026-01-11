@@ -1,0 +1,108 @@
+HLO: <no-hlo-instruction>
+ - MXU_0 matpush: (0/91) - 0
+ - MXU_0 matpush_bf16_packed: (0/46) - 0
+ - MXU_0 matpush_s8_packed: (0/46) - 0
+ - MXU_0 matmul: (0/46) - 0
+ - MXU_0 matmul_packed: (0/23) - 0
+ - MXU_0 matmul_x8_packed: (0/23) - 0
+ - MXU_1 matpush: (0/91) - 0
+ - MXU_1 matpush_bf16_packed: (0/46) - 0
+ - MXU_1 matpush_s8_packed: (0/46) - 0
+ - MXU_1 matmul: (0/46) - 0
+ - MXU_1 matmul_packed: (0/23) - 0
+ - MXU_1 matmul_x8_packed: (0/23) - 0
+ - XLU_0 transpose: (0/46) - 0
+ - XLU_0 transpose_b16: (0/46) - 0
+ - XLU_0 rpu: (0/46) - 0
+ - XLU_0 all: (0/46) - 0
+ - XLU_1 transpose: (0/46) - 0
+ - XLU_1 transpose_b16: (0/46) - 0
+ - XLU_1 rpu: (0/46) - 0
+ - XLU_1 all: (0/46) - 0
+ - VECTOR_ALU: (105/728) - 0.144231
+ - VECTOR_EUP: (0/182) - 0
+ - VECTOR_LOAD_AND_MISC: (10/546) - 0.018315
+ - VECTOR_STORE_AND_MISC: (13/364) - 0.0357143
+ - VECTOR_LOAD_AND_STORE_AND_MISC: (13/728) - 0.0178571
+ - VECTOR_MISC: (10/182) - 0.0549451
+ - CMEM_LOAD: (0/91) - 0
+ - SMEM_SPILL_COUNT: (0/182) - 0
+ - SMEM_FILL_COUNT: (0/182) - 0
+ - VMEM_SPILL_COUNT: (0/182) - 0
+ - VMEM_FILL_COUNT: (0/182) - 0
+ - SCALAR_ALU: (22/364) - 0.0604396
+ - VMEM_TO_HBM_ESTIMATED_STARVATION: (0/182) - 0
+ - HBM_TO_VMEM_ESTIMATED_STARVATION: (0/182) - 0
+
+HLO: <no-hlo-instruction>
+ - MXU_0 matpush: (0/4) - 0
+ - MXU_0 matpush_bf16_packed: (0/2) - 0
+ - MXU_0 matpush_s8_packed: (0/2) - 0
+ - MXU_0 matmul: (0/2) - 0
+ - MXU_0 matmul_packed: (0/1) - 0
+ - MXU_0 matmul_x8_packed: (0/1) - 0
+ - MXU_1 matpush: (0/4) - 0
+ - MXU_1 matpush_bf16_packed: (0/2) - 0
+ - MXU_1 matpush_s8_packed: (0/2) - 0
+ - MXU_1 matmul: (0/2) - 0
+ - MXU_1 matmul_packed: (0/1) - 0
+ - MXU_1 matmul_x8_packed: (0/1) - 0
+ - XLU_0 transpose: (0/2) - 0
+ - XLU_0 transpose_b16: (0/2) - 0
+ - XLU_0 rpu: (0/2) - 0
+ - XLU_0 all: (0/2) - 0
+ - XLU_1 transpose: (0/2) - 0
+ - XLU_1 transpose_b16: (0/2) - 0
+ - XLU_1 rpu: (0/2) - 0
+ - XLU_1 all: (0/2) - 0
+ - VECTOR_ALU: (1/28) - 0.0357143
+ - VECTOR_EUP: (0/7) - 0
+ - VECTOR_LOAD_AND_MISC: (3/21) - 0.142857
+ - VECTOR_STORE_AND_MISC: (3/14) - 0.214286
+ - VECTOR_LOAD_AND_STORE_AND_MISC: (3/28) - 0.107143
+ - VECTOR_MISC: (3/7) - 0.428571
+ - CMEM_LOAD: (0/4) - 0
+ - SMEM_SPILL_COUNT: (0/7) - 0
+ - SMEM_FILL_COUNT: (0/7) - 0
+ - VMEM_SPILL_COUNT: (0/7) - 0
+ - VMEM_FILL_COUNT: (0/7) - 0
+ - SCALAR_ALU: (5/14) - 0.357143
+ - VMEM_TO_HBM_ESTIMATED_STARVATION: (0/7) - 0
+ - HBM_TO_VMEM_ESTIMATED_STARVATION: (0/7) - 0
+
+HLO: %copy.1 = pred[8,2048,2048]{2,1,0:T(32,128)(4,1)} copy(%Arg_0.1), backend_config={"flag_configs":[],"window_config":{"kernel_window_bounds":[],"output_window_bounds":["1","64","16"],"input_window_bounds":[],"estimated_cycles":"284064","iteration_bounds":["8","4","1"]},"scoped_memory_configs":[],"used_scoped_memory_configs":[{"memory_space":"1","offset":"0","size":"12582912"}],"retry_config":{"retry_count":"0"}}
+ - MXU_0 matpush: (0/400) - 0
+ - MXU_0 matpush_bf16_packed: (0/200) - 0
+ - MXU_0 matpush_s8_packed: (0/200) - 0
+ - MXU_0 matmul: (0/200) - 0
+ - MXU_0 matmul_packed: (0/100) - 0
+ - MXU_0 matmul_x8_packed: (0/100) - 0
+ - MXU_1 matpush: (0/400) - 0
+ - MXU_1 matpush_bf16_packed: (0/200) - 0
+ - MXU_1 matpush_s8_packed: (0/200) - 0
+ - MXU_1 matmul: (0/200) - 0
+ - MXU_1 matmul_packed: (0/100) - 0
+ - MXU_1 matmul_x8_packed: (0/100) - 0
+ - XLU_0 transpose: (0/200) - 0
+ - XLU_0 transpose_b16: (0/200) - 0
+ - XLU_0 rpu: (0/200) - 0
+ - XLU_0 all: (0/200) - 0
+ - XLU_1 transpose: (0/200) - 0
+ - XLU_1 transpose_b16: (0/200) - 0
+ - XLU_1 rpu: (0/200) - 0
+ - XLU_1 all: (0/200) - 0
+ - VECTOR_ALU: (0/3196) - 0
+ - VECTOR_EUP: (0/799) - 0
+ - VECTOR_LOAD_AND_MISC: (1051/2397) - 0.438465
+ - VECTOR_STORE_AND_MISC: (1051/1598) - 0.657697
+ - VECTOR_LOAD_AND_STORE_AND_MISC: (2075/3196) - 0.649249
+ - VECTOR_MISC: (27/799) - 0.0337922
+ - CMEM_LOAD: (0/400) - 0
+ - SMEM_SPILL_COUNT: (0/799) - 0
+ - SMEM_FILL_COUNT: (0/799) - 0
+ - VMEM_SPILL_COUNT: (0/799) - 0
+ - VMEM_FILL_COUNT: (0/799) - 0
+ - SCALAR_ALU: (105/1598) - 0.0657071
+ - VMEM_TO_HBM_ESTIMATED_STARVATION: (672/799) - 0.841051
+ - HBM_TO_VMEM_ESTIMATED_STARVATION: (672/799) - 0.841051
+

@@ -1,0 +1,7 @@
+ordinal=0 before=477 after=483 expansion=1.01258
+ordinal=18 before=134 after=138 expansion=1.02985
+ordinal=21 before=16 after=21 expansion=1.3125
+ordinal=22 before=16 after=21 expansion=1.3125
+ordinal=24 before=136 after=140 expansion=1.02941
+ordinal=27 before=16 after=21 expansion=1.3125
+ordinal=28 before=16 after=21 expansion=1.3125

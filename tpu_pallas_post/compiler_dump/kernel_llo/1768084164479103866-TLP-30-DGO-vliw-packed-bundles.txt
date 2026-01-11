@@ -1,0 +1,277 @@
+     0   :  { %s201 = sld [smem:[#allocation19]] }
+   0x1   :  {}
+   0x2   :  {}
+   0x3   :  {}
+   0x4   :  {}
+   0x5   :  {}
+   0x6   :  { %s202 = sand.u32 134217727, %s201 }
+   0x7   :  { %s203 = sor.u32 4026531840, %s202 }
+     0   :  {}
+   0x1   :  { %204 = vtrace %s203 }
+     0   :  {}
+   0x1   :  { %s195 = sld [smem:[#allocation16]] }
+     0   :  {}
+   0x1   :  { %196 = vtrace %s195 }
+     0   :  {}
+   0x1   :  { %s197 = sld [smem:[#allocation17]] }
+     0   :  {}
+   0x1   :  { %198 = vtrace %s197 }
+     0   :  {}
+   0x1   :  { %s199 = sld [smem:[#allocation18]] }
+     0   :  {}
+   0x1   :  { %200 = vtrace %s199 }
+     0   :  { %v182 = vlaneseq }
+   0x1   :  {}
+   0x2   :  { %v183 = vshrl.u32 %v182, 7 }
+   0x3   :  {}
+   0x4   :  { %v184 = vshrl.u32 %v183, 1  ;;  %v185 = vand.u32 1, %v183 }
+   0x5   :  {}
+   0x6   :  { %v186 = vshll.u32 %v185, 2 }
+   0x7   :  {}
+   0x8   :  { %v187 = vadd.s32 %v186, %v184 }
+   0x9   :  { %v193 = vsub.s32 %v184, %v183 }
+   0xa   :  { %v188 = vsub.s32 %v187, %v183 }
+   0xb   :  {}
+   0xc   :  { %189 = vsetiar.raw.iar0 %v188 /* EvenOdd Store IAR initialization */ }
+   0xd   :  { %194 = vsetiar.raw.iar1 %v193 /* EvenOdd Load IAR initialization */ }
+   0xe   :  { %s62 = sld [smem:[#allocation13]] }
+     0   :  {}
+   0x1   :  { %p205 = scmp.eq.s32.totalorder %s62, 0 }
+     0   :  {}
+   0x1   :  { %66 = sbr.rel (%p205) target = $region24 }
+     0   :  { %v71 = vand.u32 127, %v182  ;;  %s79 = sxor.u32 2925155241, %s62 }
+   0x1   :  {}
+   0x2   :  { %v75 = vxor.u32 1135663077, %v71 }
+   0x3   :  { %s80 = smul.u32 2223506493, %s79 }
+   0x4   :  { %v76 = vmul.u32 2925155241, %v75 }
+   0x5   :  {}
+   0x6   :  { %v77 = vshrl.u32 %v76, 16 }
+   0x7   :  { %s81 = sshrl.u32 %s80, 16 }
+   0x8   :  { %v78 = vxor.u32 %v77, %v76 }
+   0x9   :  {}
+   0xa   :  { %s82 = sxor.u32 %s81, %s80  ;;  %v83 = vxor.u32 2223506493, %v78 }
+   0xb   :  {}
+   0xc   :  { %v84 = vmul.u32 1519409121, %v83 }
+   0xd   :  { %s87 = smul.u32 3389127133, %s82 }
+   0xe   :  { %v85 = vshrl.u32 %v84, 16 }
+   0xf   :  {}
+  0x10   :  { %v86 = vxor.u32 %v85, %v84 }
+  0x11   :  { %v89 = vstv %s87 }
+  0x12   :  { %v88 = vmul.u32 1232336661, %v86 }
+  0x13   :  {}
+  0x14   :  { %v90 = vsub.s32 %v89, %v88 }
+  0x15   :  {}
+  0x16   :  { %v91 = vshrl.u32 %v90, 16 }
+  0x17   :  {}
+  0x18   :  { %v92 = vxor.u32 %v91, %v90 }
+  0x19   :  {}
+  0x1a   :  { %v93 = vxor.u32 1519409121, %v92 }
+  0x1b   :  {}
+  0x1c   :  { %v94 = vmul.u32 2449846741, %v93 }
+  0x1d   :  {}
+  0x1e   :  { %v95 = vshrl.u32 %v94, 16 }
+  0x1f   :  {}
+  0x20   :  { %v96 = vxor.u32 %v95, %v94  ;;  %v97 = vmul.u32 3389127133, %v78 }
+  0x21   :  {}
+  0x22   :  { %v98 = vmul.u32 1232336661, %v96 }
+  0x23   :  {}
+  0x24   :  { %v99 = vsub.s32 %v97, %v98 }
+  0x25   :  {}
+  0x26   :  { %v100 = vshrl.u32 %v99, 16 }
+  0x27   :  {}
+  0x28   :  { %v101 = vxor.u32 %v100, %v99  ;;  %v106 = vxor.u32 2925155241, %v92 }
+  0x29   :  {}
+  0x2a   :  { %v102 = vxor.u32 1135663077, %v101 }
+  0x2b   :  {}
+  0x2c   :  { %v103 = vmul.u32 2925155241, %v102  ;;  %v107 = vmul.u32 2223506493, %v106 }
+  0x2d   :  {}
+  0x2e   :  { %v104 = vshrl.u32 %v103, 16 }
+  0x2f   :  {}
+  0x30   :  { %v105 = vxor.u32 %v104, %v103  ;;  %v108 = vshrl.u32 %v107, 16 }
+  0x31   :  {}
+  0x32   :  { %v110 = vxor.u32 2223506493, %v105 }
+  0x33   :  {}
+  0x34   :  { %v109 = vxor.u32 %v108, %v107  ;;  %v111 = vmul.u32 1519409121, %v110 }
+  0x35   :  {}
+  0x36   :  { %v112 = vshrl.u32 %v111, 16 }
+  0x37   :  {}
+  0x38   :  { %v113 = vxor.u32 %v112, %v111  ;;  %v114 = vmul.u32 3389127133, %v109 }
+  0x39   :  {}
+  0x3a   :  { %v115 = vmul.u32 1232336661, %v113 }
+  0x3b   :  {}
+  0x3c   :  { %v116 = vsub.s32 %v114, %v115 }
+  0x3d   :  {}
+  0x3e   :  { %v117 = vshrl.u32 %v116, 16 }
+  0x3f   :  {}
+  0x40   :  { %v118 = vxor.u32 %v117, %v116 }
+  0x41   :  {}
+  0x42   :  { %v119 = vxor.u32 1519409121, %v118 }
+  0x43   :  {}
+  0x44   :  { %v120 = vmul.u32 2449846741, %v119 }
+  0x45   :  {}
+  0x46   :  { %v121 = vshrl.u32 %v120, 16 }
+  0x47   :  {}
+  0x48   :  { %v122 = vxor.u32 %v121, %v120  ;;  %v123 = vmul.u32 3389127133, %v105 }
+  0x49   :  { %v136 = vxor.u32 1179257497, %v118 }
+  0x4a   :  { %v124 = vmul.u32 1232336661, %v122 }
+  0x4b   :  {}
+  0x4c   :  { %v125 = vsub.s32 %v123, %v124 }
+  0x4d   :  { %v137 = vmul.u32 2174555301, %v136  ;;  %v152 = vxor.u32 3546938817, %v118 }
+  0x4e   :  { %v126 = vshrl.u32 %v125, 16 }
+  0x4f   :  { %v140 = vxor.u32 461070425, %v118  ;;  %v156 = vxor.u32 728804945, %v118 }
+  0x50   :  { %v127 = vxor.u32 %v126, %v125 }
+  0x51   :  { %v138 = vshrl.u32 %v137, 16  ;;  %v153 = vmul.u32 1343633581, %v152 }
+  0x52   :  { %v128 = vxor.u32 2337405405, %v127  ;;  %v132 = vxor.u32 747796405, %v127  ;;  %v144 = vxor.u32 2174555301, %v127 }
+  0x53   :  { %v141 = vmul.u32 702470093, %v140  ;;  %v148 = vxor.u32 702470093, %v127  ;;  %v157 = vmul.u32 1920080165, %v156 }
+  0x54   :  { %v129 = vmul.u32 1179257497, %v128  ;;  %v133 = vmul.u32 461070425, %v132 }
+  0x55   :  { %v145 = vmul.u32 3546938817, %v144  ;;  %v149 = vmul.u32 728804945, %v148 }
+  0x56   :  { %v130 = vshrl.u32 %v129, 16  ;;  %v139 = vxor.u32 %v138, %v137  ;;  %v154 = vshrl.u32 %v153, 16 }
+  0x57   :  { %v146 = vshrl.u32 %v145, 16 }
+  0x58   :  { %v131 = vxor.u32 %v130, %v129  ;;  %v142 = vshrl.u32 %v141, 16 }
+  0x59   :  { %v134 = vshrl.u32 %v133, 16  ;;  %v147 = vxor.u32 %v146, %v145  ;;  %v150 = vshrl.u32 %v149, 16  ;;  %v158 = vshrl.u32 %v157, 16 }
+  0x5a   :  { %v155 = vxor.u32 %v154, %v153  ;;  %v160 = vor.u32 %v139, %v131 }
+  0x5b   :  {}
+  0x5c   :  { %v161 = vor.u32 %v160, %v147 }
+  0x5d   :  { %v135 = vxor.u32 %v134, %v133  ;;  %v143 = vxor.u32 %v142, %v141  ;;  %v151 = vxor.u32 %v150, %v149  ;;  %v159 = vxor.u32 %v158, %v157 }
+  0x5e   :  { %v162 = vor.u32 %v161, %v155 }
+  0x5f   :  { %vm206 = vcmp.eq.s32.totalorder %v183, 1 }
+  0x60   :  { %vm163 = vcmp.eq.s32.totalorder %v162, 0  ;;  %vm207 = vcmp.eq.s32.totalorder %v183, 2  ;;  %vm208 = vcmp.eq.s32.totalorder %v183, 3 }
+  0x61   :  { %v173 = vsel /*vm=*/%vm163, /*on_true_vy=*/%v135, /*on_false_vx=*/%v131  ;;  %v174 = vsel /*vm=*/%vm163, /*on_true_vy=*/%v143, /*on_false_vx=*/%v139  ;;  %v176 = vsel /*vm=*/%vm163, /*on_true_vy=*/%v151, /*on_false_vx=*/%v147  ;;  %v178 = vsel /*vm=*/%vm163, /*on_true_vy=*/%v159, /*on_false_vx=*/%v155 }
+  0x62   :  { %v175 = vsel /*vm=*/%vm206, /*on_true_vy=*/%v174, /*on_false_vx=*/%v173 }
+  0x63   :  { %v177 = vsel /*vm=*/%vm207, /*on_true_vy=*/%v176, /*on_false_vx=*/%v175 }
+  0x64   :  { %v179 = vsel /*vm=*/%vm208, /*on_true_vy=*/%v178, /*on_false_vx=*/%v177 }
+  0x65   :  { %180 = setrngseed %v179 /* Rng seed initialization */ }
+  0x66   :  { %v181 = vrng /* Rng seed initialization */ }
+     0   :  {}
+   0x1   :  { %37 = vsettm 1 }
+     0   :  {}
+   0x1   :  { %s212 = smov 2147483646 /* materialized constant */ }
+     0   :  {}
+   0x1   :  { %36 = vsettm %s212 }
+     0   :  {}
+   0x1   :  { %34 = vtrace 2415919103 }
+     0   :  {}
+   0x1   :  { %0 = vtrace 2952790016 }
+     0   :  {}
+   0x1   :  { %1 = vtrace 3221225472 }
+     0   :  {}
+   0x1   :  { %s2 = sld [smem:[#allocation0]] }
+     0   :  {}
+   0x1   :  { %p209 = scmp.ne.s32.totalorder %s2, 1 }
+     0   :  {}
+   0x1   :  { %6 = sbr.rel (%p209) target = $region4 }
+     0   :  {}
+   0x1   :  { %s9 = scalar_parameter_address 0 }
+     0   :  {}
+   0x1   :  { %10 = compiler-scheduling-barrier }
+     0   :  {}
+   0x1   :  { %12 = compiler-scheduling-barrier }
+     0   :  {}
+   0x1   :  { %13 = compiler-scheduling-barrier }
+     0   :  { %14 = vsyncpa [#allocation6], 0  ;;  %s213 = smov [#allocation5] /* materialized constant */ }
+   0x1   :  { %s15 = sshll.u32 %s213, 4 }
+   0x2   :  { %s16 = int_to_ptr.vmem [resolvable:$true] %s15 }
+   0x3   :  { %18 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s9, /*size_in_granules=*/1, /*vmem=*/%s16, /*dst_syncflagno=*/[#allocation6] }
+     0   :  {}
+   0x1   :  { %19 = dma.done [#allocation6], 1 /* local-dma-wait */ }
+     0   :  {}
+   0x1   :  { %20 = vsyncpa [#allocation6], 1 }
+     0   :  {}
+   0x1   :  { %v21 = vld [vmem:[#allocation5] sm:$0xff] }
+     0   :  { %210 = vpush %v21 }
+   0x1   :  {}
+   0x2   :  {}
+   0x3   :  {}
+   0x4   :  {}
+   0x5   :  {}
+   0x6   :  {}
+   0x7   :  {}
+   0x8   :  {}
+   0x9   :  {}
+   0xa   :  {}
+   0xb   :  {}
+   0xc   :  {}
+   0xd   :  {}
+   0xe   :  {}
+   0xf   :  {}
+  0x10   :  {}
+  0x11   :  {}
+  0x12   :  {}
+  0x13   :  {}
+  0x14   :  {}
+  0x15   :  {}
+  0x16   :  {}
+  0x17   :  {}
+  0x18   :  {}
+  0x19   :  {}
+  0x1a   :  {}
+  0x1b   :  {}
+  0x1c   :  {}
+  0x1d   :  {}
+  0x1e   :  {}
+  0x1f   :  {}
+  0x20   :  {}
+  0x21   :  {}
+  0x22   :  {}
+  0x23   :  {}
+  0x24   :  {}
+  0x25   :  {}
+  0x26   :  {}
+  0x27   :  {}
+  0x28   :  {}
+  0x29   :  {}
+  0x2a   :  {}
+  0x2b   :  {}
+  0x2c   :  {}
+  0x2d   :  {}
+  0x2e   :  {}
+  0x2f   :  {}
+  0x30   :  {}
+  0x31   :  { %s211 = spop %210 }
+  0x32   :  { %s24 = sshll.u32 %s211, 24 }
+  0x33   :  { %s25 = sshra.s32 %s24, 24 }
+  0x34   :  { %s26 = sand.u32 255, %s25 }
+     0   :  {}
+   0x1   :  { %27 = compiler-scheduling-barrier }
+     0   :  {}
+   0x1   :  { %28 = compiler-scheduling-barrier }
+     0   :  { %s30 = sshll.u32 %s26, 24 }
+   0x1   :  { %s31 = sshra.s32 %s30, 24 }
+   0x2   :  { %s32 = sand.u32 255, %s31 }
+     0   :  {}
+   0x1   :  { %33 = compiler-scheduling-barrier }
+     0   :  { %s39 = sld [smem:[#allocation7]]  ;;  %v41 = vstv %s32 }
+   0x1   :  {}
+   0x2   :  {}
+   0x3   :  {}
+   0x4   :  {}
+   0x5   :  {}
+   0x6   :  { %s40 = int_to_ptr.hbm [resolvable:$false] %s39 }
+     0   :  { %42 = vsyncpa [#allocation11], 0  ;;  %vm43 = vcmask 1041408 /* [0:1,0:127] */ }
+   0x1   :  { %44 = vst.msk [vmem:[#allocation8] sm:$0xff] /*vm=*/%vm43, /*vst_source=*/%v41  ;;  %s214 = smov [#allocation9] /* materialized constant */ }
+   0x2   :  {}
+   0x3   :  {}
+   0x4   :  { %s53 = sshll.u32 %s214, 4 }
+   0x5   :  {}
+   0x6   :  {}
+   0x7   :  { %s54 = int_to_ptr.vmem [resolvable:$true] %s53 }
+   0x8   :  { %v49 = vld [vmem:[#allocation8] sm:$0x1] }
+   0x9   :  { %52 = vst [vmem:[#allocation9] sm:$0x1] /*vst_source=*/%v49 }
+   0xa   :  { %56 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s54, /*size_in_granules=*/16, /*hbm=*/%s40, /*dst_syncflagno=*/[#allocation11] }
+     0   :  {}
+   0x1   :  { %57 = dma.done [#allocation11], 16 /* pipeline-emitter-dma-wait */ }
+     0   :  {}
+   0x1   :  { %58 = vsyncpa [#allocation11], 1 }
+     0   :  {}
+   0x1   :  { %35 = vtrace 2684354559 }
+     0   :  {}
+   0x1   :  { %s215 = smov 2147483647 /* materialized constant */ }
+     0   :  {}
+   0x1   :  { %38 = vsettm %s215 }
+     0   :  {}
+   0x1   :  { %59 = vdelay 1 }
+     0   :  {}
+   0x1   :  { %60 = sfence }
+     0   :  {}
+   0x1   :  { %s216 = smov 0 /* materialized constant */ }
+   0x2   :  { %61 = sst [smem:[#allocation12]] %s216 }

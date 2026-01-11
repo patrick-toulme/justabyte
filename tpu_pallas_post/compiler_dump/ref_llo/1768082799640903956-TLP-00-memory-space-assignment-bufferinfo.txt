@@ -1,0 +1,5 @@
+buffer_id,buffer_name,alt_mem_benefit,size,definition_time,use_times,use_names,is_scoped
+172,"<172 add_add_fusion{0}>",2.55029e-11,512,9,"12","pad_add_fusion, operand 0",0
+173,"<173 add_add_fusion{1}>",2.55029e-11,512,9,"12","pad_add_fusion, operand 1",0
+164,"<164 Arg_0.1>",2.55029e-11,512,1,"2","fusion.16, operand 0",0
+174,"<174 pad_add_fusion>",1.80333e-11,1024,12,"","",0

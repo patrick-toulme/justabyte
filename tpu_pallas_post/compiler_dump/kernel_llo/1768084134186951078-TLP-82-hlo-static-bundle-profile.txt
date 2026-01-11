@@ -1,0 +1,212 @@
+HLO: <no-hlo-instruction>
+ - MXU_0 matpush: (0/94) - 0
+ - MXU_0 matpush_bf16_packed: (0/47) - 0
+ - MXU_0 matpush_s8_packed: (0/47) - 0
+ - MXU_0 matmul: (0/47) - 0
+ - MXU_0 matmul_packed: (0/24) - 0
+ - MXU_0 matmul_x8_packed: (0/24) - 0
+ - MXU_1 matpush: (0/94) - 0
+ - MXU_1 matpush_bf16_packed: (0/47) - 0
+ - MXU_1 matpush_s8_packed: (0/47) - 0
+ - MXU_1 matmul: (0/47) - 0
+ - MXU_1 matmul_packed: (0/24) - 0
+ - MXU_1 matmul_x8_packed: (0/24) - 0
+ - XLU_0 transpose: (0/47) - 0
+ - XLU_0 transpose_b16: (0/47) - 0
+ - XLU_0 rpu: (0/47) - 0
+ - XLU_0 all: (0/47) - 0
+ - XLU_1 transpose: (0/47) - 0
+ - XLU_1 transpose_b16: (0/47) - 0
+ - XLU_1 rpu: (0/47) - 0
+ - XLU_1 all: (0/47) - 0
+ - VECTOR_ALU: (105/752) - 0.139628
+ - VECTOR_EUP: (0/188) - 0
+ - VECTOR_LOAD_AND_MISC: (10/564) - 0.0177305
+ - VECTOR_STORE_AND_MISC: (13/376) - 0.0345745
+ - VECTOR_LOAD_AND_STORE_AND_MISC: (13/752) - 0.0172872
+ - VECTOR_MISC: (10/188) - 0.0531915
+ - CMEM_LOAD: (0/94) - 0
+ - SMEM_SPILL_COUNT: (1/188) - 0.00531915
+ - SMEM_FILL_COUNT: (0/188) - 0
+ - VMEM_SPILL_COUNT: (0/188) - 0
+ - VMEM_FILL_COUNT: (0/188) - 0
+ - SCALAR_ALU: (23/376) - 0.0611702
+ - VMEM_TO_HBM_ESTIMATED_STARVATION: (0/188) - 0
+ - HBM_TO_VMEM_ESTIMATED_STARVATION: (0/188) - 0
+
+HLO: <no-hlo-instruction>
+ - MXU_0 matpush: (0/4) - 0
+ - MXU_0 matpush_bf16_packed: (0/2) - 0
+ - MXU_0 matpush_s8_packed: (0/2) - 0
+ - MXU_0 matmul: (0/2) - 0
+ - MXU_0 matmul_packed: (0/1) - 0
+ - MXU_0 matmul_x8_packed: (0/1) - 0
+ - MXU_1 matpush: (0/4) - 0
+ - MXU_1 matpush_bf16_packed: (0/2) - 0
+ - MXU_1 matpush_s8_packed: (0/2) - 0
+ - MXU_1 matmul: (0/2) - 0
+ - MXU_1 matmul_packed: (0/1) - 0
+ - MXU_1 matmul_x8_packed: (0/1) - 0
+ - XLU_0 transpose: (0/2) - 0
+ - XLU_0 transpose_b16: (0/2) - 0
+ - XLU_0 rpu: (0/2) - 0
+ - XLU_0 all: (0/2) - 0
+ - XLU_1 transpose: (0/2) - 0
+ - XLU_1 transpose_b16: (0/2) - 0
+ - XLU_1 rpu: (0/2) - 0
+ - XLU_1 all: (0/2) - 0
+ - VECTOR_ALU: (1/28) - 0.0357143
+ - VECTOR_EUP: (0/7) - 0
+ - VECTOR_LOAD_AND_MISC: (3/21) - 0.142857
+ - VECTOR_STORE_AND_MISC: (3/14) - 0.214286
+ - VECTOR_LOAD_AND_STORE_AND_MISC: (3/28) - 0.107143
+ - VECTOR_MISC: (3/7) - 0.428571
+ - CMEM_LOAD: (0/4) - 0
+ - SMEM_SPILL_COUNT: (0/7) - 0
+ - SMEM_FILL_COUNT: (0/7) - 0
+ - VMEM_SPILL_COUNT: (0/7) - 0
+ - VMEM_FILL_COUNT: (0/7) - 0
+ - SCALAR_ALU: (5/14) - 0.357143
+ - VMEM_TO_HBM_ESTIMATED_STARVATION: (0/7) - 0
+ - HBM_TO_VMEM_ESTIMATED_STARVATION: (0/7) - 0
+
+HLO: %fusion.21 = bf16[8,2048,128]{2,1,0:T(8,128)(2,1)} fusion(%xor.50, %bitcast.1, %bitcast, %get-tuple-element.5, %get-tuple-element.7, /*index=5*/%get-tuple-element.4, %get-tuple-element.6), kind=kLoop, calls=%fused_computation.32, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/mul" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}, backend_config={"flag_configs":[],"window_config":{"kernel_window_bounds":[],"output_window_bounds":["8","32","1"],"input_window_bounds":[],"estimated_cycles":"101700","iteration_bounds":["1","8","1"]},"scoped_memory_configs":[],"used_scoped_memory_configs":[{"memory_space":"1","offset":"0","size":"1359872"}],"retry_config":{"retry_count":"0"}}
+ - MXU_0 matpush: (0/6395) - 0
+ - MXU_0 matpush_bf16_packed: (0/3198) - 0
+ - MXU_0 matpush_s8_packed: (0/3198) - 0
+ - MXU_0 matmul: (0/3198) - 0
+ - MXU_0 matmul_packed: (0/1599) - 0
+ - MXU_0 matmul_x8_packed: (0/1599) - 0
+ - MXU_1 matpush: (0/6395) - 0
+ - MXU_1 matpush_bf16_packed: (0/3198) - 0
+ - MXU_1 matpush_s8_packed: (0/3198) - 0
+ - MXU_1 matmul: (0/3198) - 0
+ - MXU_1 matmul_packed: (0/1599) - 0
+ - MXU_1 matmul_x8_packed: (0/1599) - 0
+ - XLU_0 transpose: (0/3198) - 0
+ - XLU_0 transpose_b16: (0/3198) - 0
+ - XLU_0 rpu: (40/3198) - 0.0125078
+ - XLU_0 all: (40/3198) - 0.0125078
+ - XLU_1 transpose: (0/3198) - 0
+ - XLU_1 transpose_b16: (0/3198) - 0
+ - XLU_1 rpu: (40/3198) - 0.0125078
+ - XLU_1 all: (40/3198) - 0.0125078
+ - VECTOR_ALU: (48919/51156) - 0.956271
+ - VECTOR_EUP: (512/12789) - 0.0400344
+ - VECTOR_LOAD_AND_MISC: (148/38367) - 0.00385748
+ - VECTOR_STORE_AND_MISC: (338/25578) - 0.0132145
+ - VECTOR_LOAD_AND_STORE_AND_MISC: (480/51156) - 0.00938306
+ - VECTOR_MISC: (6/12789) - 0.000469153
+ - CMEM_LOAD: (0/6395) - 0
+ - SMEM_SPILL_COUNT: (77/12789) - 0.0060208
+ - SMEM_FILL_COUNT: (78/12789) - 0.00609899
+ - VMEM_SPILL_COUNT: (76/12789) - 0.00594261
+ - VMEM_FILL_COUNT: (76/12789) - 0.00594261
+ - SCALAR_ALU: (744/25578) - 0.0290875
+ - VMEM_TO_HBM_ESTIMATED_STARVATION: (0/12789) - 0
+ - HBM_TO_VMEM_ESTIMATED_STARVATION: (0/12789) - 0
+
+HLO: %fusion.28 = (u32[2048]{0:T(1024)S(1)}, u32[2048]{0:T(1024)S(1)}) fusion(), kind=kLoop, calls=%fused_computation.42, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}, backend_config={"flag_configs":[],"window_config":{"kernel_window_bounds":[],"output_window_bounds":["2"],"input_window_bounds":[],"estimated_cycles":"22","iteration_bounds":["1"]},"scoped_memory_configs":[],"used_scoped_memory_configs":[{"memory_space":"1","offset":"0","size":"0"}],"retry_config":{"retry_count":"0"},"fusion_formation_source":{"fusion_creating_compiler_pass":"TpuAdvancedMOF","fusion_id":"42"}}
+ - MXU_0 matpush: (0/9) - 0
+ - MXU_0 matpush_bf16_packed: (0/5) - 0
+ - MXU_0 matpush_s8_packed: (0/5) - 0
+ - MXU_0 matmul: (0/5) - 0
+ - MXU_0 matmul_packed: (0/3) - 0
+ - MXU_0 matmul_x8_packed: (0/3) - 0
+ - MXU_1 matpush: (0/9) - 0
+ - MXU_1 matpush_bf16_packed: (0/5) - 0
+ - MXU_1 matpush_s8_packed: (0/5) - 0
+ - MXU_1 matmul: (0/5) - 0
+ - MXU_1 matmul_packed: (0/3) - 0
+ - MXU_1 matmul_x8_packed: (0/3) - 0
+ - XLU_0 transpose: (0/5) - 0
+ - XLU_0 transpose_b16: (0/5) - 0
+ - XLU_0 rpu: (0/5) - 0
+ - XLU_0 all: (0/5) - 0
+ - XLU_1 transpose: (0/5) - 0
+ - XLU_1 transpose_b16: (0/5) - 0
+ - XLU_1 rpu: (0/5) - 0
+ - XLU_1 all: (0/5) - 0
+ - VECTOR_ALU: (27/68) - 0.397059
+ - VECTOR_EUP: (0/17) - 0
+ - VECTOR_STORE_AND_MISC: (4/34) - 0.117647
+ - VECTOR_LOAD_AND_STORE_AND_MISC: (4/68) - 0.0588235
+ - CMEM_LOAD: (0/9) - 0
+ - SMEM_SPILL_COUNT: (0/17) - 0
+ - SMEM_FILL_COUNT: (0/17) - 0
+ - VMEM_SPILL_COUNT: (0/17) - 0
+ - VMEM_FILL_COUNT: (0/17) - 0
+ - SCALAR_ALU: (0/34) - 0
+ - VMEM_TO_HBM_ESTIMATED_STARVATION: (0/17) - 0
+ - HBM_TO_VMEM_ESTIMATED_STARVATION: (0/17) - 0
+
+HLO: %fusion.36 = (u32[8]{0:T(128)S(1)}, u32[8]{0:T(128)S(1)}) fusion(), kind=kLoop, calls=%fused_computation.52, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/iota_2x32_shape" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}, backend_config={"flag_configs":[],"window_config":{"kernel_window_bounds":[],"output_window_bounds":["1"],"input_window_bounds":[],"estimated_cycles":"2121","iteration_bounds":["1"]},"scoped_memory_configs":[],"used_scoped_memory_configs":[{"memory_space":"1","offset":"0","size":"0"}],"retry_config":{"retry_count":"0"},"fusion_formation_source":{"fusion_creating_compiler_pass":"TpuAdvancedMOF","fusion_id":"42"}}
+ - MXU_0 matpush: (0/5) - 0
+ - MXU_0 matpush_bf16_packed: (0/3) - 0
+ - MXU_0 matpush_s8_packed: (0/3) - 0
+ - MXU_0 matmul: (0/3) - 0
+ - MXU_0 matmul_packed: (0/2) - 0
+ - MXU_0 matmul_x8_packed: (0/2) - 0
+ - MXU_1 matpush: (0/5) - 0
+ - MXU_1 matpush_bf16_packed: (0/3) - 0
+ - MXU_1 matpush_s8_packed: (0/3) - 0
+ - MXU_1 matmul: (0/3) - 0
+ - MXU_1 matmul_packed: (0/2) - 0
+ - MXU_1 matmul_x8_packed: (0/2) - 0
+ - XLU_0 transpose: (0/3) - 0
+ - XLU_0 transpose_b16: (0/3) - 0
+ - XLU_0 rpu: (0/3) - 0
+ - XLU_0 all: (0/3) - 0
+ - XLU_1 transpose: (0/3) - 0
+ - XLU_1 transpose_b16: (0/3) - 0
+ - XLU_1 rpu: (0/3) - 0
+ - XLU_1 all: (0/3) - 0
+ - VECTOR_ALU: (7/36) - 0.194444
+ - VECTOR_EUP: (0/9) - 0
+ - VECTOR_STORE_AND_MISC: (2/18) - 0.111111
+ - VECTOR_LOAD_AND_STORE_AND_MISC: (2/36) - 0.0555556
+ - CMEM_LOAD: (0/5) - 0
+ - SMEM_SPILL_COUNT: (0/9) - 0
+ - SMEM_FILL_COUNT: (0/9) - 0
+ - VMEM_SPILL_COUNT: (0/9) - 0
+ - VMEM_FILL_COUNT: (0/9) - 0
+ - SCALAR_ALU: (0/18) - 0
+ - VMEM_TO_HBM_ESTIMATED_STARVATION: (0/9) - 0
+ - HBM_TO_VMEM_ESTIMATED_STARVATION: (0/9) - 0
+
+HLO: %fusion.40 = (u32[1]{0:T(128)}, u32[1]{0:T(128)}) fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation.56, metadata={op_name="jit(_normal)/jit(main)/jit(_normal_real)/jit(_uniform)/slice" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=137}, backend_config={"flag_configs":[],"window_config":{"kernel_window_bounds":[],"output_window_bounds":["1"],"input_window_bounds":[],"estimated_cycles":"2123","iteration_bounds":["1"]},"scoped_memory_configs":[],"used_scoped_memory_configs":[{"memory_space":"1","offset":"0","size":"4096"}],"retry_config":{"retry_count":"0"}}
+ - MXU_0 matpush: (0/83) - 0
+ - MXU_0 matpush_bf16_packed: (0/42) - 0
+ - MXU_0 matpush_s8_packed: (0/42) - 0
+ - MXU_0 matmul: (0/42) - 0
+ - MXU_0 matmul_packed: (0/21) - 0
+ - MXU_0 matmul_x8_packed: (0/21) - 0
+ - MXU_1 matpush: (0/83) - 0
+ - MXU_1 matpush_bf16_packed: (0/42) - 0
+ - MXU_1 matpush_s8_packed: (0/42) - 0
+ - MXU_1 matmul: (0/42) - 0
+ - MXU_1 matmul_packed: (0/21) - 0
+ - MXU_1 matmul_x8_packed: (0/21) - 0
+ - XLU_0 transpose: (0/42) - 0
+ - XLU_0 transpose_b16: (0/42) - 0
+ - XLU_0 rpu: (1/42) - 0.0238095
+ - XLU_0 all: (1/42) - 0.0238095
+ - XLU_1 transpose: (0/42) - 0
+ - XLU_1 transpose_b16: (0/42) - 0
+ - XLU_1 rpu: (0/42) - 0
+ - XLU_1 all: (0/42) - 0
+ - VECTOR_ALU: (7/660) - 0.0106061
+ - VECTOR_EUP: (0/165) - 0
+ - VECTOR_LOAD_AND_MISC: (17/495) - 0.0343434
+ - VECTOR_STORE_AND_MISC: (17/330) - 0.0515152
+ - VECTOR_LOAD_AND_STORE_AND_MISC: (19/660) - 0.0287879
+ - VECTOR_MISC: (15/165) - 0.0909091
+ - CMEM_LOAD: (0/83) - 0
+ - SMEM_SPILL_COUNT: (0/165) - 0
+ - SMEM_FILL_COUNT: (0/165) - 0
+ - VMEM_SPILL_COUNT: (0/165) - 0
+ - VMEM_FILL_COUNT: (0/165) - 0
+ - SCALAR_ALU: (45/330) - 0.136364
+ - VMEM_TO_HBM_ESTIMATED_STARVATION: (0/165) - 0
+ - HBM_TO_VMEM_ESTIMATED_STARVATION: (0/165) - 0
+

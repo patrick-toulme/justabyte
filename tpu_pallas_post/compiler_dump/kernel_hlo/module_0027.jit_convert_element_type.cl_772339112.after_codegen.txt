@@ -1,0 +1,7 @@
+HloModule jit_convert_element_type, is_scheduled=true, entry_computation_layout={(s8[1,4,4]{2,1,0:T(4,128)(4,1)})->s8[1,4,4]{2,1,0:T(4,128)(4,1)}}, allow_spmd_sharding_propagation_to_parameters={true}, allow_spmd_sharding_propagation_to_output={true}
+
+ENTRY %main.2 (Arg_0.1: s8[1,4,4]) -> s8[1,4,4] {
+  %Arg_0.1 = s8[1,4,4]{2,1,0:T(4,128)(4,1)} parameter(0), metadata={op_name="args[0]"}
+  ROOT %copy.1 = s8[1,4,4]{2,1,0:T(4,128)(4,1)} copy(%Arg_0.1), backend_config={"flag_configs":[],"window_config":{"kernel_window_bounds":[],"output_window_bounds":["1","1","1"],"input_window_bounds":[],"estimated_cycles":"2121","iteration_bounds":["1","1","1"]},"scoped_memory_configs":[],"used_scoped_memory_configs":[{"memory_space":"1","offset":"0","size":"2048"}],"retry_config":{"retry_count":"0"}}
+}
+

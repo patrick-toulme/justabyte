@@ -1,0 +1,41 @@
+
+%s0 = inlined_call_operand.hbm [shape: s8[1,2,2], index: 0, kind: input, shape index: {}] /* operand 0 */
+%s1 = inlined_call_operand.hbm [shape: s8[1,2,2], index: 1, kind: output, shape index: {}] /* operand 1 */
+
+%2 = vsyncpa [#allocation1], 0
+
+%3 = vsyncpa [#allocation2], 0
+%s37 = smov [#allocation0] /* materialized constant */
+%s8 = sshll.u32 %s37, 4
+%s9 = int_to_ptr.vmem [resolvable:$true] %s8
+%11 = dma.hbm_to_vmem [thread:$0]  /*hbm=*/%s0, /*size_in_granules=*/16, /*vmem=*/%s9, /*dst_syncflagno=*/[#allocation1] /* 
+base_bounds: (1, 1, 1)
+dynamic_base_bounds: (1, 1, 1)
+window_bounds: (1, 1, 1)
+iteration_bounds: (1, 1, 1)
+strides: (1, 1, 1)
+pad_low: (0, 0, 0)
+pad_high: (0, 0, 0)
+element_size_in_bytes: 512 */
+
+%12 = dma.done [#allocation1], 16 /* pipeline-emitter-dma-wait */
+%v16 = vld [vmem:[#allocation0] ss:$0 sm:$0x1]
+%25 = vst [vmem:[#allocation3] sm:$0x1] /*vst_source=*/%v16
+%s38 = smov [#allocation3] /* materialized constant */
+%s30 = sshll.u32 %s38, 4
+%s31 = int_to_ptr.vmem [resolvable:$true] %s30
+%33 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s31, /*size_in_granules=*/16, /*hbm=*/%s1, /*dst_syncflagno=*/[#allocation2] /* 
+base_bounds: (1, 1, 1)
+dynamic_base_bounds: (1, 1, 1)
+window_bounds: (1, 1, 1)
+iteration_bounds: (1, 1, 1)
+strides: (1, 1, 1)
+pad_low: (0, 0, 0)
+pad_high: (0, 0, 0)
+element_size_in_bytes: 512 */
+
+%34 = dma.done [#allocation2], 16 /* pipeline-emitter-dma-wait */
+
+%35 = vsyncpa [#allocation1], 1
+
+%36 = vsyncpa [#allocation2], 1

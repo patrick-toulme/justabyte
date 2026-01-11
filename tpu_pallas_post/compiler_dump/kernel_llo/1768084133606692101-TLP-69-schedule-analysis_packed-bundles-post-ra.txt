@@ -1,0 +1,12 @@
+Schedule analysis:
+	total scheduled bundles:    483
+	empty scheduled bundles:    302
+	non empty scheduled bundles: 181
+	 128.00 scheduled bundles (70.72%): <no hlo>
+	  24.00 scheduled bundles (13.26%): %add_add_fusion = (u32[4,1]{0,1:T(1,128)S(1)}, u32[4,1]{0,1:T(1,128)S(1)}) fusion(%bitcast, %xor.5, %bitcast.1), kind=kLoop, calls=%fused_computation.1, metadata={op_name="jit(_threefry_split)/jit(main)/add" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"fusion_formation_source":{"fusion_creating_compiler_pass":"TpuAdvancedMOF","fusion_id":"42"}}
+	  23.00 scheduled bundles (12.71%): %xor.4 = u32[]{:T(128)S(6)} xor(%bitcast, %bitcast.1), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+	   3.00 scheduled bundles ( 1.66%): %pad_add_fusion = u32[4,2]{0,1:T(2,128)} fusion(%get-tuple-element.2, %get-tuple-element.3), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(_threefry_split)/jit(main)/concatenate" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+	   2.50 scheduled bundles ( 1.38%): %fusion.16 = (u32[1]{0:T(128)}, u32[1]{0:T(128)}) fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation.43, metadata={op_name="jit(_threefry_split)/jit(main)/slice" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+	   0.50 scheduled bundles ( 0.28%): %xor.5 = u32[]{:T(128)S(6)} xor(%xor.4, %constant.15), metadata={op_name="jit(_threefry_split)/jit(main)/xor" source_file="/home/ptoulme/justabyte/tpu_pallas_post/./pallas_kernel.py" source_line=136}
+	[opcode]      42 scheduled bundles (23.20%): fusion               (3 instances,  14.00 avg)
+	[opcode]      32 scheduled bundles (17.68%): xor                  (2 instances,  16.00 avg)

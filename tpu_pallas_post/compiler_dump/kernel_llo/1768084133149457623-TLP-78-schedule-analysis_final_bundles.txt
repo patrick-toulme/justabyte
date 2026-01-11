@@ -1,0 +1,7 @@
+Schedule analysis:
+	total scheduled bundles:    138
+	empty scheduled bundles:    5
+	non empty scheduled bundles: 133
+	 122.50 scheduled bundles (92.11%): <no hlo>
+	  10.50 scheduled bundles ( 7.89%): %copy.1 = s32[]{:T(128)S(6)} copy(%Arg_0.1)
+	[opcode]      14 scheduled bundles (10.53%): copy                 (1 instances,  14.00 avg)

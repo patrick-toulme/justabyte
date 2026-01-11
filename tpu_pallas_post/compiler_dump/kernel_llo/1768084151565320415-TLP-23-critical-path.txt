@@ -1,0 +1,75 @@
+
+New basic block in region: region0 {members=37 hlo=<no-hlo-instruction> parent=-1}
+  Length to end: 7, %s186 = sld [smem:[#allocation20]]
+  Length to end: 1, %s187 = sand.u32 134217727, %s186
+
+New basic block in region: region0 {members=37 hlo=<no-hlo-instruction> parent=-1}
+  Length to end: 14, %v167 = vlaneseq
+  Length to end: 12, %v168 = vshrl.u32 %v167, 7
+  Length to end: 10, %v170 = vand.u32 1, %v168
+  Length to end: 8, %v171 = vshll.u32 %v170, 2
+  Length to end: 6, %v172 = vadd.s32 %v171, %v169
+  Length to end: 4, %v173 = vsub.s32 %v172, %v168
+  Length to end: 2, %174 = vsetiar.raw.iar0 %v173 /* EvenOdd Store IAR initialization */
+  Length to end: 1, %179 = vsetiar.raw.iar1 %v178 /* EvenOdd Load IAR initialization */
+
+New basic block in region: region31 {members=102 hlo=<no-hlo-instruction> parent=0}
+  Length to end: 101, %v56 = vand.u32 127, %v167
+  Length to end: 99, %v60 = vxor.u32 1135663077, %v56
+  Length to end: 97, %v61 = vmul.u32 2925155241, %v60
+  Length to end: 95, %v62 = vshrl.u32 %v61, 16
+  Length to end: 93, %v63 = vxor.u32 %v62, %v61
+  Length to end: 91, %v68 = vxor.u32 2223506493, %v63
+  Length to end: 89, %v69 = vmul.u32 1519409121, %v68
+  Length to end: 87, %v70 = vshrl.u32 %v69, 16
+  Length to end: 85, %v71 = vxor.u32 %v70, %v69
+  Length to end: 83, %v73 = vmul.u32 1232336661, %v71
+  Length to end: 81, %v75 = vsub.s32 %v74, %v73
+  Length to end: 79, %v76 = vshrl.u32 %v75, 16
+  Length to end: 77, %v77 = vxor.u32 %v76, %v75
+  Length to end: 75, %v78 = vxor.u32 1519409121, %v77
+  Length to end: 73, %v79 = vmul.u32 2449846741, %v78
+  Length to end: 71, %v80 = vshrl.u32 %v79, 16
+  Length to end: 69, %v81 = vxor.u32 %v80, %v79
+  Length to end: 67, %v83 = vmul.u32 1232336661, %v81
+  Length to end: 65, %v84 = vsub.s32 %v82, %v83
+  Length to end: 63, %v85 = vshrl.u32 %v84, 16
+  Length to end: 61, %v86 = vxor.u32 %v85, %v84
+  Length to end: 59, %v87 = vxor.u32 1135663077, %v86
+  Length to end: 57, %v88 = vmul.u32 2925155241, %v87
+  Length to end: 55, %v89 = vshrl.u32 %v88, 16
+  Length to end: 53, %v90 = vxor.u32 %v89, %v88
+  Length to end: 51, %v95 = vxor.u32 2223506493, %v90
+  Length to end: 49, %v96 = vmul.u32 1519409121, %v95
+  Length to end: 47, %v97 = vshrl.u32 %v96, 16
+  Length to end: 45, %v98 = vxor.u32 %v97, %v96
+  Length to end: 43, %v100 = vmul.u32 1232336661, %v98
+  Length to end: 41, %v101 = vsub.s32 %v99, %v100
+  Length to end: 39, %v102 = vshrl.u32 %v101, 16
+  Length to end: 37, %v103 = vxor.u32 %v102, %v101
+  Length to end: 35, %v104 = vxor.u32 1519409121, %v103
+  Length to end: 33, %v105 = vmul.u32 2449846741, %v104
+  Length to end: 31, %v106 = vshrl.u32 %v105, 16
+  Length to end: 29, %v107 = vxor.u32 %v106, %v105
+  Length to end: 27, %v109 = vmul.u32 1232336661, %v107
+  Length to end: 25, %v110 = vsub.s32 %v108, %v109
+  Length to end: 23, %v111 = vshrl.u32 %v110, 16
+  Length to end: 21, %v112 = vxor.u32 %v111, %v110
+  Length to end: 19, %v113 = vxor.u32 2337405405, %v112
+  Length to end: 17, %v114 = vmul.u32 1179257497, %v113
+  Length to end: 15, %v115 = vshrl.u32 %v114, 16
+  Length to end: 13, %v116 = vxor.u32 %v115, %v114
+  Length to end: 11, %v145 = vor.u32 %v124, %v116
+  Length to end: 9, %v146 = vor.u32 %v145, %v132
+  Length to end: 7, %v147 = vor.u32 %v146, %v140
+  Length to end: 5, %vm148 = vcmp.eq.s32.totalorder %v147, 0
+  Length to end: 4, %v158 = vsel /*vm=*/%vm148, /*on_true_vy=*/%v120, /*on_false_vx=*/%v116
+  Length to end: 3, %v160 = vsel /*vm=*/%vm191, /*on_true_vy=*/%v159, /*on_false_vx=*/%v158
+  Length to end: 2, %v162 = vsel /*vm=*/%vm192, /*on_true_vy=*/%v161, /*on_false_vx=*/%v160
+  Length to end: 1, %v164 = vsel /*vm=*/%vm193, /*on_true_vy=*/%v163, /*on_false_vx=*/%v162
+
+New basic block in region: region3 {members=18 hlo=<no-hlo-instruction> parent=0}
+  Length to end: 6, %s7 = sld [smem:[#allocation2]]
+
+New basic block in region: region0 {members=37 hlo=<no-hlo-instruction> parent=-1}
+  Length to end: 1, %s204 = smov 0 /* materialized constant */

@@ -1,0 +1,6 @@
+buffer_id,buffer_name,alt_mem_benefit,size,definition_time,use_times,use_names,is_scoped
+23,"<23 Arg_0.1>",7.2133e-11,1024,0,"1","slice_reduce_fusion, operand 0",0
+25,"<25 slice_reduce_fusion{0}>",1.27514e-11,512,1,"6","tuple.10, operand 3",0
+26,"<26 slice_reduce_fusion{1}>",1.27514e-11,512,1,"6","tuple.10, operand 2",0
+27,"<27 slice_reduce_fusion{2}>",1.27514e-11,512,1,"6","tuple.10, operand 1",0
+28,"<28 slice_reduce_fusion{3}>",1.27514e-11,512,1,"6","tuple.10, operand 0",0

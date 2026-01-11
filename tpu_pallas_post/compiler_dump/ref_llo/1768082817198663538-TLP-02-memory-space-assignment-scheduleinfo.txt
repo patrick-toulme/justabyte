@@ -1,0 +1,3 @@
+time,instruction_name
+0,Arg_0.1
+1,copy.1

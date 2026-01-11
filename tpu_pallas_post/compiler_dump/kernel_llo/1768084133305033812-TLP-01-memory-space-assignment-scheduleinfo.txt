@@ -1,0 +1,10 @@
+time,instruction_name
+0,constant.2
+1,Arg_0.1
+2,copy
+3,convert.6
+4,bitcast.1
+5,shift-right-logical.3
+6,convert.4
+7,bitcast
+8,pad_add_fusion

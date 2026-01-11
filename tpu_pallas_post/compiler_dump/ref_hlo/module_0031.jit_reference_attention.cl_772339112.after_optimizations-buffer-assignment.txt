@@ -1,0 +1,252 @@
+BufferAssignment:
+allocation 0: size 512, thread-local:
+ value: <5 add.35 @0> (size=512,offset=0): f32[]{:T(128)}
+allocation 1: size 33554432, constant:
+ value: <65 constant.4 @0> (size=33554432,offset=0): pred[8,2048,2048]{1,2,0:T(32,128)(4,1)}
+allocation 2: size 8388608, output shape is |f32[8,2048,128]|, maybe-live-out:
+ value: <78 fusion @0> (size=8388608,offset=0): f32[8,2048,128]{2,1,0:T(8,128)}
+allocation 3: size 4194304, parameter 2, shape |bf16[8,2048,128]| at ShapeIndex {}:
+ value: <61 Arg_2.3 @0> (size=4194304,offset=0): bf16[8,2048,128]{2,1,0:T(8,128)(2,1)}
+allocation 4: size 4194304, parameter 0, shape |bf16[8,2048,128]| at ShapeIndex {}:
+ value: <66 Arg_0.1 @0> (size=4194304,offset=0): bf16[8,2048,128]{2,1,0:T(8,128)(2,1)}
+allocation 5: size 4194304, parameter 1, shape |bf16[8,2048,128]| at ShapeIndex {}:
+ value: <70 Arg_1.2 @0> (size=4194304,offset=0): bf16[8,2048,128]{2,1,0:T(8,128)(2,1)}
+allocation 6: size 512, thread-local:
+ value: <4 Arg_1.34 @0> (size=512,offset=0): f32[]{:T(128)}
+allocation 7: size 512, thread-local:
+ value: <3 Arg_0.33 @0> (size=512,offset=0): f32[]{:T(128)}
+allocation 8: size 512, thread-local:
+ value: <2 maximum.24 @0> (size=512,offset=0): f32[]{:T(128)}
+allocation 9: size 512, thread-local:
+ value: <1 Arg_1.23 @0> (size=512,offset=0): f32[]{:T(128)}
+allocation 10: size 512, thread-local:
+ value: <0 Arg_0.22 @0> (size=512,offset=0): f32[]{:T(128)}
+allocation 11: size 8, color 2, preallocated-temp:
+ value: <64 copy-start.2{2} @2> (size=4,offset=4): u32[]{:S(2)}
+ value: <69 copy-start{2} @2> (size=4,offset=4): u32[]{:S(2)}
+ value: <76 copy-start.1{2} @2> (size=4,offset=0): u32[]{:S(2)}
+allocation 12: size 134266912, preallocated-temp:
+ value: <62 copy-start.2{} @0> (size=32,offset=134266880): (bf16[8,2048,128]{2,1,0:T(8,128)(2,1)S(1)}, bf16[8,2048,128]{2,1,0:T(8,128)(2,1)}, u32[]{:S(2)})
+ value: <67 copy-start{} @0> (size=32,offset=134250496): (bf16[8,2048,128]{2,1,0:T(8,128)(2,1)S(1)}, bf16[8,2048,128]{2,1,0:T(8,128)(2,1)}, u32[]{:S(2)})
+ value: <71 fusion.5{} @0> (size=32,offset=134234112): (f32[8,2048]{1,0:T(8,128)S(1)}, f32[8,2048,2048]{1,2,0:T(8,128)})
+ value: <73 fusion.5{1} @0> (size=134217728,offset=0): f32[8,2048,2048]{1,2,0:T(8,128)}
+ value: <74 copy-start.1{} @0> (size=32,offset=134217728): (pred[8,2048,2048]{1,2,0:T(32,128)(4,1)S(1)}, pred[8,2048,2048]{1,2,0:T(32,128)(4,1)}, u32[]{:S(2)})
+allocation 13: size 42074112, color 1, preallocated-temp:
+ value: <63 copy-start.2{0} @1> (size=4194304,offset=37879808): bf16[8,2048,128]{2,1,0:T(8,128)(2,1)S(1)}
+ value: <68 copy-start{0} @1> (size=4194304,offset=0): bf16[8,2048,128]{2,1,0:T(8,128)(2,1)S(1)}
+ value: <72 fusion.5{0} @1> (size=65536,offset=37748736): f32[8,2048]{1,0:T(8,128)S(1)}
+ value: <75 copy-start.1{0} @1> (size=33554432,offset=4194304): pred[8,2048,2048]{1,2,0:T(32,128)(4,1)S(1)}
+ value: <77 fusion.2 @1> (size=65536,offset=37814272): f32[8,2048]{1,0:T(8,128)S(1)}
+
+Total bytes used: 230870056 (220.17MiB)
+
+Used values:
+<0 Arg_0.22 @0>
+ positions:
+  Arg_0.22
+ uses:
+  maximum.24, operand 0
+ from instruction: %Arg_0.22 = f32[]{:T(128)} parameter(0), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/reduce_max"}
+<1 Arg_1.23 @0>
+ positions:
+  Arg_1.23
+ uses:
+  maximum.24, operand 1
+ from instruction: %Arg_1.23 = f32[]{:T(128)} parameter(1), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/reduce_max"}
+<2 maximum.24 @0>
+ positions:
+  maximum.24
+ uses:
+ from instruction: %maximum.24 = f32[]{:T(128)} maximum(%Arg_0.22, %Arg_1.23), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/reduce_max" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=196}
+<3 Arg_0.33 @0>
+ positions:
+  Arg_0.33
+ uses:
+  add.35, operand 0
+ from instruction: %Arg_0.33 = f32[]{:T(128)} parameter(0), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/reduce_sum"}
+<4 Arg_1.34 @0>
+ positions:
+  Arg_1.34
+ uses:
+  add.35, operand 1
+ from instruction: %Arg_1.34 = f32[]{:T(128)} parameter(1), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/reduce_sum"}
+<5 add.35 @0>
+ positions:
+  add.35
+ uses:
+ from instruction: %add.35 = f32[]{:T(128)} add(%Arg_0.33, %Arg_1.34), metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/reduce_sum" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=198}
+<61 Arg_2.3 @0>
+ positions:
+  Arg_2.3
+  copy-start.2 {1}
+ uses:
+  copy-start.2, operand 0
+  copy-done.2, operand 0 {1}
+ from instruction: %Arg_2.3 = bf16[8,2048,128]{2,1,0:T(8,128)(2,1)} parameter(2), metadata={op_name="v"}
+<62 copy-start.2{} @0>
+ positions:
+  copy-start.2 {}
+ uses:
+  copy-done.2, operand 0 {}
+ from instruction: %copy-start.2 = (bf16[8,2048,128]{2,1,0:T(8,128)(2,1)S(1)}, bf16[8,2048,128]{2,1,0:T(8,128)(2,1)}, u32[]{:S(2)}) copy-start(%Arg_2.3)
+<63 copy-start.2{0} @1>
+ positions:
+  copy-start.2 {0}
+  copy-done.2
+ uses:
+  copy-done.2, operand 0 {0}
+  fusion, operand 0
+ from instruction: %copy-start.2 = (bf16[8,2048,128]{2,1,0:T(8,128)(2,1)S(1)}, bf16[8,2048,128]{2,1,0:T(8,128)(2,1)}, u32[]{:S(2)}) copy-start(%Arg_2.3)
+<64 copy-start.2{2} @2>
+ positions:
+  copy-start.2 {2}
+ uses:
+  copy-done.2, operand 0 {2}
+ from instruction: %copy-start.2 = (bf16[8,2048,128]{2,1,0:T(8,128)(2,1)S(1)}, bf16[8,2048,128]{2,1,0:T(8,128)(2,1)}, u32[]{:S(2)}) copy-start(%Arg_2.3)
+<65 constant.4 @0>
+ positions:
+  constant.4
+  copy-start.1 {1}
+ uses:
+  fusion.5, operand 0
+  copy-start.1, operand 0
+  copy-done.1, operand 0 {1}
+ from instruction: %constant.4 = pred[8,2048,2048]{1,2,0:T(32,128)(4,1)} constant({...})
+<66 Arg_0.1 @0>
+ positions:
+  Arg_0.1
+  copy-start {1}
+ uses:
+  copy-start, operand 0
+  copy-done, operand 0 {1}
+ from instruction: %Arg_0.1 = bf16[8,2048,128]{2,1,0:T(8,128)(2,1)} parameter(0), metadata={op_name="q"}
+<67 copy-start{} @0>
+ positions:
+  copy-start {}
+ uses:
+  copy-done, operand 0 {}
+ from instruction: %copy-start = (bf16[8,2048,128]{2,1,0:T(8,128)(2,1)S(1)}, bf16[8,2048,128]{2,1,0:T(8,128)(2,1)}, u32[]{:S(2)}) copy-start(%Arg_0.1), cross_program_prefetch_index=0
+<68 copy-start{0} @1>
+ positions:
+  copy-start {0}
+  copy-done
+ uses:
+  copy-done, operand 0 {0}
+  fusion.5, operand 1
+ from instruction: %copy-start = (bf16[8,2048,128]{2,1,0:T(8,128)(2,1)S(1)}, bf16[8,2048,128]{2,1,0:T(8,128)(2,1)}, u32[]{:S(2)}) copy-start(%Arg_0.1), cross_program_prefetch_index=0
+<69 copy-start{2} @2>
+ positions:
+  copy-start {2}
+ uses:
+  copy-done, operand 0 {2}
+ from instruction: %copy-start = (bf16[8,2048,128]{2,1,0:T(8,128)(2,1)S(1)}, bf16[8,2048,128]{2,1,0:T(8,128)(2,1)}, u32[]{:S(2)}) copy-start(%Arg_0.1), cross_program_prefetch_index=0
+<70 Arg_1.2 @0>
+ positions:
+  Arg_1.2
+ uses:
+  fusion.5, operand 2
+ from instruction: %Arg_1.2 = bf16[8,2048,128]{2,1,0:T(8,128)(2,1)} parameter(1), metadata={op_name="k"}
+<71 fusion.5{} @0>
+ positions:
+  fusion.5 {}
+ uses:
+  get-tuple-element, operand 0 {}
+  get-tuple-element.1, operand 0 {}
+ from instruction: %fusion.5 = (f32[8,2048]{1,0:T(8,128)S(1)}, f32[8,2048,2048]{1,2,0:T(8,128)}) fusion(%constant.4, %copy-done, %Arg_1.2), kind=kOutput, calls=%fused_computation.7, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/vmap(sd,td->st)/dot_general" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=184}
+<72 fusion.5{0} @1>
+ positions:
+  fusion.5 {0}
+  get-tuple-element
+ uses:
+  fusion.2, operand 0
+  fusion, operand 2
+ from instruction: %fusion.5 = (f32[8,2048]{1,0:T(8,128)S(1)}, f32[8,2048,2048]{1,2,0:T(8,128)}) fusion(%constant.4, %copy-done, %Arg_1.2), kind=kOutput, calls=%fused_computation.7, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/vmap(sd,td->st)/dot_general" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=184}
+<73 fusion.5{1} @0>
+ positions:
+  fusion.5 {1}
+  get-tuple-element.1
+ uses:
+  fusion.2, operand 2
+  fusion, operand 4
+ from instruction: %fusion.5 = (f32[8,2048]{1,0:T(8,128)S(1)}, f32[8,2048,2048]{1,2,0:T(8,128)}) fusion(%constant.4, %copy-done, %Arg_1.2), kind=kOutput, calls=%fused_computation.7, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/vmap(sd,td->st)/dot_general" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=184}
+<74 copy-start.1{} @0>
+ positions:
+  copy-start.1 {}
+ uses:
+  copy-done.1, operand 0 {}
+ from instruction: %copy-start.1 = (pred[8,2048,2048]{1,2,0:T(32,128)(4,1)S(1)}, pred[8,2048,2048]{1,2,0:T(32,128)(4,1)}, u32[]{:S(2)}) copy-start(%constant.4)
+<75 copy-start.1{0} @1>
+ positions:
+  copy-start.1 {0}
+  copy-done.1
+ uses:
+  copy-done.1, operand 0 {0}
+  fusion.2, operand 1
+  fusion, operand 3
+ from instruction: %copy-start.1 = (pred[8,2048,2048]{1,2,0:T(32,128)(4,1)S(1)}, pred[8,2048,2048]{1,2,0:T(32,128)(4,1)}, u32[]{:S(2)}) copy-start(%constant.4)
+<76 copy-start.1{2} @2>
+ positions:
+  copy-start.1 {2}
+ uses:
+  copy-done.1, operand 0 {2}
+ from instruction: %copy-start.1 = (pred[8,2048,2048]{1,2,0:T(32,128)(4,1)S(1)}, pred[8,2048,2048]{1,2,0:T(32,128)(4,1)}, u32[]{:S(2)}) copy-start(%constant.4)
+<77 fusion.2 @1>
+ positions:
+  fusion.2
+ uses:
+  fusion, operand 1
+ from instruction: %fusion.2 = f32[8,2048]{1,0:T(8,128)S(1)} fusion(%get-tuple-element, %copy-done.1, %get-tuple-element.1), kind=kLoop, calls=%fused_computation.3, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/reduce_sum" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=198}
+<78 fusion @0>
+ positions:
+  fusion
+ uses:
+ from instruction: %fusion = f32[8,2048,128]{2,1,0:T(8,128)} fusion(%copy-done.2, %fusion.2, %get-tuple-element, %copy-done.1, %get-tuple-element.1), kind=kOutput, calls=%fused_computation, metadata={op_name="jit(reference_attention)/jit(main)/reference_attention/reference_attention_h8_s2048/jit(_wrapped)/vmap(st,td->sd)/dot_general" source_file="/home/ptoulme/miniconda3/envs/vllm/lib/python3.12/site-packages/jax/experimental/pallas/ops/tpu/splash_attention/splash_attention_kernel.py" source_line=201}
+
+
+HloLiveRange (max 15):
+  InstructionSequence:
+    0:Arg_0.1
+    1:copy-start
+    2:constant.4
+    3:Arg_2.3
+    4:Arg_1.2
+    5:copy-start.1
+    6:copy-done
+    7:fusion.5
+    8:get-tuple-element.1
+    9:get-tuple-element
+    10:copy-start.2
+    11:copy-done.1
+    12:fusion.2
+    13:copy-done.2
+    14:fusion
+  BufferLiveRange:
+    Arg_2.3{}:0-15
+    copy-start.2{}:10-13
+    copy-start.2{0}:10-14
+    copy-start.2{2}:10-13
+    constant.4{}:2-11
+    Arg_0.1{}:0-15
+    copy-start{}:1-6
+    copy-start{0}:1-7
+    copy-start{2}:1-6
+    Arg_1.2{}:0-15
+    fusion.5{}:7-9
+    fusion.5{0}:7-14
+    fusion.5{1}:7-14
+    copy-start.1{}:5-11
+    copy-start.1{0}:5-14
+    copy-start.1{2}:5-11
+    fusion.2{}:12-14
+    fusion{}:14-15
+  Live ranges at 12 (peak):
+    fusion.5{1}: 134217728 bytes (cumulative: 134217728 bytes)
+    copy-start.1{0}: 33554432 bytes (cumulative: 167772160 bytes)
+    Arg_0.1{}: 4194304 bytes (cumulative: 171966464 bytes)
+    Arg_1.2{}: 4194304 bytes (cumulative: 176160768 bytes)
+    Arg_2.3{}: 4194304 bytes (cumulative: 180355072 bytes)
+    copy-start.2{0}: 4194304 bytes (cumulative: 184549376 bytes)
+    fusion.2{}: 65536 bytes (cumulative: 184614912 bytes)
+    fusion.5{0}: 65536 bytes (cumulative: 184680448 bytes)
+    copy-start.2{}: 24 bytes (cumulative: 184680472 bytes)
+    copy-start.2{2}: 4 bytes (cumulative: 184680476 bytes)

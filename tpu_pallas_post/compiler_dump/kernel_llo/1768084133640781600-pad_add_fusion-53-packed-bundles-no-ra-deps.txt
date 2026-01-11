@@ -1,0 +1,47 @@
+= control target key start
+LH: loop header
+LB: loop body
+LE: loop exit
+PB: predicated region body
+PF: predicated region fallthrough
+CT: control target
+= control target key end
+
+     0   :  { %5 = vsyncpa [#allocation12], 0  ;;  %v36_v0 = vlaneseq  ;;  %vm46_vm3 = vcmask 1046528 /* [0:6,0:127] */  ;;  %s98_s0 = smov [#allocation10] /* materialized constant */  ;;  %s123_s0 = inlined_call_operand.vmem [shape: u32[4,1], index: 0, kind: input, shape index: {}]  ;;  %s124_s1 = inlined_call_operand.vmem [shape: u32[4,1], index: 1, kind: input, shape index: {}] /* operand 1 */  ;;  %s125_s2 = inlined_call_operand.hbm [shape: u32[4,2], index: 2, kind: output, shape index: {}] /* operand 2 */ } /* Start region 0 :: Start region 1 */
+   0x1   :  { %v49_v3 = vld [vmem:[%s124_s1] sm:$0x1]  ;;  %s69_s12 = sshll.u32 %s98_s0, 4  ;;  %s70_s12 = int_to_ptr.vmem [resolvable:$true] %s69_s12 }
+   0x2   :  { %v37_v1 = vshrl.u32 %v36_v0, 7  ;;  %v42_v2 = vand.u32 127, %v36_v0  ;;  %v35_v4 = vld [vmem:[%s123_s0] sm:$0x1]  ;;  %s76_s13 = scalar_lea.vmem %s70_s12, 32  ;;  %p81_p1 = scmp.lt.s32.totalorder %s70_s12, %s70_s12 }
+   0x3   :  { %p77_p0 = scmp.ne.s32.totalorder %s70_s12, %s76_s13  ;;  %p82_p2 = scmp.lt.s32.totalorder %s76_s13, %s76_s13 }
+   0x4   :  { %v38_v5 = vadd.s32 8, %v37_v1  ;;  %vm53_vm0 = vcmp.lt.s32.totalorder %v37_v1, 1  ;;  %vm44_vm1 = vcmp.lt.s32.totalorder %v42_v2, 4 }
+   0x5   :  { %v54_v6 = vsel /*vm=*/%vm53_vm0, /*on_true_vy=*/%v49_v3, /*on_false_vx=*/0  ;;  %p83_p3 = por %p82_p2, %p81_p1 }
+   0x6   :  { %vm39_vm2 = vcmp.lt.s32.totalorder %v38_v5, 9  ;;  %v59_v10 = vsel /*vm=*/%vm44_vm1, /*on_true_vy=*/%v54_v6, /*on_false_vx=*/0 }
+   0x7   :  { %v40_v7 = vsel /*vm=*/%vm39_vm2, /*on_true_vy=*/%v35_v4, /*on_false_vx=*/0  ;;  %p84_p4 = pnand %p83_p3, %p77_p0 }
+   0x8   :  { %v45_v8 = vsel /*vm=*/%vm44_vm1, /*on_true_vy=*/%v40_v7, /*on_false_vx=*/0 }
+   0x9   :  { %v47_v9 = vsel /*vm=*/%vm46_vm3, /*on_true_vy=*/%v45_v8, /*on_false_vx=*/0 }
+   0xa   :  { %v48_v11 = vrot.slane %v47_v9, 7 }
+   0xb   :  {}
+   0xc   :  { %v62_v12 = vadd.s32 %v59_v10, %v48_v11 }
+   0xd   :  {}
+   0xe   :  { %64 = vst [vmem:[#allocation10] sm:$0x3] /*vst_source=*/%v62_v12 }
+   0xf   :  { %87 = shalt.err (!%p84_p4) /* BoundsCheck 3 [deref of %s70] for %72 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s70, /*size_in_granules=*/32, /*hbm=*/%s2, /*dst_syncflagno=*/[#allocation12] /* 
+base_bounds: (1, 1)
+dynamic_base_bounds: (1, 1)
+window_bounds: (1, 1)
+iteration_bounds: (1, 1)
+strides: (1, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 1024 */
+hlo: pad_add_fusion
+ */ }
+  0x10   :  { %72 = dma.vmem_to_hbm [thread:$0]  /*vmem=*/%s70_s12, /*size_in_granules=*/32, /*hbm=*/%s125_s2, /*dst_syncflagno=*/[#allocation12] /* 
+base_bounds: (1, 1)
+dynamic_base_bounds: (1, 1)
+window_bounds: (1, 1)
+iteration_bounds: (1, 1)
+strides: (1, 1)
+pad_low: (0, 0)
+pad_high: (0, 0)
+element_size_in_bytes: 1024 */ }
+  0x11   :  { %96 = dma.done.wait [#allocation12], 32 /* pipeline-emitter-dma-wait */ }
+  0x12   :  { %97 = vsyncadd [#allocation12], 4294967264 }
+  0x13   :  { %74 = vsyncpa [#allocation12], 1 } /* End region 0 :: End region 1 */

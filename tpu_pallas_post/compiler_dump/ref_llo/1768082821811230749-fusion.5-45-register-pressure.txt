@@ -1,0 +1,279 @@
+Register pressure for vregs is 186
+len=11065 lr=[859, 11924) wt=306 users=16          :: %v51632 = vcombine.low %v51630, %v51631
+len=11064 lr=[691, 11755) wt=306 users=16          :: %v51599 = vcombine.low %v51597, %v51598
+len=11061 lr=[752, 11813) wt=306 users=16          :: %v51610 = vcombine.low %v51608, %v51609
+len=11057 lr=[812, 11869) wt=306 users=16          :: %v51621 = vcombine.low %v51619, %v51620
+len=11050 lr=[587, 11637) wt=306 users=16          :: %v51577 = vcombine.low %v51575, %v51576
+len=11050 lr=[644, 11694) wt=306 users=16          :: %v51588 = vcombine.low %v51586, %v51587
+len=11047 lr=[931, 11978) wt=306 users=16          :: %v51643 = vcombine.low %v51641, %v51642
+len=11042 lr=[990, 12032) wt=306 users=16          :: %v51654 = vcombine.low %v51652, %v51653
+len=11037 lr=[1049, 12086) wt=306 users=16         :: %v51665 = vcombine.low %v51663, %v51664
+len=11031 lr=[1109, 12140) wt=306 users=16         :: %v51676 = vcombine.low %v51674, %v51675
+len=11026 lr=[1222, 12248) wt=306 users=16         :: %v51698 = vcombine.low %v51696, %v51697
+len=11025 lr=[1169, 12194) wt=306 users=16         :: %v51687 = vcombine.low %v51685, %v51686
+len=11018 lr=[1392, 12410) wt=306 users=16         :: %v51731 = vcombine.low %v51729, %v51730
+len=11016 lr=[1286, 12302) wt=306 users=16         :: %v51709 = vcombine.low %v51707, %v51708
+len=11013 lr=[561, 11574) wt=306 users=16          :: %v51566 = vcombine.low %v51564, %v51565
+len=11013 lr=[1343, 12356) wt=306 users=16         :: %v51720 = vcombine.low %v51718, %v51719
+len=10998 lr=[1466, 12464) wt=306 users=16         :: %v51742 = vcombine.low %v51740, %v51741
+len=10996 lr=[1522, 12518) wt=306 users=16         :: %v51753 = vcombine.low %v51751, %v51752
+len=10980 lr=[1754, 12734) wt=306 users=16         :: %v51797 = vcombine.low %v51795, %v51796
+len=10976 lr=[1596, 12572) wt=306 users=16         :: %v51764 = vcombine.low %v51762, %v51763
+len=10975 lr=[1813, 12788) wt=306 users=16         :: %v51808 = vcombine.low %v51806, %v51807
+len=10972 lr=[1654, 12626) wt=306 users=16         :: %v51775 = vcombine.low %v51773, %v51774
+len=10968 lr=[1874, 12842) wt=306 users=16         :: %v51819 = vcombine.low %v51817, %v51818
+len=10963 lr=[1717, 12680) wt=306 users=16         :: %v51786 = vcombine.low %v51784, %v51785
+len=10953 lr=[1997, 12950) wt=306 users=16         :: %v51841 = vcombine.low %v51839, %v51840
+len=10952 lr=[554, 11506) wt=306 users=16          :: %v51555 = vcombine.low %v51553, %v51554
+len=10950 lr=[1946, 12896) wt=306 users=16         :: %v51830 = vcombine.low %v51828, %v51829
+len=10950 lr=[2108, 13058) wt=306 users=16         :: %v51863 = vcombine.low %v51861, %v51862
+len=10944 lr=[2168, 13112) wt=306 users=16         :: %v51874 = vcombine.low %v51872, %v51873
+len=10942 lr=[2062, 13004) wt=306 users=16         :: %v51852 = vcombine.low %v51850, %v51851
+len=10940 lr=[2226, 13166) wt=306 users=16         :: %v51885 = vcombine.low %v51883, %v51884
+len=10932 lr=[2342, 13274) wt=306 users=16         :: %v51907 = vcombine.low %v51905, %v51906
+len=10924 lr=[2458, 13382) wt=306 users=16         :: %v51929 = vcombine.low %v51927, %v51928
+len=10923 lr=[2297, 13220) wt=306 users=16         :: %v51896 = vcombine.low %v51894, %v51895
+len=10918 lr=[2572, 13490) wt=306 users=16         :: %v51951 = vcombine.low %v51949, %v51950
+len=10914 lr=[2414, 13328) wt=306 users=16         :: %v51918 = vcombine.low %v51916, %v51917
+len=10908 lr=[2528, 13436) wt=306 users=16         :: %v51940 = vcombine.low %v51938, %v51939
+len=10907 lr=[2691, 13598) wt=306 users=16         :: %v51973 = vcombine.low %v51971, %v51972
+len=10902 lr=[2642, 13544) wt=306 users=16         :: %v51962 = vcombine.low %v51960, %v51961
+len=10900 lr=[546, 11446) wt=306 users=16          :: %v51544 = vcombine.low %v51542, %v51543
+len=10900 lr=[2806, 13706) wt=306 users=16         :: %v51995 = vcombine.low %v51993, %v51994
+len=10896 lr=[2756, 13652) wt=306 users=16         :: %v51984 = vcombine.low %v51982, %v51983
+len=10851 lr=[536, 11387) wt=306 users=16          :: %v51533 = vcombine.low %v51531, %v51532
+len=10799 lr=[523, 11322) wt=306 users=16          :: %v51522 = vcombine.low %v51520, %v51521
+len=10744 lr=[516, 11260) wt=306 users=16          :: %v51511 = vcombine.low %v51509, %v51510
+len=10691 lr=[507, 11198) wt=306 users=16          :: %v51500 = vcombine.low %v51498, %v51499
+len=10637 lr=[496, 11133) wt=306 users=16          :: %v51489 = vcombine.low %v51487, %v51488
+len=10592 lr=[485, 11077) wt=306 users=16          :: %v51478 = vcombine.low %v51476, %v51477
+len=10542 lr=[478, 11020) wt=306 users=16          :: %v51467 = vcombine.low %v51465, %v51466
+len=10493 lr=[470, 10963) wt=306 users=16          :: %v51456 = vcombine.low %v51454, %v51455
+len=10449 lr=[460, 10909) wt=306 users=16          :: %v51445 = vcombine.low %v51443, %v51444
+len=10408 lr=[447, 10855) wt=306 users=16          :: %v51434 = vcombine.low %v51432, %v51433
+len=10369 lr=[440, 10809) wt=306 users=16          :: %v51423 = vcombine.low %v51421, %v51422
+len=10339 lr=[432, 10771) wt=306 users=16          :: %v51412 = vcombine.low %v51410, %v51411
+len=10309 lr=[420, 10729) wt=306 users=16          :: %v51401 = vcombine.low %v51399, %v51400
+len=10271 lr=[413, 10684) wt=306 users=16          :: %v51390 = vcombine.low %v51388, %v51389
+len=10231 lr=[402, 10633) wt=306 users=16          :: %v51379 = vcombine.low %v51377, %v51378
+len=10185 lr=[395, 10580) wt=306 users=16          :: %v51368 = vcombine.low %v51366, %v51367
+len=10142 lr=[384, 10526) wt=306 users=16          :: %v51357 = vcombine.low %v51355, %v51356
+len=10095 lr=[377, 10472) wt=306 users=16          :: %v51346 = vcombine.low %v51344, %v51345
+len=10062 lr=[194, 10256) wt=306 users=16          :: %v51304 = vcombine.low %v606, %v51303
+len=10059 lr=[359, 10418) wt=306 users=16          :: %v51335 = vcombine.low %v51333, %v51334
+len=10029 lr=[335, 10364) wt=306 users=16          :: %v51324 = vcombine.low %v51322, %v51323
+len=9999 lr=[311, 10310) wt=306 users=16           :: %v51313 = vcombine.low %v51311, %v51312
+len=426 lr=[3713, 4139) wt=36 users=1              :: %v12443 = vmax.f32 %v12399, %v12436
+len=397 lr=[3919, 4316) wt=36 users=1              :: %v13222 = vunpack.c.2.s8 %v52534
+len=396 lr=[3939, 4335) wt=36 users=1              :: %v13266 = vunpack.c.3.s8 %v52534
+len=384 lr=[3833, 4217) wt=36 users=1              :: %v12987 = vunpack.c.1.s8 %v52518
+len=381 lr=[3851, 4232) wt=36 users=1              :: %v13036 = vunpack.c.2.s8 %v52518
+len=379 lr=[3598, 3977) wt=36 users=1              :: %v12235 = vmax.f32 %v12191, %v12228
+len=375 lr=[3871, 4246) wt=36 users=1              :: %v13080 = vunpack.c.3.s8 %v52518
+len=375 lr=[3901, 4276) wt=36 users=1              :: %v13173 = vunpack.c.1.s8 %v52534
+len=372 lr=[3811, 4183) wt=36 users=1              :: %v12894 = vunpack.c.3.s8 %v52502
+len=372 lr=[3820, 4192) wt=36 users=1              :: %v12943 = vunpack.c.0.s8 %v52518
+len=369 lr=[3886, 4255) wt=36 users=1              :: %v13129 = vunpack.c.0.s8 %v52534
+len=364 lr=[3732, 4096) wt=54 users=2              :: %v12474 = vpop.f32.mrf.mxu1
+                                        use: lr=[3739, 3739) %52479 = vst [vmem:[%s272 + $0x3718] sm:$0xff] /*vst_source=*/%v12474
+                                        use: lr=[4096, 4139) %v12485 = vsel /*vm=*/%vm12484, /*on_true_vy=*/%v12474, /*on_false_vx=*/-2.3819763e+38
+len=364 lr=[3766, 4130) wt=54 users=2              :: %v12518 = vpop.f32.mrf.mxu1
+                                        use: lr=[3773, 3773) %52483 = vst [vmem:[%s272 + $0x3798] sm:$0xff] /*vst_source=*/%v12518
+                                        use: lr=[4130, 4157) %v12529 = vsel /*vm=*/%vm12528, /*on_true_vy=*/%v12518, /*on_false_vx=*/-2.3819763e+38
+len=363 lr=[3625, 3988) wt=54 users=2              :: %v12310 = vpop.f32.mrf.mxu1
+                                        use: lr=[3632, 3632) %52465 = vst [vmem:[%s272 + $0x3590] sm:$0xff] /*vst_source=*/%v12310
+                                        use: lr=[3988, 4012) %v12321 = vsel /*vm=*/%vm12320, /*on_true_vy=*/%v12310, /*on_false_vx=*/-2.3819763e+38
+len=357 lr=[3786, 4143) wt=36 users=1              :: %v12801 = vunpack.c.1.s8 %v52502
+len=357 lr=[3804, 4161) wt=36 users=1              :: %v12850 = vunpack.c.2.s8 %v52502
+len=357 lr=[3946, 4303) wt=36 users=1              :: %v13598 = vunpack.c.0.s8 %v52582
+len=354 lr=[3651, 4005) wt=54 users=2              :: %v12359 = vpop.f32.mrf.mxu1
+                                        use: lr=[3661, 3661) %52469 = vst [vmem:[%s272 + $0x3610] sm:$0xff] /*vst_source=*/%v12359
+                                        use: lr=[4005, 4031) %v12370 = vsel /*vm=*/%vm12369, /*on_true_vy=*/%v12359, /*on_false_vx=*/-2.3819763e+38
+len=347 lr=[3775, 4122) wt=36 users=1              :: %v12757 = vunpack.c.0.s8 %v52502
+len=347 lr=[3940, 4287) wt=36 users=1              :: %v13581 = vunpack.c.0.s8 %v52580
+len=346 lr=[3803, 4149) wt=54 users=2              :: %v12567 = vpop.f32.mrf.mxu1
+                                        use: lr=[3809, 3809) %52487 = vst [vmem:[%s272 + $0x3818] sm:$0xff] /*vst_source=*/%v12567
+                                        use: lr=[4149, 4173) %v12578 = vsel /*vm=*/%vm12577, /*on_true_vy=*/%v12567, /*on_false_vx=*/-2.3819763e+38
+len=339 lr=[3768, 4107) wt=36 users=1              :: %v12708 = vunpack.c.3.s8 %v52486
+len=337 lr=[3686, 4023) wt=54 users=2              :: %v12403 = vpop.f32.mrf.mxu1
+                                        use: lr=[3693, 3693) %52473 = vst [vmem:[%s272 + $0x3690] sm:$0xff] /*vst_source=*/%v12403
+                                        use: lr=[4023, 4049) %v12414 = vsel /*vm=*/%vm12413, /*on_true_vy=*/%v12403, /*on_false_vx=*/-2.3819763e+38
+len=336 lr=[3892, 4228) wt=36 users=1              :: %v13151 = vunpack.c.1.s8 %v52532
+len=336 lr=[3907, 4243) wt=36 users=1              :: %v13200 = vunpack.c.2.s8 %v52532
+len=336 lr=[3975, 4311) wt=36 users=1              :: %v13664 = vunpack.c.2.s8 %v52580
+len=336 lr=[3976, 4312) wt=36 users=1              :: %v19894 = vunpack.c.2.s8 %v53124
+len=335 lr=[3831, 4166) wt=54 users=2              :: %v12611 = vpop.f32.mrf.mxu1
+                                        use: lr=[3838, 3838) %52491 = vst [vmem:[%s272 + $0x3898] sm:$0xff] /*vst_source=*/%v12611
+                                        use: lr=[4166, 4188) %v12622 = vsel /*vm=*/%vm12621, /*on_true_vy=*/%v12611, /*on_false_vx=*/-2.3819763e+38
+len=334 lr=[3954, 4288) wt=36 users=1              :: %v19828 = vunpack.c.0.s8 %v53126
+len=333 lr=[3878, 4211) wt=36 users=1              :: %v13107 = vunpack.c.0.s8 %v52532
+len=332 lr=[3861, 4193) wt=36 users=1              :: %v13058 = vunpack.c.3.s8 %v52516
+len=331 lr=[3929, 4260) wt=36 users=1              :: %v13244 = vunpack.c.3.s8 %v52532
+len=330 lr=[3840, 4170) wt=36 users=1              :: %v13014 = vunpack.c.2.s8 %v52516
+len=328 lr=[3760, 4088) wt=36 users=1              :: %v12664 = vunpack.c.2.s8 %v52486
+len=328 lr=[3825, 4153) wt=36 users=1              :: %v12965 = vunpack.c.1.s8 %v52516
+len=327 lr=[3715, 4042) wt=54 users=2              :: %v12452 = vpop.f32.mrf.mxu1
+                                        use: lr=[3723, 3723) %52477 = vst [vmem:[%s272 + $0x3710] sm:$0xff] /*vst_source=*/%v12452
+                                        use: lr=[4042, 4069) %v12463 = vsel /*vm=*/%vm12462, /*on_true_vy=*/%v12452, /*on_false_vx=*/-2.3819763e+38
+len=325 lr=[3969, 4294) wt=36 users=1              :: %v13637 = vunpack.c.1.s8 %v52582
+len=325 lr=[3970, 4295) wt=36 users=1              :: %v19867 = vunpack.c.1.s8 %v53126
+len=324 lr=[3955, 4279) wt=36 users=1              :: %v13615 = vunpack.c.1.s8 %v52580
+len=323 lr=[3945, 4268) wt=36 users=1              :: %v19811 = vunpack.c.0.s8 %v53124
+len=321 lr=[3751, 4072) wt=36 users=1              :: %v12615 = vunpack.c.1.s8 %v52486
+len=319 lr=[3961, 4280) wt=36 users=1              :: %v19845 = vunpack.c.1.s8 %v53124
+len=316 lr=[3818, 4134) wt=36 users=1              :: %v12921 = vunpack.c.0.s8 %v52516
+len=312 lr=[3740, 4052) wt=36 users=1              :: %v12571 = vunpack.c.0.s8 %v52486
+len=311 lr=[3870, 4181) wt=54 users=2              :: %v12660 = vpop.f32.mrf.mxu1
+                                        use: lr=[3877, 3877) %52495 = vst [vmem:[%s272 + $0x3918] sm:$0xff] /*vst_source=*/%v12660
+                                        use: lr=[4181, 4207) %v12671 = vsel /*vm=*/%vm12670, /*on_true_vy=*/%v12660, /*on_false_vx=*/-2.3819763e+38
+len=310 lr=[3750, 4060) wt=54 users=2              :: %v12496 = vpop.f32.mrf.mxu1
+                                        use: lr=[3759, 3759) %52481 = vst [vmem:[%s272 + $0x3790] sm:$0xff] /*vst_source=*/%v12496
+                                        use: lr=[4060, 4085) %v12507 = vsel /*vm=*/%vm12506, /*on_true_vy=*/%v12496, /*on_false_vx=*/-2.3819763e+38
+len=309 lr=[3694, 4003) wt=54 users=2              :: %v54202 = vld [vmem:[%s285 + $0x2e0] sm:$0xff] /* [sublane mask fusion: 0x0f | 0x0f] */
+                                        use: lr=[3720, 3737) %v32177 = vunpack.c.h.bf16 %v54202
+                                        use: lr=[4003, 4022) %v32186 = vunpack.c.l.bf16 %v54202
+len=309 lr=[3695, 4004) wt=54 users=2              :: %v54186 = vld [vmem:[%s285 + $0x2a0] sm:$0xff] /* [sublane mask fusion: 0x0f | 0x0f] */
+                                        use: lr=[3721, 3746) %v32033 = vunpack.c.h.bf16 %v54186
+                                        use: lr=[4004, 4030) %v32042 = vunpack.c.l.bf16 %v54186
+len=308 lr=[3806, 4114) wt=36 users=1              :: %v12872 = vunpack.c.3.s8 %v52500
+len=305 lr=[3794, 4099) wt=36 users=1              :: %v12828 = vunpack.c.2.s8 %v52500
+len=301 lr=[3733, 4034) wt=36 users=1              :: %v12522 = vunpack.c.3.s8 %v52470
+len=299 lr=[3900, 4199) wt=54 users=2              :: %v12704 = vpop.f32.mrf.mxu1
+                                        use: lr=[3906, 3906) %52499 = vst [vmem:[%s272 + $0x3998] sm:$0xff] /*vst_source=*/%v12704
+                                        use: lr=[4199, 4222) %v12715 = vsel /*vm=*/%vm12714, /*on_true_vy=*/%v12704, /*on_false_vx=*/-2.3819763e+38
+len=299 lr=[3930, 4229) wt=36 users=1              :: %v7036 = vunpack.c.3.s8 %v51987
+len=297 lr=[3781, 4078) wt=54 users=2              :: %v12545 = vpop.f32.mrf.mxu1
+                                        use: lr=[3790, 3790) %52485 = vst [vmem:[%s272 + $0x3810] sm:$0xff] /*vst_source=*/%v12545
+                                        use: lr=[4078, 4103) %v12556 = vsel /*vm=*/%vm12555, /*on_true_vy=*/%v12545, /*on_false_vx=*/-2.3819763e+38
+len=297 lr=[3784, 4081) wt=36 users=1              :: %v12779 = vunpack.c.1.s8 %v52500
+len=294 lr=[3920, 4214) wt=36 users=1              :: %v7015 = vunpack.c.3.s8 %v51985
+len=293 lr=[3770, 4063) wt=36 users=1              :: %v12735 = vunpack.c.0.s8 %v52500
+len=290 lr=[3908, 4198) wt=36 users=1              :: %v6993 = vunpack.c.2.s8 %v51987
+len=288 lr=[3701, 3989) wt=54 users=2              :: %v6123 = vpop.f32.mrf.mxu0
+                                        use: lr=[3704, 3704) %51904 = vst [vmem:[%s272 + $0x3688] sm:$0xff] /*vst_source=*/%v6123
+                                        use: lr=[3989, 4013) %v6134 = vsel /*vm=*/%vm6133, /*on_true_vy=*/%v6123, /*on_false_vx=*/-2.3819763e+38
+len=287 lr=[3817, 4104) wt=54 users=2              :: %v12589 = vpop.f32.mrf.mxu1
+                                        use: lr=[3823, 3823) %52489 = vst [vmem:[%s272 + $0x3890] sm:$0xff] /*vst_source=*/%v12589
+                                        use: lr=[4104, 4131) %v12600 = vsel /*vm=*/%vm12599, /*on_true_vy=*/%v12589, /*on_false_vx=*/-2.3819763e+38
+len=286 lr=[3893, 4179) wt=36 users=1              :: %v6935 = vunpack.c.1.s8 %v51987
+len=285 lr=[3879, 4164) wt=36 users=1              :: %v6892 = vunpack.c.0.s8 %v51987
+len=284 lr=[3862, 4146) wt=36 users=1              :: %v6834 = vunpack.c.3.s8 %v51965
+len=283 lr=[3762, 4045) wt=36 users=1              :: %v12686 = vunpack.c.3.s8 %v52484
+len=278 lr=[3887, 4165) wt=36 users=1              :: %v6914 = vunpack.c.1.s8 %v51985
+len=278 lr=[3902, 4180) wt=36 users=1              :: %v6972 = vunpack.c.2.s8 %v51985
+len=277 lr=[3832, 4109) wt=36 users=1              :: %v6733 = vunpack.c.1.s8 %v51965
+len=277 lr=[3850, 4127) wt=36 users=1              :: %v6791 = vunpack.c.2.s8 %v51965
+len=277 lr=[3938, 4215) wt=54 users=2              :: %v12753 = vpop.f32.mrf.mxu1
+                                        use: lr=[3944, 3944) %52503 = vst [vmem:[%s272 + $0x3a18] sm:$0xff] /*vst_source=*/%v12753
+                                        use: lr=[4215, 4237) %v12764 = vsel /*vm=*/%vm12763, /*on_true_vy=*/%v12753, /*on_false_vx=*/-2.3819763e+38
+len=276 lr=[3714, 3990) wt=54 users=2              :: %v6160 = vpop.f32.mrf.mxu0
+                                        use: lr=[3722, 3722) %51909 = vst [vmem:[%s272 + $0x3700] sm:$0xff] /*vst_source=*/%v6160
+                                        use: lr=[3990, 4014) %v6171 = vsel /*vm=*/%vm6170, /*on_true_vy=*/%v6160, /*on_false_vx=*/-2.3819763e+38
+len=276 lr=[3852, 4128) wt=36 users=1              :: %v6813 = vunpack.c.3.s8 %v51963
+len=275 lr=[3731, 4006) wt=54 users=2              :: %v6181 = vpop.f32.mrf.mxu0
+                                        use: lr=[3738, 3738) %51911 = vst [vmem:[%s272 + $0x3708] sm:$0xff] /*vst_source=*/%v6181
+                                        use: lr=[4006, 4032) %v6192 = vsel /*vm=*/%vm6191, /*on_true_vy=*/%v6181, /*on_false_vx=*/-2.3819763e+38
+len=275 lr=[3872, 4147) wt=36 users=1              :: %v6871 = vunpack.c.0.s8 %v51985
+len=274 lr=[3724, 3998) wt=36 users=1              :: %v12478 = vunpack.c.2.s8 %v52470
+len=273 lr=[3753, 4026) wt=36 users=1              :: %v12642 = vunpack.c.2.s8 %v52484
+len=272 lr=[3839, 4111) wt=36 users=1              :: %v6770 = vunpack.c.2.s8 %v51963
+len=272 lr=[3847, 4119) wt=54 users=2              :: %v12638 = vpop.f32.mrf.mxu1
+                                        use: lr=[3858, 3858) %52493 = vst [vmem:[%s272 + $0x3910] sm:$0xff] /*vst_source=*/%v12638
+                                        use: lr=[4119, 4150) %v12649 = vsel /*vm=*/%vm12648, /*on_true_vy=*/%v12638, /*on_false_vx=*/-2.3819763e+38
+len=270 lr=[3819, 4089) wt=36 users=1              :: %v6690 = vunpack.c.0.s8 %v51965
+len=267 lr=[3824, 4091) wt=36 users=1              :: %v6712 = vunpack.c.1.s8 %v51963
+len=266 lr=[3742, 4008) wt=36 users=1              :: %v12593 = vunpack.c.1.s8 %v52484
+len=263 lr=[3810, 4073) wt=36 users=1              :: %v6632 = vunpack.c.3.s8 %v51943
+len=262 lr=[3812, 4074) wt=36 users=1              :: %v6669 = vunpack.c.0.s8 %v51963
+len=262 lr=[3968, 4230) wt=54 users=2              :: %v12797 = vpop.f32.mrf.mxu1
+                                        use: lr=[3974, 3974) %52507 = vst [vmem:[%s272 + $0x3a98] sm:$0xff] /*vst_source=*/%v12797
+                                        use: lr=[4230, 4251) %v12808 = vsel /*vm=*/%vm12807, /*on_true_vy=*/%v12797, /*on_false_vx=*/-2.3819763e+38
+len=259 lr=[3765, 4024) wt=54 users=2              :: %v6224 = vpop.f32.mrf.mxu0
+                                        use: lr=[3772, 3772) %51915 = vst [vmem:[%s272 + $0x3788] sm:$0xff] /*vst_source=*/%v6224
+                                        use: lr=[4024, 4050) %v6235 = vsel /*vm=*/%vm6234, /*on_true_vy=*/%v6224, /*on_false_vx=*/-2.3819763e+38
+len=258 lr=[3749, 4007) wt=54 users=2              :: %v6203 = vpop.f32.mrf.mxu0
+                                        use: lr=[3758, 3758) %51913 = vst [vmem:[%s272 + $0x3780] sm:$0xff] /*vst_source=*/%v6203
+                                        use: lr=[4007, 4033) %v6214 = vsel /*vm=*/%vm6213, /*on_true_vy=*/%v6203, /*on_false_vx=*/-2.3819763e+38
+len=258 lr=[3795, 4053) wt=36 users=1              :: %v6589 = vunpack.c.2.s8 %v51943
+len=255 lr=[3885, 4140) wt=54 users=2              :: %v12682 = vpop.f32.mrf.mxu1
+                                        use: lr=[3891, 3891) %52497 = vst [vmem:[%s272 + $0x3990] sm:$0xff] /*vst_source=*/%v12682
+                                        use: lr=[4140, 4167) %v12693 = vsel /*vm=*/%vm12692, /*on_true_vy=*/%v12682, /*on_false_vx=*/-2.3819763e+38
+len=250 lr=[3785, 4035) wt=36 users=1              :: %v6531 = vunpack.c.1.s8 %v51943
+len=249 lr=[3805, 4054) wt=36 users=1              :: %v6611 = vunpack.c.3.s8 %v51941
+len=245 lr=[3735, 3980) wt=36 users=1              :: %v12549 = vunpack.c.0.s8 %v52484
+len=245 lr=[3780, 4025) wt=54 users=2              :: %v6261 = vpop.f32.mrf.mxu0
+                                        use: lr=[3789, 3789) %51920 = vst [vmem:[%s272 + $0x3800] sm:$0xff] /*vst_source=*/%v6261
+                                        use: lr=[4025, 4051) %v6272 = vsel /*vm=*/%vm6271, /*on_true_vy=*/%v6261, /*on_false_vx=*/-2.3819763e+38
+len=243 lr=[3793, 4036) wt=36 users=1              :: %v6568 = vunpack.c.2.s8 %v51941
+len=242 lr=[3916, 4158) wt=54 users=2              :: %v12731 = vpop.f32.mrf.mxu1
+                                        use: lr=[3926, 3926) %52501 = vst [vmem:[%s272 + $0x3a10] sm:$0xff] /*vst_source=*/%v12731
+                                        use: lr=[4158, 4182) %v12742 = vsel /*vm=*/%vm12741, /*on_true_vy=*/%v12731, /*on_false_vx=*/-2.3819763e+38
+len=241 lr=[3774, 4015) wt=36 users=1              :: %v6488 = vunpack.c.0.s8 %v51943
+len=241 lr=[3802, 4043) wt=54 users=2              :: %v6282 = vpop.f32.mrf.mxu0
+                                        use: lr=[3808, 3808) %51922 = vst [vmem:[%s272 + $0x3808] sm:$0xff] /*vst_source=*/%v6282
+                                        use: lr=[4043, 4070) %v6293 = vsel /*vm=*/%vm6292, /*on_true_vy=*/%v6282, /*on_false_vx=*/-2.3819763e+38
+len=240 lr=[3776, 4016) wt=36 users=1              :: %v6510 = vunpack.c.1.s8 %v51941
+len=232 lr=[3767, 3999) wt=36 users=1              :: %v6430 = vunpack.c.3.s8 %v51921
+len=231 lr=[3769, 4000) wt=36 users=1              :: %v6467 = vunpack.c.0.s8 %v51941
+len=231 lr=[3830, 4061) wt=54 users=2              :: %v6325 = vpop.f32.mrf.mxu0
+                                        use: lr=[3837, 3837) %51926 = vst [vmem:[%s272 + $0x3888] sm:$0xff] /*vst_source=*/%v6325
+                                        use: lr=[4061, 4086) %v6336 = vsel /*vm=*/%vm6335, /*on_true_vy=*/%v6325, /*on_false_vx=*/-2.3819763e+38
+len=228 lr=[3816, 4044) wt=54 users=2              :: %v6304 = vpop.f32.mrf.mxu0
+                                        use: lr=[3822, 3822) %51924 = vst [vmem:[%s272 + $0x3880] sm:$0xff] /*vst_source=*/%v6304
+                                        use: lr=[4044, 4071) %v6315 = vsel /*vm=*/%vm6314, /*on_true_vy=*/%v6304, /*on_false_vx=*/-2.3819763e+38
+len=227 lr=[3754, 3981) wt=36 users=1              :: %v6387 = vunpack.c.2.s8 %v51921
+len=221 lr=[3761, 3982) wt=36 users=1              :: %v6409 = vunpack.c.3.s8 %v51919
+len=221 lr=[3953, 4174) wt=54 users=2              :: %v12775 = vpop.f32.mrf.mxu1
+                                        use: lr=[3960, 3960) %52505 = vst [vmem:[%s272 + $0x3a90] sm:$0xff] /*vst_source=*/%v12775
+                                        use: lr=[4174, 4200) %v12786 = vsel /*vm=*/%vm12785, /*on_true_vy=*/%v12775, /*on_false_vx=*/-2.3819763e+38
+len=216 lr=[3846, 4062) wt=54 users=2              :: %v6362 = vpop.f32.mrf.mxu0
+                                        use: lr=[3857, 3857) %51931 = vst [vmem:[%s272 + $0x3900] sm:$0xff] /*vst_source=*/%v6362
+                                        use: lr=[4062, 4087) %v6373 = vsel /*vm=*/%vm6372, /*on_true_vy=*/%v6362, /*on_false_vx=*/-2.3819763e+38
+len=210 lr=[3869, 4079) wt=54 users=2              :: %v6383 = vpop.f32.mrf.mxu0
+                                        use: lr=[3876, 3876) %51933 = vst [vmem:[%s272 + $0x3908] sm:$0xff] /*vst_source=*/%v6383
+                                        use: lr=[4079, 4105) %v6394 = vsel /*vm=*/%vm6393, /*on_true_vy=*/%v6383, /*on_false_vx=*/-2.3819763e+38
+len=198 lr=[3899, 4097) wt=54 users=2              :: %v6426 = vpop.f32.mrf.mxu0
+                                        use: lr=[3905, 3905) %51937 = vst [vmem:[%s272 + $0x3988] sm:$0xff] /*vst_source=*/%v6426
+                                        use: lr=[4097, 4120) %v6437 = vsel /*vm=*/%vm6436, /*on_true_vy=*/%v6426, /*on_false_vx=*/-2.3819763e+38
+len=196 lr=[3884, 4080) wt=54 users=2              :: %v6405 = vpop.f32.mrf.mxu0
+                                        use: lr=[3890, 3890) %51935 = vst [vmem:[%s272 + $0x3980] sm:$0xff] /*vst_source=*/%v6405
+                                        use: lr=[4080, 4106) %v6416 = vsel /*vm=*/%vm6415, /*on_true_vy=*/%v6405, /*on_false_vx=*/-2.3819763e+38
+len=183 lr=[3915, 4098) wt=54 users=2              :: %v6463 = vpop.f32.mrf.mxu0
+                                        use: lr=[3925, 3925) %51942 = vst [vmem:[%s272 + $0x3a00] sm:$0xff] /*vst_source=*/%v6463
+                                        use: lr=[4098, 4121) %v6474 = vsel /*vm=*/%vm6473, /*on_true_vy=*/%v6463, /*on_false_vx=*/-2.3819763e+38
+len=175 lr=[3937, 4112) wt=54 users=2              :: %v6484 = vpop.f32.mrf.mxu0
+                                        use: lr=[3943, 3943) %51944 = vst [vmem:[%s272 + $0x3a08] sm:$0xff] /*vst_source=*/%v6484
+                                        use: lr=[4112, 4141) %v6495 = vsel /*vm=*/%vm6494, /*on_true_vy=*/%v6484, /*on_false_vx=*/-2.3819763e+38
+len=165 lr=[3967, 4132) wt=54 users=2              :: %v6527 = vpop.f32.mrf.mxu0
+                                        use: lr=[3973, 3973) %51948 = vst [vmem:[%s272 + $0x3a88] sm:$0xff] /*vst_source=*/%v6527
+                                        use: lr=[4132, 4159) %v6538 = vsel /*vm=*/%vm6537, /*on_true_vy=*/%v6527, /*on_false_vx=*/-2.3819763e+38
+len=161 lr=[3952, 4113) wt=54 users=2              :: %v6506 = vpop.f32.mrf.mxu0
+                                        use: lr=[3959, 3959) %51946 = vst [vmem:[%s272 + $0x3a80] sm:$0xff] /*vst_source=*/%v6506
+                                        use: lr=[4113, 4142) %v6517 = vsel /*vm=*/%vm6516, /*on_true_vy=*/%v6506, /*on_false_vx=*/-2.3819763e+38
+len=108 lr=[3931, 4039) wt=90 users=4              :: %v53126 = vld [vmem:[%s240 + $0x38] sm:$0xff] /* [sublane mask fusion: 0x0f | 0x0f] :: [sublane mask fusion: 0x03 | 0x03] */
+                                        use: lr=[3954, 4288) %v19828 = vunpack.c.0.s8 %v53126
+                                        use: lr=[3970, 4295) %v19867 = vunpack.c.1.s8 %v53126
+                                        use: lr=[3995, 4332) %v19916 = vunpack.c.2.s8 %v53126
+                                        use: lr=[4039, 4365) %v19960 = vunpack.c.3.s8 %v53126
+len=107 lr=[3922, 4029) wt=90 users=4              :: %v52582 = vld [vmem:[%s240 + $0x28] sm:$0xff] /* [sublane mask fusion: 0x0f | 0x0f] :: [sublane mask fusion: 0x03 | 0x03] */
+                                        use: lr=[3946, 4303) %v13598 = vunpack.c.0.s8 %v52582
+                                        use: lr=[3969, 4294) %v13637 = vunpack.c.1.s8 %v52582
+                                        use: lr=[3987, 4331) %v13686 = vunpack.c.2.s8 %v52582
+                                        use: lr=[4029, 4364) %v13730 = vunpack.c.3.s8 %v52582
+len=102 lr=[3909, 4011) wt=90 users=4              :: %v52580 = vld [vmem:[%s240 + $0x20] sm:$0xff] /* [sublane mask fusion: 0x0f | 0x0f] :: [sublane mask fusion: 0x03 | 0x03] */
+                                        use: lr=[3940, 4287) %v13581 = vunpack.c.0.s8 %v52580
+                                        use: lr=[3955, 4279) %v13615 = vunpack.c.1.s8 %v52580
+                                        use: lr=[3975, 4311) %v13664 = vunpack.c.2.s8 %v52580
+                                        use: lr=[4011, 4350) %v13708 = vunpack.c.3.s8 %v52580
+len=98 lr=[3921, 4019) wt=90 users=4               :: %v53124 = vld [vmem:[%s240 + $0x30] sm:$0xff] /* [sublane mask fusion: 0x0f | 0x0f] :: [sublane mask fusion: 0x03 | 0x03] */
+                                        use: lr=[3945, 4268) %v19811 = vunpack.c.0.s8 %v53124
+                                        use: lr=[3961, 4280) %v19845 = vunpack.c.1.s8 %v53124
+                                        use: lr=[3976, 4312) %v19894 = vunpack.c.2.s8 %v53124
+                                        use: lr=[4019, 4351) %v19938 = vunpack.c.3.s8 %v53124
+len=25 lr=[3971, 3996) wt=36 users=1               :: %v6091 = vsel /*vm=*/%vm6090, /*on_true_vy=*/%v6080, /*on_false_vx=*/-2.3819763e+38
+len=25 lr=[3972, 3997) wt=36 users=1               :: %v6113 = vsel /*vm=*/%vm6112, /*on_true_vy=*/%v6102, /*on_false_vx=*/-2.3819763e+38
+len=21 lr=[3956, 3977) wt=36 users=1               :: %v12277 = vsel /*vm=*/%vm12276, /*on_true_vy=*/%v12266, /*on_false_vx=*/-2.3819763e+38
+len=21 lr=[3957, 3978) wt=36 users=1               :: %v6033 = vsel /*vm=*/%vm6032, /*on_true_vy=*/%v6022, /*on_false_vx=*/-2.3819763e+38
+len=21 lr=[3958, 3979) wt=36 users=1               :: %v6070 = vsel /*vm=*/%vm6069, /*on_true_vy=*/%v6059, /*on_false_vx=*/-2.3819763e+38
+len=16 lr=[3962, 3978) wt=36 users=1               :: %v5997 = vmax.f32 %v5939, %v5990
+len=16 lr=[3963, 3979) wt=36 users=1               :: %v6018 = vmax.f32 %v5975, %v6012
