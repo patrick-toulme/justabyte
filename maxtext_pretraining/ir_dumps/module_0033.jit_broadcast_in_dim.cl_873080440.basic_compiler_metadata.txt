@@ -1,0 +1,2 @@
+optimized_hlo_instruction_count: 9
+module_name: "jit_broadcast_in_dim"

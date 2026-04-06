@@ -1,0 +1,2 @@
+optimized_hlo_instruction_count: 3
+module_name: "jit_cos"

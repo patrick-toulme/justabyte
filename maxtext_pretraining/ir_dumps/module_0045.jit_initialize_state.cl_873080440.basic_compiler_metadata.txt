@@ -1,0 +1,2 @@
+optimized_hlo_instruction_count: 4448
+module_name: "jit_initialize_state"

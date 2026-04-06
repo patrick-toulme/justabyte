@@ -1,0 +1,2 @@
+optimized_hlo_instruction_count: 20
+module_name: "jit_raw_generate_synthetic_data"

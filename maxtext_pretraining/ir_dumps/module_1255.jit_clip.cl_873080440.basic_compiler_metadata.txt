@@ -1,0 +1,2 @@
+optimized_hlo_instruction_count: 8
+module_name: "jit_clip"

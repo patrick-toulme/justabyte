@@ -1,0 +1,29 @@
+num_replicas: 1
+device_assignment {
+  replica_count: 1
+  computation_count: 4
+  computation_devices {
+    replica_device_ids: 0
+  }
+  computation_devices {
+    replica_device_ids: 1
+  }
+  computation_devices {
+    replica_device_ids: 3
+  }
+  computation_devices {
+    replica_device_ids: 2
+  }
+}
+num_partitions: 4
+use_spmd_partitioning: true
+allow_spmd_sharding_propagation_to_output: false
+allow_spmd_sharding_propagation_to_output: false
+allow_spmd_sharding_propagation_to_output: false
+allow_spmd_sharding_propagation_to_output: false
+allow_spmd_sharding_propagation_to_output: false
+allow_spmd_sharding_propagation_to_output: false
+allow_spmd_sharding_propagation_to_parameters: true
+allow_spmd_sharding_propagation_to_parameters: true
+allow_spmd_sharding_propagation_to_parameters: true
+use_shardy_partitioner: true
